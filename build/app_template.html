@@ -163,6 +163,7 @@
 
 <script>
 const BOARD=__BOARD_JSON__;
+/*ENGINE-START*/
 const PLAYERS=BOARD.players, META=BOARD.meta;
 const TEAMS=META.teams, STARTERS=META.starters, FLEXPOS=META.flex_positions;
 const POSCOLOR={QB:'var(--qb)',RB:'var(--rb)',WR:'var(--wr)',TE:'var(--te)',K:'var(--k)',DST:'var(--dst)'};
@@ -337,6 +338,7 @@ function positionalLean(){
   Object.entries(agg).forEach(([pos,sc])=>{if(!best||sc.s>best.s)best={pos,...sc};});
   return {ctx,best};
 }
+/*ENGINE-END*/
 
 // ---------- render ----------
 function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}

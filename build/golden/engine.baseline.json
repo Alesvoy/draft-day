@@ -1,0 +1,7360 @@
+{
+ "seat1_adp": [
+  {
+   "overall": 1,
+   "round": 1,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Jahmyr Gibbs",
+     "s": 445.41354918325885,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "last of the RB tier 1 cliff",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9998159280950366
+    },
+    {
+     "name": "Bijan Robinson",
+     "s": 422.0665127463999,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "last of the RB tier 2 cliff",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.999798413606339
+    },
+    {
+     "name": "Christian McCaffrey",
+     "s": 346.12840115395716,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9996824461217824
+    },
+    {
+     "name": "Jonathan Taylor",
+     "s": 330.8274215947752,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "last of the RB tier 3 cliff",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9997100333246516
+    },
+    {
+     "name": "De'Von Achane",
+     "s": 297.42758266127936,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9992805930041996
+    },
+    {
+     "name": "Derrick Henry",
+     "s": 291.8300004808663,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9991372698094751
+    }
+   ]
+  },
+  {
+   "overall": 28,
+   "round": 2,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Breece Hall",
+     "s": 149.41667347695312,
+     "reasons": [
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Kyren Williams",
+     "s": 148.3526870124969,
+     "reasons": [
+      "fills a starting RB need",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.43223767646165645
+    },
+    {
+     "name": "Josh Jacobs",
+     "s": 141.20692072824247,
+     "reasons": [
+      "fills a starting RB need",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.25144712930466273
+    },
+    {
+     "name": "Josh Allen",
+     "s": 134.86580123909494,
+     "reasons": [
+      "fills a starting QB need",
+      "last of the QB tier 1 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.36691963074516754
+    },
+    {
+     "name": "Travis Etienne Jr.",
+     "s": 121.52791920827865,
+     "reasons": [
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.4772883667393608
+    },
+    {
+     "name": "Javonte Williams",
+     "s": 109.51455688252072,
+     "reasons": [
+      "fills a starting RB need"
+     ],
+     "riskLoss": 0.34606900629112314
+    }
+   ]
+  },
+  {
+   "overall": 29,
+   "round": 3,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Josh Allen",
+     "s": 200.73894137106208,
+     "reasons": [
+      "won't last to your pick 56",
+      "fills a starting QB need",
+      "last of the QB tier 1 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9996824461217824
+    },
+    {
+     "name": "Josh Jacobs",
+     "s": 155.78743418365,
+     "reasons": [
+      "won't last to your pick 56",
+      "flex value",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.9982985056728508
+    },
+    {
+     "name": "Chris Olave",
+     "s": 146.4990215973079,
+     "reasons": [
+      "won't last to your pick 56",
+      "fills a starting WR need",
+      "only 2 left in this WR tier"
+     ],
+     "riskLoss": 0.9994278028203972
+    },
+    {
+     "name": "Zay Flowers",
+     "s": 144.0342323574321,
+     "reasons": [
+      "won't last to your pick 56",
+      "fills a starting WR need",
+      "only 2 left in this WR tier"
+     ],
+     "riskLoss": 0.9993137872258717
+    },
+    {
+     "name": "Kyren Williams",
+     "s": 140.0753981764596,
+     "reasons": [
+      "won't last to your pick 56",
+      "flex value",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.9992485298163996
+    },
+    {
+     "name": "Javonte Williams",
+     "s": 126.55904307338353,
+     "reasons": [
+      "won't last to your pick 56",
+      "flex value",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.998919327952841
+    }
+   ]
+  },
+  {
+   "overall": 56,
+   "round": 4,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Rome Odunze",
+     "s": 82.98615361177737,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.43223767646165645
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "s": 65.33,
+     "reasons": [
+      "flex value",
+      "last of the RB tier 8 cliff",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "Alec Pierce",
+     "s": 53.178362191258636,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.11920292202211769
+    },
+    {
+     "name": "DJ Moore",
+     "s": 53.02531153769899,
+     "reasons": [
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Christian Watson",
+     "s": 49.48506981411377,
+     "reasons": [
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.4772883667393608
+    },
+    {
+     "name": "Marvin Harrison Jr.",
+     "s": 47.54437367608437,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.2689414213699951
+    }
+   ]
+  },
+  {
+   "overall": 57,
+   "round": 5,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Alec Pierce",
+     "s": 96.731271314938,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "last of the WR tier 9 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9773267752803146
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "s": 88.05236896134079,
+     "reasons": [
+      "won't last to your pick 84",
+      "flex value",
+      "last of the RB tier 8 cliff",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9968701528796831
+    },
+    {
+     "name": "DK Metcalf",
+     "s": 76.45541310995513,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9810246076914712
+    },
+    {
+     "name": "Marvin Harrison Jr.",
+     "s": 76.23332482043446,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9915377033351584
+    },
+    {
+     "name": "DJ Moore",
+     "s": 70.35947918419342,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9971413568546115
+    },
+    {
+     "name": "Christian Watson",
+     "s": 67.76345834643035,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9965733077767605
+    }
+   ]
+  },
+  {
+   "overall": 84,
+   "round": 6,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Rico Dowdle",
+     "s": 44.860879507289184,
+     "reasons": [
+      "flex value",
+      "only 2 left in this RB tier",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "J.K. Dobbins",
+     "s": 40.64840289246033,
+     "reasons": [
+      "safe to wait a round",
+      "flex value",
+      "only 2 left in this RB tier",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.21879074544665134
+    },
+    {
+     "name": "Jayden Reed",
+     "s": 18.283118884654208,
+     "reasons": [
+      "flex value",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Jakobi Meyers",
+     "s": 14.867729922422445,
+     "reasons": [
+      "safe to wait a round",
+      "flex value",
+      "only 2 left in this WR tier",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.1893030016858981
+    },
+    {
+     "name": "Skyler Bell",
+     "s": 8.145642570625064,
+     "reasons": [
+      "safe to wait a round",
+      "flex value",
+      "last of the WR tier 24 cliff",
+      "high-ceiling upside",
+      "strong passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 311 is well past pick 84"
+     ],
+     "riskLoss": 5.780318063086654e-7
+    },
+    {
+     "name": "Kaleb Johnson",
+     "s": 7.052500009936456,
+     "reasons": [
+      "safe to wait a round",
+      "flex value",
+      "only 2 left in this RB tier",
+      "high-ceiling upside",
+      "reach — ECR 260 is well past pick 84"
+     ],
+     "riskLoss": 1.3082892547089386e-9
+    }
+   ]
+  },
+  {
+   "overall": 85,
+   "round": 7,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "J.K. Dobbins",
+     "s": 23.8886706039931,
+     "reasons": [
+      "depth (RB set)",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.9557536484498604
+    },
+    {
+     "name": "Jaxson Dart",
+     "s": 10.158059937747353,
+     "reasons": [
+      "depth (QB set)",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.974328413650173
+    },
+    {
+     "name": "Jonathon Brooks",
+     "s": 9.111701092809524,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "reach — ECR 133 is well past pick 85"
+     ],
+     "riskLoss": 0.9320226032854537
+    },
+    {
+     "name": "Brock Purdy",
+     "s": 6.959111873887473,
+     "reasons": [
+      "depth (QB set)"
+     ],
+     "riskLoss": 0.980335712609028
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 6.847008244839003,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 134 is well past pick 85"
+     ],
+     "riskLoss": 0.48182619160616935
+    },
+    {
+     "name": "Trevor Lawrence",
+     "s": 5.084476639191905,
+     "reasons": [
+      "depth (QB set)",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9919833191780257
+    }
+   ]
+  },
+  {
+   "overall": 112,
+   "round": 8,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "KC Concepcion",
+     "s": 9.994640279428515,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 5.028122277234888,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 112"
+     ],
+     "riskLoss": 0.08598796739923154
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 4.9750486459353285,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside",
+      "reach — ECR 158 is well past pick 112"
+     ],
+     "riskLoss": 0.047425873177566635
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 4.648076522187329,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "reach — ECR 157 is well past pick 112"
+     ],
+     "riskLoss": 0.043483807471679126
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 4.547422000000001,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room",
+      "reach — ECR 170 is well past pick 112"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 4.5255095096579945,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 162 is well past pick 112"
+     ],
+     "riskLoss": 0.023493153408405743
+    }
+   ]
+  },
+  {
+   "overall": 113,
+   "round": 9,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Daniel Jones",
+     "s": 7.937929113434471,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside",
+      "reach — ECR 158 is well past pick 113"
+     ],
+     "riskLoss": 0.5986876601124522
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 7.339526807032114,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 113"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 6.212332354309626,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "reach — ECR 157 is well past pick 113"
+     ],
+     "riskLoss": 0.34606900629112314
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 5.846852400685154,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "reach — ECR 167 is well past pick 113"
+     ],
+     "riskLoss": 0.43223767646165645
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 5.5700592180019175,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 162 is well past pick 113"
+     ],
+     "riskLoss": 0.21879074544665134
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 4.664253,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room",
+      "reach — ECR 170 is well past pick 113"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 140,
+   "round": 10,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 11.485227457314906,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.5453297388885201
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 9.68172355859758,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 9.177258664198767,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.36691963074516754
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 8.829187779674466,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.23472543980283023
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 7.818690000000001,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Tre Tucker",
+     "s": 7.049523435086573,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.2689414213699951
+    }
+   ]
+  },
+  {
+   "overall": 141,
+   "round": 11,
+   "lean": "TE",
+   "recs": [
+    {
+     "name": "Hunter Henry",
+     "s": 69.70649313681768,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "last of the TE tier 4 cliff",
+      "late-round TE flier",
+      "strong passing offense",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.9353980323668785
+    },
+    {
+     "name": "Oronde Gadsden II",
+     "s": 51.50350387258411,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier"
+     ],
+     "riskLoss": 0.9580038048565609
+    },
+    {
+     "name": "Chig Okonkwo",
+     "s": 48.817085459280335,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.9541901412410158
+    },
+    {
+     "name": "Kenyon Sadiq",
+     "s": 39.91671305769505,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "weak passing offense",
+      "low WR competition — targets",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.8749501598417699
+    },
+    {
+     "name": "Brenton Strange",
+     "s": 36.30064020013873,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "late-round TE flier"
+     ],
+     "riskLoss": 0.9235020510274866
+    },
+    {
+     "name": "Juwan Johnson",
+     "s": 35.71310609053192,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "late-round TE flier"
+     ],
+     "riskLoss": 0.8935258209455061
+    }
+   ]
+  },
+  {
+   "overall": 168,
+   "round": 12,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Houston Texans",
+     "s": 33.15975,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Denver Broncos",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Seattle Seahawks",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Los Angeles Rams",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Philadelphia Eagles",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Pittsburgh Steelers",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 169,
+   "round": 13,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Brandon Aubrey",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Cameron Dicker",
+     "s": 31.505039999999997,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Ka'imi Fairbairn",
+     "s": 31.090079999999997,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Jason Myers",
+     "s": 30.260159999999996,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Cam Little",
+     "s": 29.43024,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Eddy Pineiro",
+     "s": 20.01048,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 196,
+   "round": 14,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Mike Washington Jr.",
+     "s": 13.275756936415025,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Ashton Jeanty — pays off if he's hurt",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Nicholas Singleton",
+     "s": 12.483942888385767,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.5453297388885201
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 11.912999999999998,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Kaytron Allen",
+     "s": 10.154072377493826,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "mobile QB caps his RB volume",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "Troy Franklin",
+     "s": 9.086142895645903,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.25144712930466273
+    },
+    {
+     "name": "Ted Hurst III",
+     "s": 8.719675453694402,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 240 is well past pick 196"
+     ],
+     "riskLoss": 0.5677623235383435
+    }
+   ]
+  },
+  {
+   "overall": 197,
+   "round": 15,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Nicholas Singleton",
+     "s": 15.76891203895916,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9331655299833717
+    },
+    {
+     "name": "Kaytron Allen",
+     "s": 13.661483322705568,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "mobile QB caps his RB volume",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9065929952831678
+    },
+    {
+     "name": "Troy Franklin",
+     "s": 13.281895512032913,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.7963500664977807
+    },
+    {
+     "name": "Jaylin Noel",
+     "s": 12.779151055451036,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.7310585786300049
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 11.912999999999998,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Ted Hurst III",
+     "s": 11.08637464128499,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 240 is well past pick 197"
+     ],
+     "riskLoss": 0.9386168925965078
+    }
+   ]
+  },
+  {
+   "overall": 224,
+   "round": 16,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Travis Hunter",
+     "s": 11.912999999999998,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Kimani Vidal",
+     "s": 11.132221876572602,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Omarion Hampton — pays off if he's hurt"
+     ],
+     "riskLoss": 0.41007959073744604
+    },
+    {
+     "name": "Justice Hill",
+     "s": 9.418140551966168,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Derrick Henry — pays off if he's hurt",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.4772883667393608
+    },
+    {
+     "name": "James Conner",
+     "s": 8.834688739939216,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.21879074544665134
+    },
+    {
+     "name": "Chris Bell",
+     "s": 8.368643816954952,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Demond Claiborne",
+     "s": 8.121036,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "mobile QB caps his RB volume",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 266 is well past pick 224"
+     ],
+     "riskLoss": 0.5
+    }
+   ]
+  },
+  {
+   "overall": 225,
+   "round": 17,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Kimani Vidal",
+     "s": 15.123376761049707,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Omarion Hampton — pays off if he's hurt"
+     ],
+     "riskLoss": 0.8900164455326727
+    },
+    {
+     "name": "James Conner",
+     "s": 13.042614113518207,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.7652745601971699
+    },
+    {
+     "name": "Justice Hill",
+     "s": 12.531087298809714,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Derrick Henry — pays off if he's hurt",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9140120326007684
+    },
+    {
+     "name": "Chris Bell",
+     "s": 10.889464078120964,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9272675528437321
+    },
+    {
+     "name": "Demond Claiborne",
+     "s": 10.70512415229568,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "mobile QB caps his RB volume",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 266 is well past pick 225"
+     ],
+     "riskLoss": 0.9208932163279933
+    },
+    {
+     "name": "Chimere Dike",
+     "s": 10.280889210018369,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.5227116332606392
+    }
+   ]
+  },
+  {
+   "overall": 252,
+   "round": 18,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Kendre Miller",
+     "s": 9.46,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Elic Ayomanor",
+     "s": 8.74676479832184,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.30614974566937303
+    },
+    {
+     "name": "Will Reichard",
+     "s": 8.230200000000002,
+     "reasons": [
+      "depth (K set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "San Francisco 49ers",
+     "s": 7.98424,
+     "reasons": [
+      "depth (DST set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Kyle Williams",
+     "s": 7.403375287289487,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.09340700471683216
+    },
+    {
+     "name": "Kaleb Johnson",
+     "s": 7.19301527838841,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.005586399790702634
+    }
+   ]
+  }
+ ],
+ "seat1_ecr": [
+  {
+   "overall": 1,
+   "round": 1,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Jahmyr Gibbs",
+     "s": 445.41354918325885,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "last of the RB tier 1 cliff",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9998159280950366
+    },
+    {
+     "name": "Bijan Robinson",
+     "s": 422.0665127463999,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "last of the RB tier 2 cliff",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.999798413606339
+    },
+    {
+     "name": "Christian McCaffrey",
+     "s": 346.12840115395716,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9996824461217824
+    },
+    {
+     "name": "Jonathan Taylor",
+     "s": 330.8274215947752,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "last of the RB tier 3 cliff",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9997100333246516
+    },
+    {
+     "name": "De'Von Achane",
+     "s": 297.42758266127936,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9992805930041996
+    },
+    {
+     "name": "Derrick Henry",
+     "s": 291.8300004808663,
+     "reasons": [
+      "won't last to your pick 28",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9991372698094751
+    }
+   ]
+  },
+  {
+   "overall": 28,
+   "round": 2,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Jeremiyah Love",
+     "s": 151.0451093593853,
+     "reasons": [
+      "won't last to your pick 29",
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.6117194114071614
+    },
+    {
+     "name": "Breece Hall",
+     "s": 149.41667347695312,
+     "reasons": [
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Kyren Williams",
+     "s": 148.3526870124969,
+     "reasons": [
+      "fills a starting RB need",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.43223767646165645
+    },
+    {
+     "name": "Josh Jacobs",
+     "s": 141.20692072824247,
+     "reasons": [
+      "fills a starting RB need",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.25144712930466273
+    },
+    {
+     "name": "Travis Etienne Jr.",
+     "s": 121.52791920827865,
+     "reasons": [
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.4772883667393608
+    },
+    {
+     "name": "Javonte Williams",
+     "s": 109.51455688252072,
+     "reasons": [
+      "fills a starting RB need"
+     ],
+     "riskLoss": 0.34606900629112314
+    }
+   ]
+  },
+  {
+   "overall": 29,
+   "round": 3,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Josh Jacobs",
+     "s": 155.84693306191414,
+     "reasons": [
+      "won't last to your pick 56",
+      "flex value",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.9990344225344975
+    },
+    {
+     "name": "Zay Flowers",
+     "s": 144.04688684886034,
+     "reasons": [
+      "won't last to your pick 56",
+      "fills a starting WR need",
+      "last of the WR tier 7 cliff"
+     ],
+     "riskLoss": 0.9994831664528695
+    },
+    {
+     "name": "Kyren Williams",
+     "s": 140.099026873541,
+     "reasons": [
+      "won't last to your pick 56",
+      "flex value",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.999573725207005
+    },
+    {
+     "name": "Breece Hall",
+     "s": 121.54611930891453,
+     "reasons": [
+      "won't last to your pick 56",
+      "flex value",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9997036391529993
+    },
+    {
+     "name": "Davante Adams",
+     "s": 107.87799731437327,
+     "reasons": [
+      "won't last to your pick 56",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.997580611608786
+    },
+    {
+     "name": "Jameson Williams",
+     "s": 106.39296067956941,
+     "reasons": [
+      "won't last to your pick 56",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9973509697148469
+    }
+   ]
+  },
+  {
+   "overall": 56,
+   "round": 4,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Rome Odunze",
+     "s": 82.98615361177737,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.43223767646165645
+    },
+    {
+     "name": "DJ Moore",
+     "s": 74.35917254663039,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Jalen Hurts",
+     "s": 64.34062863241186,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting QB need",
+      "only 2 left in this QB tier",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.21879074544665134
+    },
+    {
+     "name": "Cam Skattebo",
+     "s": 60.30047291130859,
+     "reasons": [
+      "depth (RB set)",
+      "available 13 past his ADP",
+      "pass-catching back",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.7812092545533487
+    },
+    {
+     "name": "Alec Pierce",
+     "s": 53.178362191258636,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.11920292202211769
+    },
+    {
+     "name": "Courtland Sutton",
+     "s": 48.40329769575588,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting WR need",
+      "only 2 left in this WR tier"
+     ],
+     "riskLoss": 0.10139514566748076
+    }
+   ]
+  },
+  {
+   "overall": 57,
+   "round": 5,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Jalen Hurts",
+     "s": 107.75938244795874,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting QB need",
+      "only 2 left in this QB tier",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9930610133915642
+    },
+    {
+     "name": "DJ Moore",
+     "s": 98.53078384418919,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9944738765983695
+    },
+    {
+     "name": "Alec Pierce",
+     "s": 95.69797317337378,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "last of the WR tier 9 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.95696768100522
+    },
+    {
+     "name": "Courtland Sutton",
+     "s": 89.3904154045336,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "only 2 left in this WR tier"
+     ],
+     "riskLoss": 0.9488262990829084
+    },
+    {
+     "name": "Marvin Harrison Jr.",
+     "s": 75.92320500693515,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9837266326874095
+    },
+    {
+     "name": "DK Metcalf",
+     "s": 75.7683118140017,
+     "reasons": [
+      "won't last to your pick 84",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9638631555732705
+    }
+   ]
+  },
+  {
+   "overall": 84,
+   "round": 6,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Jordyn Tyson",
+     "s": 50.71298050156409,
+     "reasons": [
+      "won't last to your pick 85",
+      "fills a starting WR need",
+      "available 21 past his ADP",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.8807970779778824
+    },
+    {
+     "name": "Makai Lemon",
+     "s": 42.77977429233972,
+     "reasons": [
+      "won't last to your pick 85",
+      "fills a starting WR need",
+      "available 12 past his ADP",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.7652745601971699
+    },
+    {
+     "name": "Parker Washington",
+     "s": 39.32485913188184,
+     "reasons": [
+      "won't last to your pick 85",
+      "fills a starting WR need",
+      "available 15 past his ADP",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.8106969983141019
+    },
+    {
+     "name": "Quentin Johnston",
+     "s": 31.01704747669399,
+     "reasons": [
+      "won't last to your pick 85",
+      "fills a starting WR need"
+     ],
+     "riskLoss": 0.6539309937088769
+    },
+    {
+     "name": "Chris Godwin Jr.",
+     "s": 26.237559978453945,
+     "reasons": [
+      "fills a starting WR need"
+     ],
+     "riskLoss": 0.41007959073744604
+    },
+    {
+     "name": "Jayden Reed",
+     "s": 25.59636643851589,
+     "reasons": [
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.5227116332606392
+    }
+   ]
+  },
+  {
+   "overall": 85,
+   "round": 7,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "J.K. Dobbins",
+     "s": 24.153878688321836,
+     "reasons": [
+      "depth (RB set)",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.9766731149289153
+    },
+    {
+     "name": "Jaxson Dart",
+     "s": 10.158059937747353,
+     "reasons": [
+      "depth (QB set)",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.974328413650173
+    },
+    {
+     "name": "Jonathon Brooks",
+     "s": 9.267009328170072,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "reach — ECR 133 is well past pick 85"
+     ],
+     "riskLoss": 0.9637362836253517
+    },
+    {
+     "name": "Parker Washington",
+     "s": 8.180723674420811,
+     "reasons": [
+      "depth (WR set)",
+      "available 16 past his ADP",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.9935910889146645
+    },
+    {
+     "name": "Makai Lemon",
+     "s": 7.688360429518224,
+     "reasons": [
+      "depth (WR set)",
+      "available 13 past his ADP",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9915985088706851
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 7.6302130284770575,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 134 is well past pick 85"
+     ],
+     "riskLoss": 0.643156530851408
+    }
+   ]
+  },
+  {
+   "overall": 112,
+   "round": 8,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Jonathon Brooks",
+     "s": 15.917222198181827,
+     "reasons": [
+      "depth (RB set)",
+      "available 8 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.693850254330627
+    },
+    {
+     "name": "Jayden Reed",
+     "s": 15.325818642823117,
+     "reasons": [
+      "depth (WR set)",
+      "available 28 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9331655299833717
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 9.994640279428515,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Josh Downs",
+     "s": 9.787959873029154,
+     "reasons": [
+      "depth (WR set)",
+      "available 21 past his ADP",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.8807970779778824
+    },
+    {
+     "name": "Xavier Worthy",
+     "s": 9.407242664212454,
+     "reasons": [
+      "depth (WR set)",
+      "available 18 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.8490632396470998
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 5.028122277234888,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 112"
+     ],
+     "riskLoss": 0.08598796739923154
+    }
+   ]
+  },
+  {
+   "overall": 113,
+   "round": 9,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Jayden Reed",
+     "s": 16.422669452089032,
+     "reasons": [
+      "depth (WR set)",
+      "available 29 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9976154647066657
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 14.448649304471752,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9500482173589749
+    },
+    {
+     "name": "Josh Downs",
+     "s": 10.904118720742316,
+     "reasons": [
+      "depth (WR set)",
+      "available 22 past his ADP",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9955037268390589
+    },
+    {
+     "name": "Xavier Worthy",
+     "s": 10.74005528577775,
+     "reasons": [
+      "depth (WR set)",
+      "available 19 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9941022709949424
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 8.429044941087513,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 113"
+     ],
+     "riskLoss": 0.7381477581070679
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 7.33620120660844,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "reach — ECR 157 is well past pick 113"
+     ],
+     "riskLoss": 0.576663346857732
+    }
+   ]
+  },
+  {
+   "overall": 140,
+   "round": 10,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 11.485227457314906,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.5453297388885201
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 10.139760532164857,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 9.68172355859758,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 9.177258664198767,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.36691963074516754
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 8.829187779674466,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.23472543980283023
+    },
+    {
+     "name": "Stefon Diggs",
+     "s": 8.225056339801888,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "reach — ECR 185 is well past pick 140"
+     ],
+     "riskLoss": 0.6539309937088769
+    }
+   ]
+  },
+  {
+   "overall": 141,
+   "round": 11,
+   "lean": "TE",
+   "recs": [
+    {
+     "name": "Hunter Henry",
+     "s": 69.70649313681768,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "last of the TE tier 4 cliff",
+      "late-round TE flier",
+      "strong passing offense",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.9353980323668785
+    },
+    {
+     "name": "Oronde Gadsden II",
+     "s": 51.50350387258411,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier"
+     ],
+     "riskLoss": 0.9580038048565609
+    },
+    {
+     "name": "Chig Okonkwo",
+     "s": 48.817085459280335,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.9541901412410158
+    },
+    {
+     "name": "Kenyon Sadiq",
+     "s": 39.91671305769505,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "weak passing offense",
+      "low WR competition — targets",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.8749501598417699
+    },
+    {
+     "name": "Brenton Strange",
+     "s": 36.30064020013873,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "late-round TE flier"
+     ],
+     "riskLoss": 0.9235020510274866
+    },
+    {
+     "name": "Juwan Johnson",
+     "s": 35.71310609053192,
+     "reasons": [
+      "won't last to your pick 168",
+      "fills a starting TE need",
+      "late-round TE flier"
+     ],
+     "riskLoss": 0.8935258209455061
+    }
+   ]
+  },
+  {
+   "overall": 168,
+   "round": 12,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Stefon Diggs",
+     "s": 32.52368486415178,
+     "reasons": [
+      "depth (WR set)",
+      "available 34 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9601443010541103
+    },
+    {
+     "name": "Los Angeles Rams",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Chig Okonkwo",
+     "s": 27.386448998677533,
+     "reasons": [
+      "depth (TE set)",
+      "available 23 past his ADP",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.8986048543325192
+    },
+    {
+     "name": "Philadelphia Eagles",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Pittsburgh Steelers",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Jacksonville Jaguars",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 169,
+   "round": 13,
+   "lean": "TE",
+   "recs": [
+    {
+     "name": "Los Angeles Rams",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Philadelphia Eagles",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Pittsburgh Steelers",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Jacksonville Jaguars",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Brandon Aubrey",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Minnesota Vikings",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 196",
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    }
+   ]
+  },
+  {
+   "overall": 196,
+   "round": 14,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Jalen Nailor",
+     "s": 35.76116858433163,
+     "reasons": [
+      "depth (WR set)",
+      "available 46 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9862480501355552
+    },
+    {
+     "name": "Deebo Samuel Sr.",
+     "s": 32.52368486415178,
+     "reasons": [
+      "depth (WR set)",
+      "available 34 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9601443010541103
+    },
+    {
+     "name": "Antonio Williams",
+     "s": 30.169655927919898,
+     "reasons": [
+      "depth (WR set)",
+      "available 28 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9331655299833717
+    },
+    {
+     "name": "De'Zhaun Stribling",
+     "s": 29.087320376683046,
+     "reasons": [
+      "depth (WR set)",
+      "available 26 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9208932163279933
+    },
+    {
+     "name": "Eddy Pineiro",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Tyler Loop",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 197,
+   "round": 15,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Deebo Samuel Sr.",
+     "s": 33.711191272897345,
+     "reasons": [
+      "depth (WR set)",
+      "available 35 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9977823584512768
+    },
+    {
+     "name": "Antonio Williams",
+     "s": 32.1882352893842,
+     "reasons": [
+      "depth (WR set)",
+      "available 29 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9961798432981317
+    },
+    {
+     "name": "Eddy Pineiro",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 224",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Tyler Loop",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 224",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Evan McPherson",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 224",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Andy Borregales",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 224",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    }
+   ]
+  },
+  {
+   "overall": 224,
+   "round": 16,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Germie Bernard",
+     "s": 38.825900732008854,
+     "reasons": [
+      "depth (WR set)",
+      "available 46 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9862480501355552
+    },
+    {
+     "name": "Fernando Mendoza",
+     "s": 37.88196235753381,
+     "reasons": [
+      "depth (QB set)",
+      "available 53 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9926748599857185
+    },
+    {
+     "name": "Ted Hurst III",
+     "s": 33.15704971554877,
+     "reasons": [
+      "depth (WR set)",
+      "available 30 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9436504638932113
+    },
+    {
+     "name": "Jake Bates",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 225",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Malik Washington",
+     "s": 31.53461672676614,
+     "reasons": [
+      "depth (WR set)",
+      "available 37 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9693664070710036
+    },
+    {
+     "name": "Cooper Kupp",
+     "s": 29.090229399623006,
+     "reasons": [
+      "depth (WR set)",
+      "available 26 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9208932163279933
+    }
+   ]
+  },
+  {
+   "overall": 225,
+   "round": 17,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Fernando Mendoza",
+     "s": 38.57356538179916,
+     "reasons": [
+      "depth (QB set)",
+      "available 54 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9993665123492159
+    },
+    {
+     "name": "Ted Hurst III",
+     "s": 34.69157499639924,
+     "reasons": [
+      "depth (WR set)",
+      "available 31 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9968129091130669
+    },
+    {
+     "name": "Malik Washington",
+     "s": 32.51189871023305,
+     "reasons": [
+      "depth (WR set)",
+      "available 38 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9983108144607326
+    },
+    {
+     "name": "Jake Bates",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 252",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Chase McLaughlin",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 252",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Harrison Mevis",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 252",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    }
+   ]
+  },
+  {
+   "overall": 252,
+   "round": 18,
+   "lean": "TE",
+   "recs": [
+    {
+     "name": "Eli Stowers",
+     "s": 42.88598751724532,
+     "reasons": [
+      "depth (TE set)",
+      "available 52 past his ADP",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9919833191780257
+    },
+    {
+     "name": "Elijah Sarratt",
+     "s": 42.83044915201833,
+     "reasons": [
+      "depth (WR set)",
+      "available 49 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9894961554867145
+    },
+    {
+     "name": "Jordan James",
+     "s": 37.64408299603718,
+     "reasons": [
+      "depth (RB set)",
+      "available 38 past his ADP",
+      "high-ceiling upside",
+      "handcuff to Christian McCaffrey — pays off if he's hurt"
+     ],
+     "riskLoss": 0.9719537842823402
+    },
+    {
+     "name": "Samaje Perine",
+     "s": 37.018897896638514,
+     "reasons": [
+      "depth (RB set)",
+      "available 37 past his ADP",
+      "high-ceiling upside",
+      "handcuff to Chase Brown — pays off if he's hurt"
+     ],
+     "riskLoss": 0.9693664070710036
+    },
+    {
+     "name": "Tory Horton",
+     "s": 32.906879200504825,
+     "reasons": [
+      "depth (WR set)",
+      "available 32 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9525741268224333
+    },
+    {
+     "name": "George Holani",
+     "s": 32.29812351718347,
+     "reasons": [
+      "depth (RB set)",
+      "available 41 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9785045009124661
+    }
+   ]
+  }
+ ],
+ "seat7_adp": [
+  {
+   "overall": 7,
+   "round": 1,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Christian McCaffrey",
+     "s": 344.52316611491966,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9907398090151539
+    },
+    {
+     "name": "De'Von Achane",
+     "s": 294.3382327462492,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9792561910111002
+    },
+    {
+     "name": "Derrick Henry",
+     "s": 288.2096069156949,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9752224421507584
+    },
+    {
+     "name": "James Cook III",
+     "s": 257.70401301729675,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.985488296916936
+    },
+    {
+     "name": "Ashton Jeanty",
+     "s": 232.5070420794501,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9867326226065063
+    },
+    {
+     "name": "Amon-Ra St. Brown",
+     "s": 225.2841002050357,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting WR need",
+      "last of the WR tier 4 cliff",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9898674515111704
+    }
+   ]
+  },
+  {
+   "overall": 22,
+   "round": 2,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Josh Jacobs",
+     "s": 219.787838956447,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.9081213300166885
+    },
+    {
+     "name": "Kyren Williams",
+     "s": 205.59024468104985,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.957266182474911
+    },
+    {
+     "name": "Breece Hall",
+     "s": 195.45707685708126,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9699017361496729
+    },
+    {
+     "name": "Josh Allen",
+     "s": 195.00562804539248,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting QB need",
+      "last of the QB tier 1 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9446095063147667
+    },
+    {
+     "name": "Jeremiyah Love",
+     "s": 187.05023017835637,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9788836183450381
+    },
+    {
+     "name": "Javonte Williams",
+     "s": 160.51437500952824,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need"
+     ],
+     "riskLoss": 0.9396561257190374
+    }
+   ]
+  },
+  {
+   "overall": 35,
+   "round": 3,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Josh Allen",
+     "s": 199.80797707771362,
+     "reasons": [
+      "won't last to your pick 50",
+      "fills a starting QB need",
+      "last of the QB tier 1 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9907398090151539
+    },
+    {
+     "name": "Cam Skattebo",
+     "s": 124.68613485633351,
+     "reasons": [
+      "won't last to your pick 50",
+      "flex value",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9432624918588404
+    },
+    {
+     "name": "Javonte Williams",
+     "s": 124.60436952369234,
+     "reasons": [
+      "won't last to your pick 50",
+      "flex value",
+      "only 2 left in this RB tier"
+     ],
+     "riskLoss": 0.9691497033763684
+    },
+    {
+     "name": "Davante Adams",
+     "s": 105.15728719878328,
+     "reasons": [
+      "won't last to your pick 50",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9490025746564408
+    },
+    {
+     "name": "Jameson Williams",
+     "s": 103.46885746921392,
+     "reasons": [
+      "won't last to your pick 50",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9444189351915714
+    },
+    {
+     "name": "Malik Nabers",
+     "s": 88.36140520601967,
+     "reasons": [
+      "won't last to your pick 50",
+      "fills a starting WR need"
+     ],
+     "riskLoss": 0.9851729447721489
+    }
+   ]
+  },
+  {
+   "overall": 50,
+   "round": 4,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Rome Odunze",
+     "s": 108.11759322300279,
+     "reasons": [
+      "won't last to your pick 63",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.8443436767654366
+    },
+    {
+     "name": "D'Andre Swift",
+     "s": 82.95873180895497,
+     "reasons": [
+      "won't last to your pick 63",
+      "flex value",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.9745096969832618
+    },
+    {
+     "name": "Bucky Irving",
+     "s": 77.46362657891581,
+     "reasons": [
+      "won't last to your pick 63",
+      "flex value"
+     ],
+     "riskLoss": 0.9695816363370697
+    },
+    {
+     "name": "Alec Pierce",
+     "s": 72.04385410861977,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.4909100925297134
+    },
+    {
+     "name": "Quinshon Judkins",
+     "s": 69.91962110164707,
+     "reasons": [
+      "won't last to your pick 63",
+      "flex value"
+     ],
+     "riskLoss": 0.9667828978489311
+    },
+    {
+     "name": "DJ Moore",
+     "s": 66.31356195196183,
+     "reasons": [
+      "won't last to your pick 63",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.8864061064914416
+    }
+   ]
+  },
+  {
+   "overall": 63,
+   "round": 5,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Alec Pierce",
+     "s": 86.42669781600621,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting WR need",
+      "last of the WR tier 9 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.7742955542894305
+    },
+    {
+     "name": "Courtland Sutton",
+     "s": 79.49256622547193,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting WR need",
+      "last of the WR tier 10 cliff"
+     ],
+     "riskLoss": 0.7409494313746364
+    },
+    {
+     "name": "Marvin Harrison Jr.",
+     "s": 72.72411017030718,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.903150175814863
+    },
+    {
+     "name": "DK Metcalf",
+     "s": 69.38708763570415,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.8044818913603988
+    },
+    {
+     "name": "Tony Pollard",
+     "s": 37.89669874667601,
+     "reasons": [
+      "won't last to your pick 78",
+      "flex value"
+     ],
+     "riskLoss": 0.9128619410435378
+    },
+    {
+     "name": "Jordyn Tyson",
+     "s": 37.592621578583966,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting WR need",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9362714463595664
+    }
+   ]
+  },
+  {
+   "overall": 78,
+   "round": 6,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Rico Dowdle",
+     "s": 50.70175882703787,
+     "reasons": [
+      "won't last to your pick 91",
+      "flex value",
+      "only 2 left in this RB tier",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.6347681073467586
+    },
+    {
+     "name": "J.K. Dobbins",
+     "s": 45.956177134121646,
+     "reasons": [
+      "flex value",
+      "only 2 left in this RB tier",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.36861063896673085
+    },
+    {
+     "name": "Courtland Sutton",
+     "s": 42.81622901013537,
+     "reasons": [
+      "won't last to your pick 91",
+      "flex value",
+      "last of the WR tier 10 cliff"
+     ],
+     "riskLoss": 0.7992828494808464
+    },
+    {
+     "name": "DK Metcalf",
+     "s": 35.42029298457819,
+     "reasons": [
+      "won't last to your pick 91",
+      "flex value",
+      "last of the WR tier 11 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.8513785696485451
+    },
+    {
+     "name": "Jaxson Dart",
+     "s": 9.48936938588415,
+     "reasons": [
+      "depth (QB set)",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.8490632396470998
+    },
+    {
+     "name": "Skyler Bell",
+     "s": 8.14565153627279,
+     "reasons": [
+      "safe to wait a round",
+      "flex value",
+      "last of the WR tier 24 cliff",
+      "high-ceiling upside",
+      "strong passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 311 is well past pick 78"
+     ],
+     "riskLoss": 0.0000016000812551597576
+    }
+   ]
+  },
+  {
+   "overall": 91,
+   "round": 7,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "J.K. Dobbins",
+     "s": 22.287597145248192,
+     "reasons": [
+      "depth (RB set)",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.8294618627545134
+    },
+    {
+     "name": "Jaxson Dart",
+     "s": 9.451339297008039,
+     "reasons": [
+      "depth (QB set)",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.8419390987613874
+    },
+    {
+     "name": "Jonathon Brooks",
+     "s": 9.257782079510047,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "reach — ECR 133 is well past pick 91"
+     ],
+     "riskLoss": 0.7553352394612479
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 6.9852267665077665,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 134 is well past pick 91"
+     ],
+     "riskLoss": 0.3501950813532284
+    },
+    {
+     "name": "Brock Purdy",
+     "s": 6.574918302719157,
+     "reasons": [
+      "depth (QB set)"
+     ],
+     "riskLoss": 0.8749501598417699
+    },
+    {
+     "name": "Kendre Miller",
+     "s": 3.311,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "reach — ECR 259 is well past pick 91"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 106,
+   "round": 8,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "KC Concepcion",
+     "s": 10.132844405394104,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 4.989851582163913,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside",
+      "reach — ECR 158 is well past pick 106"
+     ],
+     "riskLoss": 0.18107355945648296
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 4.644806326123675,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 106"
+     ],
+     "riskLoss": 0.13965218341676022
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 4.234662283426036,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "reach — ECR 157 is well past pick 106"
+     ],
+     "riskLoss": 0.07273244715626792
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 4.014669663783887,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 162 is well past pick 106"
+     ],
+     "riskLoss": 0.039855698945889806
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 3.846436,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room",
+      "reach — ECR 170 is well past pick 106"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 119,
+   "round": 9,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 7.460065177766459,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 119"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 7.414416101194152,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.3501950813532281
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 6.31244898192145,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.23472543980283023
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 6.046676534492055,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "reach — ECR 167 is well past pick 119"
+     ],
+     "riskLoss": 0.30614974566937303
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 5.835141997513792,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 162 is well past pick 119"
+     ],
+     "riskLoss": 0.13965218341676022
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 5.365239,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room",
+      "reach — ECR 170 is well past pick 119"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 134,
+   "round": 10,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Daniel Jones",
+     "s": 11.430187679712219,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.6372935064540824
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 9.72532,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 9.716373722748303,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.5899204092625538
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 8.899527279662163,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.34606900629112314
+    },
+    {
+     "name": "Stefon Diggs",
+     "s": 7.7864406257703696,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "reach — ECR 185 is well past pick 134"
+     ],
+     "riskLoss": 0.7652745601971699
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 7.117704000000002,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 147,
+   "round": 11,
+   "lean": "TE",
+   "recs": [
+    {
+     "name": "Hunter Henry",
+     "s": 63.34441967278153,
+     "reasons": [
+      "won't last to your pick 162",
+      "fills a starting TE need",
+      "last of the TE tier 4 cliff",
+      "late-round TE flier",
+      "strong passing offense",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.7652745601971699
+    },
+    {
+     "name": "Kenyon Sadiq",
+     "s": 37.341423137559225,
+     "reasons": [
+      "won't last to your pick 162",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "weak passing offense",
+      "low WR competition — targets",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.6117194114071614
+    },
+    {
+     "name": "Brenton Strange",
+     "s": 32.52874814114809,
+     "reasons": [
+      "won't last to your pick 162",
+      "fills a starting TE need",
+      "late-round TE flier"
+     ],
+     "riskLoss": 0.7310585786300049
+    },
+    {
+     "name": "Juwan Johnson",
+     "s": 31.01704747669399,
+     "reasons": [
+      "won't last to your pick 162",
+      "fills a starting TE need",
+      "late-round TE flier"
+     ],
+     "riskLoss": 0.6539309937088769
+    },
+    {
+     "name": "AJ Barner",
+     "s": 22.048236801153436,
+     "reasons": [
+      "fills a starting TE need",
+      "late-round TE flier",
+      "strong passing offense",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.2689414213699951
+    },
+    {
+     "name": "Dalton Schultz",
+     "s": 20.60126488397942,
+     "reasons": [
+      "fills a starting TE need",
+      "late-round TE flier",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.38828058859283854
+    }
+   ]
+  },
+  {
+   "overall": 162,
+   "round": 12,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Houston Texans",
+     "s": 33.15975,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Denver Broncos",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Seattle Seahawks",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Los Angeles Rams",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Philadelphia Eagles",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Pittsburgh Steelers",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 175,
+   "round": 13,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Brandon Aubrey",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 190",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Cameron Dicker",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 190",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Ka'imi Fairbairn",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Jason Myers",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Cam Little",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Eddy Pineiro",
+     "s": 21.888720000000003,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 190,
+   "round": 14,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Emmett Johnson",
+     "s": 15.778891868295101,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Kenneth Walker III — pays off if he's hurt",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.7963500664977807
+    },
+    {
+     "name": "Mike Washington Jr.",
+     "s": 14.476099158051325,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Ashton Jeanty — pays off if he's hurt",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.6539309937088769
+    },
+    {
+     "name": "Terrance Ferguson",
+     "s": 13.969701838052641,
+     "reasons": [
+      "depth (TE set)",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.7992828494808462
+    },
+    {
+     "name": "Nicholas Singleton",
+     "s": 13.575529108101025,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.6742065062693061
+    },
+    {
+     "name": "Ray Davis",
+     "s": 12.973394151493892,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to James Cook III — pays off if he's hurt",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.7310585786300049
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 11.912999999999998,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.7
+    }
+   ]
+  },
+  {
+   "overall": 203,
+   "round": 15,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Troy Franklin",
+     "s": 12.492646958345826,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.693850254330627
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 11.912999999999998,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Jaylin Noel",
+     "s": 11.860239467835143,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.6117194114071614
+    },
+    {
+     "name": "MarShawn Lloyd",
+     "s": 11.361006940160152,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Josh Jacobs — pays off if he's hurt"
+     ],
+     "riskLoss": 0.7685247834990174
+    },
+    {
+     "name": "Kimani Vidal",
+     "s": 10.80851005618367,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Omarion Hampton — pays off if he's hurt"
+     ],
+     "riskLoss": 0.37115320540929164
+    },
+    {
+     "name": "Jaydon Blue",
+     "s": 10.307223349039354,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Javonte Williams — pays off if he's hurt",
+      "reach — ECR 247 is well past pick 203"
+     ],
+     "riskLoss": 0.8729472446361728
+    }
+   ]
+  },
+  {
+   "overall": 218,
+   "round": 16,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Tyreek Hill",
+     "s": 13.281895512032913,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.7963500664977807
+    },
+    {
+     "name": "Kimani Vidal",
+     "s": 12.256962108596936,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Omarion Hampton — pays off if he's hurt"
+     ],
+     "riskLoss": 0.5453297388885201
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 11.912999999999998,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Tory Horton",
+     "s": 10.627142017713082,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.7310585786300049
+    },
+    {
+     "name": "James Conner",
+     "s": 9.658609901726344,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.325793493730694
+    },
+    {
+     "name": "Justice Hill",
+     "s": 9.379561268934317,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Derrick Henry — pays off if he's hurt",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.6117194114071614
+    }
+   ]
+  },
+  {
+   "overall": 231,
+   "round": 17,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Kimani Vidal",
+     "s": 14.576515034101146,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Omarion Hampton — pays off if he's hurt"
+     ],
+     "riskLoss": 0.8242562571069199
+    },
+    {
+     "name": "James Conner",
+     "s": 12.185268651558353,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.6539309937088769
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 11.912999999999998,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Malachi Fields",
+     "s": 9.369299874158202,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 279 is well past pick 231"
+     ],
+     "riskLoss": 0.8106969983141019
+    },
+    {
+     "name": "Chimere Dike",
+     "s": 9.328579689591669,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Kendre Miller",
+     "s": 8.47616,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 246,
+   "round": 18,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Travis Hunter",
+     "s": 11.912999999999998,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Ty Johnson",
+     "s": 10.637499206407826,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to James Cook III — pays off if he's hurt",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.43223767646165645
+    },
+    {
+     "name": "Chimere Dike",
+     "s": 10.441115870286279,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.5453297388885201
+    },
+    {
+     "name": "Kendre Miller",
+     "s": 9.46,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Elic Ayomanor",
+     "s": 8.74676479832184,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.30614974566937303
+    },
+    {
+     "name": "Darius Slayton",
+     "s": 8.67589272810767,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.5677623235383435
+    }
+   ]
+  }
+ ],
+ "seat7_ecr": [
+  {
+   "overall": 7,
+   "round": 1,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Christian McCaffrey",
+     "s": 344.52316611491966,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9907398090151539
+    },
+    {
+     "name": "De'Von Achane",
+     "s": 294.3382327462492,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9792561910111002
+    },
+    {
+     "name": "Derrick Henry",
+     "s": 288.2096069156949,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9752224421507584
+    },
+    {
+     "name": "James Cook III",
+     "s": 257.70401301729675,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "only 2 left in this RB tier",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.985488296916936
+    },
+    {
+     "name": "Ashton Jeanty",
+     "s": 232.5070420794501,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting RB need",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.9867326226065063
+    },
+    {
+     "name": "Amon-Ra St. Brown",
+     "s": 225.2841002050357,
+     "reasons": [
+      "won't last to your pick 22",
+      "fills a starting WR need",
+      "last of the WR tier 4 cliff",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9898674515111704
+    }
+   ]
+  },
+  {
+   "overall": 22,
+   "round": 2,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Chase Brown",
+     "s": 211.26784093248386,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9887127187332913
+    },
+    {
+     "name": "Breece Hall",
+     "s": 195.45707685708126,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9699017361496729
+    },
+    {
+     "name": "Josh Allen",
+     "s": 195.00562804539248,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting QB need",
+      "last of the QB tier 1 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9446095063147667
+    },
+    {
+     "name": "Josh Jacobs",
+     "s": 194.07414033621336,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need"
+     ],
+     "riskLoss": 0.9081213300166885
+    },
+    {
+     "name": "Omarion Hampton",
+     "s": 191.6230489448903,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need",
+      "available 8 past his ADP"
+     ],
+     "riskLoss": 0.9913837739704058
+    },
+    {
+     "name": "Jeremiyah Love",
+     "s": 187.05023017835637,
+     "reasons": [
+      "won't last to your pick 35",
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9788836183450381
+    }
+   ]
+  },
+  {
+   "overall": 35,
+   "round": 3,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Zay Flowers",
+     "s": 143.23917865976262,
+     "reasons": [
+      "won't last to your pick 50",
+      "fills a starting WR need",
+      "last of the WR tier 7 cliff"
+     ],
+     "riskLoss": 0.9886720651545639
+    },
+    {
+     "name": "Breece Hall",
+     "s": 121.15345942119637,
+     "reasons": [
+      "won't last to your pick 50",
+      "flex value",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9934742648555113
+    },
+    {
+     "name": "Jeremiyah Love",
+     "s": 120.67491453384037,
+     "reasons": [
+      "won't last to your pick 50",
+      "flex value",
+      "available 11 past his ADP",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9954546322359749
+    },
+    {
+     "name": "Davante Adams",
+     "s": 105.15728719878328,
+     "reasons": [
+      "won't last to your pick 50",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9490025746564408
+    },
+    {
+     "name": "Jameson Williams",
+     "s": 103.46885746921392,
+     "reasons": [
+      "won't last to your pick 50",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9444189351915714
+    },
+    {
+     "name": "DeVonta Smith",
+     "s": 99.5044682697055,
+     "reasons": [
+      "won't last to your pick 50",
+      "fills a starting WR need",
+      "available 10 past his ADP"
+     ],
+     "riskLoss": 0.9934031574925727
+    }
+   ]
+  },
+  {
+   "overall": 50,
+   "round": 4,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Cam Skattebo",
+     "s": 125.39281794835709,
+     "reasons": [
+      "won't last to your pick 63",
+      "flex value",
+      "last of the RB tier 7 cliff",
+      "pass-catching back",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.987518024319121
+    },
+    {
+     "name": "Rome Odunze",
+     "s": 111.83817961319103,
+     "reasons": [
+      "won't last to your pick 63",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9053539491479348
+    },
+    {
+     "name": "D'Andre Swift",
+     "s": 82.95873180895497,
+     "reasons": [
+      "won't last to your pick 63",
+      "flex value",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.9745096969832618
+    },
+    {
+     "name": "Alec Pierce",
+     "s": 79.08769932967932,
+     "reasons": [
+      "won't last to your pick 63",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.629695118018714
+    },
+    {
+     "name": "Bucky Irving",
+     "s": 77.46362657891581,
+     "reasons": [
+      "won't last to your pick 63",
+      "flex value"
+     ],
+     "riskLoss": 0.9695816363370697
+    },
+    {
+     "name": "Jayden Daniels",
+     "s": 74.77862057422512,
+     "reasons": [
+      "won't last to your pick 63",
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.7749304183480676
+    }
+   ]
+  },
+  {
+   "overall": 63,
+   "round": 5,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Alec Pierce",
+     "s": 86.42669781600621,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting WR need",
+      "last of the WR tier 9 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.7742955542894305
+    },
+    {
+     "name": "Courtland Sutton",
+     "s": 79.49256622547193,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting WR need",
+      "last of the WR tier 10 cliff"
+     ],
+     "riskLoss": 0.7409494313746364
+    },
+    {
+     "name": "Jaxson Dart",
+     "s": 73.53076665215534,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting QB need",
+      "last of the QB tier 2 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.7346182884170557
+    },
+    {
+     "name": "Marvin Harrison Jr.",
+     "s": 72.72411017030718,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.903150175814863
+    },
+    {
+     "name": "DK Metcalf",
+     "s": 69.38708763570415,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.8044818913603988
+    },
+    {
+     "name": "Trevor Lawrence",
+     "s": 45.996675448150796,
+     "reasons": [
+      "won't last to your pick 78",
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9002495108803149
+    }
+   ]
+  },
+  {
+   "overall": 78,
+   "round": 6,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Jaxson Dart",
+     "s": 67.4239812957984,
+     "reasons": [
+      "fills a starting QB need",
+      "last of the QB tier 2 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.576663346857732
+    },
+    {
+     "name": "Brock Purdy",
+     "s": 42.77463539065224,
+     "reasons": [
+      "won't last to your pick 91",
+      "fills a starting QB need"
+     ],
+     "riskLoss": 0.6414856625551402
+    },
+    {
+     "name": "Patrick Mahomes II",
+     "s": 39.57830215243808,
+     "reasons": [
+      "won't last to your pick 91",
+      "fills a starting QB need"
+     ],
+     "riskLoss": 0.7381477581070679
+    },
+    {
+     "name": "Dak Prescott",
+     "s": 35.02280214798651,
+     "reasons": [
+      "won't last to your pick 91",
+      "fills a starting QB need",
+      "pocket passer — fades vs ADP"
+     ],
+     "riskLoss": 0.8749501598417699
+    },
+    {
+     "name": "Bo Nix",
+     "s": 24.491362851627077,
+     "reasons": [
+      "fills a starting QB need"
+     ],
+     "riskLoss": 0.3543436937742047
+    },
+    {
+     "name": "Kyler Murray",
+     "s": 20.23595896349649,
+     "reasons": [
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.2761507253290125
+    }
+   ]
+  },
+  {
+   "overall": 91,
+   "round": 7,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Parker Washington",
+     "s": 11.162426934555162,
+     "reasons": [
+      "depth (WR set)",
+      "available 22 past his ADP",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.9788836183450381
+    },
+    {
+     "name": "Jonathon Brooks",
+     "s": 9.679370677789288,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "reach — ECR 133 is well past pick 91"
+     ],
+     "riskLoss": 0.8320183851339245
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 6.9852267665077665,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 134 is well past pick 91"
+     ],
+     "riskLoss": 0.3501950813532284
+    },
+    {
+     "name": "Quentin Johnston",
+     "s": 6.850335212348486,
+     "reasons": [
+      "depth (WR set)",
+      "available 13 past his ADP"
+     ],
+     "riskLoss": 0.9533887946012324
+    },
+    {
+     "name": "Brock Purdy",
+     "s": 6.8390239660590195,
+     "reasons": [
+      "depth (QB set)"
+     ],
+     "riskLoss": 0.9473952068408547
+    },
+    {
+     "name": "Kendre Miller",
+     "s": 3.311,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "reach — ECR 259 is well past pick 91"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 106,
+   "round": 8,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Jonathon Brooks",
+     "s": 12.53637274996105,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.86251807323033
+    },
+    {
+     "name": "Jayden Reed",
+     "s": 12.338388203882175,
+     "reasons": [
+      "depth (WR set)",
+      "available 22 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.979033426697924
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 11.22944303955446,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.6797726676270507
+    },
+    {
+     "name": "Josh Downs",
+     "s": 7.301717631145978,
+     "reasons": [
+      "depth (WR set)",
+      "available 15 past his ADP",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9611070473980275
+    },
+    {
+     "name": "Xavier Worthy",
+     "s": 6.625934642412684,
+     "reasons": [
+      "depth (WR set)",
+      "available 12 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9495279598675402
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 5.078215511143887,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 106"
+     ],
+     "riskLoss": 0.23932865915854362
+    }
+   ]
+  },
+  {
+   "overall": 119,
+   "round": 9,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "KC Concepcion",
+     "s": 14.038154109102916,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.8729472446361729
+    },
+    {
+     "name": "Josh Downs",
+     "s": 13.821334751634133,
+     "reasons": [
+      "depth (WR set)",
+      "available 28 past his ADP",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9876517790087249
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 8.118713630647694,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 119"
+     ],
+     "riskLoss": 0.5045453293304603
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 8.07253094413795,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.46370034048014874
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 6.828354879195983,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.3297997471586729
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 6.57721650135224,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "reach — ECR 167 is well past pick 119"
+     ],
+     "riskLoss": 0.4144851142187861
+    }
+   ]
+  },
+  {
+   "overall": 134,
+   "round": 10,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Matthew Golden",
+     "s": 13.371966561355089,
+     "reasons": [
+      "depth (WR set)",
+      "available 24 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9665485489448818
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 11.515306810655614,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.6742065062693061
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 10.59378583814936,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 9.72532,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 9.716373722748303,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.5899204092625538
+    },
+    {
+     "name": "Romeo Doubs",
+     "s": 9.332207229197348,
+     "reasons": [
+      "depth (WR set)",
+      "available 17 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9386168925965078
+    }
+   ]
+  },
+  {
+   "overall": 147,
+   "round": 11,
+   "lean": "TE",
+   "recs": [
+    {
+     "name": "Chig Okonkwo",
+     "s": 53.47919111851775,
+     "reasons": [
+      "won't last to your pick 162",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.9688218626765225
+    },
+    {
+     "name": "Kenyon Sadiq",
+     "s": 44.635028296454855,
+     "reasons": [
+      "won't last to your pick 162",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "weak passing offense",
+      "low WR competition — targets",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9125722518380802
+    },
+    {
+     "name": "AJ Barner",
+     "s": 30.151890811166467,
+     "reasons": [
+      "won't last to your pick 162",
+      "fills a starting TE need",
+      "late-round TE flier",
+      "strong passing offense",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.7090777413845862
+    },
+    {
+     "name": "Dalton Schultz",
+     "s": 27.165786352920616,
+     "reasons": [
+      "won't last to your pick 162",
+      "fills a starting TE need",
+      "late-round TE flier",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.8078909079968547
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 18.293684630217907,
+     "reasons": [
+      "depth (WR set)",
+      "available 8 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.8900164455326727
+    },
+    {
+     "name": "Eli Stowers",
+     "s": 17.517531560974003,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting TE need",
+      "only 2 left in this TE tier",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 262 is well past pick 147"
+     ],
+     "riskLoss": 0.17312547158730873
+    }
+   ]
+  },
+  {
+   "overall": 162,
+   "round": 12,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Denver Broncos",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Seattle Seahawks",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Los Angeles Rams",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Philadelphia Eagles",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Stefon Diggs",
+     "s": 28.450324656588077,
+     "reasons": [
+      "depth (WR set)",
+      "available 28 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9765068465915944
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 24.436787980403004,
+     "reasons": [
+      "depth (WR set)",
+      "available 19 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9482940077114442
+    }
+   ]
+  },
+  {
+   "overall": 175,
+   "round": 13,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Stefon Diggs",
+     "s": 36.87271807142603,
+     "reasons": [
+      "depth (WR set)",
+      "available 41 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9938851966332652
+    },
+    {
+     "name": "Brandon Aubrey",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 190",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Cameron Dicker",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 190",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Kenyon Sadiq",
+     "s": 24.257150893530923,
+     "reasons": [
+      "depth (TE set)",
+      "available 18 past his ADP",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "weak passing offense",
+      "low WR competition — targets",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9925414599298692
+    },
+    {
+     "name": "Ka'imi Fairbairn",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Jason Myers",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 190,
+   "round": 14,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Jalen Nailor",
+     "s": 33.39460595386751,
+     "reasons": [
+      "depth (WR set)",
+      "available 40 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9919833191780257
+    },
+    {
+     "name": "Cameron Dicker",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 203",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Ka'imi Fairbairn",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 203",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Jason Myers",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 203",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Cam Little",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 203",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Eddy Pineiro",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 203",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    }
+   ]
+  },
+  {
+   "overall": 203,
+   "round": 15,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "De'Zhaun Stribling",
+     "s": 37.48787120970885,
+     "reasons": [
+      "depth (WR set)",
+      "available 33 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9874280608262848
+    },
+    {
+     "name": "Antonio Williams",
+     "s": 36.92280099311925,
+     "reasons": [
+      "depth (WR set)",
+      "available 35 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9894961554867145
+    },
+    {
+     "name": "Eddy Pineiro",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 218",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Tyler Loop",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 218",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Evan McPherson",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 218",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Andy Borregales",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 218",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    }
+   ]
+  },
+  {
+   "overall": 218,
+   "round": 16,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Antonio Williams",
+     "s": 42.99253070450891,
+     "reasons": [
+      "depth (WR set)",
+      "available 50 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9967546217872327
+    },
+    {
+     "name": "Fernando Mendoza",
+     "s": 34.59077377014734,
+     "reasons": [
+      "depth (QB set)",
+      "available 47 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9957413929480899
+    },
+    {
+     "name": "Germie Bernard",
+     "s": 33.39126649327213,
+     "reasons": [
+      "depth (WR set)",
+      "available 40 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9919833191780257
+    },
+    {
+     "name": "Jake Bates",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 231",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Chase McLaughlin",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 231",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Ted Hurst III",
+     "s": 29.278822863196265,
+     "reasons": [
+      "depth (WR set)",
+      "available 24 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9665485489448818
+    }
+   ]
+  },
+  {
+   "overall": 231,
+   "round": 17,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Fernando Mendoza",
+     "s": 41.92154848057531,
+     "reasons": [
+      "depth (QB set)",
+      "available 60 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.998907487214616
+    },
+    {
+     "name": "Germie Bernard",
+     "s": 39.577430785736055,
+     "reasons": [
+      "depth (WR set)",
+      "available 53 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9979375954426708
+    },
+    {
+     "name": "Ted Hurst III",
+     "s": 38.138716960715115,
+     "reasons": [
+      "depth (WR set)",
+      "available 37 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9912270694007406
+    },
+    {
+     "name": "Malik Washington",
+     "s": 35.43533329324684,
+     "reasons": [
+      "depth (WR set)",
+      "available 44 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.995337993161558
+    },
+    {
+     "name": "Cooper Kupp",
+     "s": 34.07988291791713,
+     "reasons": [
+      "depth (WR set)",
+      "available 33 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9874280608262848
+    },
+    {
+     "name": "Jaydon Blue",
+     "s": 32.6434948110717,
+     "reasons": [
+      "depth (RB set)",
+      "available 29 past his ADP",
+      "high-ceiling upside",
+      "handcuff to Javonte Williams — pays off if he's hurt"
+     ],
+     "riskLoss": 0.9820137900379085
+    }
+   ]
+  },
+  {
+   "overall": 246,
+   "round": 18,
+   "lean": "TE",
+   "recs": [
+    {
+     "name": "Eli Stowers",
+     "s": 42.88598751724532,
+     "reasons": [
+      "depth (TE set)",
+      "available 46 past his ADP",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9919833191780257
+    },
+    {
+     "name": "Elijah Sarratt",
+     "s": 41.64891952023852,
+     "reasons": [
+      "depth (WR set)",
+      "available 43 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9894961554867145
+    },
+    {
+     "name": "Jaydon Blue",
+     "s": 41.491236305962715,
+     "reasons": [
+      "depth (RB set)",
+      "available 44 past his ADP",
+      "high-ceiling upside",
+      "handcuff to Javonte Williams — pays off if he's hurt"
+     ],
+     "riskLoss": 0.9904001695509447
+    },
+    {
+     "name": "Germie Bernard",
+     "s": 39.59735585434218,
+     "reasons": [
+      "depth (WR set)",
+      "available 68 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.998907487214616
+    },
+    {
+     "name": "Jordan James",
+     "s": 34.195770049835296,
+     "reasons": [
+      "depth (RB set)",
+      "available 32 past his ADP",
+      "high-ceiling upside",
+      "handcuff to Christian McCaffrey — pays off if he's hurt"
+     ],
+     "riskLoss": 0.9719537842823402
+    },
+    {
+     "name": "Samaje Perine",
+     "s": 30.95640768761227,
+     "reasons": [
+      "depth (RB set)",
+      "available 31 past his ADP",
+      "high-ceiling upside",
+      "handcuff to Chase Brown — pays off if he's hurt"
+     ],
+     "riskLoss": 0.9693664070710036
+    }
+   ]
+  }
+ ],
+ "seat14_adp": [
+  {
+   "overall": 14,
+   "round": 1,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "De'Von Achane",
+     "s": 216.89500843442494,
+     "reasons": [
+      "fills a starting RB need",
+      "last of the RB tier 5 cliff",
+      "pass-catching back",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.4772883667393608
+    },
+    {
+     "name": "Derrick Henry",
+     "s": 206.00878240043247,
+     "reasons": [
+      "fills a starting RB need",
+      "last of the RB tier 4 cliff",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.43223767646165645
+    },
+    {
+     "name": "Chase Brown",
+     "s": 163.09053599352043,
+     "reasons": [
+      "fills a starting RB need",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "Omarion Hampton",
+     "s": 151.50759503545706,
+     "reasons": [
+      "fills a starting RB need",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Kenneth Walker III",
+     "s": 141.9034,
+     "reasons": [
+      "fills a starting RB need",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "Drake London",
+     "s": 121.26175613013521,
+     "reasons": [
+      "fills a starting WR need",
+      "last of the WR tier 5 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.41007959073744604
+    }
+   ]
+  },
+  {
+   "overall": 15,
+   "round": 2,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Derrick Henry",
+     "s": 272.82617330279305,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need",
+      "last of the RB tier 4 cliff",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9997582277833847
+    },
+    {
+     "name": "Chase Brown",
+     "s": 212.4872734168762,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9997792329775533
+    },
+    {
+     "name": "Josh Jacobs",
+     "s": 203.57612182053586,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need"
+     ],
+     "riskLoss": 0.9980468633940838
+    },
+    {
+     "name": "Josh Allen",
+     "s": 200.6540578879144,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting QB need",
+      "last of the QB tier 1 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9988670741557901
+    },
+    {
+     "name": "Omarion Hampton",
+     "s": 188.14660121630502,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need"
+     ],
+     "riskLoss": 0.9998319211231884
+    },
+    {
+     "name": "Kyren Williams",
+     "s": 183.16702510275672,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need"
+     ],
+     "riskLoss": 0.9991372698094751
+    }
+   ]
+  },
+  {
+   "overall": 42,
+   "round": 3,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Cam Skattebo",
+     "s": 93.48864,
+     "reasons": [
+      "flex value",
+      "last of the RB tier 7 cliff",
+      "pass-catching back",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "Davante Adams",
+     "s": 89.23911064717089,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Jameson Williams",
+     "s": 86.80126925096617,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.36691963074516754
+    },
+    {
+     "name": "D'Andre Swift",
+     "s": 54.68002482000967,
+     "reasons": [
+      "flex value",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.325793493730694
+    },
+    {
+     "name": "Terry McLaurin",
+     "s": 54.17466077643111,
+     "reasons": [
+      "fills a starting WR need"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "Lamar Jackson",
+     "s": 51.90665632385351,
+     "reasons": [
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.25144712930466273
+    }
+   ]
+  },
+  {
+   "overall": 43,
+   "round": 4,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Davante Adams",
+     "s": 130.5039475147185,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9972028791995884
+    },
+    {
+     "name": "Jameson Williams",
+     "s": 129.01410413683308,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.996937494020129
+    },
+    {
+     "name": "Rome Odunze",
+     "s": 88.87669771073487,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.991718823254241
+    },
+    {
+     "name": "Drake Maye",
+     "s": 88.57492573538977,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9973891223176727
+    },
+    {
+     "name": "Lamar Jackson",
+     "s": 84.79535452931628,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9991214542447094
+    },
+    {
+     "name": "Jayden Daniels",
+     "s": 84.56290233592651,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9978222278498872
+    }
+   ]
+  },
+  {
+   "overall": 70,
+   "round": 5,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Jalen Hurts",
+     "s": 80.11,
+     "reasons": [
+      "fills a starting QB need",
+      "only 2 left in this QB tier",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "Alec Pierce",
+     "s": 63.6635856951499,
+     "reasons": [
+      "fills a starting WR need",
+      "last of the WR tier 9 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.325793493730694
+    },
+    {
+     "name": "Courtland Sutton",
+     "s": 57.887069508426485,
+     "reasons": [
+      "fills a starting WR need",
+      "last of the WR tier 10 cliff"
+     ],
+     "riskLoss": 0.28718590138250266
+    },
+    {
+     "name": "DK Metcalf",
+     "s": 51.868197377567036,
+     "reasons": [
+      "fills a starting WR need",
+      "last of the WR tier 11 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.36691963074516754
+    },
+    {
+     "name": "Jaxson Dart",
+     "s": 45.136930161020196,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting QB need",
+      "only 2 left in this QB tier",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.07910678367200663
+    },
+    {
+     "name": "Makai Lemon",
+     "s": 30.31033718690062,
+     "reasons": [
+      "fills a starting WR need",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.4772883667393608
+    }
+   ]
+  },
+  {
+   "overall": 71,
+   "round": 6,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Alec Pierce",
+     "s": 94.3010527696434,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting WR need",
+      "last of the WR tier 9 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9294441299115376
+    },
+    {
+     "name": "Courtland Sutton",
+     "s": 87.85359227202035,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting WR need",
+      "last of the WR tier 10 cliff"
+     ],
+     "riskLoss": 0.9165495919691761
+    },
+    {
+     "name": "DK Metcalf",
+     "s": 74.83193438770316,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting WR need",
+      "last of the WR tier 11 cliff",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9404756340234984
+    },
+    {
+     "name": "Makai Lemon",
+     "s": 40.74730955587071,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting WR need",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9613779942426115
+    },
+    {
+     "name": "Quentin Johnston",
+     "s": 34.155071000951864,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting WR need"
+     ],
+     "riskLoss": 0.9351779439567754
+    },
+    {
+     "name": "Chris Godwin Jr.",
+     "s": 33.33950185121986,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting WR need"
+     ],
+     "riskLoss": 0.8414545780978496
+    }
+   ]
+  },
+  {
+   "overall": 98,
+   "round": 7,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "J.K. Dobbins",
+     "s": 18.110820000000004,
+     "reasons": [
+      "depth (RB set)",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "Jonathon Brooks",
+     "s": 8.16250722839271,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Jaxson Dart",
+     "s": 7.747239240671944,
+     "reasons": [
+      "depth (QB set)",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 6.662272012208161,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.15093676035290005
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 3.4828272066989876,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside",
+      "reach — ECR 158 is well past pick 98"
+     ],
+     "riskLoss": 0.013751949864444835
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 3.375872844340467,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 98"
+     ],
+     "riskLoss": 0.025671586349826914
+    }
+   ]
+  },
+  {
+   "overall": 99,
+   "round": 8,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Jonathon Brooks",
+     "s": 11.65731708391507,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.922207646765165
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 10.645684280964886,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.7685247834990176
+    },
+    {
+     "name": "Jaxson Dart",
+     "s": 10.19559661681074,
+     "reasons": [
+      "depth (QB set)",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9813601245383721
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 5.04837177344712,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside",
+      "reach — ECR 158 is well past pick 99"
+     ],
+     "riskLoss": 0.4013123398875479
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 4.5792766337375665,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 99"
+     ],
+     "riskLoss": 0.3297997471586729
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 4.017083808721643,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "reach — ECR 157 is well past pick 99"
+     ],
+     "riskLoss": 0.1921090920031453
+    }
+   ]
+  },
+  {
+   "overall": 126,
+   "round": 9,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 7.52165446730201,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.25144712930466273
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 7.015507818181426,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.15093676035290005
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 6.485172729696951,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.13965218341676022
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 6.25774927313749,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "reach — ECR 167 is well past pick 126"
+     ],
+     "riskLoss": 0.1893030016858981
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 6.218967507259911,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.07910678367200663
+    },
+    {
+     "name": "Travis Hunter",
+     "s": 6.183056,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room",
+      "reach — ECR 170 is well past pick 126"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 127,
+   "round": 10,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Daniel Jones",
+     "s": 11.198968193831664,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.7685247834990174
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 10.357247109622895,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.7519595899490018
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 9.926160972642377,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.8134715641703011
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 9.689096613261015,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.6160290618030138
+    },
+    {
+     "name": "Tre Tucker",
+     "s": 7.440557689793637,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "reach — ECR 173 is well past pick 127"
+     ],
+     "riskLoss": 0.658034038195439
+    },
+    {
+     "name": "Stefon Diggs",
+     "s": 7.156122326011021,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "reach — ECR 185 is well past pick 127"
+     ],
+     "riskLoss": 0.9081213300166884
+    }
+   ]
+  },
+  {
+   "overall": 154,
+   "round": 11,
+   "lean": "TE",
+   "recs": [
+    {
+     "name": "Kenyon Sadiq",
+     "s": 36.939868540366135,
+     "reasons": [
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "weak passing offense",
+      "low WR competition — targets",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "Juwan Johnson",
+     "s": 28,
+     "reasons": [
+      "fills a starting TE need",
+      "late-round TE flier"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "AJ Barner",
+     "s": 22.263799321319006,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting TE need",
+      "late-round TE flier",
+      "strong passing offense",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.16296047070232167
+    },
+    {
+     "name": "Dalton Schultz",
+     "s": 20.69155933131802,
+     "reasons": [
+      "fills a starting TE need",
+      "late-round TE flier",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.25144712930466273
+    },
+    {
+     "name": "Terrance Ferguson",
+     "s": 16.05743737372486,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "strong passing offense",
+      "reach — ECR 206 is well past pick 154"
+     ],
+     "riskLoss": 0.030633592928996367
+    },
+    {
+     "name": "Eli Stowers",
+     "s": 15.026296222490691,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting TE need",
+      "only 2 left in this TE tier",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 262 is well past pick 154"
+     ],
+     "riskLoss": 0.016448930693417907
+    }
+   ]
+  },
+  {
+   "overall": 155,
+   "round": 12,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Houston Texans",
+     "s": 33.15975,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Denver Broncos",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Seattle Seahawks",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Los Angeles Rams",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Philadelphia Eagles",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Pittsburgh Steelers",
+     "s": 31.505039999999997,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    }
+   ]
+  },
+  {
+   "overall": 182,
+   "round": 13,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Brandon Aubrey",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 183",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Cameron Dicker",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Ka'imi Fairbairn",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Jason Myers",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Cam Little",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Eddy Pineiro",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 183,
+   "round": 14,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Emmett Johnson",
+     "s": 16.55137935051048,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Kenneth Walker III — pays off if he's hurt",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.8807970779778824
+    },
+    {
+     "name": "Mike Washington Jr.",
+     "s": 15.640389776952214,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Ashton Jeanty — pays off if he's hurt",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.7812092545533487
+    },
+    {
+     "name": "Nicholas Singleton",
+     "s": 14.610085063236205,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.7963500664977807
+    },
+    {
+     "name": "Terrance Ferguson",
+     "s": 14.07295308527786,
+     "reasons": [
+      "depth (TE set)",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.8826928743286064
+    },
+    {
+     "name": "Ray Davis",
+     "s": 13.801851482101123,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to James Cook III — pays off if he's hurt",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.8370395292976783
+    },
+    {
+     "name": "Calvin Ridley",
+     "s": 13.101607544467505,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9208932163279933
+    }
+   ]
+  },
+  {
+   "overall": 210,
+   "round": 15,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Travis Hunter",
+     "s": 11.912999999999998,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "crowded WR room"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Troy Franklin",
+     "s": 11.349038989441606,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.5453297388885201
+    },
+    {
+     "name": "MarShawn Lloyd",
+     "s": 10.813707468207147,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Josh Jacobs — pays off if he's hurt"
+     ],
+     "riskLoss": 0.5227116332606392
+    },
+    {
+     "name": "Jaylin Noel",
+     "s": 10.650961010558394,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "Tyreek Hill",
+     "s": 9.744309871410428,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Kimani Vidal",
+     "s": 9.077179274360507,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Omarion Hampton — pays off if he's hurt"
+     ],
+     "riskLoss": 0.16296047070232167
+    }
+   ]
+  },
+  {
+   "overall": 211,
+   "round": 16,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Troy Franklin",
+     "s": 14.335374580871962,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9331655299833717
+    },
+    {
+     "name": "Jaylin Noel",
+     "s": 14.130766063680392,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9065929952831678
+    },
+    {
+     "name": "MarShawn Lloyd",
+     "s": 14.028739685228667,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Josh Jacobs — pays off if he's hurt"
+     ],
+     "riskLoss": 0.9272675528437321
+    },
+    {
+     "name": "Tyreek Hill",
+     "s": 13.569901925418524,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.8807970779778824
+    },
+    {
+     "name": "Kimani Vidal",
+     "s": 13.492058715013494,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to Omarion Hampton — pays off if he's hurt"
+     ],
+     "riskLoss": 0.693850254330627
+    },
+    {
+     "name": "James Conner",
+     "s": 10.825120423893079,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.4772883667393608
+    }
+   ]
+  },
+  {
+   "overall": 238,
+   "round": 17,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "James Conner",
+     "s": 11,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "Kendre Miller",
+     "s": 9.33702,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Chimere Dike",
+     "s": 8.359251463994232,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.25144712930466273
+    },
+    {
+     "name": "Ty Johnson",
+     "s": 8.29580930909507,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to James Cook III — pays off if he's hurt",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.17574374289308015
+    },
+    {
+     "name": "Elic Ayomanor",
+     "s": 7.357123499846549,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.10998355446732744
+    },
+    {
+     "name": "Devin Neal",
+     "s": 7.151247998152717,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.00016207768217091356
+    }
+   ]
+  },
+  {
+   "overall": 239,
+   "round": 18,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Chimere Dike",
+     "s": 10.441115870286279,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.5453297388885201
+    },
+    {
+     "name": "Ty Johnson",
+     "s": 10.360924227041224,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside",
+      "handcuff to James Cook III — pays off if he's hurt",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.43223767646165645
+    },
+    {
+     "name": "Kendre Miller",
+     "s": 9.46,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Elic Ayomanor",
+     "s": 8.74676479832184,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.30614974566937303
+    },
+    {
+     "name": "Darius Slayton",
+     "s": 7.627411668004353,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "reach — ECR 285 is well past pick 239"
+     ],
+     "riskLoss": 0.5677623235383435
+    },
+    {
+     "name": "Devin Neal",
+     "s": 7.1544542180162125,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.0005784698722354209
+    }
+   ]
+  }
+ ],
+ "seat14_ecr": [
+  {
+   "overall": 14,
+   "round": 1,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "De'Von Achane",
+     "s": 216.89500843442494,
+     "reasons": [
+      "fills a starting RB need",
+      "last of the RB tier 5 cliff",
+      "pass-catching back",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.4772883667393608
+    },
+    {
+     "name": "Derrick Henry",
+     "s": 206.00878240043247,
+     "reasons": [
+      "fills a starting RB need",
+      "last of the RB tier 4 cliff",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.43223767646165645
+    },
+    {
+     "name": "Ashton Jeanty",
+     "s": 184.33629136816742,
+     "reasons": [
+      "fills a starting RB need",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.5899204092625538
+    },
+    {
+     "name": "Chase Brown",
+     "s": 163.09053599352043,
+     "reasons": [
+      "fills a starting RB need",
+      "pass-catching back",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "Saquon Barkley",
+     "s": 160.42033958314263,
+     "reasons": [
+      "fills a starting RB need",
+      "anchor a RB first",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.5453297388885201
+    },
+    {
+     "name": "Omarion Hampton",
+     "s": 151.50759503545706,
+     "reasons": [
+      "fills a starting RB need",
+      "anchor a RB first"
+     ],
+     "riskLoss": 0.5227116332606392
+    }
+   ]
+  },
+  {
+   "overall": 15,
+   "round": 2,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Derrick Henry",
+     "s": 272.82617330279305,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need",
+      "last of the RB tier 4 cliff",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9997582277833847
+    },
+    {
+     "name": "Ashton Jeanty",
+     "s": 218.78700218632625,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9998720363521397
+    },
+    {
+     "name": "Chase Brown",
+     "s": 212.4872734168762,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.9997792329775533
+    },
+    {
+     "name": "Josh Jacobs",
+     "s": 203.57612182053586,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need"
+     ],
+     "riskLoss": 0.9980468633940838
+    },
+    {
+     "name": "Josh Allen",
+     "s": 200.6540578879144,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting QB need",
+      "last of the QB tier 1 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9988670741557901
+    },
+    {
+     "name": "Saquon Barkley",
+     "s": 196.1590984704725,
+     "reasons": [
+      "won't last to your pick 42",
+      "fills a starting RB need",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.9998465248155429
+    }
+   ]
+  },
+  {
+   "overall": 42,
+   "round": 3,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Breece Hall",
+     "s": 137.93852211769453,
+     "reasons": [
+      "won't last to your pick 43",
+      "flex value",
+      "only 2 left in this RB tier",
+      "available 14 past his ADP",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.7963500664977807
+    },
+    {
+     "name": "Cam Skattebo",
+     "s": 93.48864,
+     "reasons": [
+      "flex value",
+      "only 2 left in this RB tier",
+      "pass-catching back",
+      "mobile QB caps his RB volume"
+     ],
+     "riskLoss": 0.5
+    },
+    {
+     "name": "Davante Adams",
+     "s": 89.23911064717089,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Jameson Williams",
+     "s": 86.80126925096617,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.36691963074516754
+    },
+    {
+     "name": "Travis Etienne Jr.",
+     "s": 86.31839158764778,
+     "reasons": [
+      "won't last to your pick 43",
+      "flex value",
+      "available 12 past his ADP",
+      "pass-catching back"
+     ],
+     "riskLoss": 0.7652745601971699
+    },
+    {
+     "name": "Garrett Wilson",
+     "s": 62.30889362495311,
+     "reasons": [
+      "fills a starting WR need",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.5677623235383435
+    }
+   ]
+  },
+  {
+   "overall": 43,
+   "round": 4,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Davante Adams",
+     "s": 130.59557491569868,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9985549738914027
+    },
+    {
+     "name": "Jameson Williams",
+     "s": 129.11327972045436,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9984176691718581
+    },
+    {
+     "name": "Rome Odunze",
+     "s": 89.06144158775939,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting WR need",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9957104417017368
+    },
+    {
+     "name": "Jayden Daniels",
+     "s": 84.26639182536677,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9910675405008714
+    },
+    {
+     "name": "Jalen Hurts",
+     "s": 80.50418421297132,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9846872213554038
+    },
+    {
+     "name": "Garrett Wilson",
+     "s": 80.27862146253469,
+     "reasons": [
+      "won't last to your pick 70",
+      "fills a starting WR need",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9993012053141489
+    }
+   ]
+  },
+  {
+   "overall": 70,
+   "round": 5,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Marvin Harrison Jr.",
+     "s": 59.40834042651344,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.5677623235383435
+    },
+    {
+     "name": "Courtland Sutton",
+     "s": 57.887069508426485,
+     "reasons": [
+      "fills a starting WR need",
+      "last of the WR tier 10 cliff"
+     ],
+     "riskLoss": 0.28718590138250266
+    },
+    {
+     "name": "DK Metcalf",
+     "s": 51.868197377567036,
+     "reasons": [
+      "fills a starting WR need",
+      "only 2 left in this WR tier",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.36691963074516754
+    },
+    {
+     "name": "Jaxson Dart",
+     "s": 45.136930161020196,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting QB need",
+      "last of the QB tier 2 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.07910678367200663
+    },
+    {
+     "name": "Carnell Tate",
+     "s": 38.493625256658696,
+     "reasons": [
+      "won't last to your pick 71",
+      "fills a starting WR need",
+      "available 11 past his ADP",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.7485528706953374
+    },
+    {
+     "name": "Jordyn Tyson",
+     "s": 34.555892275166244,
+     "reasons": [
+      "won't last to your pick 71",
+      "fills a starting WR need",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.6742065062693061
+    }
+   ]
+  },
+  {
+   "overall": 71,
+   "round": 6,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Jaxson Dart",
+     "s": 83.90539361635734,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting QB need",
+      "last of the QB tier 2 cliff",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9446095063147667
+    },
+    {
+     "name": "Trevor Lawrence",
+     "s": 48.06113543867232,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting QB need",
+      "rushing floor (Konami)"
+     ],
+     "riskLoss": 0.9823321314727973
+    },
+    {
+     "name": "Brock Purdy",
+     "s": 31.440106378119523,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting QB need",
+      "QB can wait in a 14-team"
+     ],
+     "riskLoss": 0.957266182474911
+    },
+    {
+     "name": "Patrick Mahomes II",
+     "s": 25.407573073772596,
+     "reasons": [
+      "won't last to your pick 98",
+      "fills a starting QB need",
+      "QB can wait in a 14-team"
+     ],
+     "riskLoss": 0.9724451836130227
+    },
+    {
+     "name": "Tony Pollard",
+     "s": 24.568296354556253,
+     "reasons": [
+      "depth (RB set)"
+     ],
+     "riskLoss": 0.9969040059685457
+    },
+    {
+     "name": "J.K. Dobbins",
+     "s": 24.07865431060245,
+     "reasons": [
+      "depth (RB set)",
+      "ambiguous backfield upside"
+     ],
+     "riskLoss": 0.9707394577702677
+    }
+   ]
+  },
+  {
+   "overall": 98,
+   "round": 7,
+   "lean": "RB",
+   "recs": [
+    {
+     "name": "Jonathon Brooks",
+     "s": 8.16250722839271,
+     "reasons": [
+      "depth (RB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.38828058859283854
+    },
+    {
+     "name": "Jayden Reed",
+     "s": 7.099776873704867,
+     "reasons": [
+      "depth (WR set)",
+      "available 14 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.7963500664977807
+    },
+    {
+     "name": "KC Concepcion",
+     "s": 6.662272012208161,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.15093676035290005
+    },
+    {
+     "name": "Patrick Mahomes II",
+     "s": 5.809262546859295,
+     "reasons": [
+      "depth (QB set)",
+      "available 8 past his ADP",
+      "floor-only — replaceable on waivers"
+     ],
+     "riskLoss": 0.693850254330627
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 3.4828272066989876,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside",
+      "reach — ECR 158 is well past pick 98"
+     ],
+     "riskLoss": 0.013751949864444835
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 3.375872844340467,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 98"
+     ],
+     "riskLoss": 0.025671586349826914
+    }
+   ]
+  },
+  {
+   "overall": 99,
+   "round": 8,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "KC Concepcion",
+     "s": 11.10620361771653,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.8419390987613874
+    },
+    {
+     "name": "Jayden Reed",
+     "s": 8.467681271708049,
+     "reasons": [
+      "depth (WR set)",
+      "available 15 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9915377033351584
+    },
+    {
+     "name": "Patrick Mahomes II",
+     "s": 7.326592307687245,
+     "reasons": [
+      "depth (QB set)",
+      "available 9 past his ADP",
+      "floor-only — replaceable on waivers"
+     ],
+     "riskLoss": 0.9943116833623026
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 5.49198959404382,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside",
+      "reach — ECR 158 is well past pick 99"
+     ],
+     "riskLoss": 0.5181738083938305
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 4.984604744669011,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 160 is well past pick 99"
+     ],
+     "riskLoss": 0.44118266902704684
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 4.318331379544747,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "reach — ECR 157 is well past pick 99"
+     ],
+     "riskLoss": 0.2761507253290125
+    }
+   ]
+  },
+  {
+   "overall": 126,
+   "round": 9,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Josh Downs",
+     "s": 17.05874697305742,
+     "reasons": [
+      "depth (WR set)",
+      "available 35 past his ADP",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.963481252557389
+    },
+    {
+     "name": "Matthew Golden",
+     "s": 8.245301433430951,
+     "reasons": [
+      "depth (WR set)",
+      "available 16 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.8242562571069199
+    },
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 7.52165446730201,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.25144712930466273
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 7.015507818181426,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.15093676035290005
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 6.485172729696951,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.13965218341676022
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 6.25774927313749,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "reach — ECR 167 is well past pick 126"
+     ],
+     "riskLoss": 0.1893030016858981
+    }
+   ]
+  },
+  {
+   "overall": 127,
+   "round": 10,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Omar Cooper Jr.",
+     "s": 11.733676629546057,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.8834438439147589
+    },
+    {
+     "name": "Daniel Jones",
+     "s": 11.683421918816519,
+     "reasons": [
+      "depth (QB set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.8419390987613874
+    },
+    {
+     "name": "Jauan Jennings",
+     "s": 10.564137003075976,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.7855288269949396
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 10.080065987982007,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.8404819213727638
+    },
+    {
+     "name": "Denzel Boston",
+     "s": 9.962842910627002,
+     "reasons": [
+      "depth (WR set)",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.6596686994314577
+    },
+    {
+     "name": "Matthew Golden",
+     "s": 9.592214654275498,
+     "reasons": [
+      "depth (WR set)",
+      "available 17 past his ADP",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9906391865297111
+    }
+   ]
+  },
+  {
+   "overall": 154,
+   "round": 11,
+   "lean": "TE",
+   "recs": [
+    {
+     "name": "Chig Okonkwo",
+     "s": 51.8828834060202,
+     "reasons": [
+      "won't last to your pick 155",
+      "fills a starting TE need",
+      "available 9 past his ADP",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.7128140986174973
+    },
+    {
+     "name": "Kenyon Sadiq",
+     "s": 36.939868540366135,
+     "reasons": [
+      "fills a starting TE need",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "weak passing offense",
+      "low WR competition — targets",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.4546702611114799
+    },
+    {
+     "name": "AJ Barner",
+     "s": 22.263799321319006,
+     "reasons": [
+      "safe to wait a round",
+      "fills a starting TE need",
+      "late-round TE flier",
+      "strong passing offense",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.16296047070232167
+    },
+    {
+     "name": "Dalton Schultz",
+     "s": 20.69155933131802,
+     "reasons": [
+      "fills a starting TE need",
+      "late-round TE flier",
+      "low WR competition — targets"
+     ],
+     "riskLoss": 0.25144712930466273
+    },
+    {
+     "name": "Stefon Diggs",
+     "s": 20.510748849937322,
+     "reasons": [
+      "depth (WR set)",
+      "available 20 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.8709169817721656
+    },
+    {
+     "name": "Jalen McMillan",
+     "s": 18.079399946095737,
+     "reasons": [
+      "depth (WR set)",
+      "available 11 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.7485528706953374
+    }
+   ]
+  },
+  {
+   "overall": 155,
+   "round": 12,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Houston Texans",
+     "s": 33.15975,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Denver Broncos",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Seattle Seahawks",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Los Angeles Rams",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Philadelphia Eagles",
+     "s": 31.919999999999998,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Pittsburgh Steelers",
+     "s": 31.505039999999997,
+     "reasons": [
+      "fills a starting DST need"
+     ],
+     "riskLoss": 0.7
+    }
+   ]
+  },
+  {
+   "overall": 182,
+   "round": 13,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Stefon Diggs",
+     "s": 38.916712367718354,
+     "reasons": [
+      "depth (WR set)",
+      "available 48 past his ADP",
+      "high-ceiling upside"
+     ],
+     "riskLoss": 0.9885079984097712
+    },
+    {
+     "name": "Jalen Nailor",
+     "s": 25.834093964342987,
+     "reasons": [
+      "depth (WR set)",
+      "available 32 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9525741268224333
+    },
+    {
+     "name": "Cameron Dicker",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Ka'imi Fairbairn",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Jason Myers",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    },
+    {
+     "name": "Cam Little",
+     "s": 24.080000000000002,
+     "reasons": [
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.30000000000000004
+    }
+   ]
+  },
+  {
+   "overall": 183,
+   "round": 14,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Cameron Dicker",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 210",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Ka'imi Fairbairn",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 210",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Jason Myers",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 210",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Cam Little",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 210",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Eddy Pineiro",
+     "s": 31.919999999999998,
+     "reasons": [
+      "won't last to your pick 210",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    },
+    {
+     "name": "Tyler Loop",
+     "s": 31.090079999999997,
+     "reasons": [
+      "won't last to your pick 210",
+      "fills a starting K need"
+     ],
+     "riskLoss": 0.7
+    }
+   ]
+  },
+  {
+   "overall": 210,
+   "round": 15,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "De'Zhaun Stribling",
+     "s": 41.58690620767121,
+     "reasons": [
+      "depth (WR set)",
+      "available 40 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9765068465915944
+    },
+    {
+     "name": "Antonio Williams",
+     "s": 40.862066264108854,
+     "reasons": [
+      "depth (WR set)",
+      "available 42 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.980335712609028
+    },
+    {
+     "name": "Jalen Nailor",
+     "s": 35.94535079491238,
+     "reasons": [
+      "depth (WR set)",
+      "available 60 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9961100232872336
+    },
+    {
+     "name": "Brandon Aiyuk",
+     "s": 29.090229399623006,
+     "reasons": [
+      "depth (WR set)",
+      "available 26 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9208932163279933
+    },
+    {
+     "name": "Fernando Mendoza",
+     "s": 27.32161139243638,
+     "reasons": [
+      "depth (QB set)",
+      "available 39 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 253 is well past pick 210"
+     ],
+     "riskLoss": 0.974328413650173
+    },
+    {
+     "name": "Germie Bernard",
+     "s": 25.531350675698345,
+     "reasons": [
+      "depth (WR set)",
+      "available 32 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9525741268224333
+    }
+   ]
+  },
+  {
+   "overall": 211,
+   "round": 16,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Antonio Williams",
+     "s": 41.83964919282541,
+     "reasons": [
+      "depth (WR set)",
+      "available 43 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9982798744047807
+    },
+    {
+     "name": "Jalen Nailor",
+     "s": 36.01173700096341,
+     "reasons": [
+      "depth (WR set)",
+      "available 61 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9996646498695335
+    },
+    {
+     "name": "Brandon Aiyuk",
+     "s": 30.784129281551166,
+     "reasons": [
+      "depth (WR set)",
+      "available 27 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9926748599857185
+    },
+    {
+     "name": "Fernando Mendoza",
+     "s": 28.614788814095725,
+     "reasons": [
+      "depth (QB set)",
+      "available 40 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)",
+      "reach — ECR 253 is well past pick 211"
+     ],
+     "riskLoss": 0.9991214542447094
+    },
+    {
+     "name": "Germie Bernard",
+     "s": 26.9850294086435,
+     "reasons": [
+      "depth (WR set)",
+      "available 33 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9957413929480899
+    },
+    {
+     "name": "Malik Washington",
+     "s": 23.472132914202867,
+     "reasons": [
+      "depth (WR set)",
+      "available 24 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense"
+     ],
+     "riskLoss": 0.9904001695509447
+    }
+   ]
+  },
+  {
+   "overall": 238,
+   "round": 17,
+   "lean": "QB",
+   "recs": [
+    {
+     "name": "Fernando Mendoza",
+     "s": 43.01894650623484,
+     "reasons": [
+      "depth (QB set)",
+      "available 67 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9979375954426708
+    },
+    {
+     "name": "Ted Hurst III",
+     "s": 42.10876164826956,
+     "reasons": [
+      "depth (WR set)",
+      "available 44 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9835510693065821
+    },
+    {
+     "name": "Germie Bernard",
+     "s": 39.53988587440362,
+     "reasons": [
+      "depth (WR set)",
+      "available 60 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9961100232872336
+    },
+    {
+     "name": "Cooper Kupp",
+     "s": 37.806278370610194,
+     "reasons": [
+      "depth (WR set)",
+      "available 40 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9765068465915944
+    },
+    {
+     "name": "Elijah Sarratt",
+     "s": 36.422014111729744,
+     "reasons": [
+      "depth (WR set)",
+      "available 35 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.963481252557389
+    },
+    {
+     "name": "Jaydon Blue",
+     "s": 36.3908518562592,
+     "reasons": [
+      "depth (RB set)",
+      "available 36 past his ADP",
+      "high-ceiling upside",
+      "handcuff to Javonte Williams — pays off if he's hurt"
+     ],
+     "riskLoss": 0.9665485489448818
+    }
+   ]
+  },
+  {
+   "overall": 239,
+   "round": 18,
+   "lean": "WR",
+   "recs": [
+    {
+     "name": "Ted Hurst III",
+     "s": 42.9608973872976,
+     "reasons": [
+      "depth (WR set)",
+      "available 45 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.995337993161558
+    },
+    {
+     "name": "Germie Bernard",
+     "s": 39.59735585434218,
+     "reasons": [
+      "depth (WR set)",
+      "available 61 past his ADP",
+      "high-ceiling upside",
+      "weak passing offense",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.998907487214616
+    },
+    {
+     "name": "Cooper Kupp",
+     "s": 38.704712675235825,
+     "reasons": [
+      "depth (WR set)",
+      "available 41 past his ADP",
+      "high-ceiling upside",
+      "strong passing offense"
+     ],
+     "riskLoss": 0.9933071490757152
+    },
+    {
+     "name": "Eli Stowers",
+     "s": 37.83567311104595,
+     "reasons": [
+      "depth (TE set)",
+      "available 39 past his ADP",
+      "high-ceiling upside",
+      "late-round TE flier",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9936601834928046
+    },
+    {
+     "name": "Elijah Sarratt",
+     "s": 37.51356580900916,
+     "reasons": [
+      "depth (WR set)",
+      "available 36 past his ADP",
+      "high-ceiling upside",
+      "rookie upside (late-round ceiling)"
+     ],
+     "riskLoss": 0.9894961554867145
+    },
+    {
+     "name": "Jaydon Blue",
+     "s": 37.429157227057274,
+     "reasons": [
+      "depth (RB set)",
+      "available 37 past his ADP",
+      "high-ceiling upside",
+      "handcuff to Javonte Williams — pays off if he's hurt"
+     ],
+     "riskLoss": 0.9904001695509447
+    }
+   ]
+  }
+ ]
+}
