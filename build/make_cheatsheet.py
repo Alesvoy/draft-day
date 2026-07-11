@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-"""Generate cheatsheet.pdf -- a printable analog backup of the frozen board,
-tuned for a 14-team, 0-PPR draft. Tiered, color-coded, with VOR / ADP / flags."""
+"""Generate cheatsheet.pdf -- a printable analog backup of the frozen board.
+Tiered, color-coded, with VOR / ADP / flags. The PDF is a single-format
+artifact rendered at the board's DEFAULT config (14-team standard); the app
+handles the other league configs live."""
 import json, os
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
@@ -28,7 +30,7 @@ doc = SimpleDocTemplate(os.path.join(ROOT, "cheatsheet.pdf"), pagesize=letter,
                         topMargin=0.4*inch, bottomMargin=0.4*inch,
                         leftMargin=0.4*inch, rightMargin=0.4*inch)
 story = []
-story.append(Paragraph("Draft Day Cheat Sheet — 14-Team Standard (0 PPR)", h))
+story.append(Paragraph(f"Draft Day Cheat Sheet — {M['teams']}-Team {M['scoring']}", h))
 story.append(Paragraph(f"Built {M['built']} · Source: {M['source']} · "
                        f"Replacement pts: " + ", ".join(f"{k} {v}" for k,v in M['replacement_pts'].items()), sub))
 story.append(Spacer(1, 6))
@@ -76,7 +78,7 @@ for pos in ['RB','WR','QB','TE']:
 
 story.append(Paragraph("VALUE = falls past ADP (draft him) · REACH = crowd takes him early · "
                        "CEILING = wide range of outcomes (late-round upside) · SAFE = tight consensus floor. "
-                       "VOR = projected points over your league's replacement level — the higher, the more scarce/valuable in standard scoring.", note))
+                       f"VOR = projected points over the replacement level for a {M['teams']}-team {M['scoring']} league — the higher, the more scarce/valuable.", note))
 
 doc.build(story)
 print("Wrote cheatsheet.pdf")
