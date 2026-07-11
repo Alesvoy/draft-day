@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Draft Day">
+<title>Draft Day — 14-team Standard</title>
+<style>
+  :root{
+    --bg:#0e1116;--panel:#171c24;--panel2:#1f2632;--line:#2a323f;
+    --txt:#e8edf4;--dim:#93a0b4;--accent:#3ea0ff;--good:#37d39b;
+    --warn:#ffb454;--bad:#ff6b6b;--ceil:#c084fc;--hot:#ff7a59;
+    --qb:#e85d75;--rb:#37d39b;--wr:#3ea0ff;--te:#ffb454;--k:#9aa6b5;--dst:#9aa6b5;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+  body{padding-bottom:74px;}
+  header{position:sticky;top:0;z-index:20;background:var(--panel);
+    border-bottom:1px solid var(--line);padding:max(8px,env(safe-area-inset-top)) 12px 8px;}
+  .hrow{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .htitle{font-weight:700;font-size:15px;}
+  .htitle small{color:var(--dim);font-weight:500;}
+  .stat{display:flex;gap:8px;font-size:12px;color:var(--dim);margin-top:5px;flex-wrap:wrap;align-items:center;}
+  .pill{background:var(--panel2);border:1px solid var(--line);border-radius:20px;padding:3px 9px;}
+  .pill b{color:var(--txt);}
+  .pill.me{border-color:var(--good);color:var(--good);}
+  .pill.tap{cursor:pointer;}
+  .clock{font-weight:700;}
+  .clock.mine{color:var(--good);}
+  .clock.others{color:var(--warn);}
+  .btn-sm{background:none;border:1px solid var(--line);color:var(--dim);border-radius:8px;padding:5px 10px;font-size:12px;}
+  .chips{display:flex;gap:6px;overflow-x:auto;padding:8px 12px;background:var(--bg);position:sticky;top:96px;z-index:15;-webkit-overflow-scrolling:touch;}
+  .chip{flex:0 0 auto;background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:6px 13px;font-size:13px;color:var(--dim);white-space:nowrap;}
+  .chip.on{background:var(--accent);color:#06131f;border-color:var(--accent);font-weight:700;}
+  main{padding:10px 10px 0;}
+  .search{width:100%;padding:11px 12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--txt);font-size:15px;margin-bottom:8px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 11px;margin-bottom:8px;}
+  .pl{display:flex;align-items:center;gap:9px;}
+  .posbadge{flex:0 0 auto;width:38px;text-align:center;border-radius:7px;padding:5px 0;font-weight:800;font-size:12px;color:#08111c;}
+  .pl .info{flex:1;min-width:0;}
+  .pl .nm{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .pl .sub{font-size:12px;color:var(--dim);margin-top:1px;}
+  .metrics{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px;}
+  .m{font-size:11px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:var(--dim);}
+  .m b{color:var(--txt);}
+  .flag{font-size:10px;font-weight:800;border-radius:5px;padding:2px 6px;letter-spacing:.3px;}
+  .f-VALUE{background:rgba(55,211,155,.18);color:var(--good);}
+  .f-REACH{background:rgba(255,107,107,.18);color:var(--bad);}
+  .f-CEILING{background:rgba(192,132,252,.2);color:var(--ceil);}
+  .f-SAFE{background:rgba(62,160,255,.16);color:var(--accent);}
+  .tag{font-size:10px;font-weight:800;border-radius:5px;padding:2px 6px;letter-spacing:.3px;background:rgba(255,180,84,.16);color:var(--te);}
+  .tag.komani,.tag.recback,.tag.committee{background:rgba(55,211,155,.14);color:var(--good);}
+  .tag.pocket{background:rgba(255,107,107,.16);color:var(--bad);}
+  .tag.elite{background:rgba(192,132,252,.2);color:var(--ceil);}
+  .tag.handcuff{background:rgba(192,132,252,.16);color:var(--ceil);}
+  .tag.ctxt{background:rgba(147,160,180,.14);color:var(--dim);}
+  .acts{margin-top:9px;}
+  .btn{width:100%;border:none;border-radius:9px;padding:11px 0;font-size:14px;font-weight:700;}
+  .btn-pick{background:var(--good);color:#06160f;}
+  .btn-log{background:var(--panel2);color:var(--txt);border:1px solid var(--line);}
+  .hot{font-size:10px;font-weight:800;border-radius:5px;padding:2px 6px;background:rgba(255,122,89,.18);color:var(--hot);}
+  .tierhead{display:flex;align-items:center;gap:8px;margin:14px 2px 7px;}
+  .tierhead .ln{flex:1;height:1px;background:var(--line);}
+  .tierhead span{font-size:11px;font-weight:800;color:var(--dim);letter-spacing:.5px;}
+  .rec.top{border-left:3px solid var(--good);background:linear-gradient(90deg,rgba(55,211,155,.07),transparent);}
+  .rec{border-left:3px solid var(--accent);}
+  .why{font-size:12px;color:var(--txt);margin-top:8px;line-height:1.45;}
+  .why .lead{color:var(--good);font-weight:700;}
+  .note{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:13px;line-height:1.5;color:var(--dim);margin-bottom:8px;}
+  .note b{color:var(--txt);}
+  .lean{background:linear-gradient(90deg,rgba(255,122,89,.14),transparent);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:13px;margin-bottom:8px;}
+  .lean b{color:var(--hot);}
+  .slot{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--line);}
+  .slotlbl{flex:0 0 52px;font-size:11px;font-weight:800;color:var(--dim);}
+  .empty{color:var(--dim);font-style:italic;font-size:13px;}
+  .recent{display:flex;gap:6px;overflow-x:auto;margin-bottom:8px;}
+  .recent .rp{flex:0 0 auto;font-size:11px;background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:4px 8px;color:var(--dim);}
+  .recent .rp.unl{border-style:dashed;}
+  .unlisted-btn{width:100%;background:var(--panel2);border:1px dashed var(--line);color:var(--dim);border-radius:9px;padding:9px;font-size:12px;margin-bottom:8px;}
+  nav{position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom);z-index:30;}
+  nav button{flex:1;background:none;border:none;color:var(--dim);font-size:11px;padding:9px 0 7px;font-weight:600;}
+  nav button .ic{display:block;font-size:18px;margin-bottom:2px;}
+  nav button.on{color:var(--accent);}
+  .f-NOW{background:rgba(255,122,89,.2);color:var(--hot);}
+  .f-WAIT{background:rgba(147,160,180,.16);color:var(--dim);}
+  .hidden{display:none!important;}
+  /* legend */
+  #legend{position:fixed;inset:0;background:rgba(8,10,14,.975);z-index:60;overflow-y:auto;padding:16px 16px 40px;}
+  #legend h2{font-size:17px;margin:6px 0 2px;}
+  #legend .lsub{color:var(--dim);font-size:12px;margin-bottom:10px;}
+  #legend .lclose{position:absolute;top:14px;right:14px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:700;}
+  .legsec{font-size:11px;font-weight:800;color:var(--dim);letter-spacing:.5px;margin:16px 0 4px;}
+  .legrow{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);}
+  .legrow .lk{flex:0 0 104px;display:flex;}
+  .legrow .ld{flex:1;font-size:12px;color:var(--dim);line-height:1.45;}
+  /* setup overlay */
+  #setup{position:fixed;inset:0;background:var(--bg);z-index:50;display:flex;flex-direction:column;justify-content:center;padding:24px;}
+  #setup h1{font-size:20px;margin:0 0 6px;}
+  #setup p{color:var(--dim);font-size:14px;margin:0 0 18px;line-height:1.5;}
+  .slotgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;}
+  .slotgrid button{background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:14px 0;font-size:16px;font-weight:700;}
+  .slotgrid button:active{background:var(--accent);color:#06131f;}
+</style>
+</head>
+<body>
+
+<div id="legend" class="hidden">
+  <button class="lclose" id="legendClose">Close</button>
+  <h2>What the badges mean</h2>
+  <div class="lsub">Order is FantasyPros consensus; everything else is computed on top.</div>
+  <div id="legendBody"></div>
+</div>
+
+<div id="setup">
+  <h1>What's your draft slot?</h1>
+  <p>Pick your seat in the 14-team snake. The app uses this to track every team's roster, know whose turn it is, and figure out how many picks until you're back up.</p>
+  <div class="slotgrid" id="slotgrid"></div>
+</div>
+
+<header>
+  <div class="hrow">
+    <div class="htitle">Draft Day <small>14-tm · Standard</small></div>
+    <div style="display:flex;gap:6px;">
+      <button class="btn-sm" id="legendBtn">ⓘ Key</button>
+      <button class="btn-sm" id="undoBtn">↶ Undo</button>
+      <button class="btn-sm" id="resetBtn">Reset</button>
+    </div>
+  </div>
+  <div class="stat">
+    <span class="pill me tap" id="slotPill">Seat <b id="slotN">–</b></span>
+    <span class="pill">R<b id="roundN">1</b>·P<b id="pickN">1</b></span>
+    <span class="clock" id="clock"></span>
+    <span class="pill" id="needPill"></span>
+  </div>
+</header>
+
+<div class="chips" id="chips"></div>
+
+<main>
+  <section id="view-rec">
+    <div class="recent" id="recent"></div>
+    <button id="unlistedBtn" class="unlisted-btn">＋ Log a drafted player that's not on the board</button>
+    <div class="lean" id="lean"></div>
+    <div id="recList"></div>
+  </section>
+  <section id="view-board" class="hidden">
+    <input class="search" id="search" placeholder="Search player…" autocomplete="off">
+    <div id="boardList"></div>
+  </section>
+  <section id="view-team" class="hidden"><div id="teamView"></div></section>
+  <section id="view-strat" class="hidden"><div id="stratView"></div></section>
+</main>
+
+<nav>
+  <button data-v="rec" class="on"><span class="ic">★</span>Recommend</button>
+  <button data-v="board"><span class="ic">≡</span>Board</button>
+  <button data-v="team"><span class="ic">▦</span>My Team</button>
+  <button data-v="strat"><span class="ic">⚑</span>Strategy</button>
+</nav>
+
+<script>
+const BOARD=__BOARD_JSON__;
+const PLAYERS=BOARD.players, META=BOARD.meta;
+const TEAMS=META.teams, STARTERS=META.starters, FLEXPOS=META.flex_positions;
+const POSCOLOR={QB:'var(--qb)',RB:'var(--rb)',WR:'var(--wr)',TE:'var(--te)',K:'var(--k)',DST:'var(--dst)'};
+const PMAP={}; PLAYERS.forEach(p=>PMAP[p.name]=p);
+const LS='draftday_v2';
+
+// tuning
+const SPREAD=11, PSHIFT=2.6;                 // ADP survival noise; pressure shift per needy team
+const ROSTER_SLOTS=18;                        // total picks per team (starters + bench)
+
+let state=load();
+function load(){try{return JSON.parse(localStorage.getItem(LS))||{slot:null,picks:[]};}catch(e){return {slot:null,picks:[]};}}
+function save(){localStorage.setItem(LS,JSON.stringify(state));}
+let view='rec',posFilter='ALL',query='';
+
+// ---- snake math
+function teamOnClock(idx0){const rnd=Math.floor(idx0/TEAMS),pos=idx0%TEAMS;return (rnd%2===0)?pos+1:TEAMS-pos;}
+function myNextIdx(fromIdx0){for(let i=fromIdx0;i<TEAMS*ROSTER_SLOTS;i++){if(teamOnClock(i)===state.slot)return i;}return TEAMS*ROSTER_SLOTS;}
+function draftedSet(){return new Set(state.picks);}
+function avail(){const d=draftedSet();return PLAYERS.filter(p=>!d.has(p.name));}
+// how drained the STARTABLE (positive-VOR) pool is, 0..1. League-size agnostic:
+// in a 14-team it crosses ~0.6 by round 4-5 and ~0.85 by round 6 — players drop fast.
+function poolDepth(){let tot=0,gone=0;const d=draftedSet();PLAYERS.forEach(p=>{if(p.vor!=null&&p.vor>0){tot++;if(d.has(p.name))gone++;}});return tot?gone/tot:1;}
+function teamRoster(team){const c={QB:0,RB:0,WR:0,TE:0,K:0,DST:0,list:[]};state.picks.forEach((nm,i)=>{if(teamOnClock(i)===team){const p=PMAP[nm];if(p){if(c[p.pos]!=null)c[p.pos]++;c.list.push(p);}}});return c;}
+function myCounts(){return teamRoster(state.slot);}
+function curIdx(){return state.picks.length;}
+function myTurn(){return teamOnClock(curIdx())===state.slot;}
+function roundPick(idx0){return {round:Math.floor(idx0/TEAMS)+1,pick:(idx0%TEAMS)+1};}
+
+// ---- need
+function flexUsed(c){return Math.max(0,c.RB-STARTERS.RB)+Math.max(0,c.WR-STARTERS.WR)+Math.max(0,c.TE-STARTERS.TE);}
+function needWeight(pos){const c=myCounts(),r=roundPick(curIdx()).round;
+  if(pos==='K'||pos==='DST'){if(c[pos]>=1)return 0.04;return r>=13?1.2:(r>=11?0.45:0.1);}
+  if(c[pos]<(STARTERS[pos]||0))return 1.0;
+  if(FLEXPOS.includes(pos)&&flexUsed(c)<STARTERS.FLEX)return 0.7;
+  return 0.32;}
+function fillsOpenStarter(p){const c=myCounts();
+  if(p.pos==='K'||p.pos==='DST')return c[p.pos]<(STARTERS[p.pos]||0)&&roundPick(curIdx()).round>=12;
+  return c[p.pos]<(STARTERS[p.pos]||0);}
+function tierRemaining(p){const a=avail();return a.filter(q=>q.pos===p.pos&&q.pos_tier===p.pos_tier).length;}
+
+// ---- draft-flow: who picks before my next turn, and what they need
+function planContext(){
+  const ci=curIdx();
+  const planIdx = myTurn()? ci : myNextIdx(ci);     // the pick we're advising
+  const afterIdx = myNextIdx(planIdx+1);            // my pick after that
+  const nextMineOverall = afterIdx+1;               // 1-based
+  // teams picking between planIdx and afterIdx
+  const demand={QB:0,RB:0,WR:0,TE:0};
+  for(let i=planIdx+1;i<afterIdx;i++){
+    const c=teamRoster(teamOnClock(i));
+    ['QB','RB','WR','TE'].forEach(pos=>{
+      const needStarter=c[pos]<(STARTERS[pos]||0);
+      const flexOpen=FLEXPOS.includes(pos)&&flexUsed(c)<STARTERS.FLEX;
+      if(needStarter)demand[pos]+=1; else if(flexOpen)demand[pos]+=0.4;
+    });
+  }
+  return {planIdx,afterIdx,planOverall:planIdx+1,nextMineOverall,opps:Math.max(0,afterIdx-planIdx-1),demand,depth:poolDepth()};
+}
+function sigmoid(x){return 1/(1+Math.exp(-x));}
+function survival(p,ctx){ // prob player is still there at my next pick
+  if(p.adp==null)return p.ecr>ctx.nextMineOverall?0.7:0.3;
+  const eff=p.adp - (ctx.demand[p.pos]||0)*PSHIFT;
+  return sigmoid((eff-ctx.nextMineOverall)/SPREAD);
+}
+
+// ---- score one player (wait-cost + need + value + PDF strategy)
+function scoreOf(p,ctx){
+  const r=roundPick(ctx.planIdx).round;
+  const w=needWeight(p.pos);
+  const tags=p.strategy||[];
+  const deadTE = p.pos==='TE' && !tags.includes('ELITE-TE') && r<11;
+  const base=(p.vor!=null)?p.vor:Math.max(0,55-p.ecr*0.35);
+  // value floor: even "depth" picks keep ~a third of their value, so genuine
+  // best-available upside surfaces when your only open need is one you should wait on.
+  let s=Math.max(0,base)*(w+0.30); const reasons=[];
+
+  // fills a starting need -- but NOT a dead-zone TE: filling that slot now is the mistake.
+  if(fillsOpenStarter(p)&&!deadTE){s+=28;reasons.push(`fills a starting ${p.pos} need`);}
+  else if(FLEXPOS.includes(p.pos)&&w>=0.7)reasons.push('flex value');
+  else if(w<=0.32)reasons.push(`depth (${p.pos} set)`);
+
+  const rem=tierRemaining(p);
+  if(p.pos_tier!=null&&rem<=2&&w>=0.7&&!deadTE){s+=20;reasons.push(rem===1?`last of the ${p.pos} tier ${p.pos_tier} cliff`:`only ${rem} left in this ${p.pos} tier`);}
+  // pick-relative value: how far past his ADP has he lasted at YOUR pick? A deep guy
+  // whose ADP is 100 picks away yields a negative here, so he's not a false "value".
+  const fellPastADP = (p.adp!=null) ? ctx.planOverall - p.adp : null;
+  if(fellPastADP!=null && fellPastADP>=8){
+    s += Math.min(fellPastADP,45)*0.4; reasons.push(`available ${fellPastADP} past his ADP`);}
+
+  // DEPTH-aware floor vs ceiling. Phased on how drained the startable pool is, not
+  // round number -- in a 14-team the pool empties fast, so this fires earlier.
+  // Premium picks (deep pool): prefer floor. Pool thinning: chase ceiling/upside.
+  const depth=ctx.depth;
+  if(depth<0.40){if(p.flags.includes('SAFE')){s+=4;}if(p.flags.includes('CEILING'))s-=3;}
+  else if(depth>=0.60){if(p.flags.includes('CEILING')){s+=11;reasons.push('high-ceiling upside');}}
+  // once the pool is mostly drained, a safe/capped bench guy is waiver-replaceable -- demote.
+  if(depth>=0.85 && w<=0.35 && p.flags.includes('SAFE') && !p.flags.includes('CEILING')){
+    s*=0.82;reasons.push('floor-only — replaceable on waivers');}
+
+  // ---- PDF STRATEGY RULES ----
+  if(p.pos==='TE'){
+    if(tags.includes('ELITE-TE')){reasons.push('elite TE (the alternative is waiting)');}
+    else if(deadTE){s*=0.35;reasons.push('TE dead zone — wait, take upside now');}
+    else{reasons.push('late-round TE flier');}
+  }
+  if(p.pos==='QB'){
+    if(tags.includes('POCKET')){s*=0.72;reasons.push('pocket passer — fades vs ADP');}
+    if(tags.includes('KONAMI'))reasons.push('rushing floor (Konami)');
+    if(ctx.depth<0.78 && !(tags.includes('KONAMI')&&(p.value_vs_adp||0)>=6)){s*=0.62;reasons.push('QB can wait in a 14-team');}
+  }
+  if(p.pos==='RB'){
+    if(tags.includes('REC-BACK')){s*=1.12;reasons.push('pass-catching back');}
+    if(tags.includes('COMMITTEE')&&ctx.depth>=0.40){s*=1.07;reasons.push('ambiguous backfield upside');}
+    if(r<=2&&myCounts().RB===0){s*=1.07;reasons.push('anchor a RB first');}
+    // handcuff: contingent league-winner -- a mid/late bench swing, not an early pick
+    if(tags.includes('HANDCUFF')&&ctx.depth>=0.5){s*=1.08;reasons.push(`handcuff to ${p.handcuff_to||'the starter'} — pays off if he's hurt`);}
+  }
+
+  // ---- TEAM / OFFENSE CONTEXT (mild tilts) ----
+  const cx=p.context||[];
+  if(cx.includes('MOBILE-QB')){s*=0.94;reasons.push('mobile QB caps his RB volume');}
+  if(cx.includes('GOOD-OFF')){s*=1.05;reasons.push('strong passing offense');}
+  if(cx.includes('WEAK-OFF')){s*=(p.pos==='TE'?0.85:0.92);reasons.push('weak passing offense');}
+  if(cx.includes('LOW-COMP')){s*=1.06;reasons.push('low WR competition — targets');}
+  if(cx.includes('CROWDED')){s*=0.95;reasons.push('crowded WR room');}
+  // rookies: highest late-round ceiling -- boost once the pool is thinning (JJ)
+  if(p.rookie && ctx.depth>=0.5){s*=1.10;reasons.push('rookie upside (late-round ceiling)');}
+
+  // ---- REACH GUARD: don't surface guys whose consensus rank is well past this
+  // pick. Drafting them now is a reach, not value (e.g. an ECR-150 RB at pick 96).
+  const reach=p.ecr-ctx.planOverall;
+  if(reach>20){s*=Math.max(0.35,1-(reach-20)*0.013);if(reach>40)reasons.push(`reach — ECR ${p.ecr} is well past pick ${ctx.planOverall}`);}
+
+  // ---- WAIT-COST: down-weight guys who'll still be there; boost likely-gone
+  const surv=survival(p,ctx), riskLoss=1-surv;
+  s*=(0.65+0.7*riskLoss);
+  // survival is one of the most decision-relevant notes -- surface it FIRST so the
+  // card never trims it off behind lower-priority reasons.
+  if(riskLoss>=0.6&&w>=0.7)reasons.unshift(`won't last to your pick ${ctx.nextMineOverall}`);
+  else if(surv>=0.75&&w>=0.7)reasons.unshift('safe to wait a round');
+
+  return {s,reasons,riskLoss};
+}
+
+// HARD "avoid/wait" rules: these players are not RECOMMENDED (still draftable on the
+// Board). A hard gate, so the pressure/wait-cost boosts can't claw them back up.
+function avoided(p,ctx){
+  const r=roundPick(ctx.planIdx).round;
+  // TE dead zone: don't recommend a non-elite TE before the very late rounds, even if
+  // a TE run is on -- they're fungible, so "he won't last" is not a reason to grab one.
+  if(p.pos==='TE' && !(p.strategy||[]).includes('ELITE-TE') && r<11) return true;
+  return false;
+}
+function recommendations(){
+  const ctx=planContext(), r=roundPick(ctx.planIdx).round;
+  let pool=avail().filter(p=>!((p.pos==='K'||p.pos==='DST')&&r<11) && !avoided(p,ctx));
+  const scored=pool.map(p=>({p,...scoreOf(p,ctx)})).sort((a,b)=>b.s-a.s);
+  return {ctx,list:scored.slice(0,6)};
+}
+function positionalLean(){
+  // which position has the most value at risk before my next pick, vs my needs
+  const ctx=planContext();
+  const agg={};
+  avail().forEach(p=>{
+    if(!['QB','RB','WR','TE'].includes(p.pos))return;
+    if(avoided(p,ctx))return;
+    const sc=scoreOf(p,ctx);
+    if(!agg[p.pos]||sc.s>agg[p.pos].s)agg[p.pos]=sc;
+  });
+  let best=null;
+  Object.entries(agg).forEach(([pos,sc])=>{if(!best||sc.s>best.s)best={pos,...sc};});
+  return {ctx,best};
+}
+
+// ---------- render ----------
+function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+function tagHtml(p){
+  let h='';(p.flags||[]).forEach(f=>h+=`<span class="flag f-${f}">${f}</span>`);
+  (p.strategy||[]).forEach(t=>{
+    const cls={'REC-BACK':'recback','COMMITTEE':'committee','KONAMI':'komani','POCKET':'pocket','ELITE-TE':'elite','HANDCUFF':'handcuff'}[t]||'';
+    h+=`<span class="tag ${cls}">${t}</span>`;});
+  (p.context||[]).forEach(t=>{h+=`<span class="tag ctxt">${t}</span>`;});
+  return h;
+}
+function metricsRow(p,refPick,nextPick){
+  let m=`<span class="m">ECR <b>${p.ecr}</b></span><span class="m">${p.pos_rank}</span>`;
+  if(p.vor!=null)m+=`<span class="m">VOR <b>${p.vor}</b></span>`;
+  if(p.adp!=null)m+=`<span class="m">ADP <b>${p.adp}</b></span>`;
+  if(p.bye)m+=`<span class="m">bye ${p.bye}</span>`;
+  // VALUE = lasted past his ADP at THIS pick (a bargain now).
+  // REACH = he'd comfortably still be there at your NEXT pick, so you could wait.
+  //   (A guy who won't survive to your next pick is never a "reach" — grabbing him is necessary.)
+  if(p.adp!=null){
+    if(refPick && (refPick-p.adp)>=8) m+=`<span class="flag f-VALUE">VALUE</span>`;
+    else if(nextPick && (p.adp-nextPick)>=8) m+=`<span class="flag f-REACH">REACH</span>`;
+  }
+  return m+tagHtml(p);
+}
+function badge(p){return `<div class="posbadge" style="background:${POSCOLOR[p.pos]}">${p.pos}</div>`;}
+function pickBtn(p){const lbl=myTurn()?'＋ My Pick':'Drafted →';const cls=myTurn()?'btn-pick':'btn-log';return `<div class="acts"><button class="btn ${cls}" data-pick="${p.name}">${lbl}</button></div>`;}
+function card(p,extra,why,withBtn,badges,refPick,nextPick){
+  const c=el('div','card '+(extra||''));
+  c.innerHTML=`<div class="pl">${badge(p)}<div class="info"><div class="nm">${p.name}</div>
+    <div class="sub">${p.team} · ${p.pos_rank}${p.value_tier?' · val tier '+p.value_tier:''}</div></div></div>
+    <div class="metrics">${badges||''}${metricsRow(p,refPick,nextPick)}</div>${why||''}${withBtn?pickBtn(p):''}`;
+  return c;
+}
+
+function renderRecent(){
+  const r=document.getElementById('recent');r.innerHTML='';
+  const last=state.picks.slice(-8).reverse();
+  last.forEach((nm,k)=>{const idx=state.picks.length-1-k;const tm=teamOnClock(idx);const mine=tm===state.slot;
+    const unl=nm.indexOf('UNLISTED::')===0;
+    r.appendChild(el('div','rp'+(unl?' unl':''),`${mine?'<b style="color:var(--good)">YOU</b>':'T'+tm}: ${pickLabel(nm)}`));});
+  if(!last.length)r.appendChild(el('div','rp','No picks logged yet'));
+}
+function renderLean(){
+  const L=document.getElementById('lean');
+  const {ctx,best}=positionalLean();
+  if(!best){L.classList.add('hidden');return;}L.classList.remove('hidden');
+  // count DISTINCT upcoming teams missing a starter at each position (a real run signal),
+  // and only mention it when one position clearly dominates -- otherwise it's noise.
+  const seen=new Set(), need={QB:0,RB:0,WR:0,TE:0};
+  for(let i=ctx.planIdx+1;i<ctx.afterIdx;i++){const t=teamOnClock(i);if(seen.has(t))continue;seen.add(t);
+    const c=teamRoster(t);['QB','RB','WR','TE'].forEach(pos=>{if(c[pos]<(STARTERS[pos]||0))need[pos]++;});}
+  const M=seen.size, srt=Object.entries(need).sort((a,b)=>b[1]-a[1]);
+  let demTxt='';
+  if(M>0 && srt[0][1]>=Math.ceil(M*0.6) && (srt[0][1]-srt[1][1])>=2)
+    demTxt=` — a run may be coming: ${srt[0][1]} of the next ${M} teams still need ${srt[0][0]}`;
+  const away = ctx.opps===0 ? `back-to-back at the turn — almost no wait`
+             : ctx.opps===1 ? `1 pick away` : `${ctx.opps} picks away`;
+  L.innerHTML=`<b>Lean ${best.pos}.</b> Best value at risk before your pick ${ctx.nextMineOverall} (${away})${demTxt}.`;
+}
+function renderRec(){
+  renderRecent();renderLean();
+  const {ctx,list}=recommendations();
+  const box=document.getElementById('recList');box.innerHTML='';
+  const c=myCounts(),rr=roundPick(ctx.planIdx).round;
+  const openNeeds=['QB','RB','WR','TE'].filter(pos=>c[pos]<(STARTERS[pos]||0));
+  if(openNeeds.length===1&&openNeeds[0]==='TE'&&rr<11){
+    box.appendChild(el('div','note',"<b>Your only open starter is TE — and it's the dead zone.</b> These TEs are no more predictable than ones 50 picks later, so take the best upside (WR/RB) now and grab a TE in the final rounds."));
+  }
+  list.forEach((r,i)=>{
+    const surv = r.riskLoss>=0.6 ? `<span class="flag f-NOW">WON'T LAST</span>`
+               : (r.riskLoss<=0.25 ? `<span class="flag f-WAIT">WAIT OK</span>` : '');
+    const why=`<div class="why"><span class="lead">${i===0?'TOP PICK':'Also consider'}.</span> ${r.reasons.slice(0,3).join('; ')||'best available value'}.</div>`;
+    box.appendChild(card(r.p,i===0?'rec top':'rec',why,true,surv,ctx.planOverall,ctx.nextMineOverall));
+  });
+  if(!list.length)box.appendChild(el('div','empty','Pool empty.'));
+}
+function renderBoard(){
+  const list=document.getElementById('boardList');list.innerHTML='';
+  let ps=avail();if(posFilter!=='ALL')ps=ps.filter(p=>p.pos===posFilter);
+  if(query)ps=ps.filter(p=>p.name.toLowerCase().includes(query));
+  // ALL view = consensus (ECR) order. A single position = TIER order (by VOR/projection),
+  // so the tier headers read 1 -> 2 -> 3 monotonically instead of bouncing around.
+  if(posFilter==='ALL') ps.sort((a,b)=>a.ecr-b.ecr);
+  else ps.sort((a,b)=>{const av=(a.vor==null?-1e9:a.vor),bv=(b.vor==null?-1e9:b.vor);return bv-av||a.ecr-b.ecr;});
+  const ci=curIdx(), refPick=ci+1;
+  const nextPick=(teamOnClock(ci)===state.slot ? myNextIdx(ci+1) : myNextIdx(ci))+1;
+  let lastTier=null;
+  ps.forEach(p=>{
+    if(posFilter!=='ALL'&&p.pos_tier!=null&&p.pos_tier!==lastTier){list.appendChild(el('div','tierhead',`<span>${posFilter} TIER ${p.pos_tier}</span><div class="ln"></div>`));lastTier=p.pos_tier;}
+    list.appendChild(card(p,'',null,true,'',refPick,nextPick));
+  });
+  if(!ps.length)list.appendChild(el('div','empty','Nobody matches.'));
+}
+function renderTeam(){
+  const v=document.getElementById('teamView');v.innerHTML='';
+  const c=myCounts();const ml=c.list.slice().sort((a,b)=>a.ecr-b.ecr);const used=new Set();const slots=[];
+  [['QB',STARTERS.QB],['RB',STARTERS.RB],['WR',STARTERS.WR],['TE',STARTERS.TE]].forEach(([pos,n])=>{for(let i=0;i<n;i++){const pk=ml.find(p=>p.pos===pos&&!used.has(p.name));if(pk)used.add(pk.name);slots.push([pos,pk]);}});
+  for(let i=0;i<STARTERS.FLEX;i++){const pk=ml.find(p=>FLEXPOS.includes(p.pos)&&!used.has(p.name));if(pk)used.add(pk.name);slots.push(['FLEX',pk]);}
+  [['K',STARTERS.K],['DST',STARTERS.DST]].forEach(([pos,n])=>{for(let i=0;i<n;i++){const pk=ml.find(p=>p.pos===pos&&!used.has(p.name));if(pk)used.add(pk.name);slots.push([pos,pk]);}});
+  const cd=el('div','card');cd.innerHTML='<div class="sub" style="color:var(--dim);font-size:12px;margin-bottom:4px">STARTING LINEUP</div>';
+  slots.forEach(([lbl,p])=>{const row=el('div','slot');row.innerHTML=`<div class="slotlbl">${lbl}</div>`+(p?`<div style="flex:1"><span class="nm" style="font-weight:700">${p.name}</span> <span class="sub" style="color:var(--dim)">${p.team} ${p.pos_rank} · VOR ${p.vor??'—'}</span></div>`:'<div class="empty">— open —</div>');cd.appendChild(row);});
+  v.appendChild(cd);
+  const bench=ml.filter(p=>!used.has(p.name));
+  if(bench.length){const b=el('div','card');b.innerHTML='<div class="sub" style="color:var(--dim);font-size:12px;margin-bottom:6px">BENCH</div>';bench.forEach(p=>{const row=el('div','slot');row.innerHTML=`<div class="slotlbl">${p.pos}</div><div style="flex:1"><span class="nm" style="font-weight:700">${p.name}</span> <span class="sub" style="color:var(--dim)">${p.team} ${p.pos_rank}</span></div>`;b.appendChild(row);});v.appendChild(b);}
+  if(!ml.length)v.appendChild(el('div','empty','No picks yet.'));
+}
+function renderStrat(){
+  const v=document.getElementById('stratView');v.innerHTML='';
+  ['RB','WR','QB','TE','K','DST'].forEach(pos=>{if(!META.strategy_notes[pos])return;const cd=el('div','card');cd.innerHTML=`<div class="pl"><div class="posbadge" style="background:${POSCOLOR[pos]}">${pos}</div><div class="info"><div class="nm">${pos} strategy</div></div></div><div class="why" style="color:var(--dim)">${META.strategy_notes[pos]}</div>`;v.appendChild(cd);});
+  const m=el('div','note');let leg='';Object.entries(META.tag_legend||{}).forEach(([k,d])=>leg+=`<b>${k}</b> — ${d}<br>`);
+  m.innerHTML=`<b>Tags (from JJ's guide, recomputed on current data):</b><br>${leg}<br><b>How it recommends:</b> consensus VOR + value, weighted by your roster needs and by how likely a player is gone before your next pick (ADP + how many upcoming teams need his position). The strategy rules above tilt it — e.g. it suppresses dead-zone TEs and pocket QBs, and rewards pass-catching backs.`;
+  v.appendChild(m);
+}
+function render(){
+  document.getElementById('setup').classList.toggle('hidden',state.slot!=null);
+  if(state.slot==null)return;
+  const ci=curIdx(),rp=roundPick(ci);
+  document.getElementById('slotN').textContent=state.slot;
+  document.getElementById('roundN').textContent=rp.round;
+  document.getElementById('pickN').textContent=rp.pick;
+  const clk=document.getElementById('clock');
+  if(myTurn()){clk.textContent='● YOUR PICK';clk.className='clock mine';}
+  else{const nm=myNextIdx(ci);clk.textContent=`Team ${teamOnClock(ci)} on clock · you in ${nm-ci}`;clk.className='clock others';}
+  const c=myCounts();const needs=[];['QB','RB','WR','TE'].forEach(pos=>{const miss=(STARTERS[pos]||0)-c[pos];if(miss>0)needs.push(miss+pos);});
+  document.getElementById('needPill').innerHTML=needs.length?('need <b>'+needs.join(' ')+'</b>'):'<b>starters set</b>';
+  document.getElementById('view-rec').classList.toggle('hidden',view!=='rec');
+  document.getElementById('view-board').classList.toggle('hidden',view!=='board');
+  document.getElementById('view-team').classList.toggle('hidden',view!=='team');
+  document.getElementById('view-strat').classList.toggle('hidden',view!=='strat');
+  document.getElementById('chips').classList.toggle('hidden',view!=='board');
+  if(view==='rec')renderRec();else if(view==='board')renderBoard();else if(view==='team')renderTeam();else renderStrat();
+}
+
+// ---- actions
+function doPick(name){if(draftedSet().has(name))return;state.picks.push(name);save();render();}
+function undo(){state.picks.pop();save();render();}
+// log a pick of a player NOT on our board: consumes the slot for the team on the clock
+// (keeps the snake count + turn detection in sync) without touching our available pool.
+function logUnlisted(){
+  const nm=prompt("Drafted player's name (optional — leave blank if unknown):");
+  if(nm===null) return; // cancelled
+  const label=(nm||'').trim()||'unlisted';
+  state.picks.push('UNLISTED::'+label+'#'+state.picks.length);
+  save();render();
+}
+function pickLabel(nm){return nm.indexOf('UNLISTED::')===0?nm.slice(10).replace(/#\d+$/,''):nm.split(' ').slice(-1)[0];}
+function buildChips(){const w=document.getElementById('chips');w.innerHTML='';['ALL','QB','RB','WR','TE','K','DST'].forEach(p=>{const c=el('div','chip'+(p===posFilter?' on':''),p);c.onclick=()=>{posFilter=p;buildChips();render();};w.appendChild(c);});}
+function buildSlots(){const g=document.getElementById('slotgrid');g.innerHTML='';for(let i=1;i<=TEAMS;i++){const b=el('button',null,i);b.onclick=()=>{state.slot=i;save();render();};g.appendChild(b);}}
+function buildLegend(){
+  const L=META.tag_legend||{};
+  function row(badge,desc){return `<div class="legrow"><div class="lk">${badge}</div><div class="ld">${desc}</div></div>`;}
+  let h='<div class="legsec">THE NUMBERS</div>';
+  h+=row('<span class="m">ECR</span>','Expert Consensus Rank — the fixed FantasyPros draft order (40+ experts). The backbone; never re-ranked.');
+  h+=row('<span class="m">VOR</span>','Value Over Replacement — projected points above a freely-available player at that position. Higher = scarcer and more valuable (why elite RBs dominate in standard).');
+  h+=row('<span class="m">ADP</span>','Average Draft Position — where the field typically drafts him.');
+  h+=row('<span class="m">val tier</span>','Cross-positional value tier (by VOR). Same tier ≈ same value, even across positions.');
+  h+=row('<span class="m">bye</span>','Bye week.');
+  h+='<div class="legsec">VALUE &amp; RISK</div>';
+  h+=row('<span class="flag f-VALUE">VALUE</span>','He has lasted well past his usual draft spot (ADP) at your pick — a bargain right now.');
+  h+=row('<span class="flag f-REACH">REACH</span>','He would very likely still be there at your NEXT pick, so you could wait. (A player who would be gone by your next pick is never a reach — grabbing him now is necessary.)');
+  h+=row('<span class="flag f-CEILING">CEILING</span>','Wide range of outcomes — boom/bust upside. What you chase late.');
+  h+=row('<span class="flag f-SAFE">SAFE</span>','Tight expert agreement on his rank — predictable placement (not the same as a secure role).');
+  h+='<div class="legsec">TIMING — for your next pick</div>';
+  h+=row('<span class="flag f-NOW">WON\'T LAST</span>','Likely drafted before your next pick — grab him now if you want him.');
+  h+=row('<span class="flag f-WAIT">WAIT OK</span>','Likely still there at your next pick — safe to wait and take other value.');
+  h+='<div class="legsec">STRATEGY — from JJ\'s guide</div>';
+  [['KONAMI','komani'],['POCKET','pocket'],['REC-BACK','recback'],['COMMITTEE','committee'],['HANDCUFF','handcuff'],['ELITE-TE','elite']].forEach(([k,c])=>{if(L[k])h+=row(`<span class="tag ${c}">${k}</span>`,L[k]);});
+  h+='<div class="legsec">TEAM / PLAYER CONTEXT</div>';
+  ['MOBILE-QB','GOOD-OFF','WEAK-OFF','LOW-COMP','CROWDED','ROOKIE'].forEach(k=>{if(L[k])h+=row(`<span class="tag ctxt">${k}</span>`,L[k]);});
+  document.getElementById('legendBody').innerHTML=h;
+}
+
+document.querySelector('nav').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;view=b.dataset.v;document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));window.scrollTo(0,0);render();});
+document.body.addEventListener('click',e=>{const pk=e.target.closest('[data-pick]');if(pk)doPick(pk.dataset.pick);});
+document.getElementById('search').addEventListener('input',e=>{query=e.target.value.toLowerCase().trim();renderBoard();});
+document.getElementById('undoBtn').addEventListener('click',undo);
+document.getElementById('unlistedBtn').addEventListener('click',logUnlisted);
+document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('Reset the whole draft (keeps your seat)?')){state.picks=[];save();render();}});
+document.getElementById('slotPill').addEventListener('click',()=>{if(confirm('Change your draft seat? This clears logged picks.')){state.slot=null;state.picks=[];save();render();}});
+document.getElementById('legendBtn').addEventListener('click',()=>document.getElementById('legend').classList.remove('hidden'));
+document.getElementById('legendClose').addEventListener('click',()=>document.getElementById('legend').classList.add('hidden'));
+
+buildSlots();buildChips();buildLegend();render();
+</script>
+</body>
+</html>
