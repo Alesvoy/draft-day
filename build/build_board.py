@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """
-Build the frozen draft board for a 14-team, 0-PPR (true standard) league.
+Build the frozen draft board. Defaults to a 14-team, 0-PPR (true standard)
+league, and ALSO freezes a value layer for every (scoring x team-count) combo
+the app's setup screen offers (8/10/12/14/16 teams x std/half/full PPR).
 
 Pipeline (matches the agreed design):
   1. INGEST  consensus rankings + ADP (FantasyPros, Standard) as the FIXED order.
-  2. JOIN    Standard projected points (FantasyPros) onto each player.
-  3. COMPUTE a layer on top -- VOR, value-vs-ADP, tiers, ceiling/risk flags.
+  2. JOIN    Standard projected points + projected receptions onto each player.
+  3. COMPUTE a layer on top -- VOR, value-vs-ADP, tiers, ceiling/risk flags --
+             for the default config (legacy fields) AND per-combo matrices.
              These are DERIVED deterministically, never hand-assigned.
   4. FREEZE  the result to board.json (single source of truth).
 
@@ -29,13 +32,44 @@ LEAGUE = {
     "flex_positions": ["RB", "WR", "TE"],
 }
 
-# Replacement RANK per position = where the position becomes "freely available."
-# Derived from 14 teams x starters, plus a share of the 14 FLEX spots.
-# 0-PPR pushes FLEX toward RB, so RB/WR baselines sit deep -> rewards RB scarcity.
-#   RB: 28 starters + ~9 flex  = ~37
-#   WR: 28 starters + ~6 flex  = ~34
-#   QB/TE: 14 starters (1 each) = 14
-REPLACEMENT_RANK = {"QB": 14, "RB": 37, "WR": 34, "TE": 14, "K": 14, "DST": 14}
+# The app lets the user pick teams + scoring at setup, so the board carries a
+# value layer for every combo. ECR/ADP stay a single Standard spine (per the
+# guide: scoring shifts top-player ranks barely at all; lineup structure is
+# what actually moves value).
+TEAM_OPTIONS = [8, 10, 12, 14, 16]
+SCORING_OPTIONS = ["std", "half", "full"]
+SCORING_LABELS = {"std": "Standard (0 PPR)", "half": "Half PPR", "full": "Full PPR"}
+REC_PPR = {"std": 0.0, "half": 0.5, "full": 1.0}  # points per reception
+
+# Share of the FLEX slots each position absorbs, per scoring. Guide p27-28:
+# 0-PPR pushes FLEX toward RB (their floor wins standard); full PPR flips it --
+# WRs outscore RBs at the flex. Fractions chosen to reproduce the historical
+# 14-team standard baselines exactly (RB 37 / WR 34).
+FLEX_SHARE = {
+    "std":  {"RB": 9 / 14, "WR": 6 / 14},
+    "half": {"RB": 7.5 / 14, "WR": 7.5 / 14},
+    "full": {"RB": 6 / 14, "WR": 9 / 14},
+}
+
+
+def replacement_ranks(teams, scoring):
+    """Replacement RANK per position = where the position becomes "freely
+    available." QB/TE/K/DST = one starter per team; RB/WR = starters plus
+    their scoring-dependent share of the FLEX slots."""
+    s = LEAGUE["starters"]
+    flex_slots = teams * s["FLEX"]
+    return {
+        "QB": teams * s["QB"], "TE": teams * s["TE"],
+        "K": teams * s["K"], "DST": teams * s["DST"],
+        "RB": teams * s["RB"] + round(FLEX_SHARE[scoring]["RB"] * flex_slots),
+        "WR": teams * s["WR"] + round(FLEX_SHARE[scoring]["WR"] * flex_slots),
+    }
+
+
+# The formula must reproduce the original hand-derived 14-team standard table.
+REPLACEMENT_RANK = replacement_ranks(14, "std")
+assert REPLACEMENT_RANK == {"QB": 14, "RB": 37, "WR": 34, "TE": 14, "K": 14, "DST": 14}, REPLACEMENT_RANK
+assert replacement_ranks(14, "half")["RB"] == 36  # pins banker's rounding on the 7.5 tie
 
 # Tier sensitivity: a new tier starts when the points drop-off between two
 # consecutive players exceeds mean(gap) + SENS*stdev(gap). Higher = fewer tiers.
@@ -57,6 +91,44 @@ STRATEGY_NOTES = {
     "K": ("Streaming position. Draft last. Never reach."),
     "DST": ("Streaming position. Draft late, target good Week 1 matchups."),
 }
+
+# Per-scoring strategy notes shown in the app once a format is chosen. "{teams}"
+# is substituted live. std == the legacy notes (with the team count templated);
+# only RB/WR actually change with scoring (guide: QB/TE strategy is
+# format-independent).
+STRATEGY_NOTES_M = {
+    "std": dict(STRATEGY_NOTES, **{
+        "RB": STRATEGY_NOTES["RB"].replace("0-PPR + 14 teams", "0-PPR + {teams} teams"),
+    }),
+    "half": dict(STRATEGY_NOTES, **{
+        "RB": ("Half PPR in a {teams}-team league: RB scarcity still bites, and "
+               "pass-catching backs (REC-BACK) add a steady half-point-per-catch "
+               "floor. Anchor early (Hero-RB) and secure starters before the tier "
+               "cliffs; three-down roles still rule."),
+        "WR": ("Deep position, and receptions now pay. Chase target share and "
+               "yards-per-route-run; WRs are a fine flex alongside RBs. Late "
+               "rounds: throw darts at high-ceiling WRs, not safe floors."),
+    }),
+    "full": dict(STRATEGY_NOTES, **{
+        "RB": ("Full PPR in a {teams}-team league: receptions make satellite and "
+               "pass-catching backs startable, and WRs outscore RBs at the flex. "
+               "Hero-RB and Zero-RB are both live — don't force early RBs "
+               "without receiving work."),
+        "WR": ("WRs gain the most in full PPR — a WR-heavy start is a winning "
+               "build and the flex leans WR. Chase target share above all. Late "
+               "rounds: high-ceiling darts over safe floors."),
+    }),
+}
+
+# One-liner surfaced on the Strategy tab explaining the flex lean per format.
+FLEX_NOTES = {
+    "std": "Flex leans RB in standard — their floor wins 0-PPR. Baked into the VOR baselines.",
+    "half": "Flex is balanced RB/WR in half PPR. Baked into the VOR baselines.",
+    "full": "Flex leans WR in full PPR — WRs outscore RBs per game. Baked into the VOR baselines.",
+}
+
+ADP_NOTE = ("Rankings/ADP are standard-market; PPR shifts the value columns "
+            "(VOR, tiers), not the board order.")
 
 
 def num(s):
@@ -113,11 +185,18 @@ def load_rankings():
 
 
 def load_projections():
-    proj = {}
+    """Returns (proj_pts by name, projected receptions by name).
+
+    The rec column is optional (older pulls lack it) -- without it the board is
+    built with ppr_available=False and the app disables the PPR options."""
+    proj, rec = {}, {}
     with open(os.path.join(DATA, "projections_std.csv")) as f:
         for r in csv.DictReader(f):
-            proj[r["name"].strip()] = num(r["proj_pts"])
-    return proj
+            name = r["name"].strip()
+            proj[name] = num(r["proj_pts"])
+            if "rec" in r:
+                rec[name] = num(r["rec"])
+    return proj, rec
 
 
 def load_rookies():
@@ -264,13 +343,106 @@ def add_context_tags(players):
             p["context"].append("ROOKIE")
 
 
+def proj_for(p, scoring):
+    """Projected points under a scoring format. PPR is exact math on top of the
+    standard projection: half = +0.5/rec, full = +1/rec. Missing rec -> 0 recs
+    (deep-bench players only; the build warns if anyone draftable lacks it)."""
+    if p["proj_pts"] is None:
+        return None
+    if scoring == "std":
+        return p["proj_pts"]
+    return round(p["proj_pts"] + REC_PPR[scoring] * (p["rec"] or 0), 1)
+
+
+def add_variants(players, ppr_available):
+    """Value layer for every (scoring x team-count) combo, stored ALONGSIDE the
+    legacy fields -- which stay byte-identical to a pre-config-era build. The
+    std/14-team slices are asserted equal to the legacy fields, so the default
+    config is structurally the old board."""
+    scorings = SCORING_OPTIONS if ppr_available else ["std"]
+    positions = set(p["pos"] for p in players)
+    repl_rank_m = {s: {} for s in scorings}
+    repl_pts_m = {s: {} for s in scorings}
+
+    for p in players:
+        p["vor_m"] = {}
+        p["value_tier_m"] = {}
+        if ppr_available:
+            p["proj_m"] = {s: proj_for(p, s) for s in ("half", "full")}
+            p["pos_tier_m"] = {}
+
+    for scoring in scorings:
+        pts = {p["name"]: proj_for(p, scoring) for p in players}
+
+        # within-position tiers depend on scoring only (same algorithm/sort as legacy)
+        if scoring != "std":
+            for pos in positions:
+                grp = [p for p in players if p["pos"] == pos]
+                grp.sort(key=lambda x: (pts[x["name"]] is None, -(pts[x["name"]] or 0), x["ecr"]))
+                vals = [pts[g["name"]] for g in grp if pts[g["name"]] is not None]
+                tiers = natural_break_tiers(vals) if vals else []
+                ti = 0
+                for g in grp:
+                    if pts[g["name"]] is not None:
+                        g["pos_tier_m"][scoring] = tiers[ti]; ti += 1
+                    else:
+                        g["pos_tier_m"][scoring] = None
+
+        for teams in TEAM_OPTIONS:
+            ranks = replacement_ranks(teams, scoring)
+            for pos, rank in ranks.items():
+                vals = sorted([pts[p["name"]] for p in players
+                               if p["pos"] == pos and pts[p["name"]] is not None],
+                              reverse=True)
+                if vals:
+                    repl_pts_m[scoring].setdefault(pos, []).append(round(vals[min(rank, len(vals)) - 1], 1))
+                repl_rank_m[scoring].setdefault(pos, []).append(rank)
+            base = {pos: v[-1] for pos, v in repl_pts_m[scoring].items()}
+
+            for p in players:
+                pv = pts[p["name"]]
+                b = base.get(p["pos"])
+                p["vor_m"].setdefault(scoring, []).append(
+                    round(pv - b, 1) if (pv is not None and b is not None) else None)
+
+            # cross-positional value tiers on this combo's VOR (same sort as legacy)
+            cur = [p for p in players if p["vor_m"][scoring][-1] is not None]
+            cur.sort(key=lambda x: -x["vor_m"][scoring][-1])
+            vt = natural_break_tiers([p["vor_m"][scoring][-1] for p in cur])
+            tier_of = {id(p): t for p, t in zip(cur, vt)}
+            for p in players:
+                p["value_tier_m"].setdefault(scoring, []).append(tier_of.get(id(p)))
+
+    # self-check: the std/14 slice must equal the legacy fields exactly
+    i14 = TEAM_OPTIONS.index(14)
+    for p in players:
+        assert p["vor_m"]["std"][i14] == p["vor"], (p["name"], p["vor_m"]["std"][i14], p["vor"])
+        assert p["value_tier_m"]["std"][i14] == p["value_tier"], (p["name"],)
+    return repl_rank_m, repl_pts_m
+
+
 def build():
     players = load_rankings()
-    proj = load_projections()
+    proj, rec = load_projections()
 
-    # 1) JOIN projections
+    # 1) JOIN projections (+ projected receptions for the PPR value layer)
     for p in players:
         p["proj_pts"] = proj.get(p["name"])
+        p["rec"] = rec.get(p["name"])
+
+    ppr_available = any(v is not None for v in rec.values())
+    if ppr_available:
+        no_rec = [p for p in players
+                  if p["pos"] in ("RB", "WR", "TE") and p["ecr"] is not None
+                  and p["ecr"] <= 170 and p["rec"] is None and p["proj_pts"] is not None]
+        if no_rec:
+            print("WARNING: draftable players missing rec (treated as 0 receptions "
+                  "in PPR):")
+            for p in no_rec:
+                print("  ECR %3d %s (%s)" % (p["ecr"], p["name"], p["pos"]))
+    else:
+        print("NOTE: no rec column in projections_std.csv -- board built with "
+              "ppr_available=false (app will disable Half/Full PPR).")
 
     # 2) REPLACEMENT points per position (Nth-best projection at that position)
     repl_pts = {}
@@ -331,6 +503,10 @@ def build():
     add_strategy_tags(players)
     add_context_tags(players)
 
+    # 8) VALUE-LAYER VARIANTS for every (scoring x team-count) the app offers.
+    # Runs before the final sort so tie-handling matches the legacy pass above.
+    repl_rank_m, repl_pts_m = add_variants(players, ppr_available)
+
     # ORDER by ECR -- the fixed spine. Nothing above re-sorted this.
     players.sort(key=lambda x: x["ecr"])
 
@@ -349,6 +525,20 @@ def build():
                 "rec_back_pts": REC_BACK_PTS, "konami_rush_pts": KONAMI_RUSH_PTS,
                 "pocket_rush_pts": POCKET_RUSH_PTS, "committee_ecr_gap": COMMITTEE_ECR_GAP,
             },
+            # --- league-config layer (additive; legacy keys above are the 14-team
+            # standard defaults and stay byte-identical to pre-config builds) ---
+            "team_options": TEAM_OPTIONS,
+            "scoring_options": SCORING_OPTIONS if ppr_available else ["std"],
+            "scoring_labels": SCORING_LABELS,
+            "default_config": {"teams": 14, "scoring": "std", "rounds": 18},
+            "ppr_available": ppr_available,
+            "replacement_rank_m": repl_rank_m,
+            "replacement_pts_m": repl_pts_m,
+            "flex_share": {s: {k: round(v, 4) for k, v in FLEX_SHARE[s].items()}
+                           for s in (SCORING_OPTIONS if ppr_available else ["std"])},
+            "strategy_notes_m": STRATEGY_NOTES_M if ppr_available else {"std": STRATEGY_NOTES_M["std"]},
+            "flex_notes": FLEX_NOTES,
+            "adp_note": ADP_NOTE,
             "tag_legend": {
                 "REC-BACK": "Pass-catching RB (JJ's top early-RB trait)",
                 "COMMITTEE": "Ambiguous backfield — middle-round upside",
