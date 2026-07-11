@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Draft Day">
-<title>Draft Day — 14-team Standard</title>
+<title>Draft Day</title>
 <style>
   :root{
     --bg:#0e1116;--panel:#171c24;--panel2:#1f2632;--line:#2a323f;
@@ -97,9 +97,16 @@
   .legrow .lk{flex:0 0 104px;display:flex;}
   .legrow .ld{flex:1;font-size:12px;color:var(--dim);line-height:1.45;}
   /* setup overlay */
-  #setup{position:fixed;inset:0;background:var(--bg);z-index:50;display:flex;flex-direction:column;justify-content:center;padding:24px;}
+  #setup{position:fixed;inset:0;background:var(--bg);z-index:50;overflow-y:auto;padding:max(24px,env(safe-area-inset-top)) 24px 40px;}
   #setup h1{font-size:20px;margin:0 0 6px;}
-  #setup p{color:var(--dim);font-size:14px;margin:0 0 18px;line-height:1.5;}
+  #setup p{color:var(--dim);font-size:14px;margin:0 0 6px;line-height:1.5;}
+  .setlbl{font-size:11px;font-weight:800;color:var(--dim);letter-spacing:.5px;margin:16px 0 7px;}
+  .optrow{display:flex;gap:8px;flex-wrap:wrap;}
+  .optrow button{flex:1;min-width:52px;background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:11px 0;font-size:14px;font-weight:700;}
+  .optrow button.on{background:var(--accent);color:#06131f;border-color:var(--accent);}
+  .optrow button:disabled{opacity:.35;}
+  .optrow input{width:96px;background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:11px;font-size:15px;font-weight:700;text-align:center;}
+  #setupNote{margin-top:10px;font-size:12px;}
   .slotgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;}
   .slotgrid button{background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:14px 0;font-size:16px;font-weight:700;}
   .slotgrid button:active{background:var(--accent);color:#06131f;}
@@ -115,14 +122,22 @@
 </div>
 
 <div id="setup">
-  <h1>What's your draft slot?</h1>
-  <p>Pick your seat in the 14-team snake. The app uses this to track every team's roster, know whose turn it is, and figure out how many picks until you're back up.</p>
+  <h1>League setup</h1>
+  <p>Set your league, then tap your draft seat to start. The app tracks every team's roster, whose turn it is, and how many picks until you're back up.</p>
+  <div class="setlbl">TEAMS</div>
+  <div class="optrow" id="optTeams"></div>
+  <div class="setlbl">SCORING</div>
+  <div class="optrow" id="optScoring"></div>
+  <div class="setlbl">ROSTER SPOTS PER TEAM (ROUNDS)</div>
+  <div class="optrow"><input type="number" id="optRounds" min="10" max="24" inputmode="numeric"></div>
+  <div id="setupNote" class="note hidden"></div>
+  <div class="setlbl" id="seatLbl">YOUR SEAT IN THE SNAKE</div>
   <div class="slotgrid" id="slotgrid"></div>
 </div>
 
 <header>
   <div class="hrow">
-    <div class="htitle">Draft Day <small>14-tm · Standard</small></div>
+    <div class="htitle">Draft Day <small id="fmtLabel">14-tm · Standard</small></div>
     <div style="display:flex;gap:6px;">
       <button class="btn-sm" id="legendBtn">ⓘ Key</button>
       <button class="btn-sm" id="undoBtn">↶ Undo</button>
@@ -165,18 +180,50 @@
 const BOARD=__BOARD_JSON__;
 /*ENGINE-START*/
 const PLAYERS=BOARD.players, META=BOARD.meta;
-const TEAMS=META.teams, STARTERS=META.starters, FLEXPOS=META.flex_positions;
+const STARTERS=META.starters, FLEXPOS=META.flex_positions;
 const POSCOLOR={QB:'var(--qb)',RB:'var(--rb)',WR:'var(--wr)',TE:'var(--te)',K:'var(--k)',DST:'var(--dst)'};
 const PMAP={}; PLAYERS.forEach(p=>PMAP[p.name]=p);
 const LS='draftday_v2';
+const DEFAULT_CFG=META.default_config||{teams:14,scoring:'std',rounds:18};
 
-// tuning
-const SPREAD=11, PSHIFT=2.6;                 // ADP survival noise; pressure shift per needy team
-const ROSTER_SLOTS=18;                        // total picks per team (starters + bench)
+// League config (teams / scoring / rounds) is chosen at setup and drives
+// everything below. PSHIFT is per-team pressure and doesn't scale with size.
+const PSHIFT=2.6;                             // pressure shift per needy team
+let TEAMS,ROSTER_SLOTS,SCORING,SPREAD,G;      // set by applyCfg()
 
 let state=load();
-function load(){try{return JSON.parse(localStorage.getItem(LS))||{slot:null,picks:[]};}catch(e){return {slot:null,picks:[]};}}
+function load(){
+  let s;try{s=JSON.parse(localStorage.getItem(LS))||{};}catch(e){s={};}
+  if(!Array.isArray(s.picks))s.picks=[];
+  if(s.slot===undefined)s.slot=null;
+  // pre-config saves were implicitly 14-team standard 18 rounds -- lossless migration
+  if(!s.cfg)s.cfg={teams:DEFAULT_CFG.teams,scoring:DEFAULT_CFG.scoring||'std',rounds:DEFAULT_CFG.rounds};
+  return s;
+}
 function save(){localStorage.setItem(LS,JSON.stringify(state));}
+function applyCfg(){
+  if(!META.ppr_available&&state.cfg.scoring!=='std')state.cfg.scoring='std';
+  TEAMS=state.cfg.teams;ROSTER_SLOTS=state.cfg.rounds;SCORING=state.cfg.scoring;
+  SPREAD=11*TEAMS/14;                         // ADP survival noise, in picks (=11 at 14 teams)
+  // round gates anchored to the original 18-round constants, scaled off the end
+  // of the draft (K/DST and the TE dead zone are about the LAST rounds).
+  G={kdstRec:Math.max(ROSTER_SLOTS-7,6),      // recommend K/DST from here (11 @18)
+     kdstFill:Math.max(ROSTER_SLOTS-6,6),     // K/DST counts as an open starter (12 @18)
+     kdstLate:Math.max(ROSTER_SLOTS-5,6),     // K/DST becomes urgent (13 @18)
+     teDead:Math.max(ROSTER_SLOTS-7,6)};      // TE dead zone ends here (11 @18)
+}
+applyCfg();
+// per-config value accessors: the board freezes a value layer for every
+// (scoring x team-count) combo; the std/14 slice is build-asserted equal to the
+// legacy fields, so reading the matrix is byte-identical at the default config.
+const TI=()=>META.team_options?META.team_options.indexOf(TEAMS):-1;
+function pVor(p){const m=p.vor_m;return (m&&m[SCORING]&&TI()>=0)?m[SCORING][TI()]:p.vor;}
+function pPosTier(p){if(SCORING==='std')return p.pos_tier;const m=p.pos_tier_m;return m?m[SCORING]:p.pos_tier;}
+function pValueTier(p){const m=p.value_tier_m;return (m&&m[SCORING]&&TI()>=0)?m[SCORING][TI()]:p.value_tier;}
+// scoring tilts (guide: receptions pay pass-catching backs directly; full PPR
+// flexes lean WR and make Zero-RB starts viable). All x1 at standard.
+const RECBACK_MULT={std:1.12,half:1.15,full:1.18};
+const FLEXW={std:{RB:1,WR:1,TE:1},half:{RB:1,WR:1.03,TE:1},full:{RB:0.94,WR:1.06,TE:1}};
 let view='rec',posFilter='ALL',query='';
 
 // ---- snake math
@@ -186,7 +233,7 @@ function draftedSet(){return new Set(state.picks);}
 function avail(){const d=draftedSet();return PLAYERS.filter(p=>!d.has(p.name));}
 // how drained the STARTABLE (positive-VOR) pool is, 0..1. League-size agnostic:
 // in a 14-team it crosses ~0.6 by round 4-5 and ~0.85 by round 6 — players drop fast.
-function poolDepth(){let tot=0,gone=0;const d=draftedSet();PLAYERS.forEach(p=>{if(p.vor!=null&&p.vor>0){tot++;if(d.has(p.name))gone++;}});return tot?gone/tot:1;}
+function poolDepth(){let tot=0,gone=0;const d=draftedSet();PLAYERS.forEach(p=>{const v=pVor(p);if(v!=null&&v>0){tot++;if(d.has(p.name))gone++;}});return tot?gone/tot:1;}
 function teamRoster(team){const c={QB:0,RB:0,WR:0,TE:0,K:0,DST:0,list:[]};state.picks.forEach((nm,i)=>{if(teamOnClock(i)===team){const p=PMAP[nm];if(p){if(c[p.pos]!=null)c[p.pos]++;c.list.push(p);}}});return c;}
 function myCounts(){return teamRoster(state.slot);}
 function curIdx(){return state.picks.length;}
@@ -196,14 +243,14 @@ function roundPick(idx0){return {round:Math.floor(idx0/TEAMS)+1,pick:(idx0%TEAMS
 // ---- need
 function flexUsed(c){return Math.max(0,c.RB-STARTERS.RB)+Math.max(0,c.WR-STARTERS.WR)+Math.max(0,c.TE-STARTERS.TE);}
 function needWeight(pos){const c=myCounts(),r=roundPick(curIdx()).round;
-  if(pos==='K'||pos==='DST'){if(c[pos]>=1)return 0.04;return r>=13?1.2:(r>=11?0.45:0.1);}
+  if(pos==='K'||pos==='DST'){if(c[pos]>=1)return 0.04;return r>=G.kdstLate?1.2:(r>=G.kdstRec?0.45:0.1);}
   if(c[pos]<(STARTERS[pos]||0))return 1.0;
-  if(FLEXPOS.includes(pos)&&flexUsed(c)<STARTERS.FLEX)return 0.7;
+  if(FLEXPOS.includes(pos)&&flexUsed(c)<STARTERS.FLEX)return 0.7*(FLEXW[SCORING][pos]||1);
   return 0.32;}
 function fillsOpenStarter(p){const c=myCounts();
-  if(p.pos==='K'||p.pos==='DST')return c[p.pos]<(STARTERS[p.pos]||0)&&roundPick(curIdx()).round>=12;
+  if(p.pos==='K'||p.pos==='DST')return c[p.pos]<(STARTERS[p.pos]||0)&&roundPick(curIdx()).round>=G.kdstFill;
   return c[p.pos]<(STARTERS[p.pos]||0);}
-function tierRemaining(p){const a=avail();return a.filter(q=>q.pos===p.pos&&q.pos_tier===p.pos_tier).length;}
+function tierRemaining(p){const a=avail(),t=pPosTier(p);return a.filter(q=>q.pos===p.pos&&pPosTier(q)===t).length;}
 
 // ---- draft-flow: who picks before my next turn, and what they need
 function planContext(){
@@ -235,8 +282,9 @@ function scoreOf(p,ctx){
   const r=roundPick(ctx.planIdx).round;
   const w=needWeight(p.pos);
   const tags=p.strategy||[];
-  const deadTE = p.pos==='TE' && !tags.includes('ELITE-TE') && r<11;
-  const base=(p.vor!=null)?p.vor:Math.max(0,55-p.ecr*0.35);
+  const deadTE = p.pos==='TE' && !tags.includes('ELITE-TE') && r<G.teDead;
+  const vor=pVor(p);
+  const base=(vor!=null)?vor:Math.max(0,55-p.ecr*0.35);
   // value floor: even "depth" picks keep ~a third of their value, so genuine
   // best-available upside surfaces when your only open need is one you should wait on.
   let s=Math.max(0,base)*(w+0.30); const reasons=[];
@@ -246,8 +294,8 @@ function scoreOf(p,ctx){
   else if(FLEXPOS.includes(p.pos)&&w>=0.7)reasons.push('flex value');
   else if(w<=0.32)reasons.push(`depth (${p.pos} set)`);
 
-  const rem=tierRemaining(p);
-  if(p.pos_tier!=null&&rem<=2&&w>=0.7&&!deadTE){s+=20;reasons.push(rem===1?`last of the ${p.pos} tier ${p.pos_tier} cliff`:`only ${rem} left in this ${p.pos} tier`);}
+  const rem=tierRemaining(p),ptier=pPosTier(p);
+  if(ptier!=null&&rem<=2&&w>=0.7&&!deadTE){s+=20;reasons.push(rem===1?`last of the ${p.pos} tier ${ptier} cliff`:`only ${rem} left in this ${p.pos} tier`);}
   // pick-relative value: how far past his ADP has he lasted at YOUR pick? A deep guy
   // whose ADP is 100 picks away yields a negative here, so he's not a false "value".
   const fellPastADP = (p.adp!=null) ? ctx.planOverall - p.adp : null;
@@ -273,12 +321,13 @@ function scoreOf(p,ctx){
   if(p.pos==='QB'){
     if(tags.includes('POCKET')){s*=0.72;reasons.push('pocket passer — fades vs ADP');}
     if(tags.includes('KONAMI'))reasons.push('rushing floor (Konami)');
-    if(ctx.depth<0.78 && !(tags.includes('KONAMI')&&(p.value_vs_adp||0)>=6)){s*=0.62;reasons.push('QB can wait in a 14-team');}
+    if(ctx.depth<0.78 && !(tags.includes('KONAMI')&&(p.value_vs_adp||0)>=6)){s*=0.62;reasons.push(`QB can wait in a ${TEAMS}-team`);}
   }
   if(p.pos==='RB'){
-    if(tags.includes('REC-BACK')){s*=1.12;reasons.push('pass-catching back');}
+    if(tags.includes('REC-BACK')){s*=RECBACK_MULT[SCORING];reasons.push('pass-catching back');}
     if(tags.includes('COMMITTEE')&&ctx.depth>=0.40){s*=1.07;reasons.push('ambiguous backfield upside');}
-    if(r<=2&&myCounts().RB===0){s*=1.07;reasons.push('anchor a RB first');}
+    // full PPR: WR-heavy / Zero-RB starts are live -- don't push an early anchor
+    if(SCORING!=='full'&&r<=2&&myCounts().RB===0){s*=1.07;reasons.push('anchor a RB first');}
     // handcuff: contingent league-winner -- a mid/late bench swing, not an early pick
     if(tags.includes('HANDCUFF')&&ctx.depth>=0.5){s*=1.08;reasons.push(`handcuff to ${p.handcuff_to||'the starter'} — pays off if he's hurt`);}
   }
@@ -315,12 +364,12 @@ function avoided(p,ctx){
   const r=roundPick(ctx.planIdx).round;
   // TE dead zone: don't recommend a non-elite TE before the very late rounds, even if
   // a TE run is on -- they're fungible, so "he won't last" is not a reason to grab one.
-  if(p.pos==='TE' && !(p.strategy||[]).includes('ELITE-TE') && r<11) return true;
+  if(p.pos==='TE' && !(p.strategy||[]).includes('ELITE-TE') && r<G.teDead) return true;
   return false;
 }
 function recommendations(){
   const ctx=planContext(), r=roundPick(ctx.planIdx).round;
-  let pool=avail().filter(p=>!((p.pos==='K'||p.pos==='DST')&&r<11) && !avoided(p,ctx));
+  let pool=avail().filter(p=>!((p.pos==='K'||p.pos==='DST')&&r<G.kdstRec) && !avoided(p,ctx));
   const scored=pool.map(p=>({p,...scoreOf(p,ctx)})).sort((a,b)=>b.s-a.s);
   return {ctx,list:scored.slice(0,6)};
 }
@@ -352,7 +401,8 @@ function tagHtml(p){
 }
 function metricsRow(p,refPick,nextPick){
   let m=`<span class="m">ECR <b>${p.ecr}</b></span><span class="m">${p.pos_rank}</span>`;
-  if(p.vor!=null)m+=`<span class="m">VOR <b>${p.vor}</b></span>`;
+  const mv=pVor(p);
+  if(mv!=null)m+=`<span class="m">VOR <b>${mv}</b></span>`;
   if(p.adp!=null)m+=`<span class="m">ADP <b>${p.adp}</b></span>`;
   if(p.bye)m+=`<span class="m">bye ${p.bye}</span>`;
   // VALUE = lasted past his ADP at THIS pick (a bargain now).
@@ -368,8 +418,9 @@ function badge(p){return `<div class="posbadge" style="background:${POSCOLOR[p.p
 function pickBtn(p){const lbl=myTurn()?'＋ My Pick':'Drafted →';const cls=myTurn()?'btn-pick':'btn-log';return `<div class="acts"><button class="btn ${cls}" data-pick="${p.name}">${lbl}</button></div>`;}
 function card(p,extra,why,withBtn,badges,refPick,nextPick){
   const c=el('div','card '+(extra||''));
+  const vt=pValueTier(p);
   c.innerHTML=`<div class="pl">${badge(p)}<div class="info"><div class="nm">${p.name}</div>
-    <div class="sub">${p.team} · ${p.pos_rank}${p.value_tier?' · val tier '+p.value_tier:''}</div></div></div>
+    <div class="sub">${p.team} · ${p.pos_rank}${vt?' · val tier '+vt:''}</div></div></div>
     <div class="metrics">${badges||''}${metricsRow(p,refPick,nextPick)}</div>${why||''}${withBtn?pickBtn(p):''}`;
   return c;
 }
@@ -404,8 +455,11 @@ function renderRec(){
   const {ctx,list}=recommendations();
   const box=document.getElementById('recList');box.innerHTML='';
   const c=myCounts(),rr=roundPick(ctx.planIdx).round;
+  if(SCORING!=='std'){
+    box.appendChild(el('div','note',`<b>${(META.scoring_labels||{})[SCORING]||SCORING} values active.</b> ${META.adp_note||''}`));
+  }
   const openNeeds=['QB','RB','WR','TE'].filter(pos=>c[pos]<(STARTERS[pos]||0));
-  if(openNeeds.length===1&&openNeeds[0]==='TE'&&rr<11){
+  if(openNeeds.length===1&&openNeeds[0]==='TE'&&rr<G.teDead){
     box.appendChild(el('div','note',"<b>Your only open starter is TE — and it's the dead zone.</b> These TEs are no more predictable than ones 50 picks later, so take the best upside (WR/RB) now and grab a TE in the final rounds."));
   }
   list.forEach((r,i)=>{
@@ -423,12 +477,13 @@ function renderBoard(){
   // ALL view = consensus (ECR) order. A single position = TIER order (by VOR/projection),
   // so the tier headers read 1 -> 2 -> 3 monotonically instead of bouncing around.
   if(posFilter==='ALL') ps.sort((a,b)=>a.ecr-b.ecr);
-  else ps.sort((a,b)=>{const av=(a.vor==null?-1e9:a.vor),bv=(b.vor==null?-1e9:b.vor);return bv-av||a.ecr-b.ecr;});
+  else ps.sort((a,b)=>{const ax=pVor(a),bx=pVor(b),av=(ax==null?-1e9:ax),bv=(bx==null?-1e9:bx);return bv-av||a.ecr-b.ecr;});
   const ci=curIdx(), refPick=ci+1;
   const nextPick=(teamOnClock(ci)===state.slot ? myNextIdx(ci+1) : myNextIdx(ci))+1;
   let lastTier=null;
   ps.forEach(p=>{
-    if(posFilter!=='ALL'&&p.pos_tier!=null&&p.pos_tier!==lastTier){list.appendChild(el('div','tierhead',`<span>${posFilter} TIER ${p.pos_tier}</span><div class="ln"></div>`));lastTier=p.pos_tier;}
+    const pt=pPosTier(p);
+    if(posFilter!=='ALL'&&pt!=null&&pt!==lastTier){list.appendChild(el('div','tierhead',`<span>${posFilter} TIER ${pt}</span><div class="ln"></div>`));lastTier=pt;}
     list.appendChild(card(p,'',null,true,'',refPick,nextPick));
   });
   if(!ps.length)list.appendChild(el('div','empty','Nobody matches.'));
@@ -440,7 +495,7 @@ function renderTeam(){
   for(let i=0;i<STARTERS.FLEX;i++){const pk=ml.find(p=>FLEXPOS.includes(p.pos)&&!used.has(p.name));if(pk)used.add(pk.name);slots.push(['FLEX',pk]);}
   [['K',STARTERS.K],['DST',STARTERS.DST]].forEach(([pos,n])=>{for(let i=0;i<n;i++){const pk=ml.find(p=>p.pos===pos&&!used.has(p.name));if(pk)used.add(pk.name);slots.push([pos,pk]);}});
   const cd=el('div','card');cd.innerHTML='<div class="sub" style="color:var(--dim);font-size:12px;margin-bottom:4px">STARTING LINEUP</div>';
-  slots.forEach(([lbl,p])=>{const row=el('div','slot');row.innerHTML=`<div class="slotlbl">${lbl}</div>`+(p?`<div style="flex:1"><span class="nm" style="font-weight:700">${p.name}</span> <span class="sub" style="color:var(--dim)">${p.team} ${p.pos_rank} · VOR ${p.vor??'—'}</span></div>`:'<div class="empty">— open —</div>');cd.appendChild(row);});
+  slots.forEach(([lbl,p])=>{const row=el('div','slot');row.innerHTML=`<div class="slotlbl">${lbl}</div>`+(p?`<div style="flex:1"><span class="nm" style="font-weight:700">${p.name}</span> <span class="sub" style="color:var(--dim)">${p.team} ${p.pos_rank} · VOR ${pVor(p)??'—'}</span></div>`:'<div class="empty">— open —</div>');cd.appendChild(row);});
   v.appendChild(cd);
   const bench=ml.filter(p=>!used.has(p.name));
   if(bench.length){const b=el('div','card');b.innerHTML='<div class="sub" style="color:var(--dim);font-size:12px;margin-bottom:6px">BENCH</div>';bench.forEach(p=>{const row=el('div','slot');row.innerHTML=`<div class="slotlbl">${p.pos}</div><div style="flex:1"><span class="nm" style="font-weight:700">${p.name}</span> <span class="sub" style="color:var(--dim)">${p.team} ${p.pos_rank}</span></div>`;b.appendChild(row);});v.appendChild(b);}
@@ -448,14 +503,16 @@ function renderTeam(){
 }
 function renderStrat(){
   const v=document.getElementById('stratView');v.innerHTML='';
-  ['RB','WR','QB','TE','K','DST'].forEach(pos=>{if(!META.strategy_notes[pos])return;const cd=el('div','card');cd.innerHTML=`<div class="pl"><div class="posbadge" style="background:${POSCOLOR[pos]}">${pos}</div><div class="info"><div class="nm">${pos} strategy</div></div></div><div class="why" style="color:var(--dim)">${META.strategy_notes[pos]}</div>`;v.appendChild(cd);});
+  const notes=(META.strategy_notes_m&&META.strategy_notes_m[SCORING])||META.strategy_notes;
+  if(META.flex_notes&&META.flex_notes[SCORING])v.appendChild(el('div','lean',`<b>Flex.</b> ${META.flex_notes[SCORING]}`));
+  ['RB','WR','QB','TE','K','DST'].forEach(pos=>{if(!notes[pos])return;const txt=notes[pos].replace(/\{teams\}/g,TEAMS);const cd=el('div','card');cd.innerHTML=`<div class="pl"><div class="posbadge" style="background:${POSCOLOR[pos]}">${pos}</div><div class="info"><div class="nm">${pos} strategy</div></div></div><div class="why" style="color:var(--dim)">${txt}</div>`;v.appendChild(cd);});
   const m=el('div','note');let leg='';Object.entries(META.tag_legend||{}).forEach(([k,d])=>leg+=`<b>${k}</b> — ${d}<br>`);
   m.innerHTML=`<b>Tags (from JJ's guide, recomputed on current data):</b><br>${leg}<br><b>How it recommends:</b> consensus VOR + value, weighted by your roster needs and by how likely a player is gone before your next pick (ADP + how many upcoming teams need his position). The strategy rules above tilt it — e.g. it suppresses dead-zone TEs and pocket QBs, and rewards pass-catching backs.`;
   v.appendChild(m);
 }
 function render(){
   document.getElementById('setup').classList.toggle('hidden',state.slot!=null);
-  if(state.slot==null)return;
+  if(state.slot==null){if(!pendingCfg)buildSetup();return;}
   const ci=curIdx(),rp=roundPick(ci);
   document.getElementById('slotN').textContent=state.slot;
   document.getElementById('roundN').textContent=rp.round;
@@ -487,13 +544,47 @@ function logUnlisted(){
 }
 function pickLabel(nm){return nm.indexOf('UNLISTED::')===0?nm.slice(10).replace(/#\d+$/,''):nm.split(' ').slice(-1)[0];}
 function buildChips(){const w=document.getElementById('chips');w.innerHTML='';['ALL','QB','RB','WR','TE','K','DST'].forEach(p=>{const c=el('div','chip'+(p===posFilter?' on':''),p);c.onclick=()=>{posFilter=p;buildChips();render();};w.appendChild(c);});}
-function buildSlots(){const g=document.getElementById('slotgrid');g.innerHTML='';for(let i=1;i<=TEAMS;i++){const b=el('button',null,i);b.onclick=()=>{state.slot=i;save();render();};g.appendChild(b);}}
+
+// ---- league setup overlay (teams / scoring / rounds / seat)
+const SHORT_LBL={std:'Standard',half:'Half PPR',full:'Full PPR'};
+let pendingCfg=null;
+function buildSetup(){pendingCfg=Object.assign({},state.cfg);renderSetup();}
+function renderSetup(){
+  const tw=document.getElementById('optTeams');tw.innerHTML='';
+  (META.team_options||[14]).forEach(n=>{const b=el('button',n===pendingCfg.teams?'on':null,n);
+    b.onclick=()=>{pendingCfg.teams=n;renderSetup();};tw.appendChild(b);});
+  const sw=document.getElementById('optScoring');sw.innerHTML='';
+  ['std','half','full'].forEach(s=>{
+    const ok=(META.scoring_options||['std']).includes(s);
+    const b=el('button',s===pendingCfg.scoring?'on':null,SHORT_LBL[s]);
+    b.disabled=!ok;b.onclick=()=>{if(!ok)return;pendingCfg.scoring=s;renderSetup();};
+    sw.appendChild(b);});
+  const ri=document.getElementById('optRounds');ri.value=pendingCfg.rounds;
+  ri.onchange=()=>{pendingCfg.rounds=Math.max(10,Math.min(24,parseInt(ri.value,10)||18));ri.value=pendingCfg.rounds;};
+  const note=document.getElementById('setupNote');
+  if(!META.ppr_available){note.classList.remove('hidden');
+    note.innerHTML='<b>PPR options disabled:</b> re-pull projections with a <b>rec</b> column and rebuild the board to enable them.';}
+  else if(pendingCfg.scoring!=='std'){note.classList.remove('hidden');
+    note.innerHTML=`<b>${SHORT_LBL[pendingCfg.scoring]}.</b> ${META.adp_note||''}`;}
+  else note.classList.add('hidden');
+  document.getElementById('seatLbl').textContent=`YOUR SEAT IN THE ${pendingCfg.teams}-TEAM SNAKE`;
+  const g=document.getElementById('slotgrid');g.innerHTML='';
+  for(let i=1;i<=pendingCfg.teams;i++){const b=el('button',null,i);
+    b.onclick=()=>{state.cfg=Object.assign({},pendingCfg);state.slot=i;state.picks=[];pendingCfg=null;
+      applyCfg();applyLabels();save();render();};
+    g.appendChild(b);}
+}
+function applyLabels(){
+  const s=SHORT_LBL[SCORING]||SCORING;
+  document.getElementById('fmtLabel').textContent=`${TEAMS}-tm · ${s}`;
+  document.title=`Draft Day — ${TEAMS}-team ${s}`;
+}
 function buildLegend(){
   const L=META.tag_legend||{};
   function row(badge,desc){return `<div class="legrow"><div class="lk">${badge}</div><div class="ld">${desc}</div></div>`;}
   let h='<div class="legsec">THE NUMBERS</div>';
   h+=row('<span class="m">ECR</span>','Expert Consensus Rank — the fixed FantasyPros draft order (40+ experts). The backbone; never re-ranked.');
-  h+=row('<span class="m">VOR</span>','Value Over Replacement — projected points above a freely-available player at that position. Higher = scarcer and more valuable (why elite RBs dominate in standard).');
+  h+=row('<span class="m">VOR</span>','Value Over Replacement — projected points above a freely-available player at that position. Higher = scarcer and more valuable — recomputed for your league size and scoring.');
   h+=row('<span class="m">ADP</span>','Average Draft Position — where the field typically drafts him.');
   h+=row('<span class="m">val tier</span>','Cross-positional value tier (by VOR). Same tier ≈ same value, even across positions.');
   h+=row('<span class="m">bye</span>','Bye week.');
@@ -518,11 +609,11 @@ document.getElementById('search').addEventListener('input',e=>{query=e.target.va
 document.getElementById('undoBtn').addEventListener('click',undo);
 document.getElementById('unlistedBtn').addEventListener('click',logUnlisted);
 document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('Reset the whole draft (keeps your seat)?')){state.picks=[];save();render();}});
-document.getElementById('slotPill').addEventListener('click',()=>{if(confirm('Change your draft seat? This clears logged picks.')){state.slot=null;state.picks=[];save();render();}});
+document.getElementById('slotPill').addEventListener('click',()=>{if(confirm('Change league setup or seat? This clears logged picks.')){state.slot=null;state.picks=[];pendingCfg=null;save();render();}});
 document.getElementById('legendBtn').addEventListener('click',()=>document.getElementById('legend').classList.remove('hidden'));
 document.getElementById('legendClose').addEventListener('click',()=>document.getElementById('legend').classList.add('hidden'));
 
-buildSlots();buildChips();buildLegend();render();
+applyLabels();buildChips();buildLegend();render();
 </script>
 </body>
 </html>
