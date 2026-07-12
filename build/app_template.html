@@ -615,5 +615,8 @@ document.getElementById('legendClose').addEventListener('click',()=>document.get
 
 applyLabels();buildChips();buildLegend();render();
 </script>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}
+</script>
 </body>
 </html>

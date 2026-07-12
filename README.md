@@ -15,12 +15,13 @@ to the config. Defaults to 14-team Standard, 18 rounds.
 | File | What it is |
 |------|-----------|
 | `draft-assistant.html` | **The thing you use on draft day.** Single self-contained file, runs fully offline in your iPhone browser. Open it, add to Home Screen, done. |
+| `index.html` | Generated copy of the app served at [alesvoy.github.io/draft-day](https://alesvoy.github.io/draft-day/). |
 | `cheatsheet.pdf` | Printable analog backup of the tiered board. Paper never crashes. **Rendered at the default config (14-team Standard)** — the app handles other configs live. |
 | `board.json` | The frozen board — the single source of truth the app reads. Carries a value layer for every (scoring × team-count) combo. |
 | `data/rankings_std.csv` | Raw pull: FantasyPros consensus rankings + ADP (Standard). |
 | `data/projections_std.csv` | Raw pull: FantasyPros projected points (Standard) **+ a `rec` column** (projected receptions — powers the PPR formats). |
 | `build/build_board.py` | Computes the layer (VOR, tiers, value/ceiling flags, per-config matrices) and writes `board.json`. |
-| `build/make_app.py` | Embeds `board.json` into the HTML template → `draft-assistant.html`. |
+| `build/make_app.py` | Embeds `board.json` into the HTML template → `draft-assistant.html` and the GitHub Pages `index.html`. |
 | `build/make_cheatsheet.py` | Renders `cheatsheet.pdf` from `board.json`. |
 | `build/app_template.html` | The app's HTML/CSS/JS (edit here, not the generated file). |
 | `build/test_parity.mjs` | Runs the app's engine through scripted drafts; compares against `build/golden/` to prove default behavior never drifts. |
@@ -104,7 +105,7 @@ Rankings/ADP/projections move all summer. To refresh:
    ```
    python3 build/build_board.py        # -> board.json
    python3 build/check_board_parity.py # optional: prove legacy fields unchanged
-   python3 build/make_app.py           # -> draft-assistant.html
+   python3 build/make_app.py           # -> draft-assistant.html + index.html
    python3 build/make_cheatsheet.py    # -> cheatsheet.pdf   (needs: pip install reportlab)
    ```
    (After a data refresh the parity check will legitimately fail — the goldens in
