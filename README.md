@@ -95,9 +95,16 @@ It never overrides a clearly elite faller just to fill a need — the tilts are 
 
 Rankings/ADP/projections move all summer. To refresh:
 
-1. Re-pull the two CSVs in `data/` from FantasyPros (Standard scoring): the
-   consensus cheatsheet for `rankings_std.csv`, the QB/RB/WR/TE projection pages
-   for `projections_std.csv`. Keep the same columns — including **`rec`**
+1. Refresh `rankings_std.csv` with the checked-in FantasyPros importer:
+   ```
+   python3 build/refresh_rankings.py
+   ```
+   It verifies that FantasyPros returned **2026 Standard** consensus rankings,
+   pulls the full ECR board, applies FantasyPros' current ECR-vs-ADP values
+   where published, and retains the prior ADP value where FantasyPros fences
+   its aggregate ADP export.
+   Re-pull `projections_std.csv` from the QB/RB/WR/TE projection pages. Keep
+   the same columns — including **`rec`**
    (projected receptions, the REC column on FantasyPros' projection pages).
    Without a `rec` column the board still builds, but the app disables the
    Half/Full PPR options.
