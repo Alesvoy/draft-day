@@ -1,0 +1,9 @@
+{
+  "last_updated": "2026-07-21T12:00:00Z",
+  "players": [
+    {"fpid": 101, "name": "Alpha Runner", "position_id": "RB", "stats": {"points": 210, "rush_yds": 1050, "rush_tds": 9, "rec_rec": 42, "rec_yds": 330, "rec_tds": 2}},
+    {"fpid": 102, "name": "Beta Receiver", "position_id": "WR", "stats": {"points": 175, "rec_rec": 75, "rec_yds": 1100, "rec_tds": 7}},
+    {"fpid": 103, "name": "Gamma Quarterback", "position_id": "QB", "stats": {"points": 300, "rush_yds": 400, "rush_tds": 4, "rec_rec": 0}},
+    {"fpid": 104, "name": "Delta Tight End", "position_id": "TE", "stats": {"points": 120, "rec_rec": 60, "rec_yds": 700, "rec_tds": 5}}
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "players": [
+    {"player_id": 101, "player_name": "Alpha Runner", "team_id": "AAA", "position_id": "RB", "rank_adp": 10, "birthdate": "1998-02-01", "age": 28},
+    {"player_id": 102, "player_name": "Beta Receiver", "team_id": "BBB", "position_id": "WR", "rank_adp": 20, "birthdate": "2000-03-01", "age": 26},
+    {"player_id": 103, "player_name": "Gamma Quarterback", "team_id": "CCC", "position_id": "QB", "birthdate": "1996-04-01", "age": 30},
+    {"player_id": 104, "player_name": "Delta Tight End", "team_id": "DDD", "position_id": "TE", "rank_adp": 40, "birthdate": "1999-05-01", "age": 27}
+  ]
+}

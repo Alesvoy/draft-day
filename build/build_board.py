@@ -16,7 +16,8 @@ Nothing here re-ranks players. ECR is the spine; everything else is a column
 that sits on top of it. Re-run any time the CSVs are refreshed.
 """
 import csv, json, os, statistics
-from datetime import date
+from datetime import date, datetime, timezone
+from risk_forecast import add_forecasts, validate_release_status
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -174,6 +175,7 @@ def load_rankings():
     with open(os.path.join(DATA, "rankings_std.csv")) as f:
         for r in csv.DictReader(f):
             rows.append({
+                "fpid": r.get("fpid", "").strip() or None,
                 "name": r["name"].strip(),
                 "team": r["team"].strip(),
                 "pos": r["pos"].strip(),
@@ -192,14 +194,18 @@ def load_projections():
 
     The rec column is optional (older pulls lack it) -- without it the board is
     built with ppr_available=False and the app disables the PPR options."""
-    proj, rec = {}, {}
+    proj, rec, ids = {}, {}, {}
     with open(os.path.join(DATA, "projections_std.csv")) as f:
         for r in csv.DictReader(f):
             name = r["name"].strip()
+            fpid = r.get("fpid", "").strip() or None
             proj[name] = num(r["proj_pts"])
+            ids[name] = fpid
+            if fpid: proj[fpid] = proj[name]
             if "rec" in r:
                 rec[name] = num(r["rec"])
-    return proj, rec
+                if fpid: rec[fpid] = rec[name]
+    return proj, rec, ids
 
 
 def load_rookies():
@@ -216,10 +222,13 @@ def load_splits():
     out = {}
     with open(os.path.join(DATA, "proj_splits.csv")) as f:
         for r in csv.DictReader(f):
-            out[r["name"].strip()] = {
+            split = {
                 "rec_yds": num(r["rec_yds"]), "rec_td": num(r["rec_td"]),
                 "rush_yds": num(r["rush_yds"]), "rush_td": num(r["rush_td"]),
             }
+            out[r["name"].strip()] = split
+            fpid = r.get("fpid", "").strip()
+            if fpid: out[fpid] = split
     return out
 
 
@@ -234,7 +243,7 @@ def add_strategy_tags(players):
     """Timeless per-position strategy from the guide, recomputed on the CURRENT board."""
     splits = load_splits()
     for p in players:
-        s = splits.get(p["name"], {})
+        s = splits.get(p.get("fpid")) or splits.get(p["name"], {})
         ry, rt = s.get("rec_yds"), s.get("rec_td")
         uy, ut = s.get("rush_yds"), s.get("rush_td")
         p["rec_pts"] = round(ry/10 + (rt or 0)*6, 1) if ry is not None else None
@@ -426,12 +435,14 @@ def add_variants(players, ppr_available):
 
 def build():
     players = load_rankings()
-    proj, rec = load_projections()
+    proj, rec, projection_ids = load_projections()
 
     # 1) JOIN projections (+ projected receptions for the PPR value layer)
     for p in players:
-        p["proj_pts"] = proj.get(p["name"])
-        p["rec"] = rec.get(p["name"])
+        p["fpid"] = p.get("fpid") or projection_ids.get(p["name"])
+        p["proj_pts"] = proj.get(p["fpid"]) if p.get("fpid") in proj else proj.get(p["name"])
+        p["rec"] = rec.get(p["fpid"]) if p.get("fpid") in rec else rec.get(p["name"])
+    validate_release_status(players, DATA)
 
     ppr_available = any(v is not None for v in rec.values())
     if ppr_available:
@@ -498,15 +509,21 @@ def build():
         # measures expert agreement, not a player's football ceiling or floor.
         s = p["rank_std"]
         if s is not None and hi_std is not None:
-            if s >= hi_std: flags.append("VOLATILE")
-            elif s <= lo_std: flags.append("STABLE")
+            if s >= hi_std: flags.append("WIDE-ECR")
+            elif s <= lo_std: flags.append("TIGHT-ECR")
         p["flags"] = flags
 
     # 7) PDF STRATEGY TAGS (timeless principles recomputed on current data)
     add_strategy_tags(players)
     add_context_tags(players)
 
-    # 8) VALUE-LAYER VARIANTS for every (scoring x team-count) the app offers.
+    # 8) FORWARD-LOOKING FORECAST: empirical historical range plus approved,
+    # not-yet-priced availability events. FantasyPros remains the market mean.
+    forecast_meta = add_forecasts(players, DATA, REC_PPR)
+    if forecast_meta["pending_top_events"]:
+        raise RuntimeError("unreviewed high-impact news: " + ", ".join(forecast_meta["pending_top_events"][:10]))
+
+    # 9) VALUE-LAYER VARIANTS for every (scoring x team-count) the app offers.
     # Runs before the final sort so tie-handling matches the legacy pass above.
     repl_rank_m, repl_pts_m = add_variants(players, ppr_available)
 
@@ -542,6 +559,7 @@ def build():
             "strategy_notes_m": STRATEGY_NOTES_M if ppr_available else {"std": STRATEGY_NOTES_M["std"]},
             "flex_notes": FLEX_NOTES,
             "adp_note": ADP_NOTE,
+            "forecast": forecast_meta,
             "tag_legend": {
                 "REC-BACK": "Pass-catching RB (JJ's top early-RB trait)",
                 "COMMITTEE": "Ambiguous backfield — middle-round upside",

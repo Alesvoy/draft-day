@@ -1,0 +1,7 @@
+{
+  "last_updated": "2026-07-21T12:00:00Z",
+  "players": [
+    {"player_id": 101, "rank_ecr": 10},
+    {"player_id": 102, "rank_ecr": 20}
+  ]
+}

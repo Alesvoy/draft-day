@@ -78,7 +78,7 @@ for pos in ['RB','WR','QB','TE']:
     story.append(Spacer(1,6))
 
 story.append(Paragraph("VALUE = falls past ADP (draft him) · REACH = crowd takes him early · "
-                       "VOLATILE = wide expert rank range · STABLE = tight expert agreement. "
+                       "WIDE-ECR = expert disagreement · TIGHT-ECR = expert agreement. "
                        f"VOR = projected points over the replacement level for a {M['teams']}-team {M['scoring']} league — the higher, the more scarce/valuable.", note))
 
 doc.build(story)
