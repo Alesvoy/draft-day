@@ -49,8 +49,8 @@
   .flag{font-size:10px;font-weight:800;border-radius:5px;padding:2px 6px;letter-spacing:.3px;}
   .f-VALUE{background:rgba(55,211,155,.18);color:var(--good);}
   .f-REACH{background:rgba(255,107,107,.18);color:var(--bad);}
-  .f-CEILING{background:rgba(192,132,252,.2);color:var(--ceil);}
-  .f-SAFE{background:rgba(62,160,255,.16);color:var(--accent);}
+  .f-VOLATILE{background:rgba(192,132,252,.2);color:var(--ceil);}
+  .f-STABLE{background:rgba(62,160,255,.16);color:var(--accent);}
   .tag{font-size:10px;font-weight:800;border-radius:5px;padding:2px 6px;letter-spacing:.3px;background:rgba(255,180,84,.16);color:var(--te);}
   .tag.komani,.tag.recback,.tag.committee{background:rgba(55,211,155,.14);color:var(--good);}
   .tag.pocket{background:rgba(255,107,107,.16);color:var(--bad);}
@@ -306,11 +306,11 @@ function scoreOf(p,ctx){
   // round number -- in a 14-team the pool empties fast, so this fires earlier.
   // Premium picks (deep pool): prefer floor. Pool thinning: chase ceiling/upside.
   const depth=ctx.depth;
-  if(depth<0.40){if(p.flags.includes('SAFE')){s+=4;}if(p.flags.includes('CEILING'))s-=3;}
-  else if(depth>=0.60){if(p.flags.includes('CEILING')){s+=11;reasons.push('high-ceiling upside');}}
-  // once the pool is mostly drained, a safe/capped bench guy is waiver-replaceable -- demote.
-  if(depth>=0.85 && w<=0.35 && p.flags.includes('SAFE') && !p.flags.includes('CEILING')){
-    s*=0.82;reasons.push('floor-only — replaceable on waivers');}
+  if(depth<0.40){if(p.flags.includes('STABLE'))s+=4;if(p.flags.includes('VOLATILE'))s-=3;}
+  else if(depth>=0.60&&p.flags.includes('VOLATILE')){s+=6;reasons.push('wide expert range — upside case');}
+  // once the pool is mostly drained, a stable depth pick is usually waiver-replaceable.
+  if(depth>=0.85 && w<=0.35 && p.flags.includes('STABLE')){
+    s*=0.86;reasons.push('stable depth — replaceable on waivers');}
 
   // ---- PDF STRATEGY RULES ----
   if(p.pos==='TE'){
@@ -591,8 +591,8 @@ function buildLegend(){
   h+='<div class="legsec">VALUE &amp; RISK</div>';
   h+=row('<span class="flag f-VALUE">VALUE</span>','He has lasted well past his usual draft spot (ADP) at your pick — a bargain right now.');
   h+=row('<span class="flag f-REACH">REACH</span>','He would very likely still be there at your NEXT pick, so you could wait. (A player who would be gone by your next pick is never a reach — grabbing him now is necessary.)');
-  h+=row('<span class="flag f-CEILING">CEILING</span>','Wide range of outcomes — boom/bust upside. What you chase late.');
-  h+=row('<span class="flag f-SAFE">SAFE</span>','Tight expert agreement on his rank — predictable placement (not the same as a secure role).');
+  h+=row('<span class="flag f-VOLATILE">VOLATILE</span>','Wide expert disagreement on his rank — a broader range of outcomes, not proof of ceiling.');
+  h+=row('<span class="flag f-STABLE">STABLE</span>','Tight expert agreement on his rank (not the same as a secure role or fantasy floor).');
   h+='<div class="legsec">TIMING — for your next pick</div>';
   h+=row('<span class="flag f-NOW">WON\'T LAST</span>','Likely drafted before your next pick — grab him now if you want him.');
   h+=row('<span class="flag f-WAIT">WAIT OK</span>','Likely still there at your next pick — safe to wait and take other value.');

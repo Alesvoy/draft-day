@@ -25,6 +25,7 @@ h = ParagraphStyle('h', parent=styles['Heading1'], fontSize=15, spaceAfter=2)
 sub = ParagraphStyle('s', parent=styles['Normal'], fontSize=8, textColor=colors.grey)
 sech = ParagraphStyle('sec', parent=styles['Heading2'], fontSize=11, spaceBefore=8, spaceAfter=3)
 note = ParagraphStyle('n', parent=styles['Normal'], fontSize=7.5, textColor=colors.HexColor("#444"), leading=10)
+flagcell = ParagraphStyle('flagcell', parent=styles['Normal'], fontSize=6.5, leading=7.5)
 
 doc = SimpleDocTemplate(os.path.join(ROOT, "cheatsheet.pdf"), pagesize=letter,
                         topMargin=0.4*inch, bottomMargin=0.4*inch,
@@ -55,7 +56,7 @@ rows = []
 for p in sorted(P, key=lambda x: x['ecr'])[:60]:
     rows.append([p['ecr'], p['name'], p['pos_rank'], p['vor'] if p['vor'] is not None else '',
                  p['adp'] or '', (f"+{p['value_vs_adp']}" if (p['value_vs_adp'] or 0)>0 else (p['value_vs_adp'] if p['value_vs_adp'] is not None else '')),
-                 p['bye'] or '', " ".join(p['flags']+p.get('strategy',[]))])
+                 p['bye'] or '', Paragraph(" ".join(p['flags']+p.get('strategy',[])), flagcell)])
 story.append(Paragraph("Overall Top 60 (consensus order)", sech))
 story.append(tbl(rows, hdr))
 story.append(PageBreak())
@@ -72,12 +73,12 @@ for pos in ['RB','WR','QB','TE']:
             last=p['pos_tier']
         rows.append([p['ecr'], p['name'], p['pos_rank'], p['vor'] if p['vor'] is not None else '',
                      p['adp'] or '', (f"+{p['value_vs_adp']}" if (p['value_vs_adp'] or 0)>0 else (p['value_vs_adp'] if p['value_vs_adp'] is not None else '')),
-                     p['bye'] or '', " ".join(p['flags']+p.get('strategy',[]))])
+                     p['bye'] or '', Paragraph(" ".join(p['flags']+p.get('strategy',[])), flagcell)])
     story.append(tbl(rows, hdr))
     story.append(Spacer(1,6))
 
 story.append(Paragraph("VALUE = falls past ADP (draft him) · REACH = crowd takes him early · "
-                       "CEILING = wide range of outcomes (late-round upside) · SAFE = tight consensus floor. "
+                       "VOLATILE = wide expert rank range · STABLE = tight expert agreement. "
                        f"VOR = projected points over the replacement level for a {M['teams']}-team {M['scoring']} league — the higher, the more scarce/valuable.", note))
 
 doc.build(story)

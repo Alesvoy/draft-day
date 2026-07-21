@@ -32,7 +32,10 @@ if (!m) { console.error('ENGINE markers not found in app_template.html'); proces
 const makeEngine = new Function('BOARD', 'localStorage', m[1] + `
   return {
     state,
-    hooks: { applyCfg: (typeof applyCfg === 'function') ? applyCfg : null },
+    hooks: {
+      applyCfg: (typeof applyCfg === 'function') ? applyCfg : null,
+      scoreOf, planContext, pVor,
+    },
     recommendations, positionalLean, teamOnClock, roundPick,
     get TEAMS(){ return TEAMS; }, get ROSTER_SLOTS(){ return ROSTER_SLOTS; },
   };`);
@@ -47,6 +50,54 @@ const POLICIES = {
 
 const CFG = process.argv.includes('--cfg')
   ? JSON.parse(arg('cfg')) : null; // e.g. '{"teams":10,"scoring":"full","rounds":15}'
+
+if (process.argv.includes('--check-scoring')) {
+  const errors = [];
+  const ti = BOARD.meta.team_options.indexOf(14);
+
+  for (const p of BOARD.players) {
+    if (p.proj_pts == null) continue;
+    const rec = p.rec || 0;
+    if (Math.abs(p.proj_m?.half - (p.proj_pts + 0.5 * rec)) > 0.11) errors.push(`${p.name}: bad half-PPR projection`);
+    if (Math.abs(p.proj_m?.full - (p.proj_pts + rec)) > 0.11) errors.push(`${p.name}: bad full-PPR projection`);
+  }
+
+  for (const scoring of ['std', 'half', 'full']) {
+    const ranks = BOARD.meta.replacement_rank_m[scoring];
+    BOARD.meta.team_options.forEach((teams, i) => {
+      const base = teams * 2;
+      const flex = (ranks.RB[i] - base) + (ranks.WR[i] - base);
+      if (flex !== teams) errors.push(`${teams}-team ${scoring}: ${flex} flex replacements allocated`);
+    });
+  }
+
+  function configured(scoring) {
+    const eng = makeEngine(BOARD, fakeLS);
+    eng.state.slot = 7;
+    eng.state.picks = [];
+    eng.state.cfg = { teams: 14, scoring, rounds: 18 };
+    eng.hooks.applyCfg();
+    return eng;
+  }
+  const std = configured('std'), full = configured('full');
+  const stdNames = std.recommendations().list.map(r => r.p.name);
+  const fullNames = full.recommendations().list.map(r => r.p.name);
+  if (JSON.stringify(stdNames) === JSON.stringify(fullNames)) errors.push('standard and full-PPR recommendations are identical');
+
+  const top100 = BOARD.players.filter(p => p.ecr <= 100 && p.rec != null);
+  const highRecWR = top100.filter(p => p.pos === 'WR').sort((a, b) => b.rec - a.rec)[0];
+  const lowRecRB = top100.filter(p => p.pos === 'RB').sort((a, b) => a.rec - b.rec)[0];
+  const wrLift = highRecWR.vor_m.full[ti] - highRecWR.vor_m.std[ti];
+  const rbLift = lowRecRB.vor_m.full[ti] - lowRecRB.vor_m.std[ti];
+  if (!(wrLift > rbLift)) errors.push('full PPR does not favor a high-reception WR over a low-reception RB');
+
+  if (errors.length) {
+    errors.forEach(e => console.error(`SCORING CHECK FAILED: ${e}`));
+    process.exit(1);
+  }
+  console.log(`SCORING CHECK OK — recommendations change; ${highRecWR.name} gains relative to ${lowRecRB.name}`);
+  process.exit(0);
+}
 
 function runScenario(seat, policyName) {
   const eng = makeEngine(BOARD, fakeLS);
