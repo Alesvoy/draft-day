@@ -44,7 +44,7 @@ to the config. Defaults to 14-team Standard, 18 rounds.
    - **Value vs ADP** — where experts rank a player vs where the crowd drafts him.
    - **Tiers** — natural breaks (gaps) in the projection curve, per position and
      cross-positionally via VOR, recomputed per scoring/team-count.
-   - **Flags** — VALUE / REACH / CEILING / SAFE from value-vs-ADP and rank spread.
+   - **Flags** — pick-relative VALUE / REACH plus VOLATILE / STABLE expert agreement.
 4. **Freeze** to `board.json`. On draft day the app does only two things: cross off
    who's gone, and recommend the best pick for your roster by reading the frozen
    columns for **your** league config + deterministic roster logic
@@ -111,6 +111,7 @@ Rankings/ADP/projections move all summer. To refresh:
 2. Re-run the build:
    ```
    python3 build/build_board.py        # -> board.json
+   node build/test_parity.mjs --board board.json --check-scoring
    python3 build/check_board_parity.py # optional: prove legacy fields unchanged
    python3 build/make_app.py           # -> draft-assistant.html + index.html
    python3 build/make_cheatsheet.py    # -> cheatsheet.pdf   (needs: pip install reportlab)

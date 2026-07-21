@@ -42,13 +42,12 @@ SCORING_LABELS = {"std": "Standard (0 PPR)", "half": "Half PPR", "full": "Full P
 REC_PPR = {"std": 0.0, "half": 0.5, "full": 1.0}  # points per reception
 
 # Share of the FLEX slots each position absorbs, per scoring. Guide p27-28:
-# 0-PPR pushes FLEX toward RB (their floor wins standard); full PPR flips it --
-# WRs outscore RBs at the flex. Fractions chosen to reproduce the historical
-# 14-team standard baselines exactly (RB 37 / WR 34).
+# 0-PPR pushes FLEX toward RB; full PPR flips it toward WR. Each pair sums to
+# exactly one flex slot per team so replacement demand is not double-counted.
 FLEX_SHARE = {
-    "std":  {"RB": 9 / 14, "WR": 6 / 14},
-    "half": {"RB": 7.5 / 14, "WR": 7.5 / 14},
-    "full": {"RB": 6 / 14, "WR": 9 / 14},
+    "std":  {"RB": 0.60, "WR": 0.40},
+    "half": {"RB": 0.50, "WR": 0.50},
+    "full": {"RB": 0.40, "WR": 0.60},
 }
 
 
@@ -66,10 +65,14 @@ def replacement_ranks(teams, scoring):
     }
 
 
-# The formula must reproduce the original hand-derived 14-team standard table.
+# The formula must allocate all 14 flex starters exactly once.
 REPLACEMENT_RANK = replacement_ranks(14, "std")
-assert REPLACEMENT_RANK == {"QB": 14, "RB": 37, "WR": 34, "TE": 14, "K": 14, "DST": 14}, REPLACEMENT_RANK
-assert replacement_ranks(14, "half")["RB"] == 36  # pins banker's rounding on the 7.5 tie
+assert REPLACEMENT_RANK == {"QB": 14, "RB": 36, "WR": 34, "TE": 14, "K": 14, "DST": 14}, REPLACEMENT_RANK
+for teams in TEAM_OPTIONS:
+    for scoring in SCORING_OPTIONS:
+        ranks = replacement_ranks(teams, scoring)
+        base = teams * 2
+        assert (ranks["RB"] - base) + (ranks["WR"] - base) == teams, ranks
 
 # Tier sensitivity: a new tier starts when the points drop-off between two
 # consecutive players exceeds mean(gap) + SENS*stdev(gap). Higher = fewer tiers.
@@ -491,12 +494,12 @@ def build():
     for p in players:
         flags = []
         # NOTE: VALUE / REACH are computed live in the app, PICK-RELATIVE (ADP vs your
-        # actual pick), not here as a generic expert-vs-market delta. Only volatility
-        # flags (SAFE/CEILING) are static.
+        # actual pick), not here as a generic expert-vs-market delta. Rank spread only
+        # measures expert agreement, not a player's football ceiling or floor.
         s = p["rank_std"]
         if s is not None and hi_std is not None:
-            if s >= hi_std: flags.append("CEILING")  # wide range of outcomes
-            elif s <= lo_std: flags.append("SAFE")   # narrow, predictable
+            if s >= hi_std: flags.append("VOLATILE")
+            elif s <= lo_std: flags.append("STABLE")
         p["flags"] = flags
 
     # 7) PDF STRATEGY TAGS (timeless principles recomputed on current data)
