@@ -165,24 +165,24 @@ function cards(){
   }
   return out;
 }
-let deck=[],queue=[],state,sessionTotal=0;
+let deck=[],queue=[],state,lapsed=new Set();
 function startSession(increment=true){
-  deck=cards();state=read('study-leitner',{session:0,boxes:{}});if(increment)state.session++;
+  deck=cards();state=read('study-leitner',{session:0,boxes:{}});if(increment)state.session++;lapsed=new Set();
   deck.forEach(c=>{if(!state.boxes[c.id])state.boxes[c.id]=1});write('study-leitner',state);
   queue=deck.filter(c=>state.boxes[c.id]===1||(state.boxes[c.id]===2&&state.session%2===0)||(state.boxes[c.id]===3&&state.session%4===0));
   // tier knowledge first: short sessions still hit the highest-value cards
   const prio={'Boundary':0,'Tier recall':1,'Who goes earlier?':2,'Plan recall':3,'Hook recall':4};
-  queue.sort((a,b)=>prio[a.type]-prio[b.type]||hash(a.id+state.session).localeCompare(hash(b.id+state.session)));sessionTotal=queue.length;renderDrill();
+  queue.sort((a,b)=>prio[a.type]-prio[b.type]||hash(a.id+state.session).localeCompare(hash(b.id+state.session)));renderDrill();
 }
 function progress(){const counts=[1,2,3].map(box=>deck.filter(c=>state.boxes[c.id]===box).length);return {counts,mastered:counts[2],total:deck.length}}
 function renderDrill(){
-  const p=progress(),c=queue[0],done=sessionTotal-queue.length;
+  const p=progress(),c=queue[0],left=queue.length,relearning=queue.filter(x=>lapsed.has(x.id)).length;
   if(!c){$('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Session complete.</h1><div class="progress"><span><strong>${p.mastered}/${p.total}</strong> cards in box 3</span><span>Boxes: ${p.counts.join(' / ')}</span></div></header><div class="session-done"><div><h2>Good work.</h2><button id="again">Start another session</button></div></div></section>`;$('#again').onclick=()=>startSession(true);return}
-  $('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Recall before reveal.</h1><div class="progress"><span><strong>${p.mastered}/${p.total}</strong> cards in box 3</span><span>Box 1 / 2 / 3: ${p.counts.join(' / ')}</span><span>${done+1} of ${sessionTotal} this session</span></div></header><article class="flashcard"><div class="card-meta"><span>${esc(c.type)}</span><span>Box ${state.boxes[c.id]}</span></div><div class="prompt"><div><h2>${esc(c.question)}</h2><div class="answer" aria-live="polite">${esc(c.answer)}</div></div></div><div class="card-actions"><button class="reveal">Reveal answer</button><button class="score missed">Missed</button><button class="score got">Got it</button></div></article><div class="hint">Keyboard: space reveals / 1 missed / 2 got it</div></section>`;
+  $('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Recall before reveal.</h1><div class="progress"><span><strong>${p.mastered}/${p.total}</strong> cards in box 3</span><span>Box 1 / 2 / 3: ${p.counts.join(' / ')}</span><span>${left} left${relearning?` · ${relearning} relearning`:''}</span></div></header><article class="flashcard"><div class="card-meta"><span>${esc(c.type)}</span><span>Box ${state.boxes[c.id]}</span></div><div class="prompt"><div><h2>${esc(c.question)}</h2><div class="answer" aria-live="polite">${esc(c.answer)}</div></div></div><div class="card-actions"><button class="reveal">Reveal answer</button><button class="score missed">Missed</button><button class="score got">Got it</button></div></article><div class="hint">Keyboard: space reveals / 1 missed / 2 got it</div></section>`;
   $('.reveal').onclick=reveal;$('.missed').onclick=()=>score(false);$('.got').onclick=()=>score(true);
 }
 function reveal(){$('.flashcard')?.classList.add('revealed')}
-function score(got){const c=queue.shift();state.boxes[c.id]=got?Math.min(3,state.boxes[c.id]+1):1;write('study-leitner',state);renderDrill()}
+function score(got){const c=queue.shift();if(got){if(!lapsed.has(c.id))state.boxes[c.id]=Math.min(3,state.boxes[c.id]+1)}else{state.boxes[c.id]=1;lapsed.add(c.id);queue.splice(Math.min(5,queue.length),0,c)}write('study-leitner',state);renderDrill()}
 function show(next){
   view=next;location.hash=next==='drills'?'drills':'';$$('.tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.view===next)));
   if(next==='brain')$('#view').innerHTML=brain();else startSession(true);

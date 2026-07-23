@@ -1,6 +1,6 @@
 // Offline cache for the GitHub Pages app. The app shell is self-contained;
 // navigating while online always refreshes it, with the last copy as fallback.
-const CACHE = 'draft-day-v4';
+const CACHE = 'draft-day-v5';
 const SHELL = './index.html';
 const STUDY = './study/index.html';
 const ASSETS = [SHELL, STUDY];
