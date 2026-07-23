@@ -20,6 +20,10 @@ to the config. Defaults to 14-team Standard, 18 rounds.
 | `board.json` | The frozen board — the single source of truth the app reads. Carries a value layer for every (scoring × team-count) combo. |
 | `data/rankings_std.csv` | Raw pull: FantasyPros consensus rankings + ADP (Standard). |
 | `data/projections_std.csv` | Raw pull: FantasyPros projected points (Standard) **+ a `rec` column** (projected receptions — powers the PPR formats). |
+| `data/player_history.csv` | Five completed seasons of preseason-vs-actual calibration data. Rebuilt once, then appended annually. |
+| `data/risk_events.json` | Reviewed injury, suspension, legal, and role events with explicit outcome scenarios. |
+| `build/refresh_data.py` | Authenticated, atomic refresh for rankings, ADP, projections, metadata, injuries, news, history, and dated snapshots. |
+| `build/review_news.py` | Lists and resolves ambiguous news before it can affect a draft grade. |
 | `build/build_board.py` | Computes the layer (VOR, tiers, value/ceiling flags, per-config matrices) and writes `board.json`. |
 | `build/make_app.py` | Embeds `board.json` into the HTML template → `draft-assistant.html` and the GitHub Pages `index.html`. |
 | `build/make_cheatsheet.py` | Renders `cheatsheet.pdf` from `board.json`. |
@@ -58,8 +62,13 @@ Open `study/index.html` directly for local use — it is self-contained and work
    - **Value vs ADP** — where experts rank a player vs where the crowd drafts him.
    - **Tiers** — natural breaks (gaps) in the projection curve, per position and
      cross-positionally via VOR, recomputed per scoring/team-count.
-   - **Flags** — pick-relative VALUE / REACH plus VOLATILE / STABLE expert agreement.
-4. **Freeze** to `board.json`. On draft day the app does only two things: cross off
+   - **Forecast range** — empirical 20th/50th/80th-percentile outcomes from five
+     completed seasons, with current approved availability events applied only
+     when they are newer than the market projection.
+   - **Flags** — pick-relative VALUE / REACH plus WIDE-ECR / TIGHT-ECR expert agreement.
+4. **Review risk events.** Confirmed missed time is applied automatically. Legal
+   allegations, rumors, and unclear recovery timelines require explicit review.
+5. **Freeze** to `board.json`. On draft day the app does only two things: cross off
    who's gone, and recommend the best pick for your roster by reading the frozen
    columns for **your** league config + deterministic roster logic
    (need × scarcity × value × round).
@@ -90,6 +99,9 @@ chasing need over a clearly elite faller.
   *next* pick (ADP + how many teams pick in between) and down-weights guys who'll
   still be there, boosting the ones who won't (**NOW** tag). It won't tell you to
   spend a pick on someone you can safely wait on.
+- **Player-risk utility:** early picks blend expected value with the historical
+  floor, middle picks use expected value, and late picks blend in ceiling. Injury,
+  legal, and role risks remain separate from draft-availability risk.
 - **Positional pressure:** if the teams picking before your next turn are short at
   a position, it treats that position's players as more likely gone — so a run on
   RB makes RB more urgent (the **Lean** banner calls this out).
@@ -105,36 +117,46 @@ chasing need over a clearly elite faller.
 
 It never overrides a clearly elite faller just to fill a need — the tilts are soft.
 
-## Refreshing the data (closer to your draft)
+## Refreshing and releasing
 
-Rankings/ADP/projections move all summer. To refresh:
+Request a personal FantasyPros API key, keep it in the environment, and never
+commit it. The first refresh backfills five completed seasons; later refreshes
+reuse that history.
 
-1. Refresh `rankings_std.csv` with the checked-in FantasyPros importer:
-   ```
-   python3 build/refresh_rankings.py
-   ```
-   It verifies that FantasyPros returned **2026 Standard** consensus rankings,
-   pulls the full ECR board, applies FantasyPros' current ECR-vs-ADP values
-   where published, and retains the prior ADP value where FantasyPros fences
-   its aggregate ADP export.
-   Re-pull `projections_std.csv` from the QB/RB/WR/TE projection pages. Keep
-   the same columns — including **`rec`**
-   (projected receptions, the REC column on FantasyPros' projection pages).
-   Without a `rec` column the board still builds, but the app disables the
-   Half/Full PPR options.
-2. Re-run the build:
-   ```
-   python3 build/build_board.py        # -> board.json
-   node build/test_parity.mjs --board board.json --check-scoring
-   python3 build/check_board_parity.py # optional: prove legacy fields unchanged
-   python3 build/make_app.py           # -> draft-assistant.html + index.html
-   python3 build/make_cheatsheet.py    # -> cheatsheet.pdf   (needs: pip install reportlab)
-   ```
-   (After a data refresh the parity check will legitimately fail — the goldens in
-   `build/golden/` describe the old data. Re-capture them:
-   `cp board.json build/golden/board.baseline.json &&
-   node build/test_parity.mjs --board board.json --out build/golden/engine.baseline.json`.)
-3. Re-send the HTML to your phone.
+```
+export FANTASYPROS_API_KEY='...'
+python3 build/refresh_data.py --season 2026
+python3 build/review_news.py --list
+```
+
+For each pending item, use `--display-only`, `--resolve`, or approve a JSON file
+containing scenarios whose probabilities total 1. Example:
+
+```
+[
+  {"label":"no missed time","probability":0.7,"games_missed":0,"performance_multiplier":1.0},
+  {"label":"four games","probability":0.3,"games_missed":4,"performance_multiplier":1.0}
+]
+
+python3 build/review_news.py --event fp-news-123 --approve scenarios.json
+```
+
+Then build and verify the offline release:
+
+```
+python3 build/build_board.py
+python3 build/test_pipeline.py
+node build/test_risk.mjs
+node build/test_parity.mjs --board board.json --check-scoring
+python3 build/make_app.py
+python3 build/make_cheatsheet.py
+```
+
+The release build stops for data older than 14 days, missing FantasyPros IDs in
+the top 300, invalid scenarios, or pending risk events for draftable players.
+Raw downloads stay under ignored `.cache/`; compact dated rankings and projections
+are saved under `data/snapshots/`. The generated browser app contains no API key
+and performs no runtime data requests.
 
 ## Tuning beyond the setup screen
 

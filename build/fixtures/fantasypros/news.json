@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"id": 1, "player_id": 101, "created": "2026-07-22T10:00:00Z", "category": "breaking", "title": "Alpha Runner suspended 3 games", "desc": "The league announced a three-game suspension.", "link": "https://example.test/alpha"},
+    {"id": 2, "player_id": 102, "created": "2026-07-22T11:00:00Z", "category": "breaking", "title": "Beta Receiver under legal investigation", "desc": "No discipline has been announced.", "link": "https://example.test/beta"},
+    {"id": 3, "player_id": 103, "created": "2026-07-22T12:00:00Z", "category": "injury", "title": "Gamma Quarterback cleared to return", "desc": "He was medically cleared.", "link": "https://example.test/gamma"}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "last_updated": "2026-07-21T12:00:00Z",
+  "players": [
+    {"player_id": 101, "player_name": "Alpha Runner", "player_team_id": "AAA", "player_position_id": "RB", "player_bye_week": 6, "rank_ecr": 10, "rank_std": 4.2, "tier": 2},
+    {"player_id": 102, "player_name": "Beta Receiver", "player_team_id": "BBB", "player_position_id": "WR", "player_bye_week": 7, "rank_ecr": 20, "rank_std": 8.1, "tier": 3},
+    {"player_id": 103, "player_name": "Gamma Quarterback", "player_team_id": "CCC", "player_position_id": "QB", "player_bye_week": 8, "rank_ecr": 30, "rank_std": 6.0, "tier": 4},
+    {"player_id": 104, "player_name": "Delta Tight End", "player_team_id": "DDD", "player_position_id": "TE", "player_bye_week": 9, "rank_ecr": 40, "rank_std": 5.0, "tier": 5}
+  ]
+}

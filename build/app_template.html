@@ -49,8 +49,13 @@
   .flag{font-size:10px;font-weight:800;border-radius:5px;padding:2px 6px;letter-spacing:.3px;}
   .f-VALUE{background:rgba(55,211,155,.18);color:var(--good);}
   .f-REACH{background:rgba(255,107,107,.18);color:var(--bad);}
-  .f-VOLATILE{background:rgba(192,132,252,.2);color:var(--ceil);}
-  .f-STABLE{background:rgba(62,160,255,.16);color:var(--accent);}
+  .f-WIDE-ECR{background:rgba(192,132,252,.2);color:var(--ceil);}
+  .f-TIGHT-ECR{background:rgba(62,160,255,.16);color:var(--accent);}
+  .risk{font-size:10px;font-weight:800;border-radius:5px;padding:2px 6px;letter-spacing:.3px;}
+  .risk.low{background:rgba(55,211,155,.14);color:var(--good);}
+  .risk.medium{background:rgba(255,180,84,.16);color:var(--warn);}
+  .risk.high{background:rgba(255,107,107,.18);color:var(--bad);}
+  .risk.unknown{background:rgba(147,160,180,.16);color:var(--dim);}
   .tag{font-size:10px;font-weight:800;border-radius:5px;padding:2px 6px;letter-spacing:.3px;background:rgba(255,180,84,.16);color:var(--te);}
   .tag.komani,.tag.recback,.tag.committee{background:rgba(55,211,155,.14);color:var(--good);}
   .tag.pocket{background:rgba(255,107,107,.16);color:var(--bad);}
@@ -92,6 +97,13 @@
   #legend h2{font-size:17px;margin:6px 0 2px;}
   #legend .lsub{color:var(--dim);font-size:12px;margin-bottom:10px;}
   #legend .lclose{position:absolute;top:14px;right:14px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:700;}
+  #playerDetail{position:fixed;inset:0;background:rgba(8,10,14,.98);z-index:70;overflow-y:auto;padding:18px 16px 40px;}
+  #playerDetail .lclose{position:absolute;top:14px;right:14px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:700;}
+  .riskgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0;}
+  .riskbox{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:9px;}
+  .riskbox .rv{font-size:16px;font-weight:800;margin-top:3px;}
+  .newsitem{padding:9px 0;border-bottom:1px solid var(--line);font-size:12px;line-height:1.45;}
+  .newsitem a{color:var(--accent);text-decoration:none;}
   .legsec{font-size:11px;font-weight:800;color:var(--dim);letter-spacing:.5px;margin:16px 0 4px;}
   .legrow{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);}
   .legrow .lk{flex:0 0 104px;display:flex;}
@@ -119,6 +131,11 @@
   <h2>What the badges mean</h2>
   <div class="lsub">Order is FantasyPros consensus; everything else is computed on top.</div>
   <div id="legendBody"></div>
+</div>
+
+<div id="playerDetail" class="hidden">
+  <button class="lclose" id="detailClose">Close</button>
+  <div id="detailBody"></div>
 </div>
 
 <div id="setup">
@@ -220,6 +237,13 @@ const TI=()=>META.team_options?META.team_options.indexOf(TEAMS):-1;
 function pVor(p){const m=p.vor_m;return (m&&m[SCORING]&&TI()>=0)?m[SCORING][TI()]:p.vor;}
 function pPosTier(p){if(SCORING==='std')return p.pos_tier;const m=p.pos_tier_m;return m?m[SCORING]:p.pos_tier;}
 function pValueTier(p){const m=p.value_tier_m;return (m&&m[SCORING]&&TI()>=0)?m[SCORING][TI()]:p.value_tier;}
+function forecastStats(p){return p.forecast?.by_scoring?.[SCORING]||null;}
+function riskProjection(p,depth){const f=forecastStats(p);if(!f||f.expected==null)return null;
+  if(depth<0.40)return 0.75*f.expected+0.25*f.floor;
+  if(depth>=0.60)return 0.75*f.expected+0.25*f.ceiling;
+  return f.expected;}
+function riskVor(p,ctx){const market=pVor(p),f=forecastStats(p),risk=riskProjection(p,ctx.depth);
+  return market==null||!f||f.market==null||risk==null?market:market+(risk-f.market);}
 // scoring tilts (guide: receptions pay pass-catching backs directly; full PPR
 // flexes lean WR and make Zero-RB starts viable). All x1 at standard.
 const RECBACK_MULT={std:1.12,half:1.15,full:1.18};
@@ -283,7 +307,7 @@ function scoreOf(p,ctx){
   const w=needWeight(p.pos);
   const tags=p.strategy||[];
   const deadTE = p.pos==='TE' && !tags.includes('ELITE-TE') && r<G.teDead;
-  const vor=pVor(p);
+  const vor=riskVor(p,ctx);
   const base=(vor!=null)?vor:Math.max(0,55-p.ecr*0.35);
   // value floor: even "depth" picks keep ~a third of their value, so genuine
   // best-available upside surfaces when your only open need is one you should wait on.
@@ -302,15 +326,13 @@ function scoreOf(p,ctx){
   if(fellPastADP!=null && fellPastADP>=8){
     s += Math.min(fellPastADP,45)*0.4; reasons.push(`available ${fellPastADP} past his ADP`);}
 
-  // DEPTH-aware floor vs ceiling. Phased on how drained the startable pool is, not
-  // round number -- in a 14-team the pool empties fast, so this fires earlier.
-  // Premium picks (deep pool): prefer floor. Pool thinning: chase ceiling/upside.
+  // Historical ranges now drive the floor/ceiling tilt in riskVor. Expert rank
+  // dispersion remains descriptive and never stands in for football outcomes.
   const depth=ctx.depth;
-  if(depth<0.40){if(p.flags.includes('STABLE'))s+=4;if(p.flags.includes('VOLATILE'))s-=3;}
-  else if(depth>=0.60&&p.flags.includes('VOLATILE')){s+=6;reasons.push('wide expert range — upside case');}
-  // once the pool is mostly drained, a stable depth pick is usually waiver-replaceable.
-  if(depth>=0.85 && w<=0.35 && p.flags.includes('STABLE')){
-    s*=0.86;reasons.push('stable depth — replaceable on waivers');}
+  const fc=p.forecast;
+  if(fc?.availability_risk==='high')reasons.push('high availability risk');
+  else if(fc?.availability_risk==='medium')reasons.push('availability needs monitoring');
+  if(fc?.reasons?.length)reasons.push(fc.reasons[0]);
 
   // ---- PDF STRATEGY RULES ----
   if(p.pos==='TE'){
@@ -348,14 +370,14 @@ function scoreOf(p,ctx){
   if(reach>20){s*=Math.max(0.35,1-(reach-20)*0.013);if(reach>40)reasons.push(`reach — ECR ${p.ecr} is well past pick ${ctx.planOverall}`);}
 
   // ---- WAIT-COST: down-weight guys who'll still be there; boost likely-gone
-  const surv=survival(p,ctx), riskLoss=1-surv;
-  s*=(0.65+0.7*riskLoss);
+  const surv=survival(p,ctx), draftAvailabilityRisk=1-surv;
+  s*=(0.65+0.7*draftAvailabilityRisk);
   // survival is one of the most decision-relevant notes -- surface it FIRST so the
   // card never trims it off behind lower-priority reasons.
-  if(riskLoss>=0.6&&w>=0.7)reasons.unshift(`won't last to your pick ${ctx.nextMineOverall}`);
+  if(draftAvailabilityRisk>=0.6&&w>=0.7)reasons.unshift(`won't last to your pick ${ctx.nextMineOverall}`);
   else if(surv>=0.75&&w>=0.7)reasons.unshift('safe to wait a round');
 
-  return {s,reasons,riskLoss};
+  return {s,reasons,draftAvailabilityRisk};
 }
 
 // HARD "avoid/wait" rules: these players are not RECOMMENDED (still draftable on the
@@ -405,6 +427,9 @@ function metricsRow(p,refPick,nextPick){
   if(mv!=null)m+=`<span class="m">VOR <b>${mv}</b></span>`;
   if(p.adp!=null)m+=`<span class="m">ADP <b>${p.adp}</b></span>`;
   if(p.bye)m+=`<span class="m">bye ${p.bye}</span>`;
+  const f=forecastStats(p);
+  if(f?.expected!=null)m+=`<span class="m">forecast <b>${Math.round(f.expected)}</b> · ${Math.round(f.floor)}–${Math.round(f.ceiling)}</span>`;
+  if(p.forecast&&p.forecast.availability_risk!=='unknown')m+=`<span class="risk ${p.forecast.availability_risk}">${p.forecast.availability_risk.toUpperCase()} RISK</span>`;
   // VALUE = lasted past his ADP at THIS pick (a bargain now).
   // REACH = he'd comfortably still be there at your NEXT pick, so you could wait.
   //   (A guy who won't survive to your next pick is never a "reach" — grabbing him is necessary.)
@@ -419,7 +444,7 @@ function pickBtn(p){const lbl=myTurn()?'＋ My Pick':'Drafted →';const cls=myT
 function card(p,extra,why,withBtn,badges,refPick,nextPick){
   const c=el('div','card '+(extra||''));
   const vt=pValueTier(p);
-  c.innerHTML=`<div class="pl">${badge(p)}<div class="info"><div class="nm">${p.name}</div>
+  c.innerHTML=`<div class="pl" data-detail="${p.name}">${badge(p)}<div class="info"><div class="nm">${p.name}</div>
     <div class="sub">${p.team} · ${p.pos_rank}${vt?' · val tier '+vt:''}</div></div></div>
     <div class="metrics">${badges||''}${metricsRow(p,refPick,nextPick)}</div>${why||''}${withBtn?pickBtn(p):''}`;
   return c;
@@ -463,8 +488,8 @@ function renderRec(){
     box.appendChild(el('div','note',"<b>Your only open starter is TE — and it's the dead zone.</b> These TEs are no more predictable than ones 50 picks later, so take the best upside (WR/RB) now and grab a TE in the final rounds."));
   }
   list.forEach((r,i)=>{
-    const surv = r.riskLoss>=0.6 ? `<span class="flag f-NOW">WON'T LAST</span>`
-               : (r.riskLoss<=0.25 ? `<span class="flag f-WAIT">WAIT OK</span>` : '');
+    const surv = r.draftAvailabilityRisk>=0.6 ? `<span class="flag f-NOW">WON'T LAST</span>`
+               : (r.draftAvailabilityRisk<=0.25 ? `<span class="flag f-WAIT">WAIT OK</span>` : '');
     const why=`<div class="why"><span class="lead">${i===0?'TOP PICK':'Also consider'}.</span> ${r.reasons.slice(0,3).join('; ')||'best available value'}.</div>`;
     box.appendChild(card(r.p,i===0?'rec top':'rec',why,true,surv,ctx.planOverall,ctx.nextMineOverall));
   });
@@ -510,6 +535,17 @@ function renderStrat(){
   m.innerHTML=`<b>Tags (from JJ's guide, recomputed on current data):</b><br>${leg}<br><b>How it recommends:</b> consensus VOR + value, weighted by your roster needs and by how likely a player is gone before your next pick (ADP + how many upcoming teams need his position). The strategy rules above tilt it — e.g. it suppresses dead-zone TEs and pocket QBs, and rewards pass-catching backs.`;
   v.appendChild(m);
 }
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function showPlayerDetail(name){const p=PMAP[name];if(!p)return;const f=p.forecast||{},s=forecastStats(p)||{};
+  const risk=(label,value)=>`<div class="riskbox"><div class="sub">${label}</div><div class="rv"><span class="risk ${value}">${String(value||'unknown').toUpperCase()}</span></div></div>`;
+  const eventRows=(f.events||[]).map(e=>`<div class="newsitem"><b>${esc(e.summary)}</b><br><span class="sub">${esc(e.type)} · ${esc(e.status)} · verified ${esc(e.verified_at||'—')}</span>${e.source_url?`<br><a href="${esc(e.source_url)}" target="_blank" rel="noopener">Source ↗</a>`:''}</div>`).join('');
+  const newsRows=(f.latest_news||[]).map(n=>`<div class="newsitem"><b>${esc(n.title)}</b><br><span class="sub">${esc(n.created||'')}</span>${n.link?`<br><a href="${esc(n.link)}" target="_blank" rel="noopener">Source ↗</a>`:''}</div>`).join('');
+  const impact=f.grade_impact||{};const signed=v=>v==null?'—':`${v>0?'+':''}${v}`;
+  document.getElementById('detailBody').innerHTML=`<h2>${esc(p.name)}</h2><div class="sub">${esc(p.team)} · ${esc(p.pos_rank)} · forecast as of ${esc(f.as_of||'—')}</div>
+    <div class="riskgrid"><div class="riskbox"><div class="sub">Expected points</div><div class="rv">${s.expected??'—'}</div></div><div class="riskbox"><div class="sub">Floor–ceiling</div><div class="rv">${s.floor??'—'}–${s.ceiling??'—'}</div></div><div class="riskbox"><div class="sub">Expected games</div><div class="rv">${f.expected_games??'—'}</div></div><div class="riskbox"><div class="sub">Confidence</div><div class="rv">${esc(f.confidence||'—')}</div></div>${risk('Injury risk',f.injury_risk)}${risk('Legal risk',f.legal_risk)}${risk('Role risk',f.role_risk)}${risk('Overall availability',f.availability_risk)}</div>
+    <div class="note"><b>Draft-grade impact vs market:</b> early ${signed(impact.early)} · middle ${signed(impact.middle)} · late ${signed(impact.late)} points.<br><b>Historical basis:</b> ${esc(f.cohort||'fallback')} (${f.cohort_size||0} comparable seasons)${f.historical_games!=null?` · ${f.historical_games} games/year recently`:''}.</div>
+    <div class="legsec">VERIFIED RISK EVENTS</div>${eventRows||'<div class="empty">No active reviewed events.</div>'}<div class="legsec">LATEST PLAYER NEWS</div>${newsRows||'<div class="empty">No current news in this snapshot.</div>'}`;
+  document.getElementById('playerDetail').classList.remove('hidden');}
 function render(){
   document.getElementById('setup').classList.toggle('hidden',state.slot!=null);
   if(state.slot==null){if(!pendingCfg)buildSetup();return;}
@@ -591,8 +627,8 @@ function buildLegend(){
   h+='<div class="legsec">VALUE &amp; RISK</div>';
   h+=row('<span class="flag f-VALUE">VALUE</span>','He has lasted well past his usual draft spot (ADP) at your pick — a bargain right now.');
   h+=row('<span class="flag f-REACH">REACH</span>','He would very likely still be there at your NEXT pick, so you could wait. (A player who would be gone by your next pick is never a reach — grabbing him now is necessary.)');
-  h+=row('<span class="flag f-VOLATILE">VOLATILE</span>','Wide expert disagreement on his rank — a broader range of outcomes, not proof of ceiling.');
-  h+=row('<span class="flag f-STABLE">STABLE</span>','Tight expert agreement on his rank (not the same as a secure role or fantasy floor).');
+  h+=row('<span class="flag f-WIDE-ECR">WIDE-ECR</span>','Experts disagree widely on his rank. This does not prove upside or player risk.');
+  h+=row('<span class="flag f-TIGHT-ECR">TIGHT-ECR</span>','Experts agree closely on his rank. This does not guarantee health, role, or floor.');
   h+='<div class="legsec">TIMING — for your next pick</div>';
   h+=row('<span class="flag f-NOW">WON\'T LAST</span>','Likely drafted before your next pick — grab him now if you want him.');
   h+=row('<span class="flag f-WAIT">WAIT OK</span>','Likely still there at your next pick — safe to wait and take other value.');
@@ -605,6 +641,7 @@ function buildLegend(){
 
 document.querySelector('nav').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;view=b.dataset.v;document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));window.scrollTo(0,0);render();});
 document.body.addEventListener('click',e=>{const pk=e.target.closest('[data-pick]');if(pk)doPick(pk.dataset.pick);});
+document.body.addEventListener('click',e=>{const target=e.target.closest('[data-detail]');if(target&&!e.target.closest('[data-pick]'))showPlayerDetail(target.dataset.detail);});
 document.getElementById('search').addEventListener('input',e=>{query=e.target.value.toLowerCase().trim();renderBoard();});
 document.getElementById('undoBtn').addEventListener('click',undo);
 document.getElementById('unlistedBtn').addEventListener('click',logUnlisted);
@@ -612,6 +649,7 @@ document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('Re
 document.getElementById('slotPill').addEventListener('click',()=>{if(confirm('Change league setup or seat? This clears logged picks.')){state.slot=null;state.picks=[];pendingCfg=null;save();render();}});
 document.getElementById('legendBtn').addEventListener('click',()=>document.getElementById('legend').classList.remove('hidden'));
 document.getElementById('legendClose').addEventListener('click',()=>document.getElementById('legend').classList.add('hidden'));
+document.getElementById('detailClose').addEventListener('click',()=>document.getElementById('playerDetail').classList.add('hidden'));
 
 applyLabels();buildChips();buildLegend();render();
 </script>

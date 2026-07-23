@@ -119,7 +119,7 @@ function runScenario(seat, policyName) {
         overall: i + 1,
         round: eng.roundPick(i).round,
         lean: lean ? lean.pos : null,
-        recs: list.map(r => ({ name: r.p.name, s: r.s, reasons: r.reasons, riskLoss: r.riskLoss })),
+        recs: list.map(r => ({ name: r.p.name, s: r.s, reasons: r.reasons, draftAvailabilityRisk: r.draftAvailabilityRisk })),
       });
       eng.state.picks.push(list.length ? list[0].p.name : pool[0].name);
     } else {
