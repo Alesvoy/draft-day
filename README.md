@@ -27,6 +27,20 @@ to the config. Defaults to 14-team Standard, 18 rounds.
 | `build/test_parity.mjs` | Runs the app's engine through scripted drafts; compares against `build/golden/` to prove default behavior never drifts. |
 | `build/check_board_parity.py` | Verifies a rebuilt `board.json` keeps every legacy field identical to the golden baseline. |
 
+## Study mode
+
+Study mode turns the default 14-team Standard board into a printable one-page
+brain sheet and persistent flashcard drills. It is a mobile-first companion app
+(designed for iPhone Safari, Add to Home Screen, offline). Build it with:
+
+```
+python3 build/make_study.py
+```
+
+This writes `study/index.html`, served at
+[https://alesvoy.github.io/draft-day/study/](https://alesvoy.github.io/draft-day/study/).
+Open `study/index.html` directly for local use — it is self-contained and works offline.
+
 ## How it works (design)
 
 1. **Ingest** consensus rankings + ADP (FantasyPros, Standard). This is the FIXED
