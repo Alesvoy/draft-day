@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Draft Study">
+<meta name="theme-color" content="#f2f0e9" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#171916" media="(prefers-color-scheme:dark)">
+<link rel="icon" href="data:,">
+<title>Draft Study</title>
+<style>
+:root{color-scheme:light dark;--bg:#f2f0e9;--paper:#fbfaf5;--ink:#20231f;--muted:#656a62;--line:#b9b9ad;--soft:#e5e2d8;--accent:#a34728;--accent-ink:#fff9f4;--nav:rgba(242,240,233,.94)}
+@media(prefers-color-scheme:dark){:root{--bg:#171916;--paper:#20221e;--ink:#ecebe4;--muted:#a9aca3;--line:#4a4e46;--soft:#2c2f2a;--accent:#d16b45;--accent-ink:#1b120e;--nav:rgba(23,25,22,.94)}}
+*{box-sizing:border-box}html{font-size:15px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,select{font:inherit;color:inherit}button{cursor:pointer}button:active{transform:translateY(1px)}button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+nav{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:1rem;min-height:62px;padding:max(.6rem,env(safe-area-inset-top)) max(1rem,calc((100vw - 1440px)/2)) .6rem;border-bottom:1px solid var(--line);background:var(--nav);backdrop-filter:blur(10px)}
+.brand{margin-right:auto;font-weight:900;letter-spacing:-.04em}.brand small{display:block;color:var(--muted);font:700 .66rem/1.1 "Courier New",monospace;letter-spacing:.08em;text-transform:uppercase}.tabs{display:flex;border:1px solid var(--line)}.tab,.print-btn{border:0;background:transparent;padding:.55rem .8rem;font-weight:800}.tab[aria-selected="true"]{background:var(--ink);color:var(--paper)}.seat-control{display:flex;align-items:center;gap:.45rem;color:var(--muted);font:700 .74rem "Courier New",monospace;text-transform:uppercase}.seat-control select{min-width:3.5rem;border:1px solid var(--line);border-radius:0;background:var(--paper);padding:.45rem}.print-btn{border:1px solid var(--line)}
+main{max-width:1440px;margin:auto;padding:1.25rem}.view-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:1rem;margin-bottom:1rem}.view-head h1{margin:0;font-size:clamp(2rem,5vw,4.6rem);line-height:.86;letter-spacing:-.065em}.view-head p{max-width:42ch;margin:.7rem 0 0;color:var(--muted)}.stamp{font:700 .72rem/1.4 "Courier New",monospace;color:var(--muted);text-align:right;text-transform:uppercase}
+.brain-top{display:grid;grid-template-columns:minmax(18rem,1.2fr) minmax(24rem,2fr);border-top:3px solid var(--ink);border-bottom:1px solid var(--line)}.snake{display:grid;grid-template-columns:repeat(2,1fr)}.gap-stat{padding:1rem;border-right:1px solid var(--line)}.gap-stat:last-child{border-right:0}.gap-stat strong{display:block;font:900 clamp(3.8rem,9vw,7.6rem)/.8 Arial,sans-serif;letter-spacing:-.08em;color:var(--accent)}.gap-stat span{display:block;max-width:18ch;margin-top:.75rem;font-size:.78rem;line-height:1.25}.strategy{padding:.9rem 1rem;border-left:1px solid var(--line)}.section-label{margin:0 0 .55rem;font:800 .67rem/1.1 "Courier New",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}.strategy ol{display:grid;grid-template-columns:repeat(2,1fr);gap:.45rem 1.5rem;margin:0;padding-left:1.3rem;font-size:.8rem;line-height:1.25}.pick-strip{display:grid;grid-template-columns:repeat(14,1fr);border-bottom:1px solid var(--line)}.pick{min-width:0;padding:.55rem .25rem;text-align:center;border-right:1px solid var(--line)}.pick:last-child{border-right:0}.pick b{display:block;font:800 .7rem "Courier New",monospace}.pick span{color:var(--muted);font-size:.62rem}
+.tiers-head,.plan-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin:1rem 0 .45rem}.tiers-head h2,.plan-head h2{margin:0;font-size:1.2rem;letter-spacing:-.03em}.legend{color:var(--muted);font:.68rem "Courier New",monospace}.cliff-key{color:var(--accent);font-weight:800}.tier-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.position{border-top:3px solid var(--ink);background:var(--paper)}.position h3{display:flex;align-items:baseline;justify-content:space-between;margin:0;padding:.45rem .55rem;border-bottom:1px solid var(--line);font-size:1.35rem;letter-spacing:-.04em}.position h3 small{color:var(--muted);font:400 .64rem "Courier New",monospace}.tier-row{display:grid;grid-template-columns:2.1rem 1fr;gap:.35rem;padding:.3rem .45rem;border-bottom:1px solid var(--soft);font-size:.68rem;line-height:1.32}.tier-row:last-child{border-bottom:0}.tier-no{padding-top:.08rem;color:var(--accent);font:900 .65rem "Courier New",monospace}.player{display:inline}.player+.player:before{content:" / ";color:var(--line)}.hook{color:var(--muted);font-style:italic}.boundary{font-weight:900;text-decoration:underline 2px var(--accent);text-underline-offset:2px}.boundary:after{content:" cliff";color:var(--accent);font:800 .55rem "Courier New",monospace;text-transform:uppercase;text-decoration:none}
+.round-plan{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:3px solid var(--ink);border-left:1px solid var(--line)}.round{display:grid;grid-template-columns:4.9rem 1fr;min-width:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}.round-key{padding:.55rem;border-right:1px solid var(--line);font:800 .68rem/1.25 "Courier New",monospace}.round-key strong{display:block;color:var(--accent);font-size:1rem}.round-body{min-width:0;padding:.48rem .55rem;font-size:.72rem;line-height:1.3}.round-body b{font-weight:800}.availability{margin-top:.2rem;color:var(--muted);font:400 .62rem/1.25 "Courier New",monospace}
+.drills{max-width:960px;margin:0 auto}.drill-head{border-bottom:3px solid var(--ink);padding-bottom:1rem}.drill-head h1{margin:0;font-size:clamp(2.2rem,7vw,5rem);line-height:.9;letter-spacing:-.06em}.progress{display:flex;flex-wrap:wrap;gap:.65rem 1.4rem;margin-top:1rem;color:var(--muted);font:700 .76rem "Courier New",monospace}.progress strong{color:var(--ink)}.flashcard{min-height:24rem;display:flex;flex-direction:column;margin-top:1.4rem;border:2px solid var(--ink);background:var(--paper)}.card-meta{display:flex;justify-content:space-between;padding:.7rem .8rem;border-bottom:1px solid var(--line);color:var(--muted);font:800 .68rem "Courier New",monospace;text-transform:uppercase}.prompt{display:grid;place-items:center;flex:1;padding:2.5rem;text-align:center}.prompt h2{max-width:24ch;margin:0;font-size:clamp(1.75rem,5vw,3.5rem);line-height:1.02;letter-spacing:-.045em}.answer{display:none;max-width:55ch;margin:1.3rem auto 0;color:var(--accent);font-size:clamp(1rem,2.5vw,1.4rem);font-weight:800;line-height:1.35}.flashcard.revealed .answer{display:block}.card-actions{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}.card-actions button{min-height:3.4rem;border:0;background:transparent;font-weight:900}.card-actions button+button{border-left:1px solid var(--line)}.reveal{grid-column:1/-1;background:var(--ink)!important;color:var(--paper)}.score{display:none}.flashcard.revealed .reveal{display:none}.flashcard.revealed .score{display:block}.got{background:var(--accent)!important;color:var(--accent-ink)}.session-done{display:grid;place-items:center;min-height:24rem;margin-top:1.4rem;border-top:3px solid var(--ink);text-align:center}.session-done h2{font-size:2.5rem;letter-spacing:-.05em}.session-done button{border:1px solid var(--ink);border-radius:0;background:var(--ink);color:var(--paper);padding:.8rem 1rem;font-weight:900}.hint{margin-top:.8rem;color:var(--muted);font:.7rem "Courier New",monospace}
+.empty{padding:4rem 1rem;text-align:center;color:var(--muted)}
+@media(max-width:800px){nav{position:static;flex-wrap:wrap;gap:.5rem .8rem;min-height:0;padding:max(.6rem,env(safe-area-inset-top)) 1rem .6rem}.brand{width:100%}.tabs{margin-right:auto}.tab{padding:.6rem 1.1rem;min-height:44px;display:flex;align-items:center}.seat-control{font-size:.8rem}.seat-control select{min-height:44px;padding:.5rem .6rem}.print-btn{display:none}main{max-width:100%;padding:1rem max(1rem,env(safe-area-inset-right)) 1rem max(1rem,env(safe-area-inset-left))}.view-head{display:block}.view-head h1{font-size:2.4rem}.stamp{text-align:left;margin-top:.7rem}.brain-top{grid-template-columns:1fr}.strategy{border-top:1px solid var(--line);border-left:0}.strategy ol{grid-template-columns:1fr;font-size:.92rem;gap:.55rem}.pick-strip{grid-template-columns:repeat(7,1fr)}.pick:nth-child(7){border-right:0}.pick:nth-child(-n+7){border-bottom:1px solid var(--line)}.pick b{font-size:.8rem}.pick span{font-size:.68rem}.tier-board,.round-plan{grid-template-columns:1fr}.round-plan{border-left:1px solid var(--line)}.position h3{position:sticky;top:0;z-index:1;background:var(--paper);font-size:1.5rem}.tier-row{grid-template-columns:2.3rem 1fr;padding:.45rem .55rem;font-size:.86rem;line-height:1.4}.tier-no{font-size:.78rem}.round{grid-template-columns:5.4rem 1fr}.round-key{font-size:.78rem}.round-body{font-size:.9rem;line-height:1.4}.availability{font-size:.78rem}.prompt{padding:1.5rem}.flashcard{min-height:21rem}}
+@media(max-width:640px){.drills{max-width:100%;padding-bottom:calc(4.8rem + env(safe-area-inset-bottom))}.drill-head{padding-bottom:.8rem}.drill-head h1{font-size:2rem}.progress{gap:.35rem 1rem;margin-top:.7rem;font-size:.7rem}.flashcard{min-height:calc(100dvh - 15rem);margin-top:1rem}.session-done{min-height:calc(100dvh - 15rem)}.prompt{padding:1.4rem 1.1rem}.prompt h2{font-size:clamp(1.9rem,8vw,2.8rem)}.card-actions{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--paper);border-top:2px solid var(--ink);padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -6px 18px rgba(0,0,0,.14)}.card-actions button{min-height:3.9rem;font-size:1.05rem}}
+@media print{
+  @page{size:letter landscape;margin:.17in}:root{color-scheme:light;--bg:#fff;--paper:#fff;--ink:#111;--muted:#555;--line:#999;--soft:#ddd;--accent:#8b2f19}nav,.view-head p,.print-btn{display:none!important}html{font-size:8px}body{background:#fff}main{max-width:none;padding:0}.view-head{display:flex;margin:0 0 3px}.view-head h1{font-size:18px;line-height:1}.stamp{font-size:5.5px}.brain-top{grid-template-columns:1fr 2.25fr}.gap-stat{padding:4px}.gap-stat strong{font-size:31px}.gap-stat span{margin-top:2px;font-size:6px}.strategy{padding:4px}.section-label{margin-bottom:2px;font-size:5.2px}.strategy ol{grid-template-columns:repeat(3,1fr);gap:1px 10px;padding-left:10px;font-size:6px;line-height:1.1}.pick{padding:2px}.pick b{font-size:5.8px}.pick span{font-size:5px}.tiers-head,.plan-head{margin:4px 0 2px}.tiers-head h2,.plan-head h2{font-size:8.4px}.legend{font-size:5.2px}.tier-board{grid-template-columns:repeat(2,1fr);gap:3px}.position h3{padding:2px 3px;font-size:8.5px}.position h3 small{font-size:4.9px}.tier-row{grid-template-columns:16px 1fr;gap:2px;padding:1px 3px;font-size:5.8px;line-height:1.13}.tier-no{font-size:5.2px}.boundary:after{font-size:4.2px}.round-plan{grid-template-columns:repeat(2,1fr)}.round{grid-template-columns:35px 1fr}.round-key{padding:2px 3px;font-size:5px;line-height:1.05}.round-key strong{font-size:6.3px}.round-body{padding:2px 3px;font-size:5.7px;line-height:1.08}.availability{margin:0;font-size:4.8px}.drills{display:none!important}
+}
+</style>
+</head>
+<body>
+<nav aria-label="Study mode navigation">
+  <div class="brand">Draft Study <small>14-team standard</small></div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-view="brain">Brain Sheet</button>
+    <button class="tab" role="tab" data-view="drills">Drills</button>
+  </div>
+  <label class="seat-control">Seat <select id="seat" aria-label="Draft seat"></select></label>
+  <button class="print-btn" id="print">Print sheet</button>
+</nav>
+<main id="view"></main>
+<script>
+const BOARD=__BOARD_JSON__;
+const TEAMS=14,ROUNDS=14,CUTOFF=TEAMS*ROUNDS,POSITIONS=['QB','RB','WR','TE'];
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[—–]/g,'-').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}};
+const write=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}};
+let seat=Math.min(TEAMS,Math.max(1,+read('study-seat',1)||1)), view=location.hash==='#drills'?'drills':'brain';
+const draftable=BOARD.players.filter(p=>POSITIONS.includes(p.pos)&&p.ecr<=CUTOFF&&p.pos_tier!=null).sort((a,b)=>a.ecr-b.ecr);
+
+function overall(round,s=seat){return(round-1)*TEAMS+(round%2?s:TEAMS-s+1)}
+function slot(round,s=seat){return round%2?s:TEAMS-s+1}
+function pickLabel(round,s=seat){return `${round}.${String(slot(round,s)).padStart(2,'0')}`}
+const LATE_PICK=TEAMS*10; // past round 10, exact tier identity stops mattering
+function tierGroups(pos){
+  const map=new Map();
+  draftable.filter(p=>p.pos===pos).forEach(p=>{if(!map.has(p.pos_tier))map.set(p.pos_tier,[]);map.get(p.pos_tier).push(p)});
+  const groups=[...map].sort((a,b)=>a[0]-b[0]).map(([tier,players])=>({pos,tier,players}));
+  const cut=groups.findIndex(g=>Math.min(...g.players.map(p=>p.adp||p.ecr))>LATE_PICK);
+  if(cut>0)groups.splice(cut,groups.length,{pos,tier:'late',players:groups.slice(cut).flatMap(g=>g.players)});
+  return groups.map(g=>({...g,adp:Math.max(...g.players.map(p=>p.adp||p.ecr)),vor:Math.max(...g.players.map(p=>p.vor??-999))}));
+}
+const tLabel=t=>t.tier==='late'?'late':`t${t.tier}`;
+const TIERS=Object.fromEntries(POSITIONS.map(p=>[p,tierGroups(p)]));
+const SHORT={'REC-BACK':'pass-catcher','COMMITTEE':'committee upside','KONAMI':'rushing floor','POCKET':'pocket passer','ELITE-TE':'elite TE','MOBILE-QB':'QB steals rushes','GOOD-OFF':'strong offense','WEAK-OFF':'weak offense','LOW-COMP':'clear targets','CROWDED':'crowded room','ROOKIE':'rookie ceiling'};
+function shortTarget(name,player){
+  const useful=s=>(s||'').split(' ').filter(x=>!['Jr.','Sr.','II','III','IV'].includes(x)),target=useful(name),own=useful(player);
+  return target.at(-1)===own.at(-1)?target[0]:target.at(-1)||'?';
+}
+function hooks(p){
+  const tags=[...(p.strategy||[]),...(p.context||[])], out=[];
+  for(const tag of tags){
+    if(!BOARD.meta.tag_legend?.[tag]||out.length===2)continue;
+    const text=tag==='HANDCUFF'?`handcuff→${shortTarget(p.handcuff_to,p.name)}`:SHORT[tag];
+    if(text&&!out.some(x=>x.text===text))out.push({text,title:BOARD.meta.tag_legend[tag]});
+  }
+  return out;
+}
+function hookText(p){return hooks(p).map(x=>x.text).join(', ')}
+function playerHtml(p,last){
+  const hs=hooks(p),title=hs.map(x=>x.title).join(' | ');
+  return `<span class="player ${last?'boundary':''}"${title?` title="${esc(title)}"`:''}>${esc(p.name)}${hs.length?` <span class="hook">(${esc(hs.map(x=>x.text).join(', '))})</span>`:''}</span>`;
+}
+function currentTier(pos,pick){return TIERS[pos].find(t=>t.adp>=pick)||null}
+function tierFlavor(t,round){
+  if(!t)return null;const tags=new Set(t.players.flatMap(p=>p.strategy||[]));
+  if(t.pos==='QB'&&tags.has('KONAMI'))return `KONAMI QB ${tLabel(t)}`;
+  if(t.pos==='RB'&&round>=10&&tags.has('HANDCUFF'))return `handcuff RB ${tLabel(t)}`;
+  if(t.pos==='RB'&&tags.has('REC-BACK'))return `pass-catching RB ${tLabel(t)}`;
+  if(t.pos==='TE'&&tags.has('ELITE-TE'))return `elite TE ${tLabel(t)}`;
+  return `${t.pos} ${tLabel(t)}`;
+}
+function planFor(round,s=seat){
+  const pick=overall(round,s), available=POSITIONS.map(pos=>currentTier(pos,pick)).filter(Boolean);
+  const scored=available.map(t=>{
+    const tags=new Set(t.players.flatMap(p=>p.strategy||[]));let score=t.vor;
+    if(t.pos==='RB'&&round<=4)score+=24;
+    if(t.pos==='RB'&&(tags.has('REC-BACK')||tags.has('COMMITTEE')))score+=6;
+    if(t.pos==='QB'&&tags.has('KONAMI'))score+=10;
+    if(t.pos==='QB'&&tags.has('POCKET'))score-=8;
+    if(t.pos==='TE'&&t.tier!==1&&round>=6&&round<=10)score-=1000;
+    return {t,score};
+  }).sort((a,b)=>b.score-a.score);
+  const top=scored.slice(0,2).map(x=>tierFlavor(x.t,round));
+  let fallback=scored.slice(2).find(x=>x.t.pos==='QB'&&x.t.players.some(p=>(p.strategy||[]).includes('KONAMI')))||scored[2];
+  if(round>=13){
+    const upside=scored.filter(x=>['RB','WR'].includes(x.t.pos)).slice(0,2).map(x=>tierFlavor(x.t,round));
+    return {pick,available,plan:`Best late upside: ${upside.join(' / ')||'RB / WR'}`,fallback:'K/DST only if required'};
+  }
+  return {pick,available,plan:`Best available: ${top.join(' / ')||'highest VOR tier'}`,fallback:fallback?tierFlavor(fallback.t,round):'wait on QB/TE'};
+}
+function strategyRules(){
+  const n=BOARD.meta.strategy_notes||{};
+  return [
+    n.RB&&'Anchor an RB early. Scarcity is real in 14-team standard.',
+    n.TE&&'Elite TE or wait. Suppress the round 6-10 dead zone.',
+    n.QB&&'Prefer a mobile QB with a rushing floor over a pocket passer.',
+    n.WR&&'WR is deepest. After an anchor RB, chase target share and ceiling.',
+    (n.K||n.DST)&&'Late rounds: handcuffs and rookies first. K/DST only at the end.'
+  ].filter(Boolean);
+}
+function brain(){
+  const oddGap=2*(TEAMS-seat),evenGap=2*(seat-1),plans=Array.from({length:ROUNDS},(_,i)=>planFor(i+1));
+  const tierHtml=POSITIONS.map(pos=>`<section class="position"><h3>${pos}<small>${TIERS[pos].reduce((n,t)=>n+t.players.length,0)} names</small></h3>${TIERS[pos].map(t=>`<div class="tier-row"><span class="tier-no">${t.tier==='late'?'LATE':`T${t.tier}`}</span><span>${t.players.map((p,i)=>playerHtml(p,t.tier!=='late'&&i===t.players.length-1)).join('')}</span></div>`).join('')}</section>`).join('');
+  return `<section id="brain">
+    <header class="view-head"><div><h1>Memorize the cliffs.</h1><p>The underlined final name in every tier is your panic trigger. Hooks turn traits into recall cues.</p></div><div class="stamp">Seat ${seat}<br>${TEAMS} teams / standard / ${ROUNDS} rounds</div></header>
+    <div class="brain-top"><div class="snake"><div class="gap-stat"><strong>${oddGap}</strong><span>picks happen after your odd-round pick</span></div><div class="gap-stat"><strong>${evenGap}</strong><span>picks happen after your even-round pick</span></div></div><section class="strategy"><h2 class="section-label">Five rules</h2><ol>${strategyRules().map(x=>`<li>${esc(x)}</li>`).join('')}</ol></section></div>
+    <div class="pick-strip">${plans.map((p,i)=>`<div class="pick"><b>R${i+1} / ${esc(pickLabel(i+1))}</b><span>#${p.pick}</span></div>`).join('')}</div>
+    <div class="tiers-head"><h2>Position tiers</h2><div class="legend"><span class="cliff-key">underlined = tier cliff</span> / LATE = rounds 11+ pool / cut at ECR ${CUTOFF}</div></div>
+    <div class="tier-board">${tierHtml}</div>
+    <div class="plan-head"><h2>Your 14-pick plan</h2><div class="legend">ADP says likely if the tier's latest member reaches your pick</div></div>
+    <div class="round-plan">${plans.map((p,i)=>{
+      const avail=p.available.map(t=>`${t.pos} ${tLabel(t)}`).join(' / ')||'late pool';
+      return `<article class="round"><div class="round-key"><strong>${pickLabel(i+1)}</strong>R${i+1} / #${p.pick}</div><div class="round-body"><b>Plan:</b> ${esc(p.plan.replace('Best available: ','').replace('Best late upside: ',''))} <b>Fallback:</b> ${esc(p.fallback)}<div class="availability">Likely: ${esc(avail)}</div></div></article>`
+    }).join('')}</div>
+  </section>`;
+}
+
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++)h=Math.imul(h^s.charCodeAt(i),16777619);return(h>>>0).toString(36)}
+function card(type,question,answer){return {type,question,answer,id:hash(`${type}|${question}|${answer}`)}}
+function cards(){
+  const out=[];
+  POSITIONS.forEach(pos=>TIERS[pos].forEach(t=>{
+    if(t.tier==='late')return; // late pool: hook cards cover the names worth knowing
+    const names=t.players.map(p=>p.name).join(', '),last=t.players[t.players.length-1];
+    out.push(card('Tier recall',`Name the tier-${t.tier} ${pos}${t.players.length>1?'s':''}.`,names));
+    if(t.players.length>1)out.push(card('Boundary',`Who is the LAST ${pos} in tier ${t.tier}?`,`${last.name}. That is the tier cliff.`));
+  }));
+  // same-position pairs only across a tier boundary: inside a tier, order is noise
+  POSITIONS.forEach(pos=>{
+    const ts=TIERS[pos];
+    for(let i=0;i<ts.length-1&&ts[i+1].tier!=='late';i++){
+      const a=ts[i].players.at(-1),b=ts[i+1].players[0];
+      out.push(card('Who goes earlier?',`${a.name} or ${b.name}?`,`${a.name} — he is the tier-${ts[i].tier} cliff; ${b.name} opens tier ${ts[i+1].tier}.`));
+    }
+  });
+  const byAdp=draftable.filter(p=>p.adp).slice().sort((a,b)=>a.adp-b.adp);
+  for(let i=0;i<byAdp.length-1;i+=7){const a=byAdp[i],b=byAdp.slice(i+1,i+6).find(x=>x.pos!==a.pos);if(!b)continue;const winner=a.ecr<=b.ecr?a:b;out.push(card('Who goes earlier?',`${a.name} or ${b.name}?`,`${winner.name}. ${a.name}: ECR ${a.ecr}, ADP ${a.adp}. ${b.name}: ECR ${b.ecr}, ADP ${b.adp}.`))}
+  draftable.filter(p=>hookText(p)).forEach(p=>out.push(card('Hook recall',`What's the hook on ${p.name}?`,hookText(p))));
+  for(let round=1;round<=ROUNDS;round++){
+    const p=planFor(round);
+    out.push(card('Plan recall',`Your pick ${pickLabel(round)}: what's the plan?`,`${p.plan}. Fallback: ${p.fallback}.`));
+  }
+  return out;
+}
+let deck=[],queue=[],state,sessionTotal=0;
+function startSession(increment=true){
+  deck=cards();state=read('study-leitner',{session:0,boxes:{}});if(increment)state.session++;
+  deck.forEach(c=>{if(!state.boxes[c.id])state.boxes[c.id]=1});write('study-leitner',state);
+  queue=deck.filter(c=>state.boxes[c.id]===1||(state.boxes[c.id]===2&&state.session%2===0)||(state.boxes[c.id]===3&&state.session%4===0));
+  // tier knowledge first: short sessions still hit the highest-value cards
+  const prio={'Boundary':0,'Tier recall':1,'Who goes earlier?':2,'Plan recall':3,'Hook recall':4};
+  queue.sort((a,b)=>prio[a.type]-prio[b.type]||hash(a.id+state.session).localeCompare(hash(b.id+state.session)));sessionTotal=queue.length;renderDrill();
+}
+function progress(){const counts=[1,2,3].map(box=>deck.filter(c=>state.boxes[c.id]===box).length);return {counts,mastered:counts[2],total:deck.length}}
+function renderDrill(){
+  const p=progress(),c=queue[0],done=sessionTotal-queue.length;
+  if(!c){$('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Session complete.</h1><div class="progress"><span><strong>${p.mastered}/${p.total}</strong> cards in box 3</span><span>Boxes: ${p.counts.join(' / ')}</span></div></header><div class="session-done"><div><h2>Good work.</h2><button id="again">Start another session</button></div></div></section>`;$('#again').onclick=()=>startSession(true);return}
+  $('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Recall before reveal.</h1><div class="progress"><span><strong>${p.mastered}/${p.total}</strong> cards in box 3</span><span>Box 1 / 2 / 3: ${p.counts.join(' / ')}</span><span>${done+1} of ${sessionTotal} this session</span></div></header><article class="flashcard"><div class="card-meta"><span>${esc(c.type)}</span><span>Box ${state.boxes[c.id]}</span></div><div class="prompt"><div><h2>${esc(c.question)}</h2><div class="answer" aria-live="polite">${esc(c.answer)}</div></div></div><div class="card-actions"><button class="reveal">Reveal answer</button><button class="score missed">Missed</button><button class="score got">Got it</button></div></article><div class="hint">Keyboard: space reveals / 1 missed / 2 got it</div></section>`;
+  $('.reveal').onclick=reveal;$('.missed').onclick=()=>score(false);$('.got').onclick=()=>score(true);
+}
+function reveal(){$('.flashcard')?.classList.add('revealed')}
+function score(got){const c=queue.shift();state.boxes[c.id]=got?Math.min(3,state.boxes[c.id]+1):1;write('study-leitner',state);renderDrill()}
+function show(next){
+  view=next;location.hash=next==='drills'?'drills':'';$$('.tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.view===next)));
+  if(next==='brain')$('#view').innerHTML=brain();else startSession(true);
+}
+function init(){
+  const select=$('#seat');select.innerHTML=Array.from({length:TEAMS},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('');select.value=seat;
+  select.onchange=()=>{seat=+select.value;write('study-seat',seat);if(view==='brain')$('#view').innerHTML=brain();else startSession(false)};
+  $$('.tab').forEach(b=>b.onclick=()=>show(b.dataset.view));$('#print').onclick=()=>{if(view!=='brain')show('brain');setTimeout(()=>print(),0)};
+  show(view);
+}
+document.addEventListener('keydown',e=>{if(view!=='drills'||/SELECT|INPUT/.test(document.activeElement?.tagName))return;if(e.code==='Space'){e.preventDefault();reveal()}if(e.key==='1'&&$('.flashcard.revealed'))score(false);if(e.key==='2'&&$('.flashcard.revealed'))score(true)});
+init();
+</script>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('../sw.js').catch(function(){});});}
+</script>
+</body>
+</html>

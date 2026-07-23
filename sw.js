@@ -1,10 +1,12 @@
 // Offline cache for the GitHub Pages app. The app shell is self-contained;
 // navigating while online always refreshes it, with the last copy as fallback.
-const CACHE = 'draft-day-v2';
+const CACHE = 'draft-day-v4';
 const SHELL = './index.html';
+const STUDY = './study/index.html';
+const ASSETS = [SHELL, STUDY];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.add(SHELL)).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (event) => {
@@ -19,14 +21,15 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   if (event.request.mode === 'navigate') {
+    const target = /\/study(\/(index\.html)?)?$/.test(new URL(event.request.url).pathname) ? STUDY : SHELL;
     event.respondWith(
       fetch(event.request)
         .then((response) => {
           const copy = response.clone();
-          caches.open(CACHE).then((cache) => cache.put(SHELL, copy)).catch(() => {});
+          caches.open(CACHE).then((cache) => cache.put(target, copy)).catch(() => {});
           return response;
         })
-        .catch(() => caches.match(SHELL))
+        .catch(() => caches.match(target))
     );
     return;
   }
