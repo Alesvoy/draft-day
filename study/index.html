@@ -141,12 +141,14 @@ function brain(){
 function hash(s){let h=2166136261;for(let i=0;i<s.length;i++)h=Math.imul(h^s.charCodeAt(i),16777619);return(h>>>0).toString(36)}
 function card(type,question,answer){return {type,question,answer,id:hash(`${type}|${question}|${answer}`)}}
 function cards(){
-  const out=[];
+  const out=[];CLIFF.clear();
+  const cliff=c=>{CLIFF.add(c.id);return c};
   POSITIONS.forEach(pos=>TIERS[pos].forEach(t=>{
     if(t.tier==='late')return; // late pool: hook cards cover the names worth knowing
     const names=t.players.map(p=>p.name).join(', '),last=t.players[t.players.length-1];
-    out.push(card('Tier recall',`Name the tier-${t.tier} ${pos}${t.players.length>1?'s':''}.`,names));
-    if(t.players.length>1)out.push(card('Boundary',`Who is the LAST ${pos} in tier ${t.tier}?`,`${last.name}. That is the tier cliff.`));
+    const recall=card('Tier recall',`Name the tier-${t.tier} ${pos}${t.players.length>1?'s':''}.`,names);
+    out.push(t.players.length===1?cliff(recall):recall); // a one-man tier IS its cliff
+    if(t.players.length>1)out.push(cliff(card('Boundary',`Who is the LAST ${pos} in tier ${t.tier}?`,`${last.name}. That is the tier cliff.`)));
   }));
   // same-position pairs only across a tier boundary: inside a tier, order is noise
   POSITIONS.forEach(pos=>{
@@ -165,14 +167,14 @@ function cards(){
   }
   return out;
 }
-let deck=[],queue=[],state,lapsed=new Set();
+let deck=[],queue=[],state,lapsed=new Set();const CLIFF=new Set();
 function startSession(increment=true){
   deck=cards();state=read('study-leitner',{session:0,boxes:{}});if(increment)state.session++;lapsed=new Set();
   deck.forEach(c=>{if(!state.boxes[c.id])state.boxes[c.id]=1});write('study-leitner',state);
-  queue=deck.filter(c=>state.boxes[c.id]===1||(state.boxes[c.id]===2&&state.session%2===0)||(state.boxes[c.id]===3&&state.session%4===0));
-  // tier knowledge first: short sessions still hit the highest-value cards
+  // cliffs are exempt from spacing: every session sweeps ALL of them first
+  queue=deck.filter(c=>CLIFF.has(c.id)||state.boxes[c.id]===1||(state.boxes[c.id]===2&&state.session%2===0)||(state.boxes[c.id]===3&&state.session%4===0));
   const prio={'Boundary':0,'Tier recall':1,'Who goes earlier?':2,'Plan recall':3,'Hook recall':4};
-  queue.sort((a,b)=>prio[a.type]-prio[b.type]||hash(a.id+state.session).localeCompare(hash(b.id+state.session)));renderDrill();
+  queue.sort((a,b)=>(CLIFF.has(b.id)-CLIFF.has(a.id))||prio[a.type]-prio[b.type]||hash(a.id+state.session).localeCompare(hash(b.id+state.session)));renderDrill();
 }
 function progress(){const counts=[1,2,3].map(box=>deck.filter(c=>state.boxes[c.id]===box).length);return {counts,mastered:counts[2],total:deck.length}}
 function renderDrill(){
