@@ -64,6 +64,29 @@ function tierGroups(pos){
 }
 const tLabel=t=>t.tier==='late'?'late':`t${t.tier}`;
 const TIERS=Object.fromEntries(POSITIONS.map(p=>[p,tierGroups(p)]));
+// Memorization bands. Reps are the scarce resource, so spend precision where
+// picks are actually decided: rounds 1-3 by name, 4-7 by cliff only, 8+ by plan.
+// Bands run per tier, not per player, so a tier straddling a boundary is learned
+// whole. That already carries the late TEs/QBs who beat replacement (Kelce,
+// Goedert, Andrews); the vor clause is a safety net for boards where it doesn't.
+const BAND_A_END=TEAMS*3, BAND_B_END=TEAMS*7;
+const bandOf=t=>{const p=t.players[0];
+  return p.ecr<=BAND_A_END?'A':(p.ecr<=BAND_B_END||(p.vor??0)>0)?'B':'C'};
+// A tier boundary is a real cliff only where the points gap beat the break
+// threshold. natural_break_tiers also cuts every 6 players to keep tiers
+// readable; those cuts are bookkeeping, not panic triggers, so they earn no card.
+const TIER_SENS=0.75;
+const CLIFF_MIN=Object.fromEntries(POSITIONS.map(pos=>{
+  const v=BOARD.players.filter(p=>p.pos===pos&&p.proj_pts!=null).map(p=>p.proj_pts).sort((a,b)=>b-a);
+  const g=v.slice(0,-1).map((x,i)=>x-v[i+1]);
+  if(!g.length)return[pos,Infinity];
+  const m=g.reduce((s,x)=>s+x,0)/g.length;
+  return[pos,m+TIER_SENS*Math.sqrt(g.reduce((s,x)=>s+(x-m)**2,0)/g.length)];
+}));
+// tiers are listed in ECR order but were cut in projection order, so the
+// boundary gap is floor(this tier) - ceiling(the next one), not last minus first
+const pts=(ps,f)=>f(...ps.map(p=>p.proj_pts).filter(v=>v!=null));
+const isCliff=(pos,t,next)=>!next||(pts(t.players,Math.min)-pts(next.players,Math.max))>CLIFF_MIN[pos];
 const SHORT={'REC-BACK':'pass-catcher','COMMITTEE':'committee upside','KONAMI':'rushing floor','POCKET':'pocket passer','ELITE-TE':'elite TE','MOBILE-QB':'QB steals rushes','GOOD-OFF':'strong offense','WEAK-OFF':'weak offense','LOW-COMP':'clear targets','CROWDED':'crowded room','ROOKIE':'rookie ceiling'};
 function shortTarget(name,player){
   const useful=s=>(s||'').split(' ').filter(x=>!['Jr.','Sr.','II','III','IV'].includes(x)),target=useful(name),own=useful(player);
@@ -123,7 +146,11 @@ function strategyRules(){
 }
 function brain(){
   const oddGap=2*(TEAMS-seat),evenGap=2*(seat-1),plans=Array.from({length:ROUNDS},(_,i)=>planFor(i+1));
-  const tierHtml=POSITIONS.map(pos=>`<section class="position"><h3>${pos}<small>${TIERS[pos].reduce((n,t)=>n+t.players.length,0)} names</small></h3>${TIERS[pos].map(t=>`<div class="tier-row"><span class="tier-no">${t.tier==='late'?'LATE':`T${t.tier}`}</span><span>${t.players.map((p,i)=>playerHtml(p,t.tier!=='late'&&i===t.players.length-1)).join('')}</span></div>`).join('')}</section>`).join('');
+  // underline only the boundaries the drills actually teach -- a forced 6-player
+  // cut is not a panic trigger, and marking it trains a reflex on noise
+  const tierHtml=POSITIONS.map(pos=>{const all=TIERS[pos],ts=all.filter(t=>t.tier!=='late'),late=all.find(t=>t.tier==='late');
+    return `<section class="position"><h3>${pos}<small>${all.reduce((n,t)=>n+t.players.length,0)} names</small></h3>${all.map(t=>{const i=ts.indexOf(t),real=t.tier!=='late'&&bandOf(t)!=='C'&&isCliff(pos,t,ts[i+1]||late);
+      return `<div class="tier-row"><span class="tier-no">${t.tier==='late'?'LATE':`T${t.tier}`}</span><span>${t.players.map((p,j)=>playerHtml(p,real&&j===t.players.length-1)).join('')}</span></div>`}).join('')}</section>`}).join('');
   return `<section id="brain">
     <header class="view-head"><div><h1>Memorize the cliffs.</h1><p>The underlined final name in every tier is your panic trigger. Hooks turn traits into recall cues.</p></div><div class="stamp">Seat ${seat}<br>${TEAMS} teams / standard / ${ROUNDS} rounds</div></header>
     <div class="brain-top"><div class="snake"><div class="gap-stat"><strong>${oddGap}</strong><span>picks happen after your odd-round pick</span></div><div class="gap-stat"><strong>${evenGap}</strong><span>picks happen after your even-round pick</span></div></div><section class="strategy"><h2 class="section-label">Five rules</h2><ol>${strategyRules().map(x=>`<li>${esc(x)}</li>`).join('')}</ol></section></div>
@@ -139,31 +166,41 @@ function brain(){
 }
 
 function hash(s){let h=2166136261;for(let i=0;i<s.length;i++)h=Math.imul(h^s.charCodeAt(i),16777619);return(h>>>0).toString(36)}
-function card(type,question,answer){return {type,question,answer,id:hash(`${type}|${question}|${answer}`)}}
+// The id is hashed from `key`, NOT from the rendered text, so that a tier
+// renumbering above a card does not orphan its Leitner box. Keys carry the
+// fact being learned; when the fact changes the card resets, as it should.
+function card(type,question,answer,key){return {type,question,answer,id:hash(key)}}
 function cards(){
   const out=[];CLIFF.clear();
   const cliff=c=>{CLIFF.add(c.id);return c};
-  POSITIONS.forEach(pos=>TIERS[pos].forEach(t=>{
-    if(t.tier==='late')return; // late pool: hook cards cover the names worth knowing
-    const names=t.players.map(p=>p.name).join(', '),last=t.players[t.players.length-1];
-    const recall=card('Tier recall',`Name the tier-${t.tier} ${pos}${t.players.length>1?'s':''}.`,names);
-    out.push(t.players.length===1?cliff(recall):recall); // a one-man tier IS its cliff
-    if(t.players.length>1)out.push(cliff(card('Boundary',`Who is the LAST ${pos} in tier ${t.tier}?`,`${last.name}. That is the tier cliff.`)));
-  }));
-  // same-position pairs only across a tier boundary: inside a tier, order is noise
   POSITIONS.forEach(pos=>{
-    const ts=TIERS[pos];
-    for(let i=0;i<ts.length-1&&ts[i+1].tier!=='late';i++){
-      const a=ts[i].players.at(-1),b=ts[i+1].players[0];
-      out.push(card('Who goes earlier?',`${a.name} or ${b.name}?`,`${a.name} — he is the tier-${ts[i].tier} cliff; ${b.name} opens tier ${ts[i+1].tier}.`));
-    }
+    const ts=TIERS[pos].filter(t=>t.tier!=='late'), late=TIERS[pos].find(t=>t.tier==='late');
+    ts.forEach((t,i)=>{
+      const band=bandOf(t);
+      if(band==='C')return; // rounds 8+: the plan cards carry these picks, not names
+      const names=t.players.map(p=>p.name).join(', '),last=t.players.at(-1);
+      const real=isCliff(pos,t,ts[i+1]||late);
+      if(band==='A'){ // only the early rounds are worth learning name-by-name
+        const recall=card('Tier recall',`Name the tier-${t.tier} ${pos}${t.players.length>1?'s':''}.`,names,`recall|${pos}|${names}`);
+        out.push(t.players.length===1&&real?cliff(recall):recall); // a one-man tier IS its cliff
+        if(t.players.length===1||!real)return;
+      }
+      if(real)out.push(cliff(card('Boundary',`Who is the LAST ${pos} in tier ${t.tier}?`,`${last.name}. That is the tier cliff.`,`cliff|${pos}|${last.name}`)));
+    });
+    // same-position pairs only across a REAL tier boundary: inside a tier, order is noise
+    ts.forEach((t,i)=>{
+      const next=ts[i+1];
+      if(!next||bandOf(next)==='C'||!isCliff(pos,t,next))return;
+      const a=t.players.at(-1),b=next.players[0];
+      out.push(card('Who goes earlier?',`${a.name} or ${b.name}?`,`${a.name} — he is the tier-${t.tier} cliff; ${b.name} opens tier ${next.tier}.`,`pair|${a.name}|${b.name}`));
+    });
   });
-  const byAdp=draftable.filter(p=>p.adp).slice().sort((a,b)=>a.adp-b.adp);
-  for(let i=0;i<byAdp.length-1;i+=7){const a=byAdp[i],b=byAdp.slice(i+1,i+6).find(x=>x.pos!==a.pos);if(!b)continue;const winner=a.ecr<=b.ecr?a:b;out.push(card('Who goes earlier?',`${a.name} or ${b.name}?`,`${winner.name}. ${a.name}: ECR ${a.ecr}, ADP ${a.adp}. ${b.name}: ECR ${b.ecr}, ADP ${b.adp}.`))}
-  draftable.filter(p=>hookText(p)).forEach(p=>out.push(card('Hook recall',`What's the hook on ${p.name}?`,hookText(p))));
+  const byAdp=draftable.filter(p=>p.adp&&p.ecr<=BAND_B_END).slice().sort((a,b)=>a.adp-b.adp);
+  for(let i=0;i<byAdp.length-1;i+=7){const a=byAdp[i],b=byAdp.slice(i+1,i+6).find(x=>x.pos!==a.pos);if(!b)continue;const winner=a.ecr<=b.ecr?a:b;out.push(card('Who goes earlier?',`${a.name} or ${b.name}?`,`${winner.name}. ${a.name}: ECR ${a.ecr}, ADP ${a.adp}. ${b.name}: ECR ${b.ecr}, ADP ${b.adp}.`,`pair|${a.name}|${b.name}`))}
+  draftable.filter(p=>p.ecr<=BAND_B_END&&hookText(p)).forEach(p=>out.push(card('Hook recall',`What's the hook on ${p.name}?`,hookText(p),`hook|${p.name}|${hookText(p)}`)));
   for(let round=1;round<=ROUNDS;round++){
     const p=planFor(round);
-    out.push(card('Plan recall',`Your pick ${pickLabel(round)}: what's the plan?`,`${p.plan}. Fallback: ${p.fallback}.`));
+    out.push(card('Plan recall',`Your pick ${pickLabel(round)}: what's the plan?`,`${p.plan}. Fallback: ${p.fallback}.`,`plan|${round}|${p.plan}`));
   }
   return out;
 }
