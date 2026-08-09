@@ -22,8 +22,9 @@ main{max-width:1440px;margin:auto;padding:1.25rem}.view-head{display:grid;grid-t
 .round-plan{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:3px solid var(--ink);border-left:1px solid var(--line)}.round{display:grid;grid-template-columns:4.9rem 1fr;min-width:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}.round-key{padding:.55rem;border-right:1px solid var(--line);font:800 .68rem/1.25 "Courier New",monospace}.round-key strong{display:block;color:var(--accent);font-size:1rem}.round-body{min-width:0;padding:.48rem .55rem;font-size:.72rem;line-height:1.3}.round-body b{font-weight:800}.availability{margin-top:.2rem;color:var(--muted);font:400 .62rem/1.25 "Courier New",monospace}
 .drills{max-width:960px;margin:0 auto}.drill-head{border-bottom:3px solid var(--ink);padding-bottom:1rem}.drill-head h1{margin:0;font-size:clamp(2.2rem,7vw,5rem);line-height:.9;letter-spacing:-.06em}.progress{display:flex;flex-wrap:wrap;gap:.65rem 1.4rem;margin-top:1rem;color:var(--muted);font:700 .76rem "Courier New",monospace}.progress strong{color:var(--ink)}.flashcard{min-height:24rem;display:flex;flex-direction:column;margin-top:1.4rem;border:2px solid var(--ink);background:var(--paper)}.card-meta{display:flex;justify-content:space-between;padding:.7rem .8rem;border-bottom:1px solid var(--line);color:var(--muted);font:800 .68rem "Courier New",monospace;text-transform:uppercase}.prompt{display:grid;place-items:center;flex:1;padding:2.5rem;text-align:center}.prompt h2{max-width:24ch;margin:0;font-size:clamp(1.75rem,5vw,3.5rem);line-height:1.02;letter-spacing:-.045em}.answer{display:none;max-width:55ch;margin:1.3rem auto 0;color:var(--accent);font-size:clamp(1rem,2.5vw,1.4rem);font-weight:800;line-height:1.35}.flashcard.revealed .answer{display:block}.card-actions{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}.card-actions button{min-height:3.4rem;border:0;background:transparent;font-weight:900}.card-actions button+button{border-left:1px solid var(--line)}.reveal{grid-column:1/-1;background:var(--ink)!important;color:var(--paper)}.score{display:none}.flashcard.revealed .reveal{display:none}.flashcard.revealed .score{display:block}.got{background:var(--accent)!important;color:var(--accent-ink)}.session-done{display:grid;place-items:center;min-height:24rem;margin-top:1.4rem;border-top:3px solid var(--ink);text-align:center}.session-done h2{font-size:2.5rem;letter-spacing:-.05em}.session-done button{border:1px solid var(--ink);border-radius:0;background:var(--ink);color:var(--paper);padding:.8rem 1rem;font-weight:900}.hint{margin-top:.8rem;color:var(--muted);font:.7rem "Courier New",monospace}
 .empty{padding:4rem 1rem;text-align:center;color:var(--muted)}
+.ticket-stat strong{display:block;font:900 clamp(4.2rem,16vw,8rem)/.82 Arial,sans-serif;letter-spacing:-.07em;color:var(--accent)}.ticket-stat span{display:block;margin-top:.7rem;color:var(--muted);font:700 .72rem "Courier New",monospace;letter-spacing:.08em;text-transform:uppercase}.progress .end-session{margin-left:auto;border:1px solid var(--line);background:transparent;padding:.4rem .7rem;color:var(--muted);font:700 .68rem "Courier New",monospace;text-transform:uppercase}.card-actions .finish{color:var(--muted)}
 @media(max-width:800px){nav{position:static;flex-wrap:wrap;gap:.5rem .8rem;min-height:0;padding:max(.6rem,env(safe-area-inset-top)) 1rem .6rem}.brand{width:100%}.tabs{margin-right:auto}.tab{padding:.6rem 1.1rem;min-height:44px;display:flex;align-items:center}.seat-control{font-size:.8rem}.seat-control select{min-height:44px;padding:.5rem .6rem}.print-btn{display:none}main{max-width:100%;padding:1rem max(1rem,env(safe-area-inset-right)) 1rem max(1rem,env(safe-area-inset-left))}.view-head{display:block}.view-head h1{font-size:2.4rem}.stamp{text-align:left;margin-top:.7rem}.brain-top{grid-template-columns:1fr}.strategy{border-top:1px solid var(--line);border-left:0}.strategy ol{grid-template-columns:1fr;font-size:.92rem;gap:.55rem}.pick-strip{grid-template-columns:repeat(7,1fr)}.pick:nth-child(7){border-right:0}.pick:nth-child(-n+7){border-bottom:1px solid var(--line)}.pick b{font-size:.8rem}.pick span{font-size:.68rem}.tier-board,.round-plan{grid-template-columns:1fr}.round-plan{border-left:1px solid var(--line)}.position h3{position:sticky;top:0;z-index:1;background:var(--paper);font-size:1.5rem}.tier-row{grid-template-columns:2.3rem 1fr;padding:.45rem .55rem;font-size:.86rem;line-height:1.4}.tier-no{font-size:.78rem}.round{grid-template-columns:5.4rem 1fr}.round-key{font-size:.78rem}.round-body{font-size:.9rem;line-height:1.4}.availability{font-size:.78rem}.prompt{padding:1.5rem}.flashcard{min-height:21rem}}
-@media(max-width:640px){.drills{max-width:100%;padding-bottom:calc(4.8rem + env(safe-area-inset-bottom))}.drill-head{padding-bottom:.8rem}.drill-head h1{font-size:2rem}.progress{gap:.35rem 1rem;margin-top:.7rem;font-size:.7rem}.flashcard{min-height:calc(100dvh - 15rem);margin-top:1rem}.session-done{min-height:calc(100dvh - 15rem)}.prompt{padding:1.4rem 1.1rem}.prompt h2{font-size:clamp(1.9rem,8vw,2.8rem)}.card-actions{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--paper);border-top:2px solid var(--ink);padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -6px 18px rgba(0,0,0,.14)}.card-actions button{min-height:3.9rem;font-size:1.05rem}}
+@media(max-width:640px){.drills{max-width:100%;padding-bottom:calc(4.8rem + env(safe-area-inset-bottom))}.drill-head{padding-bottom:.8rem}.drill-head h1{font-size:2rem}.progress{gap:.35rem 1rem;margin-top:.7rem;font-size:.7rem}.flashcard{min-height:calc(100dvh - 15rem);margin-top:1rem}.session-done{min-height:calc(100dvh - 15rem)}.prompt{padding:1.4rem 1.1rem}.prompt h2{font-size:clamp(1.9rem,8vw,2.8rem)}.card-actions{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--paper);border-top:2px solid var(--ink);padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -6px 18px rgba(0,0,0,.14)}.card-actions button{min-height:3.9rem;font-size:1.05rem}.progress .end-session{min-height:44px;padding:.5rem .9rem}}
 @media print{
   @page{size:letter landscape;margin:.17in}:root{color-scheme:light;--bg:#fff;--paper:#fff;--ink:#111;--muted:#555;--line:#999;--soft:#ddd;--accent:#8b2f19}nav,.view-head p,.print-btn{display:none!important}html{font-size:8px}body{background:#fff}main{max-width:none;padding:0}.view-head{display:flex;margin:0 0 3px}.view-head h1{font-size:18px;line-height:1}.stamp{font-size:5.5px}.brain-top{grid-template-columns:1fr 2.25fr}.gap-stat{padding:4px}.gap-stat strong{font-size:31px}.gap-stat span{margin-top:2px;font-size:6px}.strategy{padding:4px}.section-label{margin-bottom:2px;font-size:5.2px}.strategy ol{grid-template-columns:repeat(3,1fr);gap:1px 10px;padding-left:10px;font-size:6px;line-height:1.1}.pick{padding:2px}.pick b{font-size:5.8px}.pick span{font-size:5px}.tiers-head,.plan-head{margin:4px 0 2px}.tiers-head h2,.plan-head h2{font-size:8.4px}.legend{font-size:5.2px}.tier-board{grid-template-columns:repeat(2,1fr);gap:3px}.position h3{padding:2px 3px;font-size:8.5px}.position h3 small{font-size:4.9px}.tier-row{grid-template-columns:16px 1fr;gap:2px;padding:1px 3px;font-size:5.8px;line-height:1.13}.tier-no{font-size:5.2px}.boundary:after{font-size:4.2px}.round-plan{grid-template-columns:repeat(2,1fr)}.round{grid-template-columns:35px 1fr}.round-key{padding:2px 3px;font-size:5px;line-height:1.05}.round-key strong{font-size:6.3px}.round-body{padding:2px 3px;font-size:5.7px;line-height:1.08}.availability{margin:0;font-size:4.8px}.drills{display:none!important}
 }
@@ -199,35 +200,87 @@ function cards(){
   }
   return out;
 }
-let deck=[],queue=[],state,lapsed=new Set();const CLIFF=new Set();
-function startSession(increment=true){
-  deck=cards();state=read('study-leitner',{session:0,boxes:{}});if(increment)state.session++;lapsed=new Set();
+let deck=[],queue=[],state,open=null,lapsed=new Set();const CLIFF=new Set();
+// A session is explicit: it opens when the user presses Start and closes at the
+// summary (finished or ended early). The queue persists after every answer, so
+// a reload, tab kill, or days-later return lands back in the same session. An
+// open session idle past STALE greets you with the gate instead of a stray card.
+const STALE=8*36e5;
+const ago=t=>{const m=Math.round((Date.now()-t)/6e4);return m<1?'just now':m<60?`${m}m ago`:m<1440?`${Math.round(m/60)}h ago`:`${Math.round(m/1440)}d ago`};
+function loadDeck(){
+  deck=cards();state=read('study-leitner',{session:0,boxes:{}});
   deck.forEach(c=>{if(!state.boxes[c.id])state.boxes[c.id]=1});write('study-leitner',state);
-  // cliffs are exempt from spacing: every session sweeps ALL of them first
-  queue=deck.filter(c=>CLIFF.has(c.id)||state.boxes[c.id]===1||(state.boxes[c.id]===2&&state.session%2===0)||(state.boxes[c.id]===3&&state.session%4===0));
+  open=read('study-open',null);
+}
+// cliffs are exempt from spacing: every session sweeps ALL of them first
+function dueFor(n){return deck.filter(c=>CLIFF.has(c.id)||state.boxes[c.id]===1||(state.boxes[c.id]===2&&n%2===0)||(state.boxes[c.id]===3&&n%4===0))}
+function order(cs){
   const prio={'Boundary':0,'Tier recall':1,'Who goes earlier?':2,'Plan recall':3,'Hook recall':4};
-  queue.sort((a,b)=>(CLIFF.has(b.id)-CLIFF.has(a.id))||prio[a.type]-prio[b.type]||hash(a.id+state.session).localeCompare(hash(b.id+state.session)));renderDrill();
+  return cs.slice().sort((a,b)=>(CLIFF.has(b.id)-CLIFF.has(a.id))||prio[a.type]-prio[b.type]||hash(a.id+state.session).localeCompare(hash(b.id+state.session)));
+}
+function saveOpen(){if(open)write('study-open',open);else{try{localStorage.removeItem('study-open')}catch{}}}
+function beginSession(){
+  state.session++;write('study-leitner',state);
+  queue=order(dueFor(state.session));lapsed=new Set();
+  open={session:state.session,started:Date.now(),last:Date.now(),got:0,missed:0,ids:queue.map(c=>c.id),lapsed:[]};
+  saveOpen();renderDrill();
+}
+function resumeSession(){
+  const byId=new Map(deck.map(c=>[c.id,c])); // a data refresh may have retired cards; they drop out here
+  queue=open.ids.map(id=>byId.get(id)).filter(Boolean);lapsed=new Set(open.lapsed);
+  open.last=Date.now();saveOpen();renderDrill();
 }
 function progress(){const counts=[1,2,3].map(box=>deck.filter(c=>state.boxes[c.id]===box).length);return {counts,mastered:counts[2],total:deck.length}}
+function renderGate(){
+  const p=progress();
+  if(open){
+    $('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Session ${open.session} is open.</h1><div class="progress"><span>started ${ago(open.started)}</span><span><strong>${open.got+open.missed}</strong> answered</span><span><strong>${p.mastered}/${p.total}</strong> in box 3</span></div></header><article class="flashcard"><div class="card-meta"><span>Session ${open.session}</span><span>In progress</span></div><div class="prompt"><div class="ticket-stat"><strong>${open.ids.length}</strong><span>cards left in this session</span></div></div><div class="card-actions"><button class="finish">End session</button><button class="resume got">Resume</button></div></article></section>`;
+    $('.resume').onclick=resumeSession;$('.finish').onclick=()=>renderSummary();
+  }else{
+    $('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Ready to drill.</h1><div class="progress"><span><strong>${p.mastered}/${p.total}</strong> in box 3</span><span>Box 1 / 2 / 3: ${p.counts.join(' / ')}</span><span>${CLIFF.size} cliffs sweep every session</span></div></header><article class="flashcard"><div class="card-meta"><span>Session ${state.session+1}</span><span>Due now</span></div><div class="prompt"><div class="ticket-stat"><strong>${dueFor(state.session+1).length}</strong><span>cards due this session</span></div></div><div class="card-actions"><button class="reveal begin">Start session</button></div></article></section>`;
+    $('.begin').onclick=beginSession;
+  }
+}
+function renderSummary(){
+  const s=open,left=s.ids.length;open=null;saveOpen();queue=[];lapsed=new Set();
+  const p=progress();
+  $('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Session ${s.session} ${left?'ended':'complete'}.</h1><div class="progress"><span><strong>${s.got}</strong> got</span><span><strong>${s.missed}</strong> missed</span><span><strong>${p.mastered}/${p.total}</strong> in box 3</span></div></header><div class="session-done"><div><h2>${left?`${left} cards return next session.`:'Good work.'}</h2><button id="again">Start session ${state.session+1}</button><div class="hint">Progress saves after every card.</div></div></div></section>`;
+  $('#again').onclick=beginSession;
+}
 function renderDrill(){
-  const p=progress(),c=queue[0],left=queue.length,relearning=queue.filter(x=>lapsed.has(x.id)).length;
-  if(!c){$('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Session complete.</h1><div class="progress"><span><strong>${p.mastered}/${p.total}</strong> cards in box 3</span><span>Boxes: ${p.counts.join(' / ')}</span></div></header><div class="session-done"><div><h2>Good work.</h2><button id="again">Start another session</button></div></div></section>`;$('#again').onclick=()=>startSession(true);return}
-  $('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Recall before reveal.</h1><div class="progress"><span><strong>${p.mastered}/${p.total}</strong> cards in box 3</span><span>Box 1 / 2 / 3: ${p.counts.join(' / ')}</span><span>${left} left${relearning?` · ${relearning} relearning`:''}</span></div></header><article class="flashcard"><div class="card-meta"><span>${esc(c.type)}</span><span>Box ${state.boxes[c.id]}</span></div><div class="prompt"><div><h2>${esc(c.question)}</h2><div class="answer" aria-live="polite">${esc(c.answer)}</div></div></div><div class="card-actions"><button class="reveal">Reveal answer</button><button class="score missed">Missed</button><button class="score got">Got it</button></div></article><div class="hint">Keyboard: space reveals / 1 missed / 2 got it</div></section>`;
-  $('.reveal').onclick=reveal;$('.missed').onclick=()=>score(false);$('.got').onclick=()=>score(true);
+  if(!queue.length)return renderSummary();
+  const p=progress(),c=queue[0],relearning=queue.filter(x=>lapsed.has(x.id)).length;
+  $('#view').innerHTML=`<section class="drills"><header class="drill-head"><h1>Recall before reveal.</h1><div class="progress"><span>Session ${open.session}</span><span><strong>${queue.length}</strong> left${relearning?` · ${relearning} relearning`:''}</span><span><strong>${p.mastered}/${p.total}</strong> in box 3</span><button class="end-session">End session</button></div></header><article class="flashcard"><div class="card-meta"><span>${esc(c.type)}</span><span>Box ${state.boxes[c.id]}</span></div><div class="prompt"><div><h2>${esc(c.question)}</h2><div class="answer" aria-live="polite">${esc(c.answer)}</div></div></div><div class="card-actions"><button class="reveal">Reveal answer</button><button class="score missed">Missed</button><button class="score got">Got it</button></div></article><div class="hint">Keyboard: space reveals / 1 missed / 2 got it / esc ends session</div></section>`;
+  $('.reveal').onclick=reveal;$('.missed').onclick=()=>score(false);$('.got').onclick=()=>score(true);$('.end-session').onclick=()=>renderSummary();
 }
 function reveal(){$('.flashcard')?.classList.add('revealed')}
-function score(got){const c=queue.shift();if(got){if(!lapsed.has(c.id))state.boxes[c.id]=Math.min(3,state.boxes[c.id]+1)}else{state.boxes[c.id]=1;lapsed.add(c.id);queue.splice(Math.min(5,queue.length),0,c)}write('study-leitner',state);renderDrill()}
+function score(got){
+  const c=queue.shift();
+  if(got){open.got++;if(!lapsed.has(c.id))state.boxes[c.id]=Math.min(3,state.boxes[c.id]+1)}
+  else{open.missed++;state.boxes[c.id]=1;lapsed.add(c.id);queue.splice(Math.min(5,queue.length),0,c)}
+  write('study-leitner',state);
+  open.ids=queue.map(x=>x.id);open.lapsed=[...lapsed];open.last=Date.now();saveOpen();
+  renderDrill();
+}
 function show(next){
   view=next;location.hash=next==='drills'?'drills':'';$$('.tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.view===next)));
-  if(next==='brain')$('#view').innerHTML=brain();else startSession(true);
+  if(next==='brain'){$('#view').innerHTML=brain();return}
+  if(open&&queue.length){renderDrill();return} // live mid-session: pick up the same card
+  loadDeck();renderGate();
 }
 function init(){
   const select=$('#seat');select.innerHTML=Array.from({length:TEAMS},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('');select.value=seat;
-  select.onchange=()=>{seat=+select.value;write('study-seat',seat);if(view==='brain')$('#view').innerHTML=brain();else startSession(false)};
+  select.onchange=()=>{seat=+select.value;write('study-seat',seat);
+    if(view==='brain'){$('#view').innerHTML=brain();return}
+    loadDeck(); // plan cards are seat-specific, so the deck must rebuild
+    if(open&&queue.length){const has=new Set(deck.map(c=>c.id));queue=queue.filter(x=>has.has(x.id));open.ids=queue.map(x=>x.id);saveOpen();renderDrill()}
+    else renderGate();
+  };
   $$('.tab').forEach(b=>b.onclick=()=>show(b.dataset.view));$('#print').onclick=()=>{if(view!=='brain')show('brain');setTimeout(()=>print(),0)};
   show(view);
 }
-document.addEventListener('keydown',e=>{if(view!=='drills'||/SELECT|INPUT/.test(document.activeElement?.tagName))return;if(e.code==='Space'){e.preventDefault();reveal()}if(e.key==='1'&&$('.flashcard.revealed'))score(false);if(e.key==='2'&&$('.flashcard.revealed'))score(true)});
+document.addEventListener('keydown',e=>{if(view!=='drills'||/SELECT|INPUT/.test(document.activeElement?.tagName))return;if(e.code==='Space'&&queue.length){e.preventDefault();reveal()}if(e.key==='1'&&$('.flashcard.revealed'))score(false);if(e.key==='2'&&$('.flashcard.revealed'))score(true);if(e.key==='Escape'&&open&&queue.length)renderSummary()});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&view==='drills'&&open&&queue.length&&Date.now()-open.last>STALE){queue=[];renderGate()}});
 init();
 </script>
 <script>
