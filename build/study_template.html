@@ -65,7 +65,8 @@ function tierGroups(pos){
 const tLabel=t=>t.tier==='late'?'late':`t${t.tier}`;
 const TIERS=Object.fromEntries(POSITIONS.map(p=>[p,tierGroups(p)]));
 // Memorization bands. Reps are the scarce resource, so spend precision where
-// picks are actually decided: rounds 1-3 by name, 4-7 by cliff only, 8+ by plan.
+// picks are actually decided: rounds 1-7 by name, 8+ by plan. In a 14-teamer
+// the early tiers are gone by round 5, so rounds 4-7 need names too.
 // Bands run per tier, not per player, so a tier straddling a boundary is learned
 // whole. That already carries the late TEs/QBs who beat replacement (Kelce,
 // Goedert, Andrews); the vor clause is a safety net for boards where it doesn't.
@@ -176,16 +177,12 @@ function cards(){
   POSITIONS.forEach(pos=>{
     const ts=TIERS[pos].filter(t=>t.tier!=='late'), late=TIERS[pos].find(t=>t.tier==='late');
     ts.forEach((t,i)=>{
-      const band=bandOf(t);
-      if(band==='C')return; // rounds 8+: the plan cards carry these picks, not names
+      if(bandOf(t)==='C')return; // rounds 8+: the plan cards carry these picks, not names
       const names=t.players.map(p=>p.name).join(', '),last=t.players.at(-1);
       const real=isCliff(pos,t,ts[i+1]||late);
-      if(band==='A'){ // only the early rounds are worth learning name-by-name
-        const recall=card('Tier recall',`Name the tier-${t.tier} ${pos}${t.players.length>1?'s':''}.`,names,`recall|${pos}|${names}`);
-        out.push(t.players.length===1&&real?cliff(recall):recall); // a one-man tier IS its cliff
-        if(t.players.length===1||!real)return;
-      }
-      if(real)out.push(cliff(card('Boundary',`Who is the LAST ${pos} in tier ${t.tier}?`,`${last.name}. That is the tier cliff.`,`cliff|${pos}|${last.name}`)));
+      const recall=card('Tier recall',`Name the tier-${t.tier} ${pos}${t.players.length>1?'s':''}.`,names,`recall|${pos}|${names}`);
+      out.push(t.players.length===1&&real?cliff(recall):recall); // a one-man tier IS its cliff
+      if(real&&t.players.length>1)out.push(cliff(card('Boundary',`Who is the LAST ${pos} in tier ${t.tier}?`,`${last.name}. That is the tier cliff.`,`cliff|${pos}|${last.name}`)));
     });
     // same-position pairs only across a REAL tier boundary: inside a tier, order is noise
     ts.forEach((t,i)=>{
@@ -195,8 +192,6 @@ function cards(){
       out.push(card('Who goes earlier?',`${a.name} or ${b.name}?`,`${a.name} — he is the tier-${t.tier} cliff; ${b.name} opens tier ${next.tier}.`,`pair|${a.name}|${b.name}`));
     });
   });
-  const byAdp=draftable.filter(p=>p.adp&&p.ecr<=BAND_B_END).slice().sort((a,b)=>a.adp-b.adp);
-  for(let i=0;i<byAdp.length-1;i+=7){const a=byAdp[i],b=byAdp.slice(i+1,i+6).find(x=>x.pos!==a.pos);if(!b)continue;const winner=a.ecr<=b.ecr?a:b;out.push(card('Who goes earlier?',`${a.name} or ${b.name}?`,`${winner.name}. ${a.name}: ECR ${a.ecr}, ADP ${a.adp}. ${b.name}: ECR ${b.ecr}, ADP ${b.adp}.`,`pair|${a.name}|${b.name}`))}
   draftable.filter(p=>p.ecr<=BAND_B_END&&hookText(p)).forEach(p=>out.push(card('Hook recall',`What's the hook on ${p.name}?`,hookText(p),`hook|${p.name}|${hookText(p)}`)));
   for(let round=1;round<=ROUNDS;round++){
     const p=planFor(round);
