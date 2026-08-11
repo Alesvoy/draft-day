@@ -359,7 +359,10 @@
       "WEAK-OFF": "Pass-catcher in a weak offense (TEs here rarely hit)",
       "LOW-COMP": "TE with little same-team WR competition (more targets)",
       "CROWDED": "WR in a crowded receiver room (target competition)",
-      "ROOKIE": "First-year player \u2014 highest late-round ceiling (JJ)"
+      "ROOKIE": "First-year player \u2014 highest late-round ceiling (JJ)",
+      "LRDG-TARGET": "2026 Late-Round Draft Guide target \u2014 tap the player for the note and conviction (CL 1-10)",
+      "LRDG-AVOID": "2026 Late-Round Draft Guide avoid \u2014 a fade at cost, not a never-draft (see note + CL)",
+      "LRDG-DART": "2026 Late-Round Draft Guide late dart throw (see note + CL)"
     },
     "player_count": 492
   },
@@ -1007,8 +1010,15 @@
       "rec_pts": 41.1,
       "rush_pts": 228.3,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 1,
+        "note": "TD/receiving regression (mild)"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -2120,9 +2130,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "GOOD-OFF"
+        "GOOD-OFF",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 3,
+        "note": "29.5% share, now with Maye"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -2247,9 +2263,15 @@
       ],
       "context": [
         "WEAK-OFF",
-        "LOW-COMP"
+        "LOW-COMP",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 5,
+        "note": "near-perfect Market Score"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -2496,8 +2518,15 @@
       "strategy": [
         "REC-BACK"
       ],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 2,
+        "note": "elite Y2 workload profile"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -2867,9 +2896,15 @@
         "ELITE-TE"
       ],
       "context": [
-        "WEAK-OFF"
+        "WEAK-OFF",
+        "LRDG-AVOID"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 6,
+        "note": "red-zone TD outlier regression"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -3116,8 +3151,15 @@
       "strategy": [
         "REC-BACK"
       ],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 3,
+        "note": "20+ PPG with Burrow"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -3238,8 +3280,15 @@
       "rec_pts": 41.9,
       "rush_pts": 166.6,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 4,
+        "note": "explosive, KC light boxes"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -3363,9 +3412,15 @@
         "REC-BACK"
       ],
       "context": [
-        "MOBILE-QB"
+        "MOBILE-QB",
+        "LRDG-AVOID"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 4,
+        "note": "weak environment, McDaniel gone"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -3610,8 +3665,15 @@
       "rec_pts": null,
       "rush_pts": null,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 1,
+        "note": "career-low peripherals (mild)"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -3856,8 +3918,15 @@
       "rec_pts": null,
       "rush_pts": null,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 9,
+        "note": "rising YPRR, BAL pass volume rebound"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -4590,8 +4659,15 @@
       "rec_pts": 35.6,
       "rush_pts": 188.1,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 2,
+        "note": "decline signs + legal risk"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -4712,8 +4788,15 @@
       "rec_pts": null,
       "rush_pts": null,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 4,
+        "note": "Evans gone, elite comps"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -5454,8 +5537,15 @@
       "strategy": [
         "POCKET"
       ],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 2,
+        "note": "no rushing floor, TD-rate regression"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -6068,8 +6158,15 @@
       "rec_pts": null,
       "rush_pts": null,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 8,
+        "note": "Y6 breakout, Denver volume"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -6190,8 +6287,15 @@
       "rec_pts": null,
       "rush_pts": null,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 2,
+        "note": "career-high efficiency at 30"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -6313,9 +6417,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "GOOD-OFF"
+        "GOOD-OFF",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 5,
+        "note": "80% route share open"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -6561,9 +6671,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "WEAK-OFF"
+        "WEAK-OFF",
+        "LRDG-AVOID"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 1,
+        "note": "never beat top-20 WR cost"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -6687,9 +6803,15 @@
         "REC-BACK"
       ],
       "context": [
-        "MOBILE-QB"
+        "MOBILE-QB",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 2,
+        "note": "19 PPG pre-injury"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -6934,8 +7056,15 @@
       "rec_pts": 48.0,
       "rush_pts": 142.2,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 7,
+        "note": "no goal-line work, Gainwell signed"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -7303,9 +7432,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "GOOD-OFF"
+        "GOOD-OFF",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 5,
+        "note": "2.69 rookie YPRR"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -7428,8 +7563,15 @@
       "strategy": [
         "KONAMI"
       ],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 6,
+        "note": "Market Score QB2-3 at QB7 price"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -7551,9 +7693,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "GOOD-OFF"
+        "GOOD-OFF",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 2,
+        "note": "R6 price for Shanahan WR1"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -8045,9 +8193,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "GOOD-OFF"
+        "GOOD-OFF",
+        "LRDG-AVOID"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 2,
+        "note": "1.22 YPRR, run-lean offense"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -8169,9 +8323,15 @@
       "rush_pts": 148.4,
       "strategy": [],
       "context": [
-        "MOBILE-QB"
+        "MOBILE-QB",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 5,
+        "note": "Y2, ambiguous backfield"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -8661,8 +8821,15 @@
       "rec_pts": null,
       "rush_pts": 58.5,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 5,
+        "note": "McDaniel offense + OL back"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -8909,8 +9076,15 @@
       "strategy": [
         "COMMITTEE"
       ],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 7,
+        "note": "elite YPRR, Rodgers targets RBs"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -9153,8 +9327,15 @@
       "rec_pts": 23.8,
       "rush_pts": 139.9,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 7,
+        "note": "collapsing usage, age 29"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -9276,9 +9457,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "WEAK-OFF"
+        "WEAK-OFF",
+        "LRDG-AVOID"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 8,
+        "note": "capped at 12.5 PPG"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -9648,8 +9835,15 @@
       "strategy": [
         "KONAMI"
       ],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 5,
+        "note": "Coen year 2, rushing uptick"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -10014,8 +10208,15 @@
       "rec_pts": null,
       "rush_pts": null,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 6,
+        "note": "post-bye 15.6 PPG"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -10139,9 +10340,15 @@
         "COMMITTEE"
       ],
       "context": [
-        "MOBILE-QB"
+        "MOBILE-QB",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 3,
+        "note": "playoff usage beat Henderson"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -10510,8 +10717,15 @@
       "rec_pts": null,
       "rush_pts": null,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 9,
+        "note": "elite volume, never top-20 PPG; Waddle arrives"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -10632,8 +10846,15 @@
       "strategy": [
         "COMMITTEE"
       ],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 7,
+        "note": "0.32 YPRR, Coleman added"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -11492,9 +11713,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "ROOKIE"
+        "ROOKIE",
+        "LRDG-TARGET"
       ],
       "rookie": true,
+      "lrdg": {
+        "stance": "target",
+        "cl": 5,
+        "note": "90+ ZAP rookie, narrow tree"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -12110,8 +12337,15 @@
         "REC-BACK",
         "COMMITTEE"
       ],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 2,
+        "note": "market overcorrected"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -12476,9 +12710,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "WEAK-OFF"
+        "WEAK-OFF",
+        "LRDG-AVOID"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 6,
+        "note": "breakout was MHJ-injury-driven"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -12599,8 +12839,15 @@
       "rec_pts": null,
       "rush_pts": 58.0,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 5,
+        "note": "outlier rushing + injury"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -12721,9 +12968,15 @@
       "strategy": [],
       "context": [
         "GOOD-OFF",
-        "LOW-COMP"
+        "LOW-COMP",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 4,
+        "note": "led TEs in pts/route"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -12844,8 +13097,15 @@
       "strategy": [
         "POCKET"
       ],
-      "context": [],
+      "context": [
+        "LRDG-AVOID"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 8,
+        "note": "7.7% TD rate, zero rushing"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -13088,8 +13348,15 @@
       "strategy": [
         "COMMITTEE"
       ],
-      "context": [],
+      "context": [
+        "LRDG-TARGET"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 5,
+        "note": "RB40 price, weak competition"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -13209,9 +13476,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "GOOD-OFF"
+        "GOOD-OFF",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 2,
+        "note": "priced below floor"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -13333,9 +13606,15 @@
         "COMMITTEE"
       ],
       "context": [
-        "MOBILE-QB"
+        "MOBILE-QB",
+        "LRDG-DART"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 6,
+        "note": "4th-best explosive run rate"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -14564,8 +14843,15 @@
       "strategy": [
         "KONAMI"
       ],
-      "context": [],
+      "context": [
+        "LRDG-DART"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 9,
+        "note": "O'Connell fixes TD rate"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -14807,9 +15093,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "LOW-COMP"
+        "LOW-COMP",
+        "LRDG-DART"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 5,
+        "note": "open Giants target tree"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -14929,9 +15221,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "WEAK-OFF"
+        "WEAK-OFF",
+        "LRDG-TARGET"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "target",
+        "cl": 4,
+        "note": "Pittman gone, moving outside"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -15421,8 +15719,15 @@
       "rec_pts": null,
       "rush_pts": null,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-DART"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 3,
+        "note": "elite Y2 model score"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -15542,9 +15847,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "WEAK-OFF"
+        "WEAK-OFF",
+        "LRDG-DART"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 5,
+        "note": "25% share back-to-back"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -15665,8 +15976,15 @@
       "rec_pts": null,
       "rush_pts": 57.5,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-DART"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 8,
+        "note": "19.6 PPG final six starts"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -15913,9 +16231,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "GOOD-OFF"
+        "GOOD-OFF",
+        "LRDG-AVOID"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "avoid",
+        "cl": 9,
+        "note": "Lamb-injury-contingent production"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -16404,8 +16728,15 @@
       "strategy": [
         "KONAMI"
       ],
-      "context": [],
+      "context": [
+        "LRDG-DART"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 10,
+        "note": "11.8 PPG on legs alone"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -16525,9 +16856,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "WEAK-OFF"
+        "WEAK-OFF",
+        "LRDG-DART"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 2,
+        "note": "near-McMillan late-season usage"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -18124,8 +18461,15 @@
       "rec_pts": null,
       "rush_pts": null,
       "strategy": [],
-      "context": [],
+      "context": [
+        "LRDG-DART"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 8,
+        "note": "top-10 YPRR, slot next to McLaurin"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -18610,8 +18954,15 @@
         "HANDCUFF"
       ],
       "handcuff_to": "Omarion Hampton",
-      "context": [],
+      "context": [
+        "LRDG-DART"
+      ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 6,
+        "note": "elite speed, McDaniel scheme"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -19581,9 +19932,15 @@
       "rush_pts": 15.8,
       "strategy": [],
       "context": [
-        "ROOKIE"
+        "ROOKIE",
+        "LRDG-DART"
       ],
       "rookie": true,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 3,
+        "note": "multiple paths in murky backfield"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -19703,9 +20060,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "LOW-COMP"
+        "LOW-COMP",
+        "LRDG-DART"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 1,
+        "note": "Ertz share open but Diggs hurts"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -21648,9 +22011,15 @@
       "strategy": [],
       "context": [
         "GOOD-OFF",
-        "ROOKIE"
+        "ROOKIE",
+        "LRDG-DART"
       ],
       "rookie": true,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 3,
+        "note": "Pearsall out, Shanahan offense"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -23711,9 +24080,15 @@
       "context": [
         "WEAK-OFF",
         "LOW-COMP",
-        "ROOKIE"
+        "ROOKIE",
+        "LRDG-DART"
       ],
       "rookie": true,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 5,
+        "note": "98.5 ZAP at TE19 price"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -23835,9 +24210,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "GOOD-OFF"
+        "GOOD-OFF",
+        "LRDG-DART"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 5,
+        "note": "17.9 aDOT, Rams third WR"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -24440,9 +24821,15 @@
       "rush_pts": 11.9,
       "strategy": [],
       "context": [
-        "ROOKIE"
+        "ROOKIE",
+        "LRDG-DART"
       ],
       "rookie": true,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 2,
+        "note": "talent bet behind fading Pollard"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -29375,9 +29762,15 @@
       "strategy": [],
       "context": [
         "WEAK-OFF",
-        "LOW-COMP"
+        "LOW-COMP",
+        "LRDG-DART"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 5,
+        "note": "best TE on weakest WR room"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",
@@ -39001,9 +39394,15 @@
       "rush_pts": null,
       "strategy": [],
       "context": [
-        "GOOD-OFF"
+        "GOOD-OFF",
+        "LRDG-DART"
       ],
       "rookie": false,
+      "lrdg": {
+        "stance": "dart",
+        "cl": 1,
+        "note": "deep stash, KC needs a WR"
+      },
       "age": null,
       "forecast": {
         "as_of": "2026-08-11",

@@ -15,7 +15,7 @@ Pipeline (matches the agreed design):
 Nothing here re-ranks players. ECR is the spine; everything else is a column
 that sits on top of it. Re-run any time the CSVs are refreshed.
 """
-import csv, json, os, statistics
+import csv, json, os, re, statistics
 from datetime import date, datetime, timezone
 from risk_forecast import add_forecasts, validate_release_status
 
@@ -356,6 +356,34 @@ def add_context_tags(players):
             p["context"].append("ROOKIE")
 
 
+def norm_name(name):
+    """Match key: drop punctuation and generational suffixes, casefold."""
+    parts = re.sub(r"[^a-z ]", "", name.lower()).split()
+    return " ".join(x for x in parts if x not in {"jr", "sr", "ii", "iii", "iv", "v"})
+
+
+def add_guide_leans(players):
+    """2026 Late-Round Draft Guide player calls (data/guide_leans_2026.json),
+    merged as DISPLAY-ONLY context tags LRDG-TARGET/AVOID/DART with the guide's
+    note and conviction (cl 1-10) on p['lrdg']. Never touches scoring."""
+    path = os.path.join(DATA, "guide_leans_2026.json")
+    if not os.path.exists(path):
+        return
+    by_key = {}
+    for p in players:
+        by_key.setdefault((norm_name(p["name"]), p["pos"]), p)
+    unmatched = []
+    for lean in json.load(open(path)):
+        p = by_key.get((norm_name(lean["name"]), lean["pos"]))
+        if not p:
+            unmatched.append("%s (%s)" % (lean["name"], lean["pos"]))
+            continue
+        p["context"].append("LRDG-" + lean["stance"].upper())
+        p["lrdg"] = {"stance": lean["stance"], "cl": lean["cl"], "note": lean["note"]}
+    if unmatched:
+        print("WARNING: guide leans with no board match: " + ", ".join(unmatched))
+
+
 def proj_for(p, scoring):
     """Projected points under a scoring format. PPR is exact math on top of the
     standard projection: half = +0.5/rec, full = +1/rec. Missing rec -> 0 recs
@@ -517,6 +545,7 @@ def build():
     # 7) PDF STRATEGY TAGS (timeless principles recomputed on current data)
     add_strategy_tags(players)
     add_context_tags(players)
+    add_guide_leans(players)
 
     # 8) FORWARD-LOOKING FORECAST: empirical historical range plus approved,
     # not-yet-priced availability events. FantasyPros remains the market mean.
@@ -574,6 +603,9 @@ def build():
                 "LOW-COMP": "TE with little same-team WR competition (more targets)",
                 "CROWDED": "WR in a crowded receiver room (target competition)",
                 "ROOKIE": "First-year player — highest late-round ceiling (JJ)",
+                "LRDG-TARGET": "2026 Late-Round Draft Guide target — tap the player for the note and conviction (CL 1-10)",
+                "LRDG-AVOID": "2026 Late-Round Draft Guide avoid — a fade at cost, not a never-draft (see note + CL)",
+                "LRDG-DART": "2026 Late-Round Draft Guide late dart throw (see note + CL)",
             },
             "player_count": len(players),
         },
