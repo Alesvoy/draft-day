@@ -36,7 +36,7 @@
       "QB": "Konami Code: rushing QBs (Allen, Jackson, J. Daniels, Hurts, Maye) carry a weekly rushing floor. Get one of the elite tier OR wait and stream -- avoid the pocket-passer dead zone in the middle rounds.",
       "RB": "0-PPR + 14 teams = RB scarcity is REAL. Anchor early (Hero-RB) and secure starters before the tier cliffs. Target three-down backs and goal-line roles; their floor wins standard leagues.",
       "WR": "Deepest position -- you can wait if you've anchored RB. Chase target share and yards-per-route-run. In the late rounds throw darts at high-ceiling (high-variance) WRs, not safe floors.",
-      "TE": "Elite TE (McBride/Bowers) or punt. Avoid the TE dead zone (~rounds 6-10). If you miss the top tier, wait and take a value-vs-ADP faller.",
+      "TE": "Bowers is the elite TE; McBride only at a discount (red-zone TD regression looms). Otherwise punt -- avoid the TE dead zone (~rounds 6-10) and take a late value-vs-ADP faller.",
       "K": "Streaming position. Draft last. Never reach.",
       "DST": "Streaming position. Draft late, target good Week 1 matchups."
     },
@@ -314,7 +314,7 @@
         "QB": "Konami Code: rushing QBs (Allen, Jackson, J. Daniels, Hurts, Maye) carry a weekly rushing floor. Get one of the elite tier OR wait and stream -- avoid the pocket-passer dead zone in the middle rounds.",
         "RB": "0-PPR + {teams} teams = RB scarcity is REAL. Anchor early (Hero-RB) and secure starters before the tier cliffs. Target three-down backs and goal-line roles; their floor wins standard leagues.",
         "WR": "Deepest position -- you can wait if you've anchored RB. Chase target share and yards-per-route-run. In the late rounds throw darts at high-ceiling (high-variance) WRs, not safe floors.",
-        "TE": "Elite TE (McBride/Bowers) or punt. Avoid the TE dead zone (~rounds 6-10). If you miss the top tier, wait and take a value-vs-ADP faller.",
+        "TE": "Bowers is the elite TE; McBride only at a discount (red-zone TD regression looms). Otherwise punt -- avoid the TE dead zone (~rounds 6-10) and take a late value-vs-ADP faller.",
         "K": "Streaming position. Draft last. Never reach.",
         "DST": "Streaming position. Draft late, target good Week 1 matchups."
       },
@@ -322,7 +322,7 @@
         "QB": "Konami Code: rushing QBs (Allen, Jackson, J. Daniels, Hurts, Maye) carry a weekly rushing floor. Get one of the elite tier OR wait and stream -- avoid the pocket-passer dead zone in the middle rounds.",
         "RB": "Half PPR in a {teams}-team league: RB scarcity still bites, and pass-catching backs (REC-BACK) add a steady half-point-per-catch floor. Anchor early (Hero-RB) and secure starters before the tier cliffs; three-down roles still rule.",
         "WR": "Deep position, and receptions now pay. Chase target share and yards-per-route-run; WRs are a fine flex alongside RBs. Late rounds: throw darts at high-ceiling WRs, not safe floors.",
-        "TE": "Elite TE (McBride/Bowers) or punt. Avoid the TE dead zone (~rounds 6-10). If you miss the top tier, wait and take a value-vs-ADP faller.",
+        "TE": "Bowers is the elite TE; McBride only at a discount (red-zone TD regression looms). Otherwise punt -- avoid the TE dead zone (~rounds 6-10) and take a late value-vs-ADP faller.",
         "K": "Streaming position. Draft last. Never reach.",
         "DST": "Streaming position. Draft late, target good Week 1 matchups."
       },
@@ -330,7 +330,7 @@
         "QB": "Konami Code: rushing QBs (Allen, Jackson, J. Daniels, Hurts, Maye) carry a weekly rushing floor. Get one of the elite tier OR wait and stream -- avoid the pocket-passer dead zone in the middle rounds.",
         "RB": "Full PPR in a {teams}-team league: receptions make satellite and pass-catching backs startable, and WRs outscore RBs at the flex. Hero-RB and Zero-RB are both live \u2014 don't force early RBs without receiving work.",
         "WR": "WRs gain the most in full PPR \u2014 a WR-heavy start is a winning build and the flex leans WR. Chase target share above all. Late rounds: high-ceiling darts over safe floors.",
-        "TE": "Elite TE (McBride/Bowers) or punt. Avoid the TE dead zone (~rounds 6-10). If you miss the top tier, wait and take a value-vs-ADP faller.",
+        "TE": "Bowers is the elite TE; McBride only at a discount (red-zone TD regression looms). Otherwise punt -- avoid the TE dead zone (~rounds 6-10) and take a late value-vs-ADP faller.",
         "K": "Streaming position. Draft last. Never reach.",
         "DST": "Streaming position. Draft late, target good Week 1 matchups."
       }

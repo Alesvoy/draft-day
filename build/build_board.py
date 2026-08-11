@@ -90,8 +90,9 @@ STRATEGY_NOTES = {
     "WR": ("Deepest position -- you can wait if you've anchored RB. Chase target "
            "share and yards-per-route-run. In the late rounds throw darts at "
            "high-ceiling (high-variance) WRs, not safe floors."),
-    "TE": ("Elite TE (McBride/Bowers) or punt. Avoid the TE dead zone (~rounds "
-           "6-10). If you miss the top tier, wait and take a value-vs-ADP faller."),
+    "TE": ("Bowers is the elite TE; McBride only at a discount (red-zone TD "
+           "regression looms). Otherwise punt -- avoid the TE dead zone (~rounds "
+           "6-10) and take a late value-vs-ADP faller."),
     "K": ("Streaming position. Draft last. Never reach."),
     "DST": ("Streaming position. Draft late, target good Week 1 matchups."),
 }
@@ -293,7 +294,7 @@ def add_strategy_tags(players):
             elif p["rush_pts"] < POCKET_RUSH_PTS:
                 p["strategy"].append("POCKET")
 
-    # TE: the elite tier ("Bowers/McBride/Kittle, or wait"). Everything below is the dead zone.
+    # TE: the elite tier (2026: Bowers, or wait). Everything below is the dead zone.
     for p in players:
         if p["pos"] == "TE" and p["pos_tier"] == 1:
             p["strategy"].append("ELITE-TE")
