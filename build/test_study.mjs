@@ -26,10 +26,10 @@ const localStorage = {
   getItem: k => store.has(k) ? store.get(k) : null,
   setItem: (k, v) => store.set(k, String(v)),
 };
-const make = new Function('BOARD', 'localStorage', 'location', 'document',
-  logic.replace('const BOARD=__BOARD_JSON__;', '') +
-  '\nreturn {cards,TIERS,POSITIONS,bandOf,isCliff,BAND_A_END,BAND_B_END,CLIFF,draftable};');
-const S = make(BOARD, localStorage, { hash: '' }, { querySelector: () => null });
+const make = new Function('BOARD', 'localStorage', 'location', 'document', 'LEGACY',
+  logic.replace('const BOARD=__BOARD_JSON__;', '').replace('const LEGACY_META=__LEGACY_META__;', 'const LEGACY_META=LEGACY;') +
+  '\nreturn {cards,card,migrate,TIERS,POSITIONS,bandOf,isCliff,BAND_A_END,BAND_B_END,CLIFF,draftable};');
+const S = make(BOARD, localStorage, { hash: '' }, { querySelector: () => null }, {});
 
 const deck = S.cards();
 const byType = {};
@@ -67,4 +67,45 @@ const prio = Object.keys(JSON.parse(fs.readFileSync(path.join(HERE, 'study_templ
   .match(/const prio=(\{[^}]*\})/)[1].replace(/'/g, '"')));
 const unknown = [...new Set(deck.map(c => c.type))].filter(t => !prio.includes(t));
 console.log(`card types missing from drill priority: ${unknown.length ? unknown.join(', ') + '   <-- FIX' : 'none'}`);
-process.exit(dupes || unknown.length || !noTierNum ? 1 : 0);
+
+// --- Leitner-box migration across data refreshes ---
+// Old state has boxes for an old deck; the refreshed deck changes some facts.
+// Overlapping facts must inherit their box; genuinely new facts must not.
+const mk = (type, key) => S.card(type, 'q', 'a', key);
+const oldDeck = [
+  mk('Tier recall', 'recall|RB|A One, B Two, C Three, D Four, E Five'),
+  mk('Tier recall', 'recall|WR|A One, B Two, C Three'), // same names, other position
+  mk('Boundary', 'cliff|RB|E Five'),
+  mk('Hook recall', 'hook|A One|pass-catcher'),
+  mk('Who goes earlier?', 'pair|E Five|F Six'),
+  mk('Plan recall', 'plan|3|Best available: RB t2'),
+];
+const state = { session: 9, boxes: Object.fromEntries(oldDeck.map(c => [c.id, 3])) };
+const meta = Object.fromEntries(oldDeck.map(c => [c.id, { type: c.type, key: c.key }]));
+const newDeck = [
+  mk('Tier recall', 'recall|RB|A One, B Two, C Three, D Four, F Six'), // one name swapped: 4/6 overlap
+  mk('Boundary', 'cliff|RB|E Five'),                                   // unchanged id
+  mk('Tier recall', 'recall|TE|X Ten, Y Eleven'),                      // genuinely new fact
+  mk('Hook recall', 'hook|A One|rushing floor'),                       // same player, new hook text
+  mk('Who goes earlier?', 'pair|F Six|E Five'),                        // reordered pair
+  mk('Plan recall', 'plan|3|Best available: WR t1'),                   // plans never migrate
+];
+S.migrate(newDeck, state, meta);
+const box = c => state.boxes[c.id];
+const checks = [
+  ['overlapping tier inherits box', box(newDeck[0]) === 3],
+  ['stable id keeps box', box(newDeck[1]) === 3],
+  ['new fact starts fresh', box(newDeck[2]) === undefined],
+  ['hook follows the player', box(newDeck[3]) === 3],
+  ['pair is order-insensitive', box(newDeck[4]) === 3],
+  ['plan card resets', box(newDeck[5]) === undefined],
+  ['same names, other position, not consumed', state.boxes[oldDeck[1].id] === 3],
+];
+// idempotence on the live deck: migrating an already-known deck moves nothing
+const liveState = { session: 0, boxes: Object.fromEntries(deck.map(c => [c.id, 2])) };
+const liveMeta = S.migrate(deck, liveState, {});
+checks.push(['live deck is a no-op', deck.every(c => liveState.boxes[c.id] === 2) && Object.keys(liveMeta).length >= deck.length]);
+let migrateFail = 0;
+for (const [name, ok] of checks) { if (!ok) migrateFail++; console.log(`migration: ${name}: ${ok ? 'ok' : 'FAIL'}`); }
+
+process.exit(dupes || unknown.length || !noTierNum || migrateFail ? 1 : 0);

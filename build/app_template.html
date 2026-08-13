@@ -62,6 +62,9 @@
   .tag.elite{background:rgba(192,132,252,.2);color:var(--ceil);}
   .tag.handcuff{background:rgba(192,132,252,.16);color:var(--ceil);}
   .tag.ctxt{background:rgba(147,160,180,.14);color:var(--dim);}
+  .tag.lrdg-target{background:rgba(55,211,155,.18);color:var(--good);}
+  .tag.lrdg-avoid{background:rgba(255,107,107,.18);color:var(--bad);}
+  .tag.lrdg-dart{background:rgba(192,132,252,.18);color:var(--ceil);}
   .acts{margin-top:9px;}
   .btn{width:100%;border:none;border-radius:9px;padding:11px 0;font-size:14px;font-weight:700;}
   .btn-pick{background:var(--good);color:#06160f;}
@@ -418,7 +421,9 @@ function tagHtml(p){
   (p.strategy||[]).forEach(t=>{
     const cls={'REC-BACK':'recback','COMMITTEE':'committee','KONAMI':'komani','POCKET':'pocket','ELITE-TE':'elite','HANDCUFF':'handcuff'}[t]||'';
     h+=`<span class="tag ${cls}">${t}</span>`;});
-  (p.context||[]).forEach(t=>{h+=`<span class="tag ctxt">${t}</span>`;});
+  (p.context||[]).forEach(t=>{
+    if(t.startsWith('LRDG-')&&p.lrdg){h+=`<span class="tag lrdg-${p.lrdg.stance}" title="${esc(p.lrdg.note)} (conviction ${p.lrdg.cl}/10)">${t} ${p.lrdg.cl}</span>`;}
+    else h+=`<span class="tag ctxt">${t}</span>`;});
   return h;
 }
 function metricsRow(p,refPick,nextPick){
@@ -542,6 +547,7 @@ function showPlayerDetail(name){const p=PMAP[name];if(!p)return;const f=p.foreca
   const newsRows=(f.latest_news||[]).map(n=>`<div class="newsitem"><b>${esc(n.title)}</b><br><span class="sub">${esc(n.created||'')}</span>${n.link?`<br><a href="${esc(n.link)}" target="_blank" rel="noopener">Source ↗</a>`:''}</div>`).join('');
   const impact=f.grade_impact||{};const signed=v=>v==null?'—':`${v>0?'+':''}${v}`;
   document.getElementById('detailBody').innerHTML=`<h2>${esc(p.name)}</h2><div class="sub">${esc(p.team)} · ${esc(p.pos_rank)} · forecast as of ${esc(f.as_of||'—')}</div>
+    ${p.lrdg?`<div class="note"><b>2026 Late-Round Guide — ${esc(p.lrdg.stance.toUpperCase())} (conviction ${esc(p.lrdg.cl)}/10):</b> ${esc(p.lrdg.note)}.</div>`:''}
     <div class="riskgrid"><div class="riskbox"><div class="sub">Expected points</div><div class="rv">${s.expected??'—'}</div></div><div class="riskbox"><div class="sub">Floor–ceiling</div><div class="rv">${s.floor??'—'}–${s.ceiling??'—'}</div></div><div class="riskbox"><div class="sub">Expected games</div><div class="rv">${f.expected_games??'—'}</div></div><div class="riskbox"><div class="sub">Confidence</div><div class="rv">${esc(f.confidence||'—')}</div></div>${risk('Injury risk',f.injury_risk)}${risk('Legal risk',f.legal_risk)}${risk('Role risk',f.role_risk)}${risk('Overall availability',f.availability_risk)}</div>
     <div class="note"><b>Draft-grade impact vs market:</b> early ${signed(impact.early)} · middle ${signed(impact.middle)} · late ${signed(impact.late)} points.<br><b>Historical basis:</b> ${esc(f.cohort||'fallback')} (${f.cohort_size||0} comparable seasons)${f.historical_games!=null?` · ${f.historical_games} games/year recently`:''}.</div>
     <div class="legsec">VERIFIED RISK EVENTS</div>${eventRows||'<div class="empty">No active reviewed events.</div>'}<div class="legsec">LATEST PLAYER NEWS</div>${newsRows||'<div class="empty">No current news in this snapshot.</div>'}`;
@@ -636,6 +642,8 @@ function buildLegend(){
   [['KONAMI','komani'],['POCKET','pocket'],['REC-BACK','recback'],['COMMITTEE','committee'],['HANDCUFF','handcuff'],['ELITE-TE','elite']].forEach(([k,c])=>{if(L[k])h+=row(`<span class="tag ${c}">${k}</span>`,L[k]);});
   h+='<div class="legsec">TEAM / PLAYER CONTEXT</div>';
   ['MOBILE-QB','GOOD-OFF','WEAK-OFF','LOW-COMP','CROWDED','ROOKIE'].forEach(k=>{if(L[k])h+=row(`<span class="tag ctxt">${k}</span>`,L[k]);});
+  h+='<div class="legsec">2026 LATE-ROUND DRAFT GUIDE</div>';
+  [['LRDG-TARGET','lrdg-target'],['LRDG-AVOID','lrdg-avoid'],['LRDG-DART','lrdg-dart']].forEach(([k,c])=>{if(L[k])h+=row(`<span class="tag ${c}">${k}</span>`,L[k]);});
   document.getElementById('legendBody').innerHTML=h;
 }
 

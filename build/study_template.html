@@ -170,8 +170,9 @@ function brain(){
 function hash(s){let h=2166136261;for(let i=0;i<s.length;i++)h=Math.imul(h^s.charCodeAt(i),16777619);return(h>>>0).toString(36)}
 // The id is hashed from `key`, NOT from the rendered text, so that a tier
 // renumbering above a card does not orphan its Leitner box. Keys carry the
-// fact being learned; when the fact changes the card resets, as it should.
-function card(type,question,answer,key){return {type,question,answer,id:hash(key)}}
+// fact being learned; when the fact changes outright the card resets, but a
+// fact that merely gained/lost a name keeps its box via migrate() below.
+function card(type,question,answer,key){return {type,question,answer,key,id:hash(key)}}
 function cards(){
   const out=[];CLIFF.clear();
   const cliff=c=>{CLIFF.add(c.id);return c};
@@ -181,7 +182,8 @@ function cards(){
       if(bandOf(t)==='C')return; // rounds 8+: the plan cards carry these picks, not names
       const names=t.players.map(p=>p.name).join(', '),last=t.players.at(-1);
       const real=isCliff(pos,t,ts[i+1]||late);
-      const recall=card('Tier recall',`Name the tier-${t.tier} ${pos}${t.players.length>1?'s':''}.`,names,`recall|${pos}|${names}`);
+      // key names are SORTED so pure reordering inside a tier never resets the card
+      const recall=card('Tier recall',`Name the tier-${t.tier} ${pos}${t.players.length>1?'s':''}.`,names,`recall|${pos}|${t.players.map(p=>p.name).sort().join(', ')}`);
       out.push(t.players.length===1&&real?cliff(recall):recall); // a one-man tier IS its cliff
       if(real&&t.players.length>1)out.push(cliff(card('Boundary',`Who is the LAST ${pos} in tier ${t.tier}?`,`${last.name}. That is the tier cliff.`,`cliff|${pos}|${last.name}`)));
     });
@@ -207,8 +209,43 @@ let deck=[],queue=[],state,open=null,lapsed=new Set();const CLIFF=new Set();
 // open session idle past STALE greets you with the gate instead of a stray card.
 const STALE=8*36e5;
 const ago=t=>{const m=Math.round((Date.now()-t)/6e4);return m<1?'just now':m<60?`${m}m ago`:m<1440?`${Math.round(m/60)}h ago`:`${Math.round(m/1440)}d ago`};
+// --- refresh-proof progress: a data refresh recuts tiers, changing card keys/ids.
+// 'study-meta' remembers each known id's {type,key}; on load, a new card with no
+// box inherits from an orphaned old card of the same type whose fact (name-set,
+// same position) overlaps >=50% (Jaccard). Genuinely new facts still start at
+// box 1. LEGACY_META bootstraps users from before 'study-meta' existed.
+const LEGACY_META=__LEGACY_META__;
+function keyFacts(type,key){
+  const s=key.split('|');
+  if(s[0]==='recall')return{pos:s[1],names:s[2].split(', ')};
+  if(s[0]==='cliff')return{pos:s[1],names:[s[2]]};
+  if(s[0]==='pair')return{pos:'',names:s.slice(1)};
+  if(s[0]==='hook')return{pos:'',names:[s[1]]};
+  return null; // plan cards: seat/round-bound, never migrated
+}
+function jaccard(a,b){const B=new Set(b),i=a.filter(x=>B.has(x)).length;return i/(a.length+b.length-i)}
+function migrate(deck,state,meta){
+  const live=new Set(deck.map(c=>c.id));
+  const orphans=Object.keys(state.boxes).filter(id=>!live.has(id)&&meta[id]);
+  for(const c of deck){
+    if(state.boxes[c.id])continue;
+    const f=keyFacts(c.type,c.key);if(!f)continue;
+    let best=null,score=0.5;
+    for(const id of orphans){
+      const o=meta[id];if(o.type!==c.type)continue;
+      const of=keyFacts(o.type,o.key);if(!of||of.pos!==f.pos)continue;
+      const s=jaccard(f.names,of.names);
+      if(s>=score){score=s;best=id}
+    }
+    if(best){state.boxes[c.id]=state.boxes[best];delete state.boxes[best];orphans.splice(orphans.indexOf(best),1)}
+  }
+  const next={};deck.forEach(c=>next[c.id]={type:c.type,key:c.key});
+  for(const id of Object.keys(state.boxes))if(!next[id]&&meta[id])next[id]=meta[id]; // keep orphan meta so chains survive multiple refreshes
+  return next;
+}
 function loadDeck(){
   deck=cards();state=read('study-leitner',{session:0,boxes:{}});
+  write('study-meta',migrate(deck,state,read('study-meta',null)||LEGACY_META||{}));
   deck.forEach(c=>{if(!state.boxes[c.id])state.boxes[c.id]=1});write('study-leitner',state);
   open=read('study-open',null);
 }
