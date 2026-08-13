@@ -36,7 +36,7 @@ const make = new Function('BOARD', 'PROF', 'localStorage', 'location', 'document
   logic.replace('const BOARD=__BOARD_JSON__;', '').replace('const PROFILES=__PROFILES_JSON__;', 'const PROFILES=PROF;')
     .replace('const LEGACY_META=__LEGACY_META__;', 'const LEGACY_META=LEGACY;') +
   '\nreturn {cards,card,migrate,TIERS,POSITIONS,bandOf,isCliff,BAND_A_END,BAND_B_END,CLIFF,draftable,' +
-  'pAvail,pct5,stampFor,planRows,PROFILES,MAX_TARGETS,MAX_AVOIDS,overall,TEAMS,ROUNDS};');
+  'pAvail,pct5,stampFor,planRows,PROFILES,MAX_TARGETS,MAX_AVOIDS,overall,TEAMS,ROUNDS,brain,picksHtml,seat};');
 const S = make(BOARD, PROFILES, localStorage, { hash: '' }, { querySelector: () => null }, {});
 
 const deck = S.cards();
@@ -132,10 +132,48 @@ const rowChecks = [
   ['every card offers at least one target', emptyCards === 0],
   [`late darts render (${freeRows} FREE rows)`, freeRows > 0],
 ];
+// --- the rendered section: 14 seat cards, 14 pick blocks each ---
+// The sheet shows every starting position because the seat is not known yet,
+// so the markup itself is checked: the snake math printed on each card, the
+// lazy bodies, and the profile behind every name that actually reaches HTML.
+const html = S.brain();
+const seatCards = [...html.matchAll(/<details class="seat-card( mine)?" data-seat="(\d+)"/g)];
+const eager = (html.match(/<article class="round">/g) || []).length;
+const nameOf = h => [...h.matchAll(/<span class="pname">(.*?) <em>/g)].map(m => m[1]);
+const unesc = s => s.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+let blockFail = 0, lazyOrphan = null, snakeFail = [];
+for (let s = 1; s <= S.TEAMS; s++) {
+  const body = S.picksHtml(s);
+  if ((body.match(/<article class="round">/g) || []).length !== S.ROUNDS) blockFail++;
+  for (const n of nameOf(body)) if (!PROFILES[unesc(n)]) lazyOrphan = unesc(n);
+}
+// snake: odd rounds run 1->14, even rounds run back 14->1
+for (const [s, want] of [[1, [1, 28, 29, 56]], [2, [2, 27, 30, 55]], [7, [7, 22, 35, 50]], [14, [14, 15, 42, 43]]]) {
+  const got = want.map((_, i) => S.overall(i + 1, s));
+  if (got.join() !== want.join()) snakeFail.push(`seat ${s}: ${got} != ${want}`);
+  const seq = S.picksHtml(s).match(/<strong>#(\d+)<\/strong>/g).slice(0, 4).map(x => +x.replace(/\D/g, ''));
+  if (seq.join() !== want.join()) snakeFail.push(`seat ${s} rendered: ${seq} != ${want}`);
+}
+const printBlock = tpl.slice(tpl.indexOf('@media print'));
+rowChecks.push(
+  [`all ${S.TEAMS} starting positions render`, seatCards.length === S.TEAMS],
+  ['exactly one is marked as your seat', seatCards.filter(m => m[1]).length === 1],
+  ['only your seat gets a body up front', eager === S.ROUNDS],
+  [`every seat card holds ${S.ROUNDS} pick blocks`, blockFail === 0],
+  ['snake math matches on every checked seat', snakeFail.length === 0],
+  ['lazily built seats still resolve profiles', lazyOrphan === null],
+  ['print hides the seats that are not yours', /\.seat-card:not\(\.mine\)\{display:none!important\}/.test(printBlock)],
+  // CSS cannot reopen a closed <details> in Chrome's print layout pass, so the
+  // sheet would silently print an empty plan section without this handler
+  ['printing reopens your seat card', /addEventListener\('beforeprint'[^\n]*\.seat-card\.mine[^\n]*open=true/.test(tpl)],
+);
+
 let rowFail = 0;
 console.log('');
 for (const [name, ok] of rowChecks) { if (!ok) rowFail++; console.log(`pick cards: ${name}: ${ok ? 'ok' : 'FAIL'}`); }
 if (orphanRow) console.log(`   first name without a profile: ${orphanRow}`);
+if (lazyOrphan) console.log(`   lazy body name without a profile: ${lazyOrphan}`);
+for (const f of snakeFail) console.log(`   ${f}`);
 console.log('');
 
 // --- Leitner-box migration across data refreshes ---

@@ -47,10 +47,13 @@ This writes `study/index.html`, served at
 [https://alesvoy.github.io/draft-day/study/](https://alesvoy.github.io/draft-day/study/).
 Open `study/index.html` directly for local use — it is self-contained and works offline.
 
-The sheet's **14-pick plan** turns each of your picks into a card: the overall
-pick number, the plan sentence, then the players to target and the traps to
-refuse *at that pick*, each with the odds he is still on the board (a normal
-curve around his ADP) and a tappable case file from
+The sheet's **14-pick plan** covers all 14 starting positions, because the draft
+slot is usually unknown until draft night: one collapsible card per position,
+showing its full snake sequence, with the seat from the selector open and marked.
+Inside, each of that seat's 14 picks is a block — the overall pick number, the
+plan sentence, then the players to target and the traps to refuse *at that pick*,
+each with the odds he is still on the board (a normal curve around his ADP,
+truncated at pick 1) and a tappable case file from
 `data/player_profiles_2026.json` + `data/guide_leans_2026.json`, both embedded
 at build time. The flashcard deck is untouched by any of it —
 `node build/test_study.mjs` proves the availability model and row selection
