@@ -1,0 +1,1782 @@
+{
+  "as_of": "2026-08-13",
+  "profiles": {
+    "Jahmyr Gibbs": {
+      "situation": "Detroit traded David Montgomery to Houston, leaving Gibbs the clear bell cow; Isiah Pacheco was added but is nursing a sprained MCL. Gibbs signed his extension and is practicing in full.",
+      "pros": [
+        "True workhorse role now",
+        "Elite big-play and touchdown rate",
+        "Strong offense and line"
+      ],
+      "cons": [
+        "Pacheco could steal goal line",
+        "Some value is receiving-based"
+      ],
+      "bottom_line": "The 1.01 in this format; take him and don't overthink it."
+    },
+    "Bijan Robinson": {
+      "situation": "Signed a camp extension and has the Atlanta backfield to himself outside of Brian Robinson Jr. and Trey Sermon. Tua Tagovailoa is running the offense with Michael Penix Jr. not yet cleared for full team work.",
+      "pros": [
+        "Every-down volume",
+        "Goal-line and receiving work",
+        "No real committee threat"
+      ],
+      "cons": [
+        "Quarterback situation unsettled",
+        "Offense may sputter"
+      ],
+      "bottom_line": "Top-two overall pick; workload this large is rare and wins standard leagues."
+    },
+    "Puka Nacua": {
+      "situation": "Still the Rams' target hog next to Davante Adams, but he is under NFL review for possible discipline from an offseason civil suit. No ruling as of Aug 13.",
+      "pros": [
+        "Massive target share",
+        "Stafford playing at a high level"
+      ],
+      "cons": [
+        "Suspension risk unresolved",
+        "Value leans on catches, not scores",
+        "Groin soreness"
+      ],
+      "bottom_line": "Elite talent, but the pending suspension makes him a shaky first-round pick without a plan B."
+    },
+    "Jonathan Taylor": {
+      "situation": "Signed a two-year, $44M extension and reported to camp on time with no drama. DJ Giddens is the backup; Daniel Jones is the quarterback.",
+      "pros": [
+        "Bell-cow rushing volume",
+        "Proven touchdown scorer"
+      ],
+      "cons": [
+        "Touchdown rate likely regresses",
+        "Receiving work should shrink",
+        "Offense is average"
+      ],
+      "bottom_line": "The guide's mild fade holds: fine player, but the price bakes in a repeat of a career year."
+    },
+    "Ja'Marr Chase": {
+      "situation": "Unquestioned WR1 in Cincinnati with Tee Higgins opposite him and Joe Burrow healthy through camp. Nothing has changed about his role.",
+      "pros": [
+        "Alpha target share",
+        "Elite touchdown producer",
+        "Great quarterback"
+      ],
+      "cons": [
+        "Higgins competes for red-zone looks",
+        "Price is a true first-rounder"
+      ],
+      "bottom_line": "The safest non-PPR receiver on the board; take him in the top five without hesitation."
+    },
+    "Jaxon Smith-Njigba": {
+      "situation": "Commanded roughly a 36% target share last season and looked dominant in camp under new coordinator Brian Fleury. Sam Darnold is back at quarterback with Rashid Shaheed opposite.",
+      "pros": [
+        "Huge target share",
+        "Quarterback continuity",
+        "Ascending player"
+      ],
+      "cons": [
+        "New system adds two-tight-end looks",
+        "Some production is short-area catches"
+      ],
+      "bottom_line": "A top-five receiver worth his first-round cost even with receptions worth nothing."
+    },
+    "Derrick Henry": {
+      "situation": "Still the lead back for Baltimore under new coordinator Declan Doyle, who is adding designed perimeter carries and trying to grow Henry's pass involvement. Age is a factor.",
+      "pros": [
+        "Touchdown machine",
+        "Huge rushing volume",
+        "Yardage-driven value fits standard"
+      ],
+      "cons": [
+        "Age cliff risk",
+        "New coordinator, new usage",
+        "Almost no receiving floor"
+      ],
+      "bottom_line": "Touchdowns and yards are exactly what this format pays for; happily take him in round one."
+    },
+    "Christian McCaffrey": {
+      "situation": "Healthy enough to be the lead back but has already been given camp days off for tightness and soreness. San Francisco's backfield behind him is thin and banged up.",
+      "pros": [
+        "Elite when on the field",
+        "Shanahan scheme boosts rushing"
+      ],
+      "cons": [
+        "Age 30 with heavy mileage",
+        "Injury history",
+        "Much of value is receptions"
+      ],
+      "bottom_line": "First-round upside with real bust risk; fine at the turn but he is not a top-five pick here."
+    },
+    "Amon-Ra St. Brown": {
+      "situation": "Had a minor offseason knee cleanup and has been managed carefully in camp, but is expected to be full-go. Still Detroit's primary target with Jameson Williams opposite.",
+      "pros": [
+        "Enormous target volume",
+        "Reliable red-zone role",
+        "Great offense"
+      ],
+      "cons": [
+        "Heavily reception-driven value",
+        "Short-area routes cap big plays"
+      ],
+      "bottom_line": "Excellent player whose profile is worth a bit less without points per catch; fine late in round one."
+    },
+    "James Cook III": {
+      "situation": "Buffalo's lead back with Josh Allen at quarterback, and camp reports point to a bigger pass-catching role. Allen's rushing still eats into goal-line work.",
+      "pros": [
+        "Explosive runner",
+        "Scored heavily on limited touches"
+      ],
+      "cons": [
+        "Allen vultures short touchdowns",
+        "Touch count modest",
+        "Some value is catches"
+      ],
+      "bottom_line": "Solid but slightly overpriced here; take him only if the board pushes him to you."
+    },
+    "Drake London": {
+      "situation": "Atlanta's clear number one target with Kyle Pitts extended and rookie Zachariah Branch added. Tua Tagovailoa is the starter while Michael Penix Jr. works back.",
+      "pros": [
+        "Alpha target share",
+        "Big red-zone body"
+      ],
+      "cons": [
+        "Quarterback play is a question",
+        "Branch and Pitts take targets",
+        "Big-play rate modest"
+      ],
+      "bottom_line": "Good round-one receiver, but the quarterback uncertainty means he is not a slam dunk at this price."
+    },
+    "De'Von Achane": {
+      "situation": "New head coach Jeff Hafley has promised a heavy workload and floated 40-touch games, but the offense is rebuilt around new quarterback Malik Willis. Miami's supporting cast is thin.",
+      "pros": [
+        "Home-run speed",
+        "Coach promises volume"
+      ],
+      "cons": [
+        "Weak offense and quarterback",
+        "Value was heavily reception-driven",
+        "Small frame, goal-line questions"
+      ],
+      "bottom_line": "Guide is right to fade: his catch-heavy profile loses the most in standard scoring at a first-round price."
+    },
+    "Rashee Rice": {
+      "situation": "The NFL will not add a suspension, and he is ramping back from offseason knee surgery, taking his first 11-on-11 reps this week. He is Kansas City's clear top target.",
+      "pros": [
+        "Primary target in a good offense",
+        "Scores near the goal line"
+      ],
+      "cons": [
+        "Knee still ramping up",
+        "Off-field volatility",
+        "Much of his value is volume catches"
+      ],
+      "bottom_line": "Talented and cheap-ish for the role, but the knee timeline makes him a second-round gamble."
+    },
+    "Saquon Barkley": {
+      "situation": "Still Philadelphia's workhorse with Tank Bigsby behind him, and camp reports point to more under-center running after A.J. Brown's trade tilts the offense toward the ground.",
+      "pros": [
+        "Huge rushing and touchdown volume",
+        "Elite offensive line",
+        "Run-heavy script"
+      ],
+      "cons": [
+        "Hurts steals goal-line scores",
+        "Heavy recent workload"
+      ],
+      "bottom_line": "Rushing yards and touchdowns are king here; a strong late-first or early-second pick."
+    },
+    "Josh Jacobs": {
+      "situation": "Faces unresolved felony charges from a May arrest with league discipline still pending, and he is also out about a week with a groin issue. Green Bay has no proven replacement.",
+      "pros": [
+        "Goal-line workhorse when available",
+        "Good offense"
+      ],
+      "cons": [
+        "Suspension could land any day",
+        "Groin injury",
+        "Efficiency declining"
+      ],
+      "bottom_line": "Avoid at this cost; you cannot spend a second-round pick on a back who may miss six games."
+    },
+    "CeeDee Lamb": {
+      "situation": "Entering a second full season alongside George Pickens in the same system, with Dak Prescott healthy. Nothing about his alpha role has changed.",
+      "pros": [
+        "Elite target and yardage volume",
+        "Strong touchdown history"
+      ],
+      "cons": [
+        "Pickens takes deep targets",
+        "Reception-heavy usage"
+      ],
+      "bottom_line": "A clear top-10 receiver who often falls past his talent in this format; happily draft him."
+    },
+    "Ashton Jeanty": {
+      "situation": "Locked in as Las Vegas' feature back with Kirk Cousins starting and rookie Fernando Mendoza waiting. Camp reports point to an expanded passing-game role in year two.",
+      "pros": [
+        "No competition in the backfield",
+        "Growing receiving role",
+        "Second-year leap profile"
+      ],
+      "cons": [
+        "Offense may be low-scoring",
+        "Cousins limits explosiveness"
+      ],
+      "bottom_line": "Guide target holds: elite workload at a discount, a fine second-round anchor."
+    },
+    "George Pickens": {
+      "situation": "Dallas' clear number two behind CeeDee Lamb in his second year in the system with Dak Prescott. His role is the vertical, big-play side of the offense.",
+      "pros": [
+        "Big-play and touchdown profile fits standard",
+        "High-volume passing offense"
+      ],
+      "cons": [
+        "Boom-bust week to week",
+        "Lamb takes the alpha share"
+      ],
+      "bottom_line": "Yardage and scores rather than catches make him a good value at his second-round price."
+    },
+    "Justin Jefferson": {
+      "situation": "Kevin O'Connell named Kyler Murray the starter over J.J. McCarthy, and Murray-to-Jefferson has been a camp highlight. Jordan Addison and Jauan Jennings round out the group.",
+      "pros": [
+        "Best route runner in football",
+        "Quarterback upgrade at camp",
+        "Huge target share"
+      ],
+      "cons": [
+        "Murray is a downgrade in accuracy for some",
+        "Third mouth to feed"
+      ],
+      "bottom_line": "A discount on a true elite receiver; the Murray move is a reason to buy, not to fade."
+    },
+    "Josh Allen": {
+      "situation": "Buffalo added DJ Moore to the receiver room and Allen remains the highest-floor quarterback in fantasy thanks to his rushing touchdowns.",
+      "pros": [
+        "Rushing touchdowns are format-proof",
+        "Weekly top-three ceiling"
+      ],
+      "cons": [
+        "Costs a second-round pick",
+        "Position is deep and replaceable"
+      ],
+      "bottom_line": "The best quarterback, but in a 14-team standard league the opportunity cost at this price is steep."
+    },
+    "Chase Brown": {
+      "situation": "Cincinnati's lead back with Samaje Perine behind him and Joe Burrow healthy through camp. He topped 20 points per game in stretches with Burrow upright.",
+      "pros": [
+        "Feature workload",
+        "High-scoring offense",
+        "Goal-line role"
+      ],
+      "cons": [
+        "Efficiency depends on Burrow's health",
+        "Slight frame for heavy volume"
+      ],
+      "bottom_line": "Guide target holds: a second-round back with genuine RB1 upside if Burrow stays healthy."
+    },
+    "A.J. Brown": {
+      "situation": "Traded to New England for a 2028 first-round pick and is the clear WR1 for Drake Maye, with Romeo Doubs in the slot. He carried a 29.5% target share in Philadelphia.",
+      "pros": [
+        "Alpha role on a rising offense",
+        "Touchdown and yardage profile"
+      ],
+      "cons": [
+        "New system, new quarterback",
+        "Patriots may lean run"
+      ],
+      "bottom_line": "Guide target holds: a fringe top-10 receiver at a second-round price is good business here."
+    },
+    "Omarion Hampton": {
+      "situation": "Clear starter in Los Angeles with Keaton Mitchell and Kimani Vidal fighting for the RB2 job. Justin Herbert is healthy behind a rebuilt offensive line.",
+      "pros": [
+        "Feature back with goal-line work",
+        "Improved offensive line"
+      ],
+      "cons": [
+        "Committee could grow",
+        "Second-year workload unproven"
+      ],
+      "bottom_line": "A reasonable second-round back; the role is real and the offense should score more."
+    },
+    "Nico Collins": {
+      "situation": "Houston's clear alpha receiver with Jayden Higgins the number two and C.J. Stroud at quarterback. Tank Dell is dealing with a knee issue.",
+      "pros": [
+        "Big-play and touchdown profile",
+        "Little target competition"
+      ],
+      "cons": [
+        "Injury history",
+        "Offense can be inconsistent"
+      ],
+      "bottom_line": "Yardage-driven WR1 who fits standard scoring well; a fine second-round target."
+    },
+    "Zay Flowers": {
+      "situation": "Baltimore's leading receiver under new coordinator Declan Doyle. He missed one practice with a quad contusion but returned quickly.",
+      "pros": [
+        "Rising efficiency",
+        "Ravens passing volume should rebound",
+        "Lamar Jackson"
+      ],
+      "cons": [
+        "Run-heavy offense",
+        "Not a big red-zone body",
+        "New coordinator"
+      ],
+      "bottom_line": "The guide's highest-conviction receiver target; draft him confidently in round two or three."
+    },
+    "Kyren Williams": {
+      "situation": "Still the Rams' starter with Blake Corum as the backup in one of the league's better one-two backfields. Stafford is healthy and the offense should be strong.",
+      "pros": [
+        "Goal-line touchdown volume",
+        "Strong offense"
+      ],
+      "cons": [
+        "Corum eats into carries",
+        "Poor efficiency metrics",
+        "Ceiling is capped"
+      ],
+      "bottom_line": "Touchdown-dependent but that is what this format pays for; solid at his third-round price."
+    },
+    "Chris Olave": {
+      "situation": "New Orleans' top receiver with Tyler Shough at quarterback and rookie Jordyn Tyson emerging opposite him. He had his wrist looked at in camp but returned to practice.",
+      "pros": [
+        "Number one target share",
+        "Second-year quarterback improving"
+      ],
+      "cons": [
+        "Career-low efficiency last year",
+        "Concussion history",
+        "Tyson takes targets"
+      ],
+      "bottom_line": "Guide's mild fade holds: fine player, but too many cheaper receivers offer the same ceiling."
+    },
+    "Breece Hall": {
+      "situation": "Leads the Jets backfield again, though Braelon Allen and Isaiah Davis will take real snaps. Garrett Wilson remains the passing-game focus.",
+      "pros": [
+        "Explosive when given space",
+        "Still the clear lead back"
+      ],
+      "cons": [
+        "Committee siphons touches",
+        "Offense may be low-scoring",
+        "Value skews to receptions"
+      ],
+      "bottom_line": "Reasonable third-round back but the committee and format both trim his upside."
+    },
+    "Kenneth Walker III": {
+      "situation": "Traded to Kansas City and leads a wide-open backfield ahead of Emmett Johnson and Brashard Smith. Camp reports praise his cutback vision and receiving ability.",
+      "pros": [
+        "Lead role in a great offense",
+        "Light boxes and scoring chances",
+        "Explosive runner"
+      ],
+      "cons": [
+        "Injury history",
+        "Mahomes' knee is a variable"
+      ],
+      "bottom_line": "Guide target holds: a talented back landing in Kansas City is worth a third-round pick."
+    },
+    "Jeremiyah Love": {
+      "situation": "Arizona's first-round rookie has been alternating first-team reps with Tyler Allgeier and looked quick in camp. The Cardinals are sorting through Jacoby Brissett, Gardner Minshew and rookie Carson Beck at quarterback.",
+      "pros": [
+        "Talented rookie with real first-team reps",
+        "Path to lead role"
+      ],
+      "cons": [
+        "Committee with Allgeier",
+        "Bad quarterback room",
+        "Priced well above expert rankings"
+      ],
+      "bottom_line": "One of the biggest gaps between price and expert consensus; let someone else pay the rookie tax."
+    },
+    "Emeka Egbuka": {
+      "situation": "Tampa Bay's Z receiver per coordinator Zac Robinson with Mike Evans gone to San Francisco. He has a minor toe issue; Chris Godwin works the slot and Jalen McMillan has a knee problem.",
+      "pros": [
+        "Evans' targets and red-zone looks vacated",
+        "Outside role fits big plays"
+      ],
+      "cons": [
+        "Minor toe injury",
+        "Godwin still commands volume",
+        "Second-year projection"
+      ],
+      "bottom_line": "Guide target holds: the vacated Evans role makes him a strong third-round bet."
+    },
+    "Javonte Williams": {
+      "situation": "Dallas' starter with rookie-ish Jaydon Blue clearly the RB2. The offense returns intact and the defense improved, which should mean better game scripts.",
+      "pros": [
+        "Lead-back carries and goal-line work",
+        "High-scoring offense"
+      ],
+      "cons": [
+        "Blue is pushing for touches",
+        "Efficiency has been mediocre"
+      ],
+      "bottom_line": "Priced as a low-end RB2 but has RB1 volume; a good third-round value here."
+    },
+    "Malik Nabers": {
+      "situation": "Still working back from a torn ACL and had not taken team-drill reps as of mid-camp, though the Giants say he is on track for Week 1.",
+      "pros": [
+        "Elite talent and target share when healthy",
+        "ADP has been rising"
+      ],
+      "cons": [
+        "Has not practiced in team drills",
+        "Complicated ACL recovery",
+        "Shaky quarterback"
+      ],
+      "bottom_line": "Upside is enormous but the knee is unproven; only draft him if you can absorb a slow start."
+    },
+    "Cam Skattebo": {
+      "situation": "Cleared and practicing fully after a dislocated ankle and fractured tibia ended his rookie year. He is listed as a co-starter with Tyrone Tracy Jr. but is the favorite for Week 1.",
+      "pros": [
+        "Averaged around 19 points a game before the injury",
+        "Goal-line battering ram"
+      ],
+      "cons": [
+        "Tracy takes real snaps",
+        "Serious injury just months ago",
+        "Weak offense"
+      ],
+      "bottom_line": "Guide target holds: the touchdown-heavy role is worth a third-round swing in standard scoring."
+    },
+    "Tee Higgins": {
+      "situation": "Locked in as Cincinnati's starter opposite Ja'Marr Chase with Joe Burrow healthy. Andrei Iosivas is the third receiver.",
+      "pros": [
+        "Elite red-zone target",
+        "Touchdown-heavy profile fits standard"
+      ],
+      "cons": [
+        "Chase takes the alpha share",
+        "Long injury history"
+      ],
+      "bottom_line": "A touchdown-driven WR2 who is worth more here than in points-per-catch formats; good value."
+    },
+    "Davante Adams": {
+      "situation": "Listed as the Rams' starter opposite Puka Nacua with Stafford at quarterback. If Nacua's pending discipline lands, Adams becomes the primary target.",
+      "pros": [
+        "Elite red-zone and touchdown producer",
+        "Would soak up targets if Nacua sits"
+      ],
+      "cons": [
+        "Age-related decline risk",
+        "Second fiddle when Nacua plays"
+      ],
+      "bottom_line": "A touchdown-first receiver with a built-in contingency; fine value in round three."
+    },
+    "Tetairoa McMillan": {
+      "situation": "Carolina's clear number one with Jalen Coker and Xavier Legette behind him; rookie Chris Brazzell is out for the season. Bryce Young is the quarterback.",
+      "pros": [
+        "Massive target share",
+        "Big body for red-zone work"
+      ],
+      "cons": [
+        "Weak offense",
+        "Quarterback play limits ceiling"
+      ],
+      "bottom_line": "Safe volume on a bad offense; a fair third-round pick but not a league-winner."
+    },
+    "DeVonta Smith": {
+      "situation": "Now the alpha in Philadelphia after A.J. Brown was traded to New England. He is day-to-day with a hamstring issue in camp.",
+      "pros": [
+        "Vacated target share is huge",
+        "Proven red-zone connection with Hurts"
+      ],
+      "cons": [
+        "Hamstring issue",
+        "Run-heavy Eagles offense",
+        "Slight frame"
+      ],
+      "bottom_line": "The A.J. Brown trade makes him a clear buy at his third-round price."
+    },
+    "Jameson Williams": {
+      "situation": "Coming off back-to-back 1,000-yard seasons as Detroit's field-stretcher, though he has been limited in some team work during camp.",
+      "pros": [
+        "Big-play and touchdown profile fits standard",
+        "Efficient offense"
+      ],
+      "cons": [
+        "Boom-bust weekly",
+        "Second in the target pecking order",
+        "Camp limitations"
+      ],
+      "bottom_line": "Yardage-per-catch profile plays up in this format; a solid fourth-round receiver."
+    },
+    "Travis Etienne Jr.": {
+      "situation": "Signed with New Orleans and took all the first-team running back reps in camp. Tyler Shough is the quarterback in his second season.",
+      "pros": [
+        "Clear lead-back reps",
+        "Three 1,000-yard seasons on his resume"
+      ],
+      "cons": [
+        "Weak offense limits scoring chances",
+        "Efficiency has been up and down"
+      ],
+      "bottom_line": "Volume at a discount; a reasonable RB3 with upside if the Saints offense takes a step."
+    },
+    "Rome Odunze": {
+      "situation": "Fully cleared and practicing without restrictions; he says the foot stress fracture that ended his 2025 'feels amazing' and is behind him. He starts alongside Luther Burden III.",
+      "pros": [
+        "Healthy and full-go in camp",
+        "Big outside role",
+        "Good play-caller"
+      ],
+      "cons": [
+        "Foot injury history",
+        "Bears spread targets three ways",
+        "Has not broken out yet"
+      ],
+      "bottom_line": "Health scare resolved; a fair fourth-round receiver with real upside if he takes the year-three step."
+    },
+    "Garrett Wilson": {
+      "situation": "Still the Jets' clear number one with Adonai Mitchell and Omar Cooper Jr. alongside him in a spread-it-around scheme.",
+      "pros": [
+        "Locked-in target share",
+        "Elite separation ability"
+      ],
+      "cons": [
+        "Has never returned value at this cost",
+        "Low touchdown rate",
+        "Weak offense"
+      ],
+      "bottom_line": "Guide's mild fade holds: high-volume catches without scores is exactly the wrong profile here."
+    },
+    "D'Andre Swift": {
+      "situation": "Technically Chicago's starter but will split work with Kyle Monangai the same way he did last season. Ben Johnson's offense produces efficient rushing.",
+      "pros": [
+        "Passing-down role secure",
+        "Good offensive environment"
+      ],
+      "cons": [
+        "True committee with Monangai",
+        "Little goal-line work",
+        "Value leans on catches"
+      ],
+      "bottom_line": "Reception-driven backs lose the most in this format; let someone else take him in round four."
+    },
+    "Terry McLaurin": {
+      "situation": "Washington's number one with Stefon Diggs added opposite him and Jayden Daniels reported fully healthy after a broken 2025 season.",
+      "pros": [
+        "Career-high efficiency last year",
+        "Healthy quarterback",
+        "Touchdown-heavy profile"
+      ],
+      "cons": [
+        "Turns 31 this season",
+        "Diggs takes some targets"
+      ],
+      "bottom_line": "Guide target holds: a proven scorer with a healthy quarterback is good value in round four."
+    },
+    "Alec Pierce": {
+      "situation": "Working back from ankle surgery and started camp on the PUP list, with Ashton Dulin currently listed among the starters. He remains Indianapolis' deep threat with Daniel Jones throwing.",
+      "pros": [
+        "Highest yards-per-catch profile in the league",
+        "Big-play scores fit standard"
+      ],
+      "cons": [
+        "Ankle surgery recovery",
+        "Very low catch volume",
+        "Quarterback is inconsistent"
+      ],
+      "bottom_line": "His yardage-per-catch value plays up here, but the ankle makes round four aggressive."
+    },
+    "Bucky Irving": {
+      "situation": "Listed as Tampa Bay's starter but Kenny Gainwell was signed and may take over the role once games count. Irving has not been given goal-line work.",
+      "pros": [
+        "Efficient runner",
+        "Still the nominal starter"
+      ],
+      "cons": [
+        "No goal-line role",
+        "Gainwell signing is a threat",
+        "Touchdown-poor profile"
+      ],
+      "bottom_line": "Guide's fade holds: a back without goal-line work is a bad buy in a touchdown-driven format."
+    },
+    "Drake Maye": {
+      "situation": "Enters year three with A.J. Brown added as his new number one receiver and Romeo Doubs in the slot. New England's supporting cast is the best of his career.",
+      "pros": [
+        "Big weapons upgrade",
+        "Adds rushing points",
+        "Ascending passer"
+      ],
+      "cons": [
+        "Run-leaning offense",
+        "Quarterback is easy to replace late"
+      ],
+      "bottom_line": "Good player, but spending a fourth-round pick on a quarterback in a 14-team league is a luxury."
+    },
+    "Quinshon Judkins": {
+      "situation": "Leads the Cleveland backfield but was questionable at the start of camp with an ankle issue. The Browns are still sorting a quarterback battle involving Shedeur Sanders and Dillon Gabriel.",
+      "pros": [
+        "Clear lead back",
+        "Goal-line size and role"
+      ],
+      "cons": [
+        "Ankle issue",
+        "Bad offense limits scoring chances",
+        "Quarterback uncertainty"
+      ],
+      "bottom_line": "Volume is real but the environment is poor; a fair RB3 rather than a target."
+    },
+    "DJ Moore": {
+      "situation": "Traded from Chicago to Buffalo, where he and Khalil Shakir are the top two receivers with Josh Allen throwing. He is reuniting with coordinator Joe Brady.",
+      "pros": [
+        "Best quarterback of his career",
+        "Deep and play-action role"
+      ],
+      "cons": [
+        "Weak yards-per-route last season",
+        "Run-lean offense",
+        "Allen spreads targets"
+      ],
+      "bottom_line": "Guide's fade holds, though the Buffalo landing spot softens it; fine if he slips past round four."
+    },
+    "Ladd McConkey": {
+      "situation": "Los Angeles' clear number one with Quentin Johnston opposite and Justin Herbert behind an improved line.",
+      "pros": [
+        "Locked-in target share",
+        "Efficient route runner"
+      ],
+      "cons": [
+        "Slot-heavy usage means catches over scores",
+        "Smaller red-zone role"
+      ],
+      "bottom_line": "Good player whose reception-heavy profile is worth a little less here; fine WR2 in round four."
+    },
+    "Lamar Jackson": {
+      "situation": "Running a new offense under coordinator Declan Doyle that emphasizes under-center play-action. His rushing production remains the reason to draft him.",
+      "pros": [
+        "Rushing yards and touchdowns",
+        "Weekly league-winning ceiling"
+      ],
+      "cons": [
+        "New scheme could cut designed runs",
+        "Injury risk",
+        "Quarterback is replaceable"
+      ],
+      "bottom_line": "The best value among elite quarterbacks; a defensible fourth-round pick if you want the position solved."
+    },
+    "Bhayshul Tuten": {
+      "situation": "Listed at the top of Jacksonville's depth chart in an 'or' with Chris Rodriguez Jr., who has a foot injury. Tuten also handles kick return duties in Liam Coen's offense.",
+      "pros": [
+        "Second-year explosiveness",
+        "Ambiguous backfield he can win",
+        "Improving offense"
+      ],
+      "cons": [
+        "No guaranteed workload",
+        "Committee could persist"
+      ],
+      "bottom_line": "Guide target holds: cheap access to a potential lead role; take the swing in round four."
+    },
+    "Courtland Sutton": {
+      "situation": "Denver traded first-, third- and fourth-round picks for Jaylen Waddle, who now starts alongside Sutton and Marvin Mims Jr. Sutton's target monopoly is gone.",
+      "pros": [
+        "Still a big red-zone target",
+        "Established chemistry with Bo Nix"
+      ],
+      "cons": [
+        "Waddle takes significant volume",
+        "Never a top-20 scorer despite elite volume",
+        "Age 30"
+      ],
+      "bottom_line": "The guide's strongest receiver fade; there is no path to value now that Waddle is in town."
+    },
+    "Jadarian Price": {
+      "situation": "Seattle's first-round rookie is expected to open as the lead back despite George Holani sitting atop the unofficial chart. He missed some recent practices with leg soreness; Zach Charbonnet is on PUP.",
+      "pros": [
+        "Path to early-down lead role",
+        "Competition is banged up"
+      ],
+      "cons": [
+        "Rookie with no proven role",
+        "Leg soreness",
+        "Committee possible"
+      ],
+      "bottom_line": "A reasonable fifth-round dart on a rookie who could open as the starter; do not pay more."
+    },
+    "Brock Bowers": {
+      "situation": "Las Vegas' clear number one target at tight end with Kirk Cousins at quarterback. Michael Mayer remains the backup.",
+      "pros": [
+        "Receiver-level target volume",
+        "Best tight end in the league"
+      ],
+      "cons": [
+        "Value skews to catches over scores",
+        "Offense may be low-scoring"
+      ],
+      "bottom_line": "Guide target holds: the positional edge is worth it, and round four or five is a fair price."
+    },
+    "Jaylen Waddle": {
+      "situation": "Denver paid a first-, third- and fourth-round pick for him and he starts opposite Courtland Sutton. He has a leg strain but is expected back within a week.",
+      "pros": [
+        "Big volume in a better offense",
+        "Big-play speed fits standard scoring"
+      ],
+      "cons": [
+        "Leg strain right now",
+        "Sutton competes for red-zone looks"
+      ],
+      "bottom_line": "Guide's high-conviction target holds; the leg strain is minor and the landing spot is excellent."
+    },
+    "Joe Burrow": {
+      "situation": "Healthy and running Cincinnati's offense through camp with Ja'Marr Chase and Tee Higgins intact.",
+      "pros": [
+        "Elite passing volume",
+        "Two star receivers"
+      ],
+      "cons": [
+        "No rushing points at all",
+        "Touchdown rate should regress",
+        "Injury history"
+      ],
+      "bottom_line": "Guide's fade holds: pocket quarterbacks without legs are the wrong bet at a fifth-round price."
+    },
+    "Luther Burden III": {
+      "situation": "Will miss the rest of the preseason with a groin injury but Chicago expects him ready for Week 1. He is a listed starter opposite Rome Odunze in Ben Johnson's offense.",
+      "pros": [
+        "Elite rookie efficiency",
+        "Locked-in starting role",
+        "Ben Johnson offense"
+      ],
+      "cons": [
+        "Groin injury interrupted camp",
+        "Odunze and Loveland split targets",
+        "Slot usage means catch-driven value"
+      ],
+      "bottom_line": "Guide target holds: a strong round-five buy on a second-year breakout profile."
+    },
+    "TreVeyon Henderson": {
+      "situation": "Listed second on New England's depth chart behind Rhamondre Stevenson. A.J. Brown's arrival should open up more running room.",
+      "pros": [
+        "Explosive big-play runner",
+        "Improving offense"
+      ],
+      "cons": [
+        "Behind Stevenson on the chart",
+        "Lost the playoff usage battle",
+        "Passing-down role only"
+      ],
+      "bottom_line": "Talented but the role is not there yet; a fifth-round pick you take only if you like the handcuff."
+    },
+    "Mike Evans": {
+      "situation": "Signed with San Francisco and is a starter alongside Deebo Samuel Sr. and Demarcus Robinson, with Ricky Pearsall out for the season. He has been managing a quad injury and made a limited camp return.",
+      "pros": [
+        "Elite touchdown scorer",
+        "Pearsall's absence opens targets",
+        "Shanahan offense"
+      ],
+      "cons": [
+        "Quad injury",
+        "Age 33",
+        "Crowded receiver room"
+      ],
+      "bottom_line": "Guide target holds: a proven touchdown machine at a fifth-round price is a bargain in this format."
+    },
+    "Trey McBride": {
+      "situation": "Arizona's All-Pro tight end and a central part of the passing game, but the Cardinals are choosing among Jacoby Brissett, Gardner Minshew and rookie Carson Beck at quarterback.",
+      "pros": [
+        "Enormous target volume",
+        "Every-down role"
+      ],
+      "cons": [
+        "Touchdown rate should regress hard",
+        "Poor quarterback room",
+        "Value is catch-driven"
+      ],
+      "bottom_line": "Guide's fade holds: a catch-volume tight end with a bad quarterback is overpriced in round five."
+    },
+    "Christian Watson": {
+      "situation": "Listed as a Green Bay starter alongside Jayden Reed and Matthew Golden with a full-time route share available for the first time.",
+      "pros": [
+        "Big-play and touchdown profile",
+        "Route share finally open"
+      ],
+      "cons": [
+        "Long injury history",
+        "Green Bay spreads targets widely"
+      ],
+      "bottom_line": "Guide target holds: a downfield scorer at a fifth-round price fits standard scoring well."
+    },
+    "David Montgomery": {
+      "situation": "Traded from Detroit to Houston, where he shares the backfield with Woody Marks. He is out of Jahmyr Gibbs' shadow but not in a true bell-cow role.",
+      "pros": [
+        "Goal-line touchdown work",
+        "Larger share than in Detroit"
+      ],
+      "cons": [
+        "Marks takes passing downs",
+        "Age and mileage",
+        "Market has already priced the move up"
+      ],
+      "bottom_line": "Touchdown-dependent RB3; fine at cost but the hype has caught up to the situation."
+    },
+    "Dak Prescott": {
+      "situation": "Healthy with CeeDee Lamb and George Pickens in their second year together and an offense that should throw plenty.",
+      "pros": [
+        "High passing volume",
+        "Two strong receivers"
+      ],
+      "cons": [
+        "Minimal rushing production",
+        "Injury history",
+        "Position is replaceable"
+      ],
+      "bottom_line": "Solid QB1 but not worth a fifth-round pick when similar production is available much later."
+    },
+    "Tony Pollard": {
+      "situation": "Listed as Tennessee's starter ahead of Tyjae Spears, with rookie Nicholas Singleton buried on the depth chart. Cam Ward is the quarterback.",
+      "pros": [
+        "Currently the listed starter",
+        "Some receiving work"
+      ],
+      "cons": [
+        "Usage was collapsing late last year",
+        "Age 29",
+        "Weak offense"
+      ],
+      "bottom_line": "Guide's fade holds: a fading back on a bad offense is not worth a fifth-round pick."
+    },
+    "DK Metcalf": {
+      "situation": "Starts for Pittsburgh alongside Michael Pittman Jr. and Roman Wilson under new head coach Mike McCarthy, with Aaron Rodgers back at quarterback in a heavy multi-tight-end scheme.",
+      "pros": [
+        "Deep-ball and touchdown upside",
+        "Physical red-zone target"
+      ],
+      "cons": [
+        "Capped around 12.5 points a game",
+        "Low-volume offense",
+        "Target competition added"
+      ],
+      "bottom_line": "Guide's fade holds: the ceiling has been proven low and the offense will not throw enough."
+    },
+    "Marvin Harrison Jr.": {
+      "situation": "Still Arizona's number one receiver but shares the passing game with Trey McBride and Michael Wilson, and the Cardinals have an unsettled quarterback room.",
+      "pros": [
+        "Alpha receiver talent",
+        "Big red-zone body"
+      ],
+      "cons": [
+        "Poor quarterback play",
+        "McBride dominates targets",
+        "Has not hit his ceiling yet"
+      ],
+      "bottom_line": "Talent bet at a fifth-round price; reasonable but the quarterback situation caps the realistic outcome."
+    },
+    "Parker Washington": {
+      "situation": "Listed among Jacksonville's starting receivers in Liam Coen's offense alongside Brian Thomas Jr. and Jakobi Meyers, with Travis Hunter also in the mix.",
+      "pros": [
+        "Averaged over 15 points a game after the bye",
+        "Real starting role"
+      ],
+      "cons": [
+        "Very crowded receiver room",
+        "Small sample of production"
+      ],
+      "bottom_line": "Guide target holds: cheap access to a starting role, worth a fifth or sixth-round pick."
+    },
+    "Jayden Daniels": {
+      "situation": "Reported fully healthy after a 2025 wrecked by a knee sprain, hamstring strain and dislocated elbow. Washington added Stefon Diggs and Chig Okonkwo, and camp reports have been strong.",
+      "pros": [
+        "Rushing floor is elite",
+        "Healthy and in command",
+        "Improved weapons"
+      ],
+      "cons": [
+        "Long injury history",
+        "Offense adds more under-center play-action"
+      ],
+      "bottom_line": "Best combination of price and ceiling among quarterbacks; a good round-five target."
+    },
+    "Rico Dowdle": {
+      "situation": "Signed with Pittsburgh and will rotate with Jaylen Warren, with camp notes suggesting his receiving ability could cut into Warren's snaps.",
+      "pros": [
+        "Real split of a lead role",
+        "Proven when given volume"
+      ],
+      "cons": [
+        "True committee",
+        "Low-volume offense",
+        "No clear goal-line edge"
+      ],
+      "bottom_line": "Fine RB4 with contingency value, but the split makes him hard to start weekly."
+    },
+    "Brian Thomas Jr.": {
+      "situation": "A starter in Jacksonville but in one of the league's most crowded receiver rooms with Parker Washington, Jakobi Meyers and Travis Hunter all involved.",
+      "pros": [
+        "Big-play and touchdown ability",
+        "Trevor Lawrence improving in year two of the system"
+      ],
+      "cons": [
+        "Too many mouths to feed",
+        "Efficiency dipped last season"
+      ],
+      "bottom_line": "Buy-low on real talent, but the target competition is genuine; a fair fifth-round gamble."
+    },
+    "Jalen Hurts": {
+      "situation": "A.J. Brown is gone and camp reports say designed quarterback runs are returning to the Philadelphia offense after a down rushing year.",
+      "pros": [
+        "Goal-line rushing touchdowns",
+        "Designed runs coming back",
+        "Cheapest he has ever been"
+      ],
+      "cons": [
+        "Lost his best receiver",
+        "Passing volume may drop"
+      ],
+      "bottom_line": "Guide target holds: a top-three quarterback ceiling at a QB7 price is exactly the right buy."
+    },
+    "Rhamondre Stevenson": {
+      "situation": "Listed as New England's RB1 ahead of TreVeyon Henderson, matching the playoff usage he earned last season. A.J. Brown's arrival should ease defensive boxes.",
+      "pros": [
+        "Currently the listed starter",
+        "Goal-line size",
+        "Improving offense"
+      ],
+      "cons": [
+        "Henderson is the more explosive back",
+        "Fumble issues in the past"
+      ],
+      "bottom_line": "Guide target holds: starter's workload at a sixth-round price is good value."
+    },
+    "Brock Purdy": {
+      "situation": "San Francisco's undisputed starter and sharp in camp, now throwing to Mike Evans and Deebo Samuel Sr. with George Kittle working back from an Achilles injury.",
+      "pros": [
+        "Efficient offense",
+        "New red-zone weapon in Evans"
+      ],
+      "cons": [
+        "Almost no rushing production",
+        "Receiver room is banged up"
+      ],
+      "bottom_line": "A capable streaming-plus quarterback; fine value but not a priority in round six."
+    },
+    "Quentin Johnston": {
+      "situation": "Starts opposite Ladd McConkey in Los Angeles with Tre' Harris and others behind him. Justin Herbert throws to him in the red zone.",
+      "pros": [
+        "Big-body touchdown role",
+        "Improved offense"
+      ],
+      "cons": [
+        "Inconsistent hands",
+        "Low target volume",
+        "Roster spot not fully secure"
+      ],
+      "bottom_line": "Touchdown-dependent WR4 who plays up slightly in standard; a fine late-sixth flier."
+    },
+    "Colston Loveland": {
+      "situation": "Chicago's clear number one tight end in year two, though Ben Johnson's offense uses two-tight-end sets often. Rome Odunze and Luther Burden III headline the receiver room.",
+      "pros": [
+        "Ascending second-year role",
+        "Efficient offense"
+      ],
+      "cons": [
+        "Two-tight-end sets split snaps",
+        "Tight end touchdowns are volatile"
+      ],
+      "bottom_line": "Solid mid-round tight end with real upside; a reasonable pick in round six."
+    },
+    "Carnell Tate": {
+      "situation": "Tennessee's rookie receiver is listed as a starter alongside Calvin Ridley and Wan'Dale Robinson with Cam Ward at quarterback.",
+      "pros": [
+        "Immediate starting role",
+        "Outside role fits big plays"
+      ],
+      "cons": [
+        "Rookie learning curve",
+        "Weak offense",
+        "Ridley takes the alpha share"
+      ],
+      "bottom_line": "Fine sixth-round rookie dart, but the offense makes a big season unlikely."
+    },
+    "J.K. Dobbins": {
+      "situation": "Listed atop Denver's depth chart but sharing with RJ Harvey and rookie Jonah Coleman. His receiving production was near the bottom of the league last season.",
+      "pros": [
+        "Listed as the current starter",
+        "Efficient when healthy"
+      ],
+      "cons": [
+        "Extensive injury history",
+        "Coleman and Harvey both push for work",
+        "Terrible receiving usage"
+      ],
+      "bottom_line": "Guide's fade holds: a crowded backfield and injury history make this a pick to skip."
+    },
+    "Matthew Stafford": {
+      "situation": "The Rams' unquestioned starter and sharp in his first camp practice after an MVP-caliber 2025. He turns 38 this season.",
+      "pros": [
+        "Elite receiver group",
+        "Coming off a huge season"
+      ],
+      "cons": [
+        "Zero rushing production",
+        "Unsustainable touchdown rate",
+        "Age and back history"
+      ],
+      "bottom_line": "Guide's high-conviction fade holds: last year's touchdown rate will not repeat at this cost."
+    },
+    "Jordan Addison": {
+      "situation": "Minnesota's number two receiver behind Justin Jefferson with Jauan Jennings also in the mix. Kyler Murray was named the starter and has connected with Addison on deep routes in camp.",
+      "pros": [
+        "Big-play role with a strong-armed quarterback",
+        "Proven touchdown production"
+      ],
+      "cons": [
+        "Third mouth to feed at times",
+        "Jefferson soaks up targets"
+      ],
+      "bottom_line": "Decent WR4 with weekly spike potential; a fair pick in round six."
+    },
+    "Jaylen Warren": {
+      "situation": "Listed ahead of Rico Dowdle in Pittsburgh but the two will essentially split the lead role. Aaron Rodgers is back under new head coach Mike McCarthy.",
+      "pros": [
+        "Efficient per-touch producer",
+        "Rodgers targets backs often"
+      ],
+      "cons": [
+        "Value is heavily reception-driven, worth less here",
+        "Dowdle splits the job",
+        "Low-volume offense"
+      ],
+      "bottom_line": "Guide target holds, but temper it: his catch-based value is discounted in standard scoring."
+    },
+    "Jakobi Meyers": {
+      "situation": "Listed among Jacksonville's starting receivers alongside Brian Thomas Jr. and Parker Washington, with Travis Hunter also taking snaps.",
+      "pros": [
+        "Reliable starting role",
+        "Trevor Lawrence in year two of the system"
+      ],
+      "cons": [
+        "Very low touchdown rate",
+        "Value is almost entirely receptions",
+        "Crowded room"
+      ],
+      "bottom_line": "A classic points-per-catch player; in standard scoring he is a bench receiver, not a target."
+    },
+    "Tyler Warren": {
+      "situation": "Sits atop a six-man Indianapolis tight end group with Daniel Jones throwing. Alec Pierce and Josh Downs have both missed camp time, which concentrates targets.",
+      "pros": [
+        "Clear every-down role",
+        "Receiver injuries free up targets"
+      ],
+      "cons": [
+        "Offense is inconsistent",
+        "Tight end scoring is volatile"
+      ],
+      "bottom_line": "Good mid-round tight end value; a reasonable sixth or seventh-round pick."
+    },
+    "Chuba Hubbard": {
+      "situation": "Still listed as Carolina's starter but the market has soured badly, and Jonathon Brooks has looked good in camp behind him. Hubbard graded near the bottom of the league in efficiency last season.",
+      "pros": [
+        "Currently the listed starter",
+        "Goal-line carries"
+      ],
+      "cons": [
+        "Worst-in-league efficiency metrics",
+        "Brooks is closing fast",
+        "Weak offense"
+      ],
+      "bottom_line": "Draft the backup instead; Hubbard's job looks like the shakiest starting role in the league."
+    },
+    "Jordyn Tyson": {
+      "situation": "New Orleans' rookie receiver is working as the number two behind Chris Olave and has flashed chemistry with Tyler Shough in team drills.",
+      "pros": [
+        "Strong rookie profile",
+        "Real starting-caliber snaps",
+        "Growing rapport with Shough"
+      ],
+      "cons": [
+        "Rookie variance",
+        "Weak offense",
+        "Olave commands the top share"
+      ],
+      "bottom_line": "Guide target holds: a talented rookie with a defined role at a sixth-round price."
+    },
+    "Jayden Reed": {
+      "situation": "Listed as a Green Bay starter alongside Christian Watson and Matthew Golden. He is day-to-day with an ankle issue that Matt LaFleur says is not a long-term concern.",
+      "pros": [
+        "Priced below his production floor",
+        "Big-play and touchdown ability"
+      ],
+      "cons": [
+        "Ankle issue in camp",
+        "Green Bay spreads targets",
+        "Injury history"
+      ],
+      "bottom_line": "Guide target holds: cheap enough that the target competition is already priced in."
+    },
+    "Michael Wilson": {
+      "situation": "Arizona's third option behind Marvin Harrison Jr. and Trey McBride, with an unsettled quarterback room. His best stretch came while Harrison was hurt.",
+      "pros": [
+        "Real snap share",
+        "Some red-zone usage"
+      ],
+      "cons": [
+        "Breakout was injury-driven",
+        "Third in the pecking order",
+        "Bad quarterback play"
+      ],
+      "bottom_line": "Guide's fade holds: there is no path to consistent production at this price."
+    },
+    "Xavier Worthy": {
+      "situation": "Sprained his shoulder on Aug 1 but has returned to padded practice in a limited capacity. He is Kansas City's number two behind Rashee Rice.",
+      "pros": [
+        "Elite speed and big-play scores",
+        "Rice's knee could open early volume"
+      ],
+      "cons": [
+        "Shoulder still limiting him",
+        "Low catch volume role",
+        "Mahomes' knee is a variable"
+      ],
+      "bottom_line": "Boom-bust WR4 whose deep scores fit this format; fine sixth or seventh-round flier."
+    },
+    "Chris Godwin Jr.": {
+      "situation": "Tampa Bay's slot receiver alongside Emeka Egbuka and Jalen McMillan, who is dealing with a knee issue. Baker Mayfield remains the quarterback.",
+      "pros": [
+        "Reliable target volume",
+        "Established rapport with Mayfield"
+      ],
+      "cons": [
+        "Slot value is reception-driven, worth less here",
+        "Injury history",
+        "Egbuka is taking over"
+      ],
+      "bottom_line": "His profile loses the most in standard scoring; a bench receiver at this price."
+    },
+    "Trevor Lawrence": {
+      "situation": "In his second year under Liam Coen with a deep receiver room of Brian Thomas Jr., Jakobi Meyers, Parker Washington and Travis Hunter.",
+      "pros": [
+        "System continuity",
+        "Rushing production ticking up",
+        "Deep weapons"
+      ],
+      "cons": [
+        "Has never been a consistent fantasy QB1",
+        "Targets are spread thin"
+      ],
+      "bottom_line": "Guide target holds: a cheap quarterback with real upside is exactly what to buy in round seven."
+    },
+    "Stefon Diggs": {
+      "situation": "Signed with Washington and is listed as a starter opposite Terry McLaurin, working primarily from the slot. Jayden Daniels is reported fully healthy.",
+      "pros": [
+        "Top-10 efficiency last season",
+        "Healthy quarterback",
+        "Clear starting role"
+      ],
+      "cons": [
+        "Age and injury history",
+        "Slot value skews to catches",
+        "McLaurin is the alpha"
+      ],
+      "bottom_line": "Guide dart holds: a high-conviction late flier with WR3 upside if Daniels stays upright."
+    },
+    "Tucker Kraft": {
+      "situation": "Opened camp on the physically unable to perform list recovering from a torn ACL, with a Week 1 return possible. He is Green Bay's clear top tight end.",
+      "pros": [
+        "Best tight end on a good offense",
+        "Was ascending before the injury"
+      ],
+      "cons": [
+        "Still on PUP",
+        "Week 1 availability uncertain",
+        "Packers spread targets"
+      ],
+      "bottom_line": "Talent and role are there but the knee timeline is real; only draft him as a TE2 with patience."
+    },
+    "Makai Lemon": {
+      "situation": "Philadelphia's first-round rookie is in line to start in the slot, with DeVonta Smith and Dontayvion Wicks alongside him. A.J. Brown's trade left a lot of targets open.",
+      "pros": [
+        "Vacated target share",
+        "Immediate starting role",
+        "Good offense"
+      ],
+      "cons": [
+        "Rookie learning curve",
+        "Slot work is catch-driven",
+        "Run-heavy Eagles"
+      ],
+      "bottom_line": "Worthwhile seventh-round rookie bet, though his slot role is worth less without points per catch."
+    },
+    "Kyle Monangai": {
+      "situation": "Splits Chicago's backfield with D'Andre Swift the same way he did last season, handling much of the early-down and short-yardage work.",
+      "pros": [
+        "Short-yardage and goal-line carries",
+        "Efficient offense under Ben Johnson"
+      ],
+      "cons": [
+        "True committee",
+        "Almost no receiving work"
+      ],
+      "bottom_line": "Cheap access to touchdown equity in a good offense; a fine seventh-round RB4."
+    },
+    "Michael Pittman Jr.": {
+      "situation": "Signed with Pittsburgh and starts alongside DK Metcalf and Roman Wilson with Aaron Rodgers at quarterback under new head coach Mike McCarthy.",
+      "pros": [
+        "Big-bodied red-zone target",
+        "Rodgers is accurate in the red zone"
+      ],
+      "cons": [
+        "Low-volume, run-leaning offense",
+        "Metcalf takes the alpha share",
+        "Efficiency has declined"
+      ],
+      "bottom_line": "Touchdown-dependent WR4; a fine seventh-round pick but do not expect weekly starts."
+    },
+    "Patrick Mahomes II": {
+      "situation": "Says his surgically repaired knee 'feels great' and is targeting Week 1, without being ruled out of the preseason. Kansas City added no new receivers.",
+      "pros": [
+        "Still an elite passer",
+        "Rice and Worthy both healthy-ish"
+      ],
+      "cons": [
+        "Knee injury and reduced rushing",
+        "Weak receiver depth",
+        "Touchdown rate has fallen"
+      ],
+      "bottom_line": "Guide's fade holds: the rushing production that made him special is gone and the knee adds risk."
+    },
+    "Jacory Croskey-Merritt": {
+      "situation": "Expected to be Washington's lead early-down back ahead of Rachaad White after adding eight pounds of muscle. He rushed for 805 yards last year despite only seven starts.",
+      "pros": [
+        "Early-down and goal-line role",
+        "Healthy Jayden Daniels helps the run game"
+      ],
+      "cons": [
+        "White takes third downs",
+        "Committee could stay muddled"
+      ],
+      "bottom_line": "Good seventh-round value on a back who should get the carries that score touchdowns."
+    },
+    "Kyle Pitts Sr.": {
+      "situation": "Signed a three-year, $54 million extension after a breakout 2025 and remains Atlanta's top tight end. Tua Tagovailoa is running the offense.",
+      "pros": [
+        "Coming off a real breakout",
+        "Big red-zone target"
+      ],
+      "cons": [
+        "Quarterback uncertainty",
+        "Drake London dominates targets",
+        "Long history of disappointing"
+      ],
+      "bottom_line": "Reasonable mid-tier tight end in round seven, but the track record demands some skepticism."
+    },
+    "Jaxson Dart": {
+      "situation": "The Giants' starter with Malik Nabers returning from a torn ACL and Isaiah Likely added at tight end. Camp reports include multiple rushing touchdowns in red-zone work.",
+      "pros": [
+        "Rushing touchdowns near the goal line",
+        "Weapons returning"
+      ],
+      "cons": [
+        "Turnover-prone in camp",
+        "Nabers' knee is unproven",
+        "Weak offensive line"
+      ],
+      "bottom_line": "Cheap quarterback with a rushing floor; a fine late streaming option or QB2."
+    },
+    "RJ Harvey": {
+      "situation": "Listed second in Denver behind J.K. Dobbins with rookie Jonah Coleman also added to the room. Dobbins' injury history gives Harvey a clear path.",
+      "pros": [
+        "Explosive second-year back",
+        "Dobbins rarely stays healthy"
+      ],
+      "cons": [
+        "Currently the backup",
+        "Three-way committee risk"
+      ],
+      "bottom_line": "Guide target holds: the market overcorrected, and this is good value in round seven."
+    },
+    "Aaron Jones Sr.": {
+      "situation": "Sharing the Minnesota backfield with Jordan Mason, and both broke off explosive runs in camp. Kyler Murray is the new starting quarterback.",
+      "pros": [
+        "Receiving role and pass protection",
+        "Improved quarterback play"
+      ],
+      "cons": [
+        "Age 31",
+        "Mason splits carries",
+        "Receiving value is worth less here"
+      ],
+      "bottom_line": "A committee back on the wrong side of 30; a bench pick rather than a target."
+    },
+    "Dallas Goedert": {
+      "situation": "Philadelphia's clear number one tight end with Eli Stowers and Johnny Mundt behind him. A.J. Brown's trade leaves more targets to distribute.",
+      "pros": [
+        "Vacated targets",
+        "Efficient when healthy"
+      ],
+      "cons": [
+        "Injury-prone",
+        "Run-heavy offense",
+        "Low touchdown volume"
+      ],
+      "bottom_line": "Fine streaming tight end in round eight; the ceiling is limited by Philadelphia's run-first plan."
+    },
+    "Justin Herbert": {
+      "situation": "Los Angeles' starter with a healthier offensive line, a retooled offense, and Ladd McConkey and Quentin Johnston outside. Omarion Hampton anchors the run game.",
+      "pros": [
+        "Big arm and passing volume",
+        "Line and scheme improved",
+        "Adds a few rushing scores"
+      ],
+      "cons": [
+        "Has never been a consistent QB1",
+        "Receiver room is thin"
+      ],
+      "bottom_line": "Guide target holds: a cheap quarterback with real upside is a fine round-eight pick."
+    },
+    "Wan'Dale Robinson": {
+      "situation": "Signed with Tennessee and is listed as a starter alongside Calvin Ridley and rookie Carnell Tate, with Cam Ward at quarterback.",
+      "pros": [
+        "Held a 25% target share two years running",
+        "Locked-in starting role"
+      ],
+      "cons": [
+        "Almost all value is short catches, worth little here",
+        "Tiny touchdown rate",
+        "Weak offense"
+      ],
+      "bottom_line": "Guide dart with a caveat: his catch-heavy profile is the worst fit for standard scoring."
+    },
+    "Harold Fannin Jr.": {
+      "situation": "Sits atop Cleveland's tight end chart after leading the team in receptions as a rookie, though he was questionable at the start of camp with a groin issue.",
+      "pros": [
+        "Led the team in catches as a rookie",
+        "Clear number one tight end"
+      ],
+      "cons": [
+        "Groin issue",
+        "Bad offense and quarterback carousel",
+        "Value is reception-driven"
+      ],
+      "bottom_line": "Fine late tight end for the role, but the offense caps him; a round-eight backup plan."
+    },
+    "Romeo Doubs": {
+      "situation": "Signed with New England and is listed as the number two receiver in the slot behind A.J. Brown, with Kayshon Boutte third.",
+      "pros": [
+        "Starting role in an ascending offense",
+        "Drake Maye is improving"
+      ],
+      "cons": [
+        "A.J. Brown takes the alpha share",
+        "Deep receiver room",
+        "Modest big-play ability"
+      ],
+      "bottom_line": "Depth receiver with weekly touchdown upside; a fair round-eight bench pick."
+    },
+    "Caleb Williams": {
+      "situation": "Year two under Ben Johnson with Rome Odunze healthy, Colston Loveland ascending at tight end, and Luther Burden III back for Week 1 after a groin issue.",
+      "pros": [
+        "Adds rushing production",
+        "Strong play-caller"
+      ],
+      "cons": [
+        "Inconsistent as a passer",
+        "Run-leaning offense",
+        "Position is replaceable late"
+      ],
+      "bottom_line": "Cheap upside quarterback with a rushing floor; a fine round-eight QB2."
+    },
+    "Sam LaPorta": {
+      "situation": "Detroit's clear number one tight end coming off back surgery for a herniated disc that cost him the final eight games. He returned during the offseason program.",
+      "pros": [
+        "Top-tier tight end when healthy",
+        "High-scoring offense"
+      ],
+      "cons": [
+        "Back surgery is a real concern",
+        "Two seasons removed from his peak",
+        "Crowded target tree"
+      ],
+      "bottom_line": "The upside is Tier 1 but the back is a genuine risk; a fine round-eight tight end bet."
+    },
+    "Jared Goff": {
+      "situation": "Still Detroit's starter throwing to Amon-Ra St. Brown, Jameson Williams and Sam LaPorta, with Jahmyr Gibbs now the featured back after David Montgomery was traded.",
+      "pros": [
+        "Efficient offense",
+        "Strong weapons"
+      ],
+      "cons": [
+        "Zero rushing production",
+        "Run-heavy with Gibbs",
+        "Low weekly ceiling"
+      ],
+      "bottom_line": "A fine late-round quarterback floor, but nothing here wins you a week by itself."
+    },
+    "Blake Corum": {
+      "situation": "Backs up Kyren Williams in one of the league's better one-two backfields with Matthew Stafford running a strong offense.",
+      "pros": [
+        "Real touch share",
+        "Would inherit a valuable role if Williams misses time"
+      ],
+      "cons": [
+        "No standalone weekly value",
+        "Kyren gets the goal-line work"
+      ],
+      "bottom_line": "Best handcuff on the board; worth a round-eight pick even if you do not roster Kyren."
+    },
+    "Josh Downs": {
+      "situation": "Michael Pittman Jr. left for Pittsburgh, which should push Downs into a bigger outside role, but he has missed practice time in camp and Ashton Dulin is currently listed among the starters.",
+      "pros": [
+        "Pittman's targets are open",
+        "Reliable hands and route running"
+      ],
+      "cons": [
+        "Missed camp practices",
+        "Slot profile is catch-driven",
+        "Daniel Jones is inconsistent"
+      ],
+      "bottom_line": "Guide target holds, with a caveat: the role is real but his reception-based value is discounted here."
+    },
+    "Rachaad White": {
+      "situation": "Signed with Washington and profiles as the third-down and receiving back behind Jacory Croskey-Merritt. He has 205 career receptions out of the backfield.",
+      "pros": [
+        "Passing-down role is secure",
+        "Healthy Jayden Daniels"
+      ],
+      "cons": [
+        "Receiving value is worth little here",
+        "No goal-line role",
+        "Committee back"
+      ],
+      "bottom_line": "The exact profile standard scoring punishes; leave him on the waiver wire."
+    },
+    "Jordan Mason": {
+      "situation": "Splits the Minnesota backfield with Aaron Jones Sr. and has ripped off explosive runs in camp. Kyler Murray was named the starting quarterback.",
+      "pros": [
+        "Fourth-best explosive run rate in the league",
+        "Jones is 31",
+        "Improved offense"
+      ],
+      "cons": [
+        "Currently a committee back",
+        "Little receiving work"
+      ],
+      "bottom_line": "Guide dart holds: a talented runner one injury from a lead role at a round-nine price."
+    },
+    "Kenny Gainwell": {
+      "situation": "Signed with Tampa Bay and could take over the starting job from Bucky Irving once games count, per camp reporting. Irving has not been given goal-line work.",
+      "pros": [
+        "Path to lead role",
+        "Goal-line opportunity available"
+      ],
+      "cons": [
+        "Currently listed second",
+        "Career backup profile",
+        "Irving is the incumbent"
+      ],
+      "bottom_line": "Sneaky round-ten pick if you believe the beat reporting; the touchdown work is up for grabs."
+    },
+    "Jalen Coker": {
+      "situation": "Listed with Carolina's first-string receivers alongside Tetairoa McMillan and Xavier Legette, with rookie Chris Brazzell out for the season.",
+      "pros": [
+        "Near-McMillan usage late last season",
+        "Clear starting role"
+      ],
+      "cons": [
+        "Weak offense and quarterback",
+        "Legette competes for snaps"
+      ],
+      "bottom_line": "Guide dart holds: a free look at a starting receiver in the final rounds."
+    },
+    "Jonathon Brooks": {
+      "situation": "Listed second behind Chuba Hubbard but has looked good in camp after a long injury absence, and the fantasy market is shifting toward him. Hubbard's efficiency was the worst in the league.",
+      "pros": [
+        "Weak competition ahead of him",
+        "Camp buzz is positive",
+        "Talent bet at a low price"
+      ],
+      "cons": [
+        "Long injury layoff",
+        "Not the listed starter yet",
+        "Weak offense"
+      ],
+      "bottom_line": "Guide target holds: this is the Carolina back to own, not Hubbard."
+    },
+    "Bo Nix": {
+      "situation": "Denver's starter with Jaylen Waddle added to a group already featuring Courtland Sutton and Marvin Mims Jr. The backfield is a crowded committee.",
+      "pros": [
+        "Adds rushing scores",
+        "Real weapons upgrade in Waddle"
+      ],
+      "cons": [
+        "Inconsistent as a passer",
+        "Denver leans on defense and the run"
+      ],
+      "bottom_line": "Fine late-round QB2 with matchup appeal; the Waddle trade raises the ceiling modestly."
+    },
+    "George Kittle": {
+      "situation": "Fresh news overtakes his price: Kittle opened camp on the physically unable to perform list with an Achilles injury. Week 1 is uncertain.",
+      "pros": [
+        "Elite when healthy",
+        "Would be a top-five tight end on return"
+      ],
+      "cons": [
+        "Achilles injury, on PUP",
+        "Four-game minimum absence if not activated",
+        "Age 33"
+      ],
+      "bottom_line": "Only draft him as a stash with another tight end rostered; the Achilles makes his start date unknowable."
+    },
+    "Jayden Higgins": {
+      "situation": "Locked in as Houston's number two receiver opposite Nico Collins, with Jaylin Noel and an injured Tank Dell behind him. C.J. Stroud is the quarterback.",
+      "pros": [
+        "Clear starting role in year two",
+        "Big frame for red-zone work"
+      ],
+      "cons": [
+        "Collins dominates targets",
+        "Offense can go quiet for stretches"
+      ],
+      "bottom_line": "Guide dart holds: a starting receiver with a good quarterback is a fine round-ten swing."
+    },
+    "Isaiah Likely": {
+      "situation": "Signed with the Giants and is already building chemistry with Jaxson Dart, with a big role expected after years behind Mark Andrews in Baltimore.",
+      "pros": [
+        "Open target tree",
+        "Produced at a TE1 level when Andrews sat",
+        "Mismatch size"
+      ],
+      "cons": [
+        "Weak offense",
+        "Nabers returns and takes targets"
+      ],
+      "bottom_line": "Guide dart holds: one of the better late tight end bets on the board."
+    },
+    "Mark Andrews": {
+      "situation": "Still Baltimore's number one tight end and caught a red-zone touchdown from Lamar Jackson in camp, but the offense is new under coordinator Declan Doyle and he is on the wrong side of 30.",
+      "pros": [
+        "Red-zone touchdown role",
+        "Great quarterback"
+      ],
+      "cons": [
+        "Declining efficiency",
+        "Rebuilt receiver room takes targets",
+        "Age"
+      ],
+      "bottom_line": "Touchdown-dependent late tight end; fine as a TE2 but do not count on a bounce-back."
+    },
+    "Baker Mayfield": {
+      "situation": "Tampa Bay's starter with Mike Evans gone to San Francisco and Emeka Egbuka and Chris Godwin Jr. leading the receiver group.",
+      "pros": [
+        "Adds scramble rushing",
+        "Aggressive downfield play"
+      ],
+      "cons": [
+        "Lost his best red-zone target",
+        "Turnover-prone",
+        "Receiver room is banged up"
+      ],
+      "bottom_line": "Serviceable late QB2, but losing Evans hurts his touchdown ceiling."
+    },
+    "Travis Kelce": {
+      "situation": "Back for his 14th season as Kansas City's tight end, and the Chiefs added no receivers. His efficiency has fallen sharply, to about 6.9 yards per target over two seasons.",
+      "pros": [
+        "Still leads the team in catches",
+        "Mahomes trusts him"
+      ],
+      "cons": [
+        "Efficiency collapsing",
+        "Age-related decline",
+        "Rice and Worthy take targets back"
+      ],
+      "bottom_line": "A name-brand fade; there are cheaper tight ends with more upside in the same rounds."
+    },
+    "Woody Marks": {
+      "situation": "Pairs with David Montgomery in Houston and is a roster lock expected to handle a considerable receiving role in the backfield.",
+      "pros": [
+        "Secure role",
+        "Would inherit carries if Montgomery misses time"
+      ],
+      "cons": [
+        "Receiving value is discounted here",
+        "No goal-line work",
+        "Committee back"
+      ],
+      "bottom_line": "Depth-only in standard scoring; draft him as a Montgomery handcuff or not at all."
+    },
+    "Tyler Shough": {
+      "situation": "Entrenched as New Orleans' starter with no camp competition after going 5-4 in nine rookie starts. The Saints added rookie Jordyn Tyson alongside Chris Olave.",
+      "pros": [
+        "Averaged about 19.6 points over his final six starts",
+        "Improved weapons",
+        "No competition"
+      ],
+      "cons": [
+        "Small sample of success",
+        "Weak offensive line"
+      ],
+      "bottom_line": "Guide dart holds: a genuinely useful late quarterback at a near-free price."
+    },
+    "Dalton Kincaid": {
+      "situation": "Buffalo picked up his fifth-year option and he remains the top tight end with Dawson Knox behind him, though knee injuries have repeatedly interrupted his career.",
+      "pros": [
+        "Led tight ends in points per route",
+        "Josh Allen throwing"
+      ],
+      "cons": [
+        "Knee injury history",
+        "Value is catch-driven, worth less here",
+        "Buffalo spreads targets"
+      ],
+      "bottom_line": "Guide target holds, with a caveat: great efficiency but his per-catch value is discounted in standard."
+    },
+    "Kyler Murray": {
+      "situation": "Kevin O'Connell named Murray the starter over J.J. McCarthy, and he has looked in sync with Justin Jefferson and Jordan Addison in camp.",
+      "pros": [
+        "Rushing floor plus elite weapons",
+        "O'Connell should fix his touchdown rate",
+        "Job is confirmed"
+      ],
+      "cons": [
+        "Injury history",
+        "New system in year one"
+      ],
+      "bottom_line": "Guide dart holds and the starting job is now official; the best late-round quarterback value on the board."
+    },
+    "De'Zhaun Stribling": {
+      "situation": "San Francisco's rookie is listed as a backup behind Mike Evans, Deebo Samuel Sr. and Demarcus Robinson, and is day-to-day with a hamstring. Ricky Pearsall is out for the season.",
+      "pros": [
+        "Pearsall's absence opens snaps",
+        "Shanahan offense elevates receivers"
+      ],
+      "cons": [
+        "Deebo's return crowds the room",
+        "Hamstring issue",
+        "Fourth in line right now"
+      ],
+      "bottom_line": "Guide dart is still live but thinner than it looked; a final-round stash only."
+    },
+    "Keaton Mitchell": {
+      "situation": "Signed with the Chargers and is in a tight race with Kimani Vidal for the RB2 job behind Omarion Hampton.",
+      "pros": [
+        "Elite speed and big-play ability",
+        "Would inherit real volume if Hampton misses time"
+      ],
+      "cons": [
+        "Not guaranteed the backup job",
+        "Injury history",
+        "No goal-line work"
+      ],
+      "bottom_line": "Guide dart holds: a cheap speed swing worth a final-round pick."
+    },
+    "Jake Ferguson": {
+      "situation": "Listed as Dallas' starter and camp reports say he has been drawing heavy target volume, which softens the guide's fade somewhat. Brevyn Spann-Ford is the backup.",
+      "pros": [
+        "Heavy camp target volume",
+        "High-powered passing offense"
+      ],
+      "cons": [
+        "Best production came when CeeDee Lamb was hurt",
+        "Low touchdown rate",
+        "Catch-driven value"
+      ],
+      "bottom_line": "Guide's fade still stands, though the camp usage makes him a defensible last-round tight end."
+    },
+    "Malik Willis": {
+      "situation": "Named Miami's starting quarterback under new head coach Jeff Hafley, and the staff is having him work from the pocket in camp rather than scrambling.",
+      "pros": [
+        "Around 11.8 points a game on rushing alone",
+        "Confirmed starter",
+        "Free in drafts"
+      ],
+      "cons": [
+        "Limited as a passer",
+        "Weak receiver room",
+        "Coaches want fewer scrambles"
+      ],
+      "bottom_line": "Guide's top dart holds: rushing floor at zero cost is the best late quarterback lottery ticket."
+    },
+    "Jonah Coleman": {
+      "situation": "Denver's rookie back sits behind J.K. Dobbins and RJ Harvey on the depth chart but is expected to factor into the rotation. The backfield is genuinely unsettled.",
+      "pros": [
+        "Multiple paths to touches",
+        "Dobbins rarely stays healthy"
+      ],
+      "cons": [
+        "Currently buried on the chart",
+        "Three-way committee",
+        "Undrafted in most leagues"
+      ],
+      "bottom_line": "Guide dart holds: a free waiver-adjacent stash rather than a pick you must spend on."
+    },
+    "Chig Okonkwo": {
+      "situation": "Signed with Washington and leads a tight end group of John Bates and Ben Sinnott. Jayden Daniels is healthy but Stefon Diggs was also added to the receiver room.",
+      "pros": [
+        "Clear starting tight end role",
+        "Healthy quarterback",
+        "Athletic mismatch"
+      ],
+      "cons": [
+        "Diggs and McLaurin dominate targets",
+        "Never produced consistently",
+        "Run-heavy plans"
+      ],
+      "bottom_line": "Guide's lowest-conviction dart; a waiver-wire watch rather than a draft pick."
+    },
+    "Kenyon Sadiq": {
+      "situation": "Fresh news overtakes the guide: the Jets rookie has had a groin setback following hernia surgery and is expected to miss time, which is already affecting New York's two-tight-end plans.",
+      "pros": [
+        "Strong athletic profile",
+        "Real role available when healthy"
+      ],
+      "cons": [
+        "Groin setback after surgery",
+        "Missing camp reps",
+        "Rookie in a weak offense"
+      ],
+      "bottom_line": "The health news undercuts the dart; leave him on the wire and monitor his return."
+    },
+    "Terrance Ferguson": {
+      "situation": "The Rams list their top four tight ends as starters, treating Ferguson, Colby Parkinson and Tyler Higbee as interchangeable. He is the most downfield-oriented of the group.",
+      "pros": [
+        "Deep average target depth fits standard scoring",
+        "Strong offense with Stafford"
+      ],
+      "cons": [
+        "Rotational role",
+        "Two veterans ahead of him at times",
+        "Low target floor"
+      ],
+      "bottom_line": "Guide dart holds as a free stash; the role has to consolidate before he is startable."
+    },
+    "Nicholas Singleton": {
+      "situation": "Listed sixth on Tennessee's running back chart behind Tony Pollard and Tyjae Spears, though local analysts say that placement understates him.",
+      "pros": [
+        "Talent clearly above his depth-chart spot",
+        "Pollard's usage is fading"
+      ],
+      "cons": [
+        "Buried on the depth chart",
+        "Weak offense",
+        "May not see early-season work"
+      ],
+      "bottom_line": "Guide dart holds: a pure talent bet worth a final-round pick or an early waiver claim."
+    },
+    "Greg Dulcich": {
+      "situation": "Leads Miami's tight end depth chart and has returned to full practice. The Dolphins have a rebuilt offense under Jeff Hafley with Malik Willis at quarterback.",
+      "pros": [
+        "Clear number one tight end",
+        "Weakest receiver room means targets are available"
+      ],
+      "cons": [
+        "Long injury history",
+        "Poor quarterback play",
+        "Unproven role"
+      ],
+      "bottom_line": "Guide dart holds: a free stash with a real path to targets if Willis can find him."
+    },
+    "Cyrus Allen": {
+      "situation": "Sits deep on Kansas City's receiver chart behind Rashee Rice, Xavier Worthy, Tyquan Thornton and Jalen Royals, and he missed an early padded practice.",
+      "pros": [
+        "Chiefs did not add outside receiver help",
+        "Elite quarterback if he earns snaps"
+      ],
+      "cons": [
+        "Buried on the depth chart",
+        "Missed camp time",
+        "No proven NFL role"
+      ],
+      "bottom_line": "Guide's deepest dart; a dynasty-style stash rather than a pick in a 14-team redraft."
+    }
+  }
+}

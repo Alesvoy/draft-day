@@ -21,15 +21,23 @@ const script = tpl.slice(tpl.indexOf('<script>') + 8, tpl.indexOf('</script>'));
 // drop the two DOM-bound statements at the tail; everything above is pure logic
 const logic = script.slice(0, script.indexOf("document.addEventListener('keydown'"));
 
+// PROFILES as make_study.py builds it: the raw case files plus the guide lean.
+// build_board.py already merged the leans onto the players under the same
+// normalization, so joining on p.lrdg here is the same merge by another door.
+const PROFILES = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/player_profiles_2026.json'), 'utf8')).profiles;
+for (const p of BOARD.players) if (p.lrdg && PROFILES[p.name]) Object.assign(PROFILES[p.name], p.lrdg);
+
 const store = new Map();
 const localStorage = {
   getItem: k => store.has(k) ? store.get(k) : null,
   setItem: (k, v) => store.set(k, String(v)),
 };
-const make = new Function('BOARD', 'localStorage', 'location', 'document', 'LEGACY',
-  logic.replace('const BOARD=__BOARD_JSON__;', '').replace('const LEGACY_META=__LEGACY_META__;', 'const LEGACY_META=LEGACY;') +
-  '\nreturn {cards,card,migrate,TIERS,POSITIONS,bandOf,isCliff,BAND_A_END,BAND_B_END,CLIFF,draftable};');
-const S = make(BOARD, localStorage, { hash: '' }, { querySelector: () => null }, {});
+const make = new Function('BOARD', 'PROF', 'localStorage', 'location', 'document', 'LEGACY',
+  logic.replace('const BOARD=__BOARD_JSON__;', '').replace('const PROFILES=__PROFILES_JSON__;', 'const PROFILES=PROF;')
+    .replace('const LEGACY_META=__LEGACY_META__;', 'const LEGACY_META=LEGACY;') +
+  '\nreturn {cards,card,migrate,TIERS,POSITIONS,bandOf,isCliff,BAND_A_END,BAND_B_END,CLIFF,draftable,' +
+  'pAvail,pct5,stampFor,planRows,PROFILES,MAX_TARGETS,MAX_AVOIDS,overall,TEAMS,ROUNDS,brain,picksHtml,seat};');
+const S = make(BOARD, PROFILES, localStorage, { hash: '' }, { querySelector: () => null }, {});
 
 const deck = S.cards();
 const byType = {};
@@ -67,6 +75,106 @@ const prio = Object.keys(JSON.parse(fs.readFileSync(path.join(HERE, 'study_templ
   .match(/const prio=(\{[^}]*\})/)[1].replace(/'/g, '"')));
 const unknown = [...new Set(deck.map(c => c.type))].filter(t => !prio.includes(t));
 console.log(`card types missing from drill priority: ${unknown.length ? unknown.join(', ') + '   <-- FIX' : 'none'}`);
+
+// --- pick cards: availability model + row selection ---
+// The deck is untouched by these, but the brain sheet's 14 cards are generated
+// from them, so a bad threshold silently prints the wrong names on draft night.
+const leans = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/guide_leans_2026.json'), 'utf8'));
+const withStance = Object.values(PROFILES).filter(p => p.stance).length;
+const picks = [1, 14, 29, 56, 84, 112, 140, 169, 196];
+const mono = [8, 30, 60, 120, 999].every(adp =>
+  picks.every((n, i) => i === 0 || S.pAvail(adp, n) <= S.pAvail(adp, picks[i - 1]) + 1e-12));
+const widens = picks.every(n => S.pAvail(60, n) >= S.pAvail(20, n)); // a later ADP is never less available
+const bounded = picks.every(n => [1, 50, 200].every(a => S.pAvail(a, n) >= 0 && S.pAvail(a, n) <= 1));
+// the draft's left edge: nobody is gone before the 1.01, whatever his ADP
+const anchored = [1.6, 8, 30, 120].every(a => Math.abs(S.pAvail(a, 1) - 1) < 1e-9);
+// mid-draft, a player at his own ADP is a coin flip -- half a slot of
+// truncation skew is expected and harmless, so this is a band, not a point
+const atAdp = [30, 50, 120].every(a => Math.abs(S.pAvail(a, a) - 0.5) < 0.06);
+const stampBands = [[100, 'THERE'], [85, 'THERE'], [80, 'LIKELY'], [60, 'LIKELY'], [55, 'COIN FLIP'],
+  [35, 'COIN FLIP'], [30, 'IF HE SLIDES'], [0, 'IF HE SLIDES']].every(([v, s]) => S.stampFor(50, v) === s);
+const free = S.stampFor(null, S.pct5(S.pAvail(null, 1))) === 'FREE';
+const rounded = [0.844, 0.856].map(v => S.pct5(v)).join() === '85,85';  // one rounding feeds bar, % and stamp
+
+let capFail = 0, orphanRow = null, floorFail = 0, emptyCards = 0, freeRows = 0;
+for (let seat = 1; seat <= S.TEAMS; seat++)
+  for (let round = 1; round <= S.ROUNDS; round++) {
+    const pick = S.overall(round, seat), r = S.planRows(pick, round);
+    if (r.targets.length > S.MAX_TARGETS || r.avoids.length > S.MAX_AVOIDS) capFail++;
+    if (!r.targets.length) emptyCards++;
+    for (const p of r.targets) {
+      if (!PROFILES[p.name]) orphanRow = p.name;
+      if (S.pAvail(p.adp, pick) < 0.12) floorFail++;
+      if (!p.adp) freeRows++;
+    }
+    for (const p of r.avoids) {
+      if (!PROFILES[p.name]) orphanRow = p.name;
+      const m = p.adp || p.ecr;   // a trap you can fall for: his price sits at or just behind your pick
+      if (S.pAvail(p.adp, pick) < 0.25 || !(p.context || []).includes('LRDG-AVOID')) floorFail++;
+      if (m < pick - 14 || m > pick + 6) floorFail++;
+    }
+  }
+const rowChecks = [
+  // a pre-leans golden board carries no p.lrdg, so there is nothing to merge
+  [`profiles carry every guide lean (${withStance}/${leans.length})`,
+    !BOARD.players.some(p => p.lrdg) || withStance === leans.length],
+  ['pAvail falls as the pick gets later', mono],
+  ['pAvail rises with ADP at a fixed pick', widens],
+  ['pAvail stays in [0,1]', bounded],
+  ['pAvail is 100% at pick 1 for everyone', anchored],
+  ['pAvail is ~50% at a player\'s own ADP', atAdp],
+  ['stamp bands match their thresholds', stampBands],
+  ['no-ADP players stamp FREE', free],
+  ['display % rounds to 5s once', rounded],
+  [`row caps hold across ${S.TEAMS * S.ROUNDS} cards`, capFail === 0],
+  ['every rendered name has a profile', orphanRow === null],
+  ['rows respect their availability floors', floorFail === 0],
+  ['every card offers at least one target', emptyCards === 0],
+  [`late darts render (${freeRows} FREE rows)`, freeRows > 0],
+];
+// --- the rendered section: 14 seat cards, 14 pick blocks each ---
+// The sheet shows every starting position because the seat is not known yet,
+// so the markup itself is checked: the snake math printed on each card, the
+// lazy bodies, and the profile behind every name that actually reaches HTML.
+const html = S.brain();
+const seatCards = [...html.matchAll(/<details class="seat-card( mine)?" data-seat="(\d+)"/g)];
+const eager = (html.match(/<article class="round">/g) || []).length;
+const nameOf = h => [...h.matchAll(/<span class="pname">(.*?) <em>/g)].map(m => m[1]);
+const unesc = s => s.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+let blockFail = 0, lazyOrphan = null, snakeFail = [];
+for (let s = 1; s <= S.TEAMS; s++) {
+  const body = S.picksHtml(s);
+  if ((body.match(/<article class="round">/g) || []).length !== S.ROUNDS) blockFail++;
+  for (const n of nameOf(body)) if (!PROFILES[unesc(n)]) lazyOrphan = unesc(n);
+}
+// snake: odd rounds run 1->14, even rounds run back 14->1
+for (const [s, want] of [[1, [1, 28, 29, 56]], [2, [2, 27, 30, 55]], [7, [7, 22, 35, 50]], [14, [14, 15, 42, 43]]]) {
+  const got = want.map((_, i) => S.overall(i + 1, s));
+  if (got.join() !== want.join()) snakeFail.push(`seat ${s}: ${got} != ${want}`);
+  const seq = S.picksHtml(s).match(/<strong>#(\d+)<\/strong>/g).slice(0, 4).map(x => +x.replace(/\D/g, ''));
+  if (seq.join() !== want.join()) snakeFail.push(`seat ${s} rendered: ${seq} != ${want}`);
+}
+const printBlock = tpl.slice(tpl.indexOf('@media print'));
+rowChecks.push(
+  [`all ${S.TEAMS} starting positions render`, seatCards.length === S.TEAMS],
+  ['exactly one is marked as your seat', seatCards.filter(m => m[1]).length === 1],
+  ['only your seat gets a body up front', eager === S.ROUNDS],
+  [`every seat card holds ${S.ROUNDS} pick blocks`, blockFail === 0],
+  ['snake math matches on every checked seat', snakeFail.length === 0],
+  ['lazily built seats still resolve profiles', lazyOrphan === null],
+  ['print hides the seats that are not yours', /\.seat-card:not\(\.mine\)\{display:none!important\}/.test(printBlock)],
+  // CSS cannot reopen a closed <details> in Chrome's print layout pass, so the
+  // sheet would silently print an empty plan section without this handler
+  ['printing reopens your seat card', /addEventListener\('beforeprint'[^\n]*\.seat-card\.mine[^\n]*open=true/.test(tpl)],
+);
+
+let rowFail = 0;
+console.log('');
+for (const [name, ok] of rowChecks) { if (!ok) rowFail++; console.log(`pick cards: ${name}: ${ok ? 'ok' : 'FAIL'}`); }
+if (orphanRow) console.log(`   first name without a profile: ${orphanRow}`);
+if (lazyOrphan) console.log(`   lazy body name without a profile: ${lazyOrphan}`);
+for (const f of snakeFail) console.log(`   ${f}`);
+console.log('');
 
 // --- Leitner-box migration across data refreshes ---
 // Old state has boxes for an old deck; the refreshed deck changes some facts.
@@ -108,4 +216,4 @@ checks.push(['live deck is a no-op', deck.every(c => liveState.boxes[c.id] === 2
 let migrateFail = 0;
 for (const [name, ok] of checks) { if (!ok) migrateFail++; console.log(`migration: ${name}: ${ok ? 'ok' : 'FAIL'}`); }
 
-process.exit(dupes || unknown.length || !noTierNum || migrateFail ? 1 : 0);
+process.exit(dupes || unknown.length || !noTierNum || migrateFail || rowFail ? 1 : 0);
