@@ -19,16 +19,18 @@ nav{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:1rem;min
 main{max-width:1440px;margin:auto;padding:1.25rem}.view-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:1rem;margin-bottom:1rem}.view-head h1{margin:0;font-size:clamp(2rem,5vw,4.6rem);line-height:.86;letter-spacing:-.065em}.view-head p{max-width:42ch;margin:.7rem 0 0;color:var(--muted)}.stamp{font:700 .72rem/1.4 "Courier New",monospace;color:var(--muted);text-align:right;text-transform:uppercase}
 .brain-top{display:grid;grid-template-columns:minmax(18rem,1.2fr) minmax(24rem,2fr);border-top:3px solid var(--ink);border-bottom:1px solid var(--line)}.snake{display:grid;grid-template-columns:repeat(2,1fr)}.gap-stat{padding:1rem;border-right:1px solid var(--line)}.gap-stat:last-child{border-right:0}.gap-stat strong{display:block;font:900 clamp(3.8rem,9vw,7.6rem)/.8 Arial,sans-serif;letter-spacing:-.08em;color:var(--accent)}.gap-stat span{display:block;max-width:18ch;margin-top:.75rem;font-size:.78rem;line-height:1.25}.strategy{padding:.9rem 1rem;border-left:1px solid var(--line)}.section-label{margin:0 0 .55rem;font:800 .67rem/1.1 "Courier New",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}.strategy ol{display:grid;grid-template-columns:repeat(2,1fr);gap:.45rem 1.5rem;margin:0;padding-left:1.3rem;font-size:.8rem;line-height:1.25}.pick-strip{display:grid;grid-template-columns:repeat(14,1fr);border-bottom:1px solid var(--line)}.pick{min-width:0;padding:.55rem .25rem;text-align:center;border-right:1px solid var(--line)}.pick:last-child{border-right:0}.pick b{display:block;font:800 .7rem "Courier New",monospace}.pick span{color:var(--muted);font-size:.62rem}
 .tiers-head,.plan-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin:1rem 0 .45rem}.tiers-head h2,.plan-head h2{margin:0;font-size:1.2rem;letter-spacing:-.03em}.legend{color:var(--muted);font:.68rem "Courier New",monospace}.cliff-key{color:var(--accent);font-weight:800}.tier-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.position{border-top:3px solid var(--ink);background:var(--paper)}.position h3{display:flex;align-items:baseline;justify-content:space-between;margin:0;padding:.45rem .55rem;border-bottom:1px solid var(--line);font-size:1.35rem;letter-spacing:-.04em}.position h3 small{color:var(--muted);font:400 .64rem "Courier New",monospace}.tier-row{display:grid;grid-template-columns:2.1rem 1fr;gap:.35rem;padding:.3rem .45rem;border-bottom:1px solid var(--soft);font-size:.68rem;line-height:1.32}.tier-row:last-child{border-bottom:0}.tier-no{padding-top:.08rem;color:var(--accent);font:900 .65rem "Courier New",monospace}.player{display:inline}.player+.player:before{content:" / ";color:var(--line)}.hook{color:var(--muted);font-style:italic}.boundary{font-weight:900;text-decoration:underline 2px var(--accent);text-underline-offset:2px}.boundary:after{content:" cliff";color:var(--accent);font:800 .55rem "Courier New",monospace;text-transform:uppercase;text-decoration:none}
-.round-plan{border-top:3px solid var(--ink)}.seat-card{border-bottom:1px solid var(--line);border-left:3px solid transparent;background:var(--paper)}.seat-card>summary{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .6rem;min-height:44px;padding:.4rem .6rem;list-style:none;cursor:pointer;touch-action:manipulation}.seat-card>summary::-webkit-details-marker{display:none}.seat-card>summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}.seat-no{font:800 .8rem "Courier New",monospace;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}.seat-picks{flex:1 1 22rem;min-width:0;color:var(--muted);font:.66rem/1.4 "Courier New",monospace;font-variant-numeric:tabular-nums}.seat-card.mine{border-left-color:var(--accent)}.seat-card.mine .seat-no{color:var(--accent)}
+.round-plan{border-top:3px solid var(--ink)}.plan-seat select{min-height:44px}.plan-legend{margin:0 0 .5rem}
 .picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}.round{min-width:0;padding:.5rem .6rem .55rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}.round-key{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem}.round-key strong{font:900 clamp(2.2rem,6vw,3.2rem)/.86 Arial,sans-serif;letter-spacing:-.06em;color:var(--accent);font-variant-numeric:tabular-nums}.round-key span{color:var(--muted);font:700 .64rem "Courier New",monospace;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}.round-body{margin:.15rem 0 0;font-size:.72rem;line-height:1.3}.round-body b{font-weight:800}.round-note{margin:.3rem 0 0;color:var(--muted);font:.62rem/1.3 "Courier New",monospace}
 .rows{margin-top:.4rem;padding-top:.3rem;border-top:1px solid var(--line)}.row-label{margin:0 0 .1rem;font:800 .6rem/1.1 "Courier New",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}.rows.avoid .row-label{color:var(--muted)}
 .prow{border-bottom:1px solid var(--soft)}.prow:last-child{border-bottom:0}.prow>summary{display:grid;grid-template-columns:.75rem minmax(0,1fr) auto;align-items:center;gap:.15rem .45rem;min-height:44px;padding:.15rem 0;list-style:none;cursor:pointer;touch-action:manipulation}.prow>summary::-webkit-details-marker{display:none}.prow>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .chev{color:var(--muted);font-size:.6rem;line-height:1}details[open]>summary .chev{transform:rotate(90deg)}
-.pname{min-width:0;font-size:.74rem;font-weight:700;line-height:1.25}.pname em{color:var(--muted);font:400 .6rem "Courier New",monospace;font-style:normal;letter-spacing:.04em;white-space:nowrap}
+.pname{min-width:0;font-size:.74rem;font-weight:700;line-height:1.25}.pname em{color:var(--muted);font:400 .6rem "Courier New",monospace;font-style:normal;letter-spacing:.04em;white-space:nowrap}.pname .hook{font-weight:400;font-size:.66rem}
 .pmeter{display:flex;align-items:center;gap:.35rem;white-space:nowrap}.meter{display:flex;gap:1px}.meter i{width:.28rem;height:.6rem;background:var(--soft);box-shadow:inset 0 0 0 1px var(--line)}.meter i.on{background:var(--ink)}.rows.avoid .meter i.on{background:var(--muted)}
 .pct{font:700 .66rem "Courier New",monospace;font-variant-numeric:tabular-nums}.chip{border:1px solid var(--accent);padding:.02rem .25rem;font:.58rem/1.4 "Courier New",monospace;font-style:normal;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}.chip.q,.rows.avoid .chip{border-color:var(--line)}
 .pcase{padding:.1rem 0 .5rem 1.2rem}.psit{margin:0 0 .35rem;font-size:.78rem;line-height:1.45}.pc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.1rem .8rem}.pc ul{margin:0;padding:0;list-style:none;font-size:.7rem;line-height:1.35}.pc li{display:grid;grid-template-columns:.6rem 1fr;gap:.2rem}.pc .g{font-weight:900}.pc .pro li{color:var(--ink)}.pc .pro .g{color:var(--accent)}.pc .con li{color:var(--muted)}.pfoot{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .45rem;margin-top:.4rem;color:var(--muted);font:.62rem/1.4 "Courier New",monospace}.pfoot b{color:var(--ink);font-weight:800}
 @media(prefers-reduced-motion:no-preference){.prow[open] .pcase{animation:case-in .15s ease-out}}@keyframes case-in{from{opacity:0}to{opacity:1}}
+/* narrow: the trait hook stops fighting the name for the same line */
+@media(max-width:640px){.pname .hook{display:block}}
 @media(max-width:480px){.pc{grid-template-columns:1fr}}
 .drills{max-width:960px;margin:0 auto}.drill-head{border-bottom:3px solid var(--ink);padding-bottom:1rem}.drill-head h1{margin:0;font-size:clamp(2.2rem,7vw,5rem);line-height:.9;letter-spacing:-.06em}.progress{display:flex;flex-wrap:wrap;gap:.65rem 1.4rem;margin-top:1rem;color:var(--muted);font:700 .76rem "Courier New",monospace}.progress strong{color:var(--ink)}.flashcard{min-height:24rem;display:flex;flex-direction:column;margin-top:1.4rem;border:2px solid var(--ink);background:var(--paper)}.card-meta{display:flex;justify-content:space-between;padding:.7rem .8rem;border-bottom:1px solid var(--line);color:var(--muted);font:800 .68rem "Courier New",monospace;text-transform:uppercase}.prompt{display:grid;place-items:center;flex:1;padding:2.5rem;text-align:center}.prompt h2{max-width:24ch;margin:0;font-size:clamp(1.75rem,5vw,3.5rem);line-height:1.02;letter-spacing:-.045em}.answer{display:none;max-width:55ch;margin:1.3rem auto 0;color:var(--accent);font-size:clamp(1rem,2.5vw,1.4rem);font-weight:800;line-height:1.35}.flashcard.revealed .answer{display:block}.card-actions{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}.card-actions button{min-height:3.4rem;border:0;background:transparent;font-weight:900}.card-actions button+button{border-left:1px solid var(--line)}.reveal{grid-column:1/-1;background:var(--ink)!important;color:var(--paper)}.score{display:none}.flashcard.revealed .reveal{display:none}.flashcard.revealed .score{display:block}.got{background:var(--accent)!important;color:var(--accent-ink)}.session-done{display:grid;place-items:center;min-height:24rem;margin-top:1.4rem;border-top:3px solid var(--ink);text-align:center}.session-done h2{font-size:2.5rem;letter-spacing:-.05em}.session-done button{border:1px solid var(--ink);border-radius:0;background:var(--ink);color:var(--paper);padding:.8rem 1rem;font-weight:900}.hint{margin-top:.8rem;color:var(--muted);font:.7rem "Courier New",monospace}
 .empty{padding:4rem 1rem;text-align:center;color:var(--muted)}
@@ -36,10 +38,10 @@ main{max-width:1440px;margin:auto;padding:1.25rem}.view-head{display:grid;grid-t
 @media(max-width:800px){nav{position:static;flex-wrap:wrap;gap:.5rem .8rem;min-height:0;padding:max(.6rem,env(safe-area-inset-top)) 1rem .6rem}.brand{width:100%}.tabs{margin-right:auto}.tab{padding:.6rem 1.1rem;min-height:44px;display:flex;align-items:center}.seat-control{font-size:.8rem}.seat-control select{min-height:44px;padding:.5rem .6rem}.print-btn{display:none}main{max-width:100%;padding:1rem max(1rem,env(safe-area-inset-right)) 1rem max(1rem,env(safe-area-inset-left))}.view-head{display:block}.view-head h1{font-size:2.4rem}.stamp{text-align:left;margin-top:.7rem}.brain-top{grid-template-columns:1fr}.strategy{border-top:1px solid var(--line);border-left:0}.strategy ol{grid-template-columns:1fr;font-size:.92rem;gap:.55rem}.pick-strip{grid-template-columns:repeat(7,1fr)}.pick:nth-child(7){border-right:0}.pick:nth-child(-n+7){border-bottom:1px solid var(--line)}.pick b{font-size:.8rem}.pick span{font-size:.68rem}.tier-board,.picks{grid-template-columns:1fr}.tiers-head,.plan-head{flex-wrap:wrap;gap:.3rem}.tiers-head h2,.plan-head h2{flex:1 1 100%}.position h3{position:sticky;top:0;z-index:1;background:var(--paper);font-size:1.5rem}.tier-row{grid-template-columns:2.3rem 1fr;padding:.45rem .55rem;font-size:.86rem;line-height:1.4}.tier-no{font-size:.78rem}.round-key span{font-size:.72rem}.round-body{font-size:.86rem;line-height:1.4}.round-note,.pfoot{font-size:.7rem}.row-label{font-size:.68rem}.pname{font-size:.88rem}.pname em{font-size:.68rem}.pct{font-size:.76rem}.chip{font-size:.64rem}.psit{font-size:.88rem}.pc ul{font-size:.8rem}.prompt{padding:1.5rem}.flashcard{min-height:21rem}}
 @media(max-width:640px){.prow>summary{grid-template-columns:.75rem minmax(0,1fr);row-gap:.2rem;padding:.3rem 0}.pmeter{grid-column:2}.drills{max-width:100%;padding-bottom:calc(4.8rem + env(safe-area-inset-bottom))}.drill-head{padding-bottom:.8rem}.drill-head h1{font-size:2rem}.progress{gap:.35rem 1rem;margin-top:.7rem;font-size:.7rem}.flashcard{min-height:calc(100dvh - 15rem);margin-top:1rem}.session-done{min-height:calc(100dvh - 15rem)}.prompt{padding:1.4rem 1.1rem}.prompt h2{font-size:clamp(1.9rem,8vw,2.8rem)}.card-actions{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--paper);border-top:2px solid var(--ink);padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -6px 18px rgba(0,0,0,.14)}.card-actions button{min-height:3.9rem;font-size:1.05rem}.progress .end-session{min-height:44px;padding:.5rem .9rem}}
 @media print{
-  @page{size:letter landscape;margin:.17in}:root{color-scheme:light;--bg:#fff;--paper:#fff;--ink:#111;--muted:#555;--line:#999;--soft:#ddd;--accent:#8b2f19}nav,.view-head p,.print-btn{display:none!important}html{font-size:8px}body{background:#fff}main{max-width:none;padding:0}.view-head{display:flex;margin:0 0 3px}.view-head h1{font-size:18px;line-height:1}.stamp{font-size:5.5px}.brain-top{grid-template-columns:1fr 2.25fr}.gap-stat{padding:4px}.gap-stat strong{font-size:31px}.gap-stat span{margin-top:2px;font-size:6px}.strategy{padding:4px}.section-label{margin-bottom:2px;font-size:5.2px}.strategy ol{grid-template-columns:repeat(3,1fr);gap:1px 10px;padding-left:10px;font-size:6px;line-height:1.1}.pick{padding:2px}.pick b{font-size:5.8px}.pick span{font-size:5px}.tiers-head,.plan-head{margin:4px 0 2px}.tiers-head h2,.plan-head h2{font-size:8.4px}.legend{font-size:5.2px}.tier-board{grid-template-columns:repeat(2,1fr);gap:3px}.position h3{padding:2px 3px;font-size:8.5px}.position h3 small{font-size:4.9px}.tier-row{grid-template-columns:16px 1fr;gap:2px;padding:1px 3px;font-size:5.8px;line-height:1.13}.tier-no{font-size:5.2px}.boundary:after{font-size:4.2px}.seat-card:not(.mine){display:none!important}.seat-card{border:0}.seat-card.mine>summary{display:none!important}.seat-card.mine>.seat-body{display:block!important}
+  @page{size:letter landscape;margin:.17in}:root{color-scheme:light;--bg:#fff;--paper:#fff;--ink:#111;--muted:#555;--line:#999;--soft:#ddd;--accent:#8b2f19}nav,.view-head p,.print-btn{display:none!important}html{font-size:8px}body{background:#fff}main{max-width:none;padding:0}.view-head{display:flex;margin:0 0 3px}.view-head h1{font-size:18px;line-height:1}.stamp{font-size:5.5px}.brain-top{grid-template-columns:1fr 2.25fr}.gap-stat{padding:4px}.gap-stat strong{font-size:31px}.gap-stat span{margin-top:2px;font-size:6px}.strategy{padding:4px}.section-label{margin-bottom:2px;font-size:5.2px}.strategy ol{grid-template-columns:repeat(3,1fr);gap:1px 10px;padding-left:10px;font-size:6px;line-height:1.1}.pick{padding:2px}.pick b{font-size:5.8px}.pick span{font-size:5px}.tiers-head,.plan-head{margin:4px 0 2px}.tiers-head h2,.plan-head h2{font-size:8.4px}.legend{font-size:5.2px}.tier-board{grid-template-columns:repeat(2,1fr);gap:3px}.position h3{padding:2px 3px;font-size:8.5px}.position h3 small{font-size:4.9px}.tier-row{grid-template-columns:16px 1fr;gap:2px;padding:1px 3px;font-size:5.8px;line-height:1.13}.tier-no{font-size:5.2px}.boundary:after{font-size:4.2px}.plan-seat{display:none!important}.plan-legend{margin:0}
   .picks{grid-template-columns:repeat(4,1fr);border-top:0}.round{padding:1px 3px 2px}.round-key strong{font-size:12px;line-height:.88}.round-key span{font-size:4.4px;letter-spacing:.04em}.round-body{margin:0;font-size:5.2px;line-height:1.08}.round-note{margin:1px 0 0;font-size:4.4px;line-height:1.05}
   .rows{margin-top:1px;padding-top:0}.row-label{font-size:4.4px;letter-spacing:.08em}.prow{border-bottom:0}.prow>summary{grid-template-columns:minmax(0,1fr) auto;gap:0 3px;min-height:0;padding:0}.pname{font-size:5.2px;line-height:1.1}.pname em{font-size:4.4px}.pct{font-size:4.8px}
-  .chev,.meter,.chip{display:none!important}.prow>*:not(summary){display:none!important}.rows.target details:nth-of-type(n+4),.rows.avoid details:nth-of-type(n+2){display:none!important}
+  .chev,.meter,.chip,.pname .hook{display:none!important}.prow>*:not(summary){display:none!important}.rows.target details:nth-of-type(n+4),.rows.avoid details:nth-of-type(n+2){display:none!important}
   .drills{display:none!important}
 }
 </style>
@@ -176,26 +178,43 @@ function pAvail(adp,pick){
   const s=x=>.5*(1-erf((x-.5-adp)/(Math.max(6,.18*adp)*Math.SQRT2))); // survives past slot x
   return s(pick)/Math.max(s(1),1e-9);
 }
-const pct5=v=>Math.round(v*20)*5; // one rounding: the bar, the % and the stamp all read the same number
-const STAMPS=[[85,'THERE'],[60,'LIKELY'],[35,'COIN FLIP'],[0,'IF HE SLIDES']];
-const stampFor=(adp,v)=>adp?STAMPS.find(s=>v>=s[0])[1]:'FREE';
+const pct5=v=>Math.round(v*20)*5; // one rounding: the bar and the % read the same number
 const MAX_TARGETS=5,MAX_AVOIDS=3,PROFILED=p=>PROFILES[p.name];
+// The guide's player-model as a multiplier on availability. A pass-catching
+// back or a rushing QB is worth wanting whether or not the guide named him,
+// and a pocket passer is a name you can let go -- so the archetype tags move
+// the ranking directly instead of only decorating the row.
+const ARCHETYPE={'REC-BACK':.15,'KONAMI':.15,'ELITE-TE':.15,'GOOD-OFF':.1,'POCKET':-.25,'WEAK-OFF':-.1};
+function weightOf(p,round){
+  const pr=PROFILES[p.name],ctx=p.context||[];
+  let w=ctx.includes('LRDG-TARGET')||ctx.includes('LRDG-DART')?Math.max((pr.cl??5)/10,.5):.45;
+  for(const t of [...(p.strategy||[]),...ctx]){
+    if(ARCHETYPE[t]!=null)w+=ARCHETYPE[t];
+    else if(t==='ROOKIE'&&round>=8)w+=.1;                // a swing worth taking once the starters are gone
+    else if(t==='COMMITTEE'&&round>=5&&round<=10)w+=.1;  // a cheap share of a real backfield, not a round-3 luxury
+  }
+  return Math.max(w,.05);
+}
 // Who to want and who to refuse at this exact pick. Both sides require a
 // profile -- a row you cannot open is just noise on a sheet you cannot search.
 function planRows(pick,round){
   const has=(p,t)=>(p.context||[]).includes('LRDG-'+t);
   const mkt=p=>p.adp||p.ecr, av=p=>pAvail(p.adp,pick), vor=p=>p.vor??-999;
-  const cl=p=>(PROFILES[p.name].cl??5)/10; // unflagged players carry the guide's midpoint
   const pool=draftable.filter(PROFILED);
   const flagged=pool.filter(p=>(has(p,'TARGET')||has(p,'DART'))&&mkt(p)<=pick+24);
   // the guide is a LATE-round guide, so rounds 1-3 have almost no flags: there
   // the card is a value card -- best board left that the market might leave you
   const early=round<=3?pool.filter(p=>!has(p,'AVOID')&&p.adp>=pick-6&&p.adp<=pick+18):[];
+  // from round 4 the pool is everyone with a case file, ranked by the archetype
+  // weights: that is how a pass-catching back the guide never wrote up beats a
+  // flagged name you will not reach. A missing ADP stays a flagged-dart
+  // privilege -- pAvail scores it 99% available, so it would sweep every card.
+  const wide=round>=4?pool.filter(p=>!has(p,'AVOID')&&p.adp&&p.adp<=pick+24):[];
   const seen=new Map();
-  for(const p of [...flagged,...early])if(av(p)>=.12)seen.set(p.name,p);
+  for(const p of [...flagged,...early,...wide])if(av(p)>=.12)seen.set(p.name,p);
   const targets=[...seen.values()].sort(round<=3
     ?(a,b)=>vor(b)-vor(a)||av(b)-av(a)
-    :(a,b)=>av(b)*cl(b)-av(a)*cl(a)||vor(b)-vor(a)).slice(0,MAX_TARGETS);
+    :(a,b)=>av(b)*weightOf(b,round)-av(a)*weightOf(a,round)||vor(b)-vor(a)).slice(0,MAX_TARGETS);
   // only traps that will actually be tempting here. The window is deliberately
   // lopsided: a faller priced up to 14 picks ago is exactly the man you talk
   // yourself into, while one the market takes 6+ picks after you is a reach
@@ -209,24 +228,29 @@ function caseHtml(p){
   const guide=pr.stance?`Guide: ${pr.stance} ${pr.cl}/10`:'';
   return `<div class="pcase">${pr.situation?`<p class="psit">${esc(pr.situation)}</p>`:''}<div class="pc">${list('pro','+',pr.pros)}${list('con','&ndash;',pr.cons)}</div><div class="pfoot">${pr.bottom_line?`<span><b>Bottom line:</b> ${esc(pr.bottom_line)}</span>`:''}${guide?`<span class="chip${pr.stance==='avoid'?' q':''}">${esc(guide)}</span>`:''}<span class="chip q">${p.adp?`Mkt: R${Math.ceil(p.adp/TEAMS)}`:'Mkt: undrafted'}</span>${pr.note?`<span>${esc(pr.note)}</span>`:''}</div></div>`;
 }
-function rowHtml(p,pick){
-  const v=pct5(pAvail(p.adp,pick)),on=Math.round(v/10);
-  const meter=Array.from({length:10},(_,i)=>`<i${i<on?' class="on"':''}></i>`).join('');
-  return `<details class="prow"><summary><span class="chev" aria-hidden="true">&#9656;</span><span class="pname">${esc(p.name)} <em>${esc(p.pos)}&middot;${esc(p.team||'FA')}</em></span><span class="pmeter"><span class="meter" aria-hidden="true">${meter}</span><b class="pct">${v}%</b><i class="chip">${stampFor(p.adp,v)}</i></span></summary>${caseHtml(p)}</details>`;
+// Why he is on the card, in the tier board's own voice. The bar and the % already
+// say how likely he is to be there, so the words are spent on the trait instead:
+// archetype first (that is the thing being memorized), then the guide's note,
+// then the case file's leading argument. An avoid leads with what is wrong.
+const NEGATIVE=['POCKET','WEAK-OFF'];
+function hookFor(p,avoid){
+  const pr=PROFILES[p.name]||{};
+  const neg=avoid?[...(p.strategy||[]),...(p.context||[])].filter(t=>NEGATIVE.includes(t)).map(t=>SHORT[t]):[];
+  return [...new Set(neg)].join(', ')||(avoid&&pr.note)||hookText(p)||pr.note||(pr.pros||[])[0]||'';
 }
-const rowsHtml=(label,ps,pick,cls)=>ps.length?`<section class="rows ${cls}"><h4 class="row-label">${label}</h4>${ps.map(p=>rowHtml(p,pick)).join('')}</section>`:'';
+function rowHtml(p,pick,avoid){
+  const v=pct5(pAvail(p.adp,pick)),on=Math.round(v/10),hook=hookFor(p,avoid);
+  const meter=Array.from({length:10},(_,i)=>`<i${i<on?' class="on"':''}></i>`).join('');
+  return `<details class="prow"><summary><span class="chev" aria-hidden="true">&#9656;</span><span class="pname">${esc(p.name)} <em>${esc(p.pos)}&middot;${esc(p.team||'FA')}</em>${hook?` <span class="hook">${esc(hook)}</span>`:''}</span><span class="pmeter"><span class="meter" aria-hidden="true">${meter}</span><b class="pct">${p.adp?`${v}%`:'free'}</b></span></summary>${caseHtml(p)}</details>`;
+}
+const rowsHtml=(label,ps,pick,cls)=>ps.length?`<section class="rows ${cls}"><h4 class="row-label">${label}</h4>${ps.map(p=>rowHtml(p,pick,cls==='avoid')).join('')}</section>`:'';
 function pickHtml(round,s){
   const p=planFor(round,s),rows=planRows(p.pick,round);
   return `<article class="round"><div class="round-key"><strong>#${p.pick}</strong><span>${esc(pickLabel(round,s))} / Round ${round}</span></div><p class="round-body"><b>Plan:</b> ${esc(p.plan.replace('Best available: ','').replace('Best late upside: ',''))} <b>Fallback:</b> ${esc(p.fallback)}</p>${round>=12?'<p class="round-note">K/DST only in the last two rounds.</p>':''}${rowsHtml('Target',rows.targets,p.pick,'target')}${rowsHtml('Avoid',rows.avoids,p.pick,'avoid')}</article>`;
 }
+// 14 seats x 14 picks is ~200 blocks and 1300 rows. The seat is a choice, not a
+// list, so the section builds exactly one of them and the dropdown swaps it.
 const picksHtml=s=>`<div class="picks">${Array.from({length:ROUNDS},(_,i)=>pickHtml(i+1,s)).join('')}</div>`;
-// 14 seats x 14 picks is ~200 blocks and 1300 rows -- far too much to build for
-// a sheet you read one column of. Only your seat is rendered up front; the
-// other thirteen fill in the first time you open them (see wireBrain).
-function seatCardHtml(s){
-  const mine=s===seat,seq=Array.from({length:ROUNDS},(_,i)=>`#${overall(i+1,s)}`).join(' &middot; ');
-  return `<details class="seat-card${mine?' mine':''}" data-seat="${s}"${mine?' open':''}><summary><span class="chev" aria-hidden="true">&#9656;</span><b class="seat-no">Position ${s}</b>${mine?'<i class="chip">Your seat</i>':''}<span class="seat-picks">${seq}</span></summary><div class="seat-body"${mine?' data-filled="1"':''}>${mine?picksHtml(s):''}</div></details>`;
-}
 function brain(){
   const oddGap=2*(TEAMS-seat),evenGap=2*(seat-1),plans=Array.from({length:ROUNDS},(_,i)=>planFor(i+1));
   // underline only the boundaries the drills actually teach -- a forced 6-player
@@ -240,17 +264,25 @@ function brain(){
     <div class="pick-strip">${plans.map((p,i)=>`<div class="pick"><b>R${i+1} / ${esc(pickLabel(i+1))}</b><span>#${p.pick}</span></div>`).join('')}</div>
     <div class="tiers-head"><h2>Position tiers</h2><div class="legend"><span class="cliff-key">underlined = tier cliff</span> / LATE = rounds 11+ pool / cut at ECR ${CUTOFF}</div></div>
     <div class="tier-board">${tierHtml}</div>
-    <div class="plan-head"><h2>Your 14-pick plan</h2><div class="legend">Every starting position, all 14 picks. % = chance he's still on the board at that pick, from ADP. Tap a name for the case.</div></div>
-    <div class="round-plan">${Array.from({length:TEAMS},(_,i)=>seatCardHtml(i+1)).join('')}</div>
+    <div class="plan-head"><h2>Your 14-pick plan</h2><label class="seat-control plan-seat">Starting position <select id="plan-seat" aria-label="Starting draft position">${Array.from({length:TEAMS},(_,i)=>`<option value="${i+1}"${i+1===seat?' selected':''}>${i+1}</option>`).join('')}</select></label></div>
+    <div class="legend plan-legend">All 14 picks from the starting position above. % = chance he's still on the board at that pick, from ADP. Tap a name for the case.</div>
+    <div class="round-plan">${picksHtml(seat)}</div>
   </section>`;
 }
 
 function renderBrain(){
   $('#view').innerHTML=brain();
-  $$('.seat-card').forEach(d=>d.addEventListener('toggle',()=>{
-    const body=d.querySelector('.seat-body');
-    if(d.open&&!body.dataset.filled){body.dataset.filled='1';body.innerHTML=picksHtml(+d.dataset.seat)}
-  }));
+  const s=$('#plan-seat');if(s)s.onchange=()=>setSeat(+s.value);
+}
+// One seat, two controls. The nav select and the plan dropdown are the same
+// state, so either one moves the other and rebuilds whatever depends on it.
+function setSeat(v){
+  seat=v;write('study-seat',seat);
+  const nav=$('#seat');if(nav)nav.value=String(seat);
+  if(view==='brain'){renderBrain();return}
+  loadDeck(); // plan cards are seat-specific, so the deck must rebuild
+  if(open&&queue.length){const has=new Set(deck.map(c=>c.id));queue=queue.filter(x=>has.has(x.id));open.ids=queue.map(x=>x.id);saveOpen();renderDrill()}
+  else renderGate();
 }
 function hash(s){let h=2166136261;for(let i=0;i<s.length;i++)h=Math.imul(h^s.charCodeAt(i),16777619);return(h>>>0).toString(36)}
 // The id is hashed from `key`, NOT from the rendered text, so that a tier
@@ -392,19 +424,11 @@ function show(next){
 }
 function init(){
   const select=$('#seat');select.innerHTML=Array.from({length:TEAMS},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('');select.value=seat;
-  select.onchange=()=>{seat=+select.value;write('study-seat',seat);
-    if(view==='brain'){renderBrain();return}
-    loadDeck(); // plan cards are seat-specific, so the deck must rebuild
-    if(open&&queue.length){const has=new Set(deck.map(c=>c.id));queue=queue.filter(x=>has.has(x.id));open.ids=queue.map(x=>x.id);saveOpen();renderDrill()}
-    else renderGate();
-  };
+  select.onchange=()=>setSeat(+select.value);
   $$('.tab').forEach(b=>b.onclick=()=>show(b.dataset.view));$('#print').onclick=()=>{if(view!=='brain')show('brain');setTimeout(()=>print(),0)};
   show(view);
 }
 document.addEventListener('keydown',e=>{if(view!=='drills'||/SELECT|INPUT/.test(document.activeElement?.tagName))return;if(e.code==='Space'&&queue.length){e.preventDefault();reveal()}if(e.key==='1'&&$('.flashcard.revealed'))score(false);if(e.key==='2'&&$('.flashcard.revealed'))score(true);if(e.key==='Escape'&&open&&queue.length)renderSummary()});
-// the sheet prints your seat's picks whether or not you left that card open --
-// CSS alone cannot reopen a closed <details> in the print layout pass
-addEventListener('beforeprint',()=>{const m=$('.seat-card.mine');if(m)m.open=true});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&view==='drills'&&open&&queue.length&&Date.now()-open.last>STALE){queue=[];renderGate()}});
 init();
 </script>
