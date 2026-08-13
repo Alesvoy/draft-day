@@ -22,6 +22,8 @@ to the config. Defaults to 14-team Standard, 18 rounds.
 | `data/projections_std.csv` | Raw pull: FantasyPros projected points (Standard) **+ a `rec` column** (projected receptions — powers the PPR formats). |
 | `data/player_history.csv` | Five completed seasons of preseason-vs-actual calibration data. Rebuilt once, then appended annually. |
 | `data/risk_events.json` | Reviewed injury, suspension, legal, and role events with explicit outcome scenarios. |
+| `data/guide_leans_2026.json` | Late-Round Draft Guide target / avoid / dart calls with conviction (1-10) and a one-line note. Display-only — never touches scoring. |
+| `data/player_profiles_2026.json` | The case for each player: situation, pros, cons, bottom line. Powers the expandable rows on study mode's pick cards. |
 | `build/refresh_data.py` | Authenticated, atomic refresh for rankings, ADP, projections, metadata, injuries, news, history, and dated snapshots. |
 | `build/review_news.py` | Lists and resolves ambiguous news before it can affect a draft grade. |
 | `build/build_board.py` | Computes the layer (VOR, tiers, value/ceiling flags, per-config matrices) and writes `board.json`. |
@@ -44,6 +46,15 @@ python3 build/make_study.py
 This writes `study/index.html`, served at
 [https://alesvoy.github.io/draft-day/study/](https://alesvoy.github.io/draft-day/study/).
 Open `study/index.html` directly for local use — it is self-contained and works offline.
+
+The sheet's **14-pick plan** turns each of your picks into a card: the overall
+pick number, the plan sentence, then the players to target and the traps to
+refuse *at that pick*, each with the odds he is still on the board (a normal
+curve around his ADP) and a tappable case file from
+`data/player_profiles_2026.json` + `data/guide_leans_2026.json`, both embedded
+at build time. The flashcard deck is untouched by any of it —
+`node build/test_study.mjs` proves the availability model and row selection
+alongside the existing deck assertions.
 
 ## How it works (design)
 

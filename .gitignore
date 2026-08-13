@@ -4,3 +4,4 @@
 .playwright-cli/
 __pycache__/
 output/playwright/
+.playwright-mcp/
