@@ -109,7 +109,9 @@ for (let seat = 1; seat <= S.TEAMS; seat++)
     }
   }
 const rowChecks = [
-  [`profiles carry every guide lean (${withStance}/${leans.length})`, withStance === leans.length],
+  // a pre-leans golden board carries no p.lrdg, so there is nothing to merge
+  [`profiles carry every guide lean (${withStance}/${leans.length})`,
+    !BOARD.players.some(p => p.lrdg) || withStance === leans.length],
   ['pAvail falls as the pick gets later', mono],
   ['pAvail rises with ADP at a fixed pick', widens],
   ['pAvail stays in [0,1]', bounded],
