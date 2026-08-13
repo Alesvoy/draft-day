@@ -36,7 +36,7 @@ const make = new Function('BOARD', 'PROF', 'localStorage', 'location', 'document
   logic.replace('const BOARD=__BOARD_JSON__;', '').replace('const PROFILES=__PROFILES_JSON__;', 'const PROFILES=PROF;')
     .replace('const LEGACY_META=__LEGACY_META__;', 'const LEGACY_META=LEGACY;') +
   '\nreturn {cards,card,migrate,TIERS,POSITIONS,bandOf,isCliff,BAND_A_END,BAND_B_END,CLIFF,draftable,' +
-  'pAvail,pct5,stampFor,planRows,PROFILES,MAX_TARGETS,MAX_AVOIDS,overall,TEAMS,ROUNDS,brain,picksHtml,seat};');
+  'pAvail,pct5,planRows,rowHtml,hookFor,hookText,PROFILES,MAX_TARGETS,MAX_AVOIDS,overall,TEAMS,ROUNDS,brain,picksHtml,seat};');
 const S = make(BOARD, PROFILES, localStorage, { hash: '' }, { querySelector: () => null }, {});
 
 const deck = S.cards();
@@ -91,12 +91,19 @@ const anchored = [1.6, 8, 30, 120].every(a => Math.abs(S.pAvail(a, 1) - 1) < 1e-
 // mid-draft, a player at his own ADP is a coin flip -- half a slot of
 // truncation skew is expected and harmless, so this is a band, not a point
 const atAdp = [30, 50, 120].every(a => Math.abs(S.pAvail(a, a) - 0.5) < 0.06);
-const stampBands = [[100, 'THERE'], [85, 'THERE'], [80, 'LIKELY'], [60, 'LIKELY'], [55, 'COIN FLIP'],
-  [35, 'COIN FLIP'], [30, 'IF HE SLIDES'], [0, 'IF HE SLIDES']].every(([v, s]) => S.stampFor(50, v) === s);
-const free = S.stampFor(null, S.pct5(S.pAvail(null, 1))) === 'FREE';
-const rounded = [0.844, 0.856].map(v => S.pct5(v)).join() === '85,85';  // one rounding feeds bar, % and stamp
+// the bar and the % carry availability on their own now -- a player nobody is
+// drafting reads as plain "free" in the % slot instead of a stamp word
+const dart = S.draftable.find(p => !p.adp && PROFILES[p.name]);
+const freeRow = dart ? S.rowHtml(dart, 40, false) : '';
+const free = /<b class="pct">free<\/b>/.test(freeRow) && !/class="chip"/.test(freeRow.split('</summary>')[0]);
+const rounded = [0.844, 0.856].map(v => S.pct5(v)).join() === '85,85';  // one rounding feeds both the bar and the %
 
+// the archetype engine: from round 4 any profiled player can surface, so the
+// unflagged share is tracked -- too few means the weights are inert, and a
+// guide target that vanishes entirely would be the regression you feel on draft night
+const flaggedTgt = p => (p.context || []).some(t => t === 'LRDG-TARGET' || t === 'LRDG-DART');
 let capFail = 0, orphanRow = null, floorFail = 0, emptyCards = 0, freeRows = 0;
+let wideRows = 0, guideRows = 0, wideExample = null, avoidTarget = 0;
 for (let seat = 1; seat <= S.TEAMS; seat++)
   for (let round = 1; round <= S.ROUNDS; round++) {
     const pick = S.overall(round, seat), r = S.planRows(pick, round);
@@ -106,6 +113,11 @@ for (let seat = 1; seat <= S.TEAMS; seat++)
       if (!PROFILES[p.name]) orphanRow = p.name;
       if (S.pAvail(p.adp, pick) < 0.12) floorFail++;
       if (!p.adp) freeRows++;
+      if ((p.context || []).includes('LRDG-AVOID')) avoidTarget++;
+      if (round >= 4) {
+        if (flaggedTgt(p)) guideRows++;
+        else { wideRows++; wideExample = wideExample || `${p.name} (${p.pos}) round ${round} -- ${S.hookFor(p, false)}`; }
+      }
     }
     for (const p of r.avoids) {
       if (!PROFILES[p.name]) orphanRow = p.name;
@@ -123,30 +135,38 @@ const rowChecks = [
   ['pAvail stays in [0,1]', bounded],
   ['pAvail is 100% at pick 1 for everyone', anchored],
   ['pAvail is ~50% at a player\'s own ADP', atAdp],
-  ['stamp bands match their thresholds', stampBands],
-  ['no-ADP players stamp FREE', free],
+  ['no-ADP players read "free" with no chip', free],
   ['display % rounds to 5s once', rounded],
+  [`archetype engine surfaces unflagged players from round 4 (${wideRows} rows, ${wideExample})`, wideRows > 0],
+  [`the guide's own targets still hold the card (${guideRows} flagged rows)`, guideRows > wideRows],
+  ['no LRDG-avoid ever ranks as a target', avoidTarget === 0],
   [`row caps hold across ${S.TEAMS * S.ROUNDS} cards`, capFail === 0],
   ['every rendered name has a profile', orphanRow === null],
   ['rows respect their availability floors', floorFail === 0],
   ['every card offers at least one target', emptyCards === 0],
   [`late darts render (${freeRows} FREE rows)`, freeRows > 0],
 ];
-// --- the rendered section: 14 seat cards, 14 pick blocks each ---
-// The sheet shows every starting position because the seat is not known yet,
-// so the markup itself is checked: the snake math printed on each card, the
-// lazy bodies, and the profile behind every name that actually reaches HTML.
+// --- the rendered section: one dropdown, one seat's 14 pick blocks ---
+// The seat is a choice the user makes in the header, so the markup is checked
+// for exactly that: 14 options with the live seat preselected, one seat's worth
+// of blocks below it, a trait hook on every row, and no stamp words anywhere.
 const html = S.brain();
-const seatCards = [...html.matchAll(/<details class="seat-card( mine)?" data-seat="(\d+)"/g)];
+const sel = (html.match(/<select id="plan-seat"[\s\S]*?<\/select>/) || [''])[0];
+const opts = (sel.match(/<option value="\d+"/g) || []).length;
+const preselected = (sel.match(/ selected>/g) || []).length;
 const eager = (html.match(/<article class="round">/g) || []).length;
 const nameOf = h => [...h.matchAll(/<span class="pname">(.*?) <em>/g)].map(m => m[1]);
+// pname wraps name + pos/team + hook, so the lazy close is the one the meter follows
+const pnameOf = h => [...h.matchAll(/<span class="pname">(.*?)<\/span><span class="pmeter">/g)].map(m => m[1]);
 const unesc = s => s.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
-let blockFail = 0, lazyOrphan = null, snakeFail = [];
+let blockFail = 0, rowOrphan = null, snakeFail = [], hookless = 0, hookRows = 0;
 for (let s = 1; s <= S.TEAMS; s++) {
   const body = S.picksHtml(s);
   if ((body.match(/<article class="round">/g) || []).length !== S.ROUNDS) blockFail++;
-  for (const n of nameOf(body)) if (!PROFILES[unesc(n)]) lazyOrphan = unesc(n);
+  for (const n of nameOf(body)) if (!PROFILES[unesc(n)]) rowOrphan = unesc(n);
+  for (const x of pnameOf(body)) { hookRows++; if (!/<span class="hook">[^<]+<\/span>/.test(x)) hookless++; }
 }
+const STAMPS = ['THERE', 'LIKELY', 'COIN FLIP', 'IF HE SLIDES'];
 // snake: odd rounds run 1->14, even rounds run back 14->1
 for (const [s, want] of [[1, [1, 28, 29, 56]], [2, [2, 27, 30, 55]], [7, [7, 22, 35, 50]], [14, [14, 15, 42, 43]]]) {
   const got = want.map((_, i) => S.overall(i + 1, s));
@@ -156,23 +176,28 @@ for (const [s, want] of [[1, [1, 28, 29, 56]], [2, [2, 27, 30, 55]], [7, [7, 22,
 }
 const printBlock = tpl.slice(tpl.indexOf('@media print'));
 rowChecks.push(
-  [`all ${S.TEAMS} starting positions render`, seatCards.length === S.TEAMS],
-  ['exactly one is marked as your seat', seatCards.filter(m => m[1]).length === 1],
-  ['only your seat gets a body up front', eager === S.ROUNDS],
-  [`every seat card holds ${S.ROUNDS} pick blocks`, blockFail === 0],
+  [`the header offers all ${S.TEAMS} starting positions`, opts === S.TEAMS && preselected === 1],
+  ['only the chosen seat renders', eager === S.ROUNDS],
+  [`every seat builds ${S.ROUNDS} pick blocks`, blockFail === 0],
   ['snake math matches on every checked seat', snakeFail.length === 0],
-  ['lazily built seats still resolve profiles', lazyOrphan === null],
-  ['print hides the seats that are not yours', /\.seat-card:not\(\.mine\)\{display:none!important\}/.test(printBlock)],
-  // CSS cannot reopen a closed <details> in Chrome's print layout pass, so the
-  // sheet would silently print an empty plan section without this handler
-  ['printing reopens your seat card', /addEventListener\('beforeprint'[^\n]*\.seat-card\.mine[^\n]*open=true/.test(tpl)],
+  ['every rendered row resolves a profile', rowOrphan === null],
+  [`every row carries a trait hook (${hookRows} rows)`, hookRows > 0 && hookless === 0],
+  ['no stamp chips survive in the rows', !/<i class="chip">/.test(html) && !STAMPS.some(w => html.includes(w))],
+  // the dropdown and the nav select are one seat: either must move the other,
+  // or the sheet and the flashcards silently drift onto different draft slots
+  ['the plan dropdown drives the shared seat', /\$\('#plan-seat'\);if\(s\)s\.onchange=\(\)=>setSeat\(\+s\.value\)/.test(tpl)],
+  ['the nav select drives the shared seat', /select\.onchange=\(\)=>setSeat\(\+select\.value\)/.test(tpl)],
+  ['setSeat writes back to the nav select', /function setSeat\(v\)\{[\s\S]{0,160}\$\('#seat'\);if\(nav\)nav\.value=String\(seat\)/.test(tpl)],
+  ['no seat-card machinery is left behind', !/seat-card|seat-body|beforeprint/.test(tpl)],
+  ['print collapses the profiles', /\.prow>\*:not\(summary\)\{display:none!important\}/.test(printBlock)],
+  ['print drops the seat dropdown', /\.plan-seat\{display:none!important\}/.test(printBlock)],
 );
 
 let rowFail = 0;
 console.log('');
 for (const [name, ok] of rowChecks) { if (!ok) rowFail++; console.log(`pick cards: ${name}: ${ok ? 'ok' : 'FAIL'}`); }
 if (orphanRow) console.log(`   first name without a profile: ${orphanRow}`);
-if (lazyOrphan) console.log(`   lazy body name without a profile: ${lazyOrphan}`);
+if (rowOrphan) console.log(`   rendered name without a profile: ${rowOrphan}`);
 for (const f of snakeFail) console.log(`   ${f}`);
 console.log('');
 
