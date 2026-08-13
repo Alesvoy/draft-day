@@ -163,10 +163,17 @@ function strategyRules(){
 // Availability: the chance a player is still on the board at overall pick N.
 // ADP is the market's median, so treat the draft slot he actually goes at as
 // normal around it; sigma widens with ADP because late prices are noisy.
-// No ADP at all means nobody is drafting him -- he is free whenever you want.
+// The draft has a hard left edge -- nobody goes before pick 1 -- so the curve
+// is truncated there and renormalized rather than leaking mass into slot 0,
+// which is what used to price the 1.01 at "55% available" to the man on the
+// clock. No ADP at all means nobody is drafting him: free whenever you want.
 const erf=x=>{const s=x<0?-1:1,a=Math.abs(x),t=1/(1+.3275911*a);
   return s*(1-((((1.061405429*t-1.453152027)*t+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-a*a))};
-function pAvail(adp,pick){return !adp||adp>=999?.99:1-.5*(1+erf((pick-adp)/(Math.max(6,.18*adp)*Math.SQRT2)))}
+function pAvail(adp,pick){
+  if(!adp||adp>=999)return .99;
+  const s=x=>.5*(1-erf((x-.5-adp)/(Math.max(6,.18*adp)*Math.SQRT2))); // survives past slot x
+  return s(pick)/Math.max(s(1),1e-9);
+}
 const pct5=v=>Math.round(v*20)*5; // one rounding: the bar, the % and the stamp all read the same number
 const STAMPS=[[85,'THERE'],[60,'LIKELY'],[35,'COIN FLIP'],[0,'IF HE SLIDES']];
 const stampFor=(adp,v)=>adp?STAMPS.find(s=>v>=s[0])[1]:'FREE';
@@ -187,9 +194,11 @@ function planRows(pick,round){
   const targets=[...seen.values()].sort(round<=3
     ?(a,b)=>vor(b)-vor(a)||av(b)-av(a)
     :(a,b)=>av(b)*cl(b)-av(a)*cl(a)||vor(b)-vor(a)).slice(0,MAX_TARGETS);
-  // only traps that will actually be tempting here: priced at your pick, and
-  // likely enough to still be sitting there when you look
-  const avoids=pool.filter(p=>has(p,'AVOID')&&Math.abs(mkt(p)-pick)<=14&&av(p)>=.25)
+  // only traps that will actually be tempting here. The window is deliberately
+  // lopsided: a faller priced up to 14 picks ago is exactly the man you talk
+  // yourself into, while one the market takes 6+ picks after you is a reach
+  // nobody makes -- listing him just teaches you to fear a name you'd never take
+  const avoids=pool.filter(p=>has(p,'AVOID')&&mkt(p)>=pick-14&&mkt(p)<=pick+6&&av(p)>=.25)
     .sort((a,b)=>av(b)-av(a)).slice(0,MAX_AVOIDS);
   return {targets,avoids};
 }

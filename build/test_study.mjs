@@ -86,7 +86,11 @@ const mono = [8, 30, 60, 120, 999].every(adp =>
   picks.every((n, i) => i === 0 || S.pAvail(adp, n) <= S.pAvail(adp, picks[i - 1]) + 1e-12));
 const widens = picks.every(n => S.pAvail(60, n) >= S.pAvail(20, n)); // a later ADP is never less available
 const bounded = picks.every(n => [1, 50, 200].every(a => S.pAvail(a, n) >= 0 && S.pAvail(a, n) <= 1));
-const atAdp = Math.abs(S.pAvail(50, 50) - 0.5) < 1e-9;              // at his own ADP it is a coin flip
+// the draft's left edge: nobody is gone before the 1.01, whatever his ADP
+const anchored = [1.6, 8, 30, 120].every(a => Math.abs(S.pAvail(a, 1) - 1) < 1e-9);
+// mid-draft, a player at his own ADP is a coin flip -- half a slot of
+// truncation skew is expected and harmless, so this is a band, not a point
+const atAdp = [30, 50, 120].every(a => Math.abs(S.pAvail(a, a) - 0.5) < 0.06);
 const stampBands = [[100, 'THERE'], [85, 'THERE'], [80, 'LIKELY'], [60, 'LIKELY'], [55, 'COIN FLIP'],
   [35, 'COIN FLIP'], [30, 'IF HE SLIDES'], [0, 'IF HE SLIDES']].every(([v, s]) => S.stampFor(50, v) === s);
 const free = S.stampFor(null, S.pct5(S.pAvail(null, 1))) === 'FREE';
@@ -105,7 +109,9 @@ for (let seat = 1; seat <= S.TEAMS; seat++)
     }
     for (const p of r.avoids) {
       if (!PROFILES[p.name]) orphanRow = p.name;
+      const m = p.adp || p.ecr;   // a trap you can fall for: his price sits at or just behind your pick
       if (S.pAvail(p.adp, pick) < 0.25 || !(p.context || []).includes('LRDG-AVOID')) floorFail++;
+      if (m < pick - 14 || m > pick + 6) floorFail++;
     }
   }
 const rowChecks = [
@@ -115,7 +121,8 @@ const rowChecks = [
   ['pAvail falls as the pick gets later', mono],
   ['pAvail rises with ADP at a fixed pick', widens],
   ['pAvail stays in [0,1]', bounded],
-  ['pAvail is 50% at a player\'s own ADP', atAdp],
+  ['pAvail is 100% at pick 1 for everyone', anchored],
+  ['pAvail is ~50% at a player\'s own ADP', atAdp],
   ['stamp bands match their thresholds', stampBands],
   ['no-ADP players stamp FREE', free],
   ['display % rounds to 5s once', rounded],
