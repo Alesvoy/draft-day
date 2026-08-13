@@ -265,7 +265,7 @@ function brain(){
     <div class="tiers-head"><h2>Position tiers</h2><div class="legend"><span class="cliff-key">underlined = tier cliff</span> / LATE = rounds 11+ pool / cut at ECR ${CUTOFF}</div></div>
     <div class="tier-board">${tierHtml}</div>
     <div class="plan-head"><h2>Your 14-pick plan</h2><label class="seat-control plan-seat">Starting position <select id="plan-seat" aria-label="Starting draft position">${Array.from({length:TEAMS},(_,i)=>`<option value="${i+1}"${i+1===seat?' selected':''}>${i+1}</option>`).join('')}</select></label></div>
-    <div class="legend plan-legend">All 14 picks from the starting position above. % = chance he's still on the board at that pick, from ADP. Tap a name for the case.</div>
+    <div class="legend plan-legend">All 14 picks for starting position ${seat}. % = chance he's still on the board at that pick, from ADP. Tap a name for the case.</div>
     <div class="round-plan">${picksHtml(seat)}</div>
   </section>`;
 }
